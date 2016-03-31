@@ -1,0 +1,800 @@
+1	0	0.5 testsAB_RAW	-100.0	0.02389600315998317	0.16202418369703345	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+2	0	0.5 testsAB_RAW	-100.0	-0.05981007234793088	-0.45106054616705454	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+3	0	0.5 testsAB_RAW	-100.0	-0.08810850479910651	-0.7882095830982282	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+4	0	0.5 testsAB_RAW	-100.0	0.04002169191713297	0.433250325523369	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+5	0	0.5 testsAB_RAW	-100.0	0.06801836121236436	0.5038155668570852	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+6	0	0.5 testsAB_RAW	-100.0	-0.05476787723127358	-1.008641643270176	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+7	0	0.5 testsAB_RAW	-100.0	-0.011450837563579496	-0.6780630042130534	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+8	0	0.5 testsAB_RAW	-100.0	-0.08517745638666825	-1.5780065317384957	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+9	0	0.5 testsAB_RAW	-100.0	0.09052311788329857	0.6822708397399121	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+10	0	0.5 testsAB_RAW	-100.0	0.02076927508181683	1.155293109928367	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+11	0	0.5 testsAB_RAW	-100.0	-0.04360156213936907	-0.5191062887912401	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+12	0	0.5 testsAB_RAW	-100.0	0.08468532793620323	1.8503850216283433	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+13	0	0.5 testsAB_RAW	-100.0	-0.007045968518456295	-0.052448935981786744	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+14	0	0.5 testsAB_RAW	-100.0	0.05125387908184589	1.55262213498631	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+15	0	0.5 testsAB_RAW	-100.0	0.047433175768482896	1.9422011434044177	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+16	0	0.5 testsAB_RAW	-100.0	0.09028427262691513	1.0197803156674627	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+17	0	0.5 testsAB_RAW	-100.0	-0.06968586159364155	-0.801553002397023	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+18	0	0.5 testsAB_RAW	-100.0	0.01751527708807107	0.5036183234510397	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+19	0	0.5 testsAB_RAW	-100.0	0.09398206616665793	1.2446789822621955	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+20	0	0.5 testsAB_RAW	-100.0	0.07316128634989572	1.1842098012476672	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+21	0	0.5 testsAB_RAW	-100.0	0.050842761541529995	1.133920892638361	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+22	0	0.5 testsAB_RAW	-100.0	-0.008493452854691339	-0.1930945123249459	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+23	0	0.5 testsAB_RAW	-100.0	-0.1179449740518144	-2.4933594512754573	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+24	0	0.5 testsAB_RAW	-100.0	-0.1095485335908701	-3.2756245751495854	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+25	0	0.5 testsAB_RAW	-100.0	-0.0658467114288571	-1.4465514022944512	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+26	0	0.5 testsAB_RAW	-100.0	0.056668536534325985	1.409834167140898	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+27	0	0.5 testsAB_RAW	-100.0	-0.06604263592993267	-1.666600715466748	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+28	0	0.5 testsAB_RAW	-100.0	0.0020796386718287796	0.48503186578002927	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+29	0	0.5 testsAB_RAW	-100.0	0.031526495712383786	0.4973968234907537	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+30	0	0.5 testsAB_RAW	-100.0	-0.0127614399329756	-0.036853477797815996	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+31	0	0.5 testsAB_RAW	-100.0	0.09386957460409415	1.0144825868348912	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+32	0	0.5 testsAB_RAW	-100.0	0.06731020050481468	1.03203993734818	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+33	0	0.5 testsAB_RAW	-100.0	-0.014667784452886183	-0.6282141045484391	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+34	0	0.5 testsAB_RAW	-100.0	-0.032548182681789814	-0.665925728199893	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+35	0	0.5 testsAB_RAW	-100.0	-0.13371009188713973	-1.7665894978016632	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+36	0	0.5 testsAB_RAW	-100.0	0.029109321813978736	0.3470611683410985	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+37	0	0.5 testsAB_RAW	-100.0	-0.01140486436225662	0.27828674845619783	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+38	0	0.5 testsAB_RAW	-100.0	0.0531044557725956	0.32277145504056987	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+39	0	0.5 testsAB_RAW	-100.0	-0.10178328595896922	-1.154751456811714	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+40	0	0.5 testsAB_RAW	-100.0	-0.09841986268798954	-1.9845253530475024	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+41	0	0.5 testsAB_RAW	-100.0	-0.09332830201866854	-0.5126840097318023	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+42	0	0.5 testsAB_RAW	-100.0	-0.012396184897849636	-0.928566109273117	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+43	0	0.5 testsAB_RAW	-100.0	0.13349144564970827	1.6230317402236165	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+44	0	0.5 testsAB_RAW	-100.0	-0.06872974401492214	-0.7765451569616368	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+45	0	0.5 testsAB_RAW	-100.0	0.06679430092484927	1.8175319059007382	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+46	0	0.5 testsAB_RAW	-100.0	0.030812507667207865	-0.03954659416204695	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+47	0	0.5 testsAB_RAW	-100.0	0.040553778511102666	0.21673140441186944	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+48	0	0.5 testsAB_RAW	-100.0	-0.140241087967288	-2.716117930552736	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+49	0	0.5 testsAB_RAW	-100.0	0.023175866521046556	0.8121302117079742	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+50	0	0.5 testsAB_RAW	-100.0	-0.09004406374828103	-1.7333931844814174	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+51	0	0.5 testsAB_RAW	-100.0	0.02359998497132906	0.4232027526870129	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+52	0	0.5 testsAB_RAW	-100.0	-0.07767111549255433	-1.0413605573081248	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+53	0	0.5 testsAB_RAW	-100.0	-0.10338839369570517	-1.0344400513197487	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+54	0	0.5 testsAB_RAW	-100.0	0.08774501803249779	3.2827362971172875	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+55	0	0.5 testsAB_RAW	-100.0	-0.0544596184806941	-0.8654468515135861	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+56	0	0.5 testsAB_RAW	-100.0	-0.05870980873164064	-0.8476612775699102	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+57	0	0.5 testsAB_RAW	-100.0	-0.07587582601027541	-0.7980243763778775	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+58	0	0.5 testsAB_RAW	-100.0	-0.13922158521287056	-2.689740047818529	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+59	0	0.5 testsAB_RAW	-100.0	-0.06013843555439404	-1.3441093440696674	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+60	0	0.5 testsAB_RAW	-100.0	0.09430747782075918	1.4508017967834776	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+61	0	0.5 testsAB_RAW	-100.0	0.08555280131585505	1.4164521041252718	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+62	0	0.5 testsAB_RAW	-100.0	-0.061404516122780785	-0.4162736441433197	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+63	0	0.5 testsAB_RAW	-100.0	-0.20660441171632646	-4.301486192777068	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+64	0	0.5 testsAB_RAW	-100.0	-0.020383969058947765	-0.5066398619179386	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+65	0	0.5 testsAB_RAW	-100.0	-0.0443585000035685	-0.8993217299481533	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+66	0	0.5 testsAB_RAW	-100.0	0.01009803246750281	0.34070427277194404	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+67	0	0.5 testsAB_RAW	-100.0	-0.10994236166588559	-1.8003258874397803	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+68	0	0.5 testsAB_RAW	-100.0	0.063843037745446	2.2293717649217997	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+69	0	0.5 testsAB_RAW	-100.0	0.027463470491960438	0.2118197836462015	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+70	0	0.5 testsAB_RAW	-100.0	0.04138658723129625	1.2764662767736923	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+71	0	0.5 testsAB_RAW	-100.0	-0.10363846893556439	-1.6268612408041072	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+72	0	0.5 testsAB_RAW	-100.0	-3.728033817125833E-4	0.13931337703285587	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+73	0	0.5 testsAB_RAW	-100.0	-0.020240387778786135	-0.8994254570413232	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+74	0	0.5 testsAB_RAW	-100.0	-0.1285875320681002	-1.4338076863379974	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+75	0	0.5 testsAB_RAW	-100.0	0.03669610776923325	0.08508454048630655	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+76	0	0.5 testsAB_RAW	-100.0	0.06635419129972439	1.3965106516811003	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+77	0	0.5 testsAB_RAW	-100.0	-0.024552923342519215	-0.555569774826939	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+78	0	0.5 testsAB_RAW	-100.0	0.16951773108732401	2.6618419806059967	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+79	0	0.5 testsAB_RAW	-100.0	0.05109825691585527	0.6549224433443693	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+80	0	0.5 testsAB_RAW	-100.0	-0.1655180673224384	-3.6345955719042595	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+81	0	0.5 testsAB_RAW	-100.0	0.10764315598244617	2.9555596436098805	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+82	0	0.5 testsAB_RAW	-100.0	0.0851219398108617	2.2027198195195408	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+83	0	0.5 testsAB_RAW	-100.0	0.005503055496509273	-0.050078517343622335	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+84	0	0.5 testsAB_RAW	-100.0	-0.1287864064285486	-1.9432777394437637	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+85	0	0.5 testsAB_RAW	-100.0	-0.10531517416240595	-1.8530599344753833	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+86	0	0.5 testsAB_RAW	-100.0	-0.10177401159541402	-1.6286584689916277	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+87	0	0.5 testsAB_RAW	-100.0	0.09100713433964028	1.2293578731069825	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+88	0	0.5 testsAB_RAW	-100.0	-0.06771833751003656	-1.5178244680423874	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+89	0	0.5 testsAB_RAW	-100.0	0.01826162106824639	1.1165179471508855	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+90	0	0.5 testsAB_RAW	-100.0	-0.066534015518609	-1.267581734314658	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+91	0	0.5 testsAB_RAW	-100.0	0.0634228257328775	1.4701378031197763	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+92	0	0.5 testsAB_RAW	-100.0	0.06763044080063235	0.6122970059075482	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+93	0	0.5 testsAB_RAW	-100.0	0.12161203109826078	1.4921080748395696	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+94	0	0.5 testsAB_RAW	-100.0	0.06615378016837939	0.8498152249271599	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+95	0	0.5 testsAB_RAW	-100.0	-0.07666332875462208	-2.2122487721453132	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+96	0	0.5 testsAB_RAW	-100.0	0.038470057730062686	0.780986834600309	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+97	0	0.5 testsAB_RAW	-100.0	0.08450233048860474	1.0160609703926478	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+98	0	0.5 testsAB_RAW	-100.0	0.018121506474497527	0.13892365322087893	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+99	0	0.5 testsAB_RAW	-100.0	-0.09407090149344569	-1.0870706770080447	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+100	0	0.5 testsAB_RAW	-100.0	-0.04113812136366271	-1.1935267099369218	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+101	0	0.5 testsAB_RAW	-100.0	0.12729674345548947	2.2312000667228356	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+102	0	0.5 testsAB_RAW	-100.0	-0.02501898429733405	-0.2839912236053803	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+103	0	0.5 testsAB_RAW	-100.0	0.020020471109398797	0.037675933344645966	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+104	0	0.5 testsAB_RAW	-100.0	0.07784302053987273	0.6888728088172976	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+105	0	0.5 testsAB_RAW	-100.0	0.0481195068680357	0.9722956930330905	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+106	0	0.5 testsAB_RAW	-100.0	-0.040747294704891183	-1.2210363672139677	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+107	0	0.5 testsAB_RAW	-100.0	0.1249671282225217	2.146051580818827	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+108	0	0.5 testsAB_RAW	-100.0	0.010362098959399282	-0.07124898416720761	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+109	0	0.5 testsAB_RAW	-100.0	0.13344945450130835	4.308720919064631	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+110	0	0.5 testsAB_RAW	-100.0	-0.003942730058201928	-0.08556610161095926	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+111	0	0.5 testsAB_RAW	-100.0	0.04767921393239087	0.8438550600144873	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+112	0	0.5 testsAB_RAW	-100.0	0.04316060863041854	0.3666578858281354	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+113	0	0.5 testsAB_RAW	-100.0	-0.06137821032344235	-0.798262768003956	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+114	0	0.5 testsAB_RAW	-100.0	-4.894488327154331E-4	0.10205820802322754	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+115	0	0.5 testsAB_RAW	-100.0	-0.02535008336670987	-0.46601498652997425	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+116	0	0.5 testsAB_RAW	-100.0	-0.14829349456548796	-2.297063040718607	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+117	0	0.5 testsAB_RAW	-100.0	0.056863172399631845	2.8067382858216905	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+118	0	0.5 testsAB_RAW	-100.0	-3.6504281463076323E-4	0.4112500245693222	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+119	0	0.5 testsAB_RAW	-100.0	0.04678086880547821	1.3890349768360264	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+120	0	0.5 testsAB_RAW	-100.0	-0.12559830680829415	-2.988300968440899	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+121	0	0.5 testsAB_RAW	-100.0	-0.03921521089587717	-0.8903001157556353	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+122	0	0.5 testsAB_RAW	-100.0	0.09812012836741066	1.7218632553461983	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+123	0	0.5 testsAB_RAW	-100.0	0.03001585440251846	-0.4345519625023554	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+124	0	0.5 testsAB_RAW	-100.0	-0.03244918850502608	-0.9206181816770268	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+125	0	0.5 testsAB_RAW	-100.0	0.04113964791481962	0.7384066826624757	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+126	0	0.5 testsAB_RAW	-100.0	0.014022315802457726	7.89049987746381E-4	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+127	0	0.5 testsAB_RAW	-100.0	-0.08645951489441504	-1.985352241142394	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+128	0	0.5 testsAB_RAW	-100.0	-0.019274471292641385	-0.4537671117335724	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+129	0	0.5 testsAB_RAW	-100.0	-0.05013758191957841	-1.2200848445665358	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+130	0	0.5 testsAB_RAW	-100.0	-0.06329505780206816	-1.6164799993447438	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+131	0	0.5 testsAB_RAW	-100.0	-0.10597130262243212	-1.8037111460144561	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+132	0	0.5 testsAB_RAW	-100.0	-0.010945324902552981	-0.9341684963966709	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+133	0	0.5 testsAB_RAW	-100.0	-0.07058251708148784	-0.6847569768170874	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+134	0	0.5 testsAB_RAW	-100.0	0.08832354614608261	1.0172828515873915	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+135	0	0.5 testsAB_RAW	-100.0	0.028539240006833402	0.9385930675885582	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+136	0	0.5 testsAB_RAW	-100.0	-0.12450774830114335	-1.0069279506885869	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+137	0	0.5 testsAB_RAW	-100.0	-0.03119515171637629	-0.2525809056947969	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+138	0	0.5 testsAB_RAW	-100.0	-0.13136590699558603	-1.1958882189079938	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+139	0	0.5 testsAB_RAW	-100.0	0.08460482361612749	1.132914431196137	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+140	0	0.5 testsAB_RAW	-100.0	0.0691897633950969	1.1274556895077639	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+141	0	0.5 testsAB_RAW	-100.0	-0.09787701654190716	-2.0799855627137678	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+142	0	0.5 testsAB_RAW	-100.0	0.05071895150992368	0.5964071959356955	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+143	0	0.5 testsAB_RAW	-100.0	3.145927184020468E-4	0.10040796491239731	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+144	0	0.5 testsAB_RAW	-100.0	0.09535575475357227	2.077335436780209	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+145	0	0.5 testsAB_RAW	-100.0	0.0325420885180136	1.0886022865115086	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+146	0	0.5 testsAB_RAW	-100.0	0.07442432797347315	3.088111972845334	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+147	0	0.5 testsAB_RAW	-100.0	-0.0243300778295111	0.06965057728760216	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+148	0	0.5 testsAB_RAW	-100.0	-0.1666936202632307	-1.7384016570563563	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+149	0	0.5 testsAB_RAW	-100.0	0.01746427600194604	0.5068097272878096	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+150	0	0.5 testsAB_RAW	-100.0	0.020565533153252064	-0.08002820646800052	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+151	0	0.5 testsAB_RAW	-100.0	0.13054136660350737	2.4559059850112286	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+152	0	0.5 testsAB_RAW	-100.0	0.057752171449756085	0.480151708310369	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+153	0	0.5 testsAB_RAW	-100.0	-0.005714895306049644	-0.07982280181888149	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+154	0	0.5 testsAB_RAW	-100.0	0.08719732336575284	1.620405395021101	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+155	0	0.5 testsAB_RAW	-100.0	0.05300012348698102	1.0888763625257922	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+156	0	0.5 testsAB_RAW	-100.0	0.03207917948224075	1.4903168767862334	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+157	0	0.5 testsAB_RAW	-100.0	0.06081066829770428	2.2401142312695708	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+158	0	0.5 testsAB_RAW	-100.0	0.026580407695639283	0.14081685219773998	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+159	0	0.5 testsAB_RAW	-100.0	0.003232029110006794	-0.511407296191373	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+160	0	0.5 testsAB_RAW	-100.0	0.08719668054419359	1.3029700419485246	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+161	0	0.5 testsAB_RAW	-100.0	0.020026377905771046	0.4767996152060725	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+162	0	0.5 testsAB_RAW	-100.0	-0.07602492937488724	-0.7322771446178882	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+163	0	0.5 testsAB_RAW	-100.0	-0.11000390190167596	-3.486711961563865	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+164	0	0.5 testsAB_RAW	-100.0	-0.0051691670527754	-0.3424897697284798	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+165	0	0.5 testsAB_RAW	-100.0	0.11103347323590827	2.8299897664864555	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+166	0	0.5 testsAB_RAW	-100.0	-0.04972189521332092	-2.3279289067304907	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+167	0	0.5 testsAB_RAW	-100.0	0.0033325751201267427	0.5302403347762465	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+168	0	0.5 testsAB_RAW	-100.0	0.08367867609942967	1.6236382645749134	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+169	0	0.5 testsAB_RAW	-100.0	-0.19991298841625302	-3.0069936207678754	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+170	0	0.5 testsAB_RAW	-100.0	-0.06286776913918357	-0.7641212138146206	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+171	0	0.5 testsAB_RAW	-100.0	-0.1150814467236836	-1.7410499878632109	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+172	0	0.5 testsAB_RAW	-100.0	-0.07338441148802641	-0.8266077566511036	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+173	0	0.5 testsAB_RAW	-100.0	-0.12950997770325504	-1.9710984980962902	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+174	0	0.5 testsAB_RAW	-100.0	0.00940352178243571	0.5114133224605442	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+175	0	0.5 testsAB_RAW	-100.0	0.06460348667478141	0.9869367070187919	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+176	0	0.5 testsAB_RAW	-100.0	0.10540597844501363	1.0981191385580757	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+177	0	0.5 testsAB_RAW	-100.0	-0.14620788266081627	-3.508439847987866	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+178	0	0.5 testsAB_RAW	-100.0	-0.09762242888740104	-2.2051031602753697	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+179	0	0.5 testsAB_RAW	-100.0	0.056717680368423326	1.0780254255359012	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+180	0	0.5 testsAB_RAW	-100.0	0.14450101513123692	1.7426129521122105	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+181	0	0.5 testsAB_RAW	-100.0	-0.020913600757425786	-0.42934653936163336	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+182	0	0.5 testsAB_RAW	-100.0	0.026087580893390278	0.5864471235823041	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+183	0	0.5 testsAB_RAW	-100.0	0.04511097320221517	0.8487836446760394	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+184	0	0.5 testsAB_RAW	-100.0	-0.05232687063022051	-0.35520880827350015	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+185	0	0.5 testsAB_RAW	-100.0	0.07721632624129149	1.4738189616290356	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+186	0	0.5 testsAB_RAW	-100.0	-0.06070713807742616	-0.9784325326857545	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+187	0	0.5 testsAB_RAW	-100.0	0.03761502087439138	0.8642903059532165	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+188	0	0.5 testsAB_RAW	-100.0	-0.06477819163802717	-1.2936111802637797	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+189	0	0.5 testsAB_RAW	-100.0	-0.06333543974588443	-1.756826759407057	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+190	0	0.5 testsAB_RAW	-100.0	-0.0778027896721508	-1.2133610023104597	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+191	0	0.5 testsAB_RAW	-100.0	-0.03571690917837865	-0.9725127369905062	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+192	0	0.5 testsAB_RAW	-100.0	-0.003966067282531181	0.1875027797786885	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+193	0	0.5 testsAB_RAW	-100.0	0.02922689424849378	0.14739581293932777	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+194	0	0.5 testsAB_RAW	-100.0	0.05659714865287927	-0.05835331013367001	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+195	0	0.5 testsAB_RAW	-100.0	0.024395567092936974	0.5410660276622121	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+196	0	0.5 testsAB_RAW	-100.0	-0.012383651308856441	-0.6565739087370182	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+197	0	0.5 testsAB_RAW	-100.0	-0.05330638219144019	-0.46932681803984583	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+198	0	0.5 testsAB_RAW	-100.0	-0.052599718372683714	-0.5045938631190477	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+199	0	0.5 testsAB_RAW	-100.0	0.14079351387048428	1.3134490394017817	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+200	0	0.5 testsAB_RAW	-100.0	-0.024663248433320642	-0.39535018219877416	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+201	0	0.5 testsAB_RAW	-100.0	-0.05785806074201074	-1.0508026263963042	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+202	0	0.5 testsAB_RAW	-100.0	0.16723323500784112	3.029994312141096	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+203	0	0.5 testsAB_RAW	-100.0	0.0423362196016576	0.4526231055920391	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+204	0	0.5 testsAB_RAW	-100.0	-0.0335027107923265	-0.779479989082618	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+205	0	0.5 testsAB_RAW	-100.0	0.0015416603101889282	-0.46210131404061794	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+206	0	0.5 testsAB_RAW	-100.0	0.024658405043844332	0.4501321698883267	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+207	0	0.5 testsAB_RAW	-100.0	0.01536498740542874	0.3267665343943362	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+208	0	0.5 testsAB_RAW	-100.0	-0.23010933234640965	-6.9661803840267496	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+209	0	0.5 testsAB_RAW	-100.0	0.06103479068067107	1.4771321120370036	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+210	0	0.5 testsAB_RAW	-100.0	-0.0305549813685703	-0.3023294385297238	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+211	0	0.5 testsAB_RAW	-100.0	0.15473457055450124	2.047408274556017	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+212	0	0.5 testsAB_RAW	-100.0	0.08410734519990268	1.2115429585432274	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+213	0	0.5 testsAB_RAW	-100.0	-0.01372801817101117	-0.5226877099831354	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+214	0	0.5 testsAB_RAW	-100.0	0.029036532481662186	0.74912020537885	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+215	0	0.5 testsAB_RAW	-100.0	-0.1304482132752042	-3.1208947673713103	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+216	0	0.5 testsAB_RAW	-100.0	-0.11617279483445657	-1.623749256567672	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+217	0	0.5 testsAB_RAW	-100.0	0.05791228720829232	1.154089641835224	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+218	0	0.5 testsAB_RAW	-100.0	0.004698203081281575	-0.160453141679083	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+219	0	0.5 testsAB_RAW	-100.0	0.04568396606251008	1.37334723139137	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+220	0	0.5 testsAB_RAW	-100.0	0.03903822899811787	0.6033936526202022	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+221	0	0.5 testsAB_RAW	-100.0	0.01419363294621816	-0.22368531198084385	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+222	0	0.5 testsAB_RAW	-100.0	-0.09808190402393172	-2.4031462311278453	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+223	0	0.5 testsAB_RAW	-100.0	0.05364657948835594	0.817279842227504	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+224	0	0.5 testsAB_RAW	-100.0	0.003842845490409969	0.13573238382643138	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+225	0	0.5 testsAB_RAW	-100.0	0.08983452811151216	1.579957661668597	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+226	0	0.5 testsAB_RAW	-100.0	-0.06608645226717841	-0.74974246134831	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+227	0	0.5 testsAB_RAW	-100.0	0.009003403307488873	0.13025220045639943	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+228	0	0.5 testsAB_RAW	-100.0	-0.056816310087546576	-0.5377964725281971	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+229	0	0.5 testsAB_RAW	-100.0	-0.04710076347527936	-1.131320923646503	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+230	0	0.5 testsAB_RAW	-100.0	0.08809629463560407	1.1077441460298425	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+231	0	0.5 testsAB_RAW	-100.0	-0.09713581346490735	-3.1780880499592996	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+232	0	0.5 testsAB_RAW	-100.0	-0.09487970928042984	-1.5134410867721773	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+233	0	0.5 testsAB_RAW	-100.0	-0.1522300994917287	-2.645529713212871	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+234	0	0.5 testsAB_RAW	-100.0	0.1392293632395501	3.5892177043439286	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+235	0	0.5 testsAB_RAW	-100.0	0.1406909553159964	1.8992682937024405	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+236	0	0.5 testsAB_RAW	-100.0	-0.005458433991522882	-0.5080911378428656	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+237	0	0.5 testsAB_RAW	-100.0	0.028131166948572418	0.47189920632557114	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+238	0	0.5 testsAB_RAW	-100.0	-0.06816766416150806	-0.8512271827086944	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+239	0	0.5 testsAB_RAW	-100.0	0.07414167038974458	1.2545195958886879	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+240	0	0.5 testsAB_RAW	-100.0	0.01463694120114445	0.595882795393666	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+241	0	0.5 testsAB_RAW	-100.0	-0.10704427558716725	-0.9459906988530143	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+242	0	0.5 testsAB_RAW	-100.0	0.004362856137253058	-0.2507966409598698	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+243	0	0.5 testsAB_RAW	-100.0	0.01640755597741168	0.5011489369195876	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+244	0	0.5 testsAB_RAW	-100.0	0.11357887814312154	2.261036756723982	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+245	0	0.5 testsAB_RAW	-100.0	-0.1353097100892809	-2.4892582028304533	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+246	0	0.5 testsAB_RAW	-100.0	0.05820918412931605	0.3227948939232718	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+247	0	0.5 testsAB_RAW	-100.0	-0.025433350920209694	-0.3577888823362786	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+248	0	0.5 testsAB_RAW	-100.0	0.034811745097792314	0.5513467203348734	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+249	0	0.5 testsAB_RAW	-100.0	0.004083360740183801	0.28416868948035523	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+250	0	0.5 testsAB_RAW	-100.0	0.035176907818201625	0.6400693917530553	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+251	0	0.5 testsAB_RAW	-100.0	0.15272364351093043	2.6693672141531213	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+252	0	0.5 testsAB_RAW	-100.0	6.849139277829257E-4	-0.05290231858337192	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+253	0	0.5 testsAB_RAW	-100.0	0.01837970241118313	0.4056978208763323	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+254	0	0.5 testsAB_RAW	-100.0	-0.0934208237076368	-1.1135196590751193	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+255	0	0.5 testsAB_RAW	-100.0	-0.11521365558239098	-1.7721265087380595	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+256	0	0.5 testsAB_RAW	-100.0	-0.06762314590235703	-0.6192750957010701	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+257	0	0.5 testsAB_RAW	-100.0	0.19578227372094742	2.628421448839528	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+258	0	0.5 testsAB_RAW	-100.0	-9.053086092193842E-5	-0.8840619270067178	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+259	0	0.5 testsAB_RAW	-100.0	-0.11843246896132134	-2.4925128507704275	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+260	0	0.5 testsAB_RAW	-100.0	0.009177562459178387	0.4736609796157551	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+261	0	0.5 testsAB_RAW	-100.0	-0.12275685031081762	-1.9224546010479142	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+262	0	0.5 testsAB_RAW	-100.0	0.08865904550383703	1.323444151364521	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+263	0	0.5 testsAB_RAW	-100.0	-0.04899976220525298	-0.11143338713637337	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+264	0	0.5 testsAB_RAW	-100.0	-0.049362581532604345	-0.33836472065114703	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+265	0	0.5 testsAB_RAW	-100.0	-0.025498377140168376	-0.12788888747904903	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+266	0	0.5 testsAB_RAW	-100.0	-0.07568998822268737	-0.6780092845367183	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+267	0	0.5 testsAB_RAW	-100.0	-0.13448800037576758	-1.8637016871488503	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+268	0	0.5 testsAB_RAW	-100.0	-0.0757215370561596	-1.6219932548931626	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+269	0	0.5 testsAB_RAW	-100.0	-0.011093725540302649	-0.5825980237236125	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+270	0	0.5 testsAB_RAW	-100.0	-0.058341094210515594	-1.0480563689626266	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+271	0	0.5 testsAB_RAW	-100.0	-9.872267248662297E-4	-0.48883826670621755	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+272	0	0.5 testsAB_RAW	-100.0	0.11288062505989226	2.176856547097604	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+273	0	0.5 testsAB_RAW	-100.0	0.08791851790999841	1.665076091542218	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+274	0	0.5 testsAB_RAW	-100.0	-0.023461755416600855	0.18695170695795957	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+275	0	0.5 testsAB_RAW	-100.0	-0.03717012086504848	-0.6372593785464673	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+276	0	0.5 testsAB_RAW	-100.0	-0.08972415567907473	-1.4761597610182824	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+277	0	0.5 testsAB_RAW	-100.0	0.07470369841091216	1.4669586883378283	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+278	0	0.5 testsAB_RAW	-100.0	-0.03550222511590639	-0.9935173336716243	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+279	0	0.5 testsAB_RAW	-100.0	0.06809869073744268	0.569225154269382	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+280	0	0.5 testsAB_RAW	-100.0	0.06157762619463876	1.0234516764559507	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+281	0	0.5 testsAB_RAW	-100.0	1.82704530225028E-4	-0.0719929673928237	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+282	0	0.5 testsAB_RAW	-100.0	0.04916474488520081	0.8585447275430743	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+283	0	0.5 testsAB_RAW	-100.0	0.051077082894534026	0.5166185500113631	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+284	0	0.5 testsAB_RAW	-100.0	-0.03108954867024336	-1.009543082777776	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+285	0	0.5 testsAB_RAW	-100.0	0.031696868624753356	0.7982238297525214	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+286	0	0.5 testsAB_RAW	-100.0	-0.05959579772199869	-1.0658722980469435	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+287	0	0.5 testsAB_RAW	-100.0	-0.15263011567774534	-1.9211593302157122	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+288	0	0.5 testsAB_RAW	-100.0	-0.038158363662220994	-0.7092199123077346	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+289	0	0.5 testsAB_RAW	-100.0	0.1720384118905555	2.6181446747753765	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+290	0	0.5 testsAB_RAW	-100.0	-0.0944223498120578	-0.6174571671720047	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+291	0	0.5 testsAB_RAW	-100.0	-0.06507485042185789	-1.5677066511217177	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+292	0	0.5 testsAB_RAW	-100.0	0.07039391668490544	1.3596515948971837	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+293	0	0.5 testsAB_RAW	-100.0	0.013647072708362535	0.6028366122168773	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+294	0	0.5 testsAB_RAW	-100.0	-0.018957129755395326	0.2025834626318136	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+295	0	0.5 testsAB_RAW	-100.0	-0.07446307314242559	-0.47380386091086085	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+296	0	0.5 testsAB_RAW	-100.0	-0.14003503052938346	-3.9091223599282734	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+297	0	0.5 testsAB_RAW	-100.0	0.006888883016095901	-0.03348674835576477	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+298	0	0.5 testsAB_RAW	-100.0	-0.03849126121230369	-0.26674259112757553	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+299	0	0.5 testsAB_RAW	-100.0	0.16587958919792797	2.7011700250204536	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+300	0	0.5 testsAB_RAW	-100.0	0.03631971808510134	0.24384546676208096	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+301	0	0.5 testsAB_RAW	-100.0	0.1245248415410447	1.7387949646938432	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+302	0	0.5 testsAB_RAW	-100.0	0.018781337623913784	0.21588981605921392	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+303	0	0.5 testsAB_RAW	-100.0	-0.0780064194140358	-0.8956105028386283	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+304	0	0.5 testsAB_RAW	-100.0	-0.014952275084230696	-0.6175986682482975	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+305	0	0.5 testsAB_RAW	-100.0	-0.12320805421428101	-1.6892163308520474	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+306	0	0.5 testsAB_RAW	-100.0	-0.02917991974513382	-0.13786520727045365	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+307	0	0.5 testsAB_RAW	-100.0	-0.006248478002552018	0.23567467267382233	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+308	0	0.5 testsAB_RAW	-100.0	0.09747460443799248	1.6757684066619873	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+309	0	0.5 testsAB_RAW	-100.0	-0.001418569685152129	-0.22529498320267224	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+310	0	0.5 testsAB_RAW	-100.0	0.059359862061477	1.1029126135750547	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+311	0	0.5 testsAB_RAW	-100.0	-0.009358183767839751	0.22439903137642978	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+312	0	0.5 testsAB_RAW	-100.0	3.848091043407985E-4	-0.11337892650384371	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+313	0	0.5 testsAB_RAW	-100.0	0.02431830096153192	0.7440466390049075	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+314	0	0.5 testsAB_RAW	-100.0	0.06876933684660522	0.6954821517246119	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+315	0	0.5 testsAB_RAW	-100.0	0.07420809404150469	1.3207842258596374	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+316	0	0.5 testsAB_RAW	-100.0	0.08290921010870457	1.9622216796904708	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+317	0	0.5 testsAB_RAW	-100.0	0.2274049122047397	3.3220645808079206	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+318	0	0.5 testsAB_RAW	-100.0	0.07384214522579893	0.5730370575064527	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+319	0	0.5 testsAB_RAW	-100.0	0.0391107394466807	0.8512041627766179	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+320	0	0.5 testsAB_RAW	-100.0	-0.0563651833722316	-0.7842465733134825	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+321	0	0.5 testsAB_RAW	-100.0	-0.04713808830514069	-0.4017084758495108	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+322	0	0.5 testsAB_RAW	-100.0	-0.07199420379925008	-1.7605585921278701	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+323	0	0.5 testsAB_RAW	-100.0	0.005598402012880049	0.9489824520229745	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+324	0	0.5 testsAB_RAW	-100.0	0.11614109995889982	1.675236523363479	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+325	0	0.5 testsAB_RAW	-100.0	0.05825906148556114	1.2436040726673496	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+326	0	0.5 testsAB_RAW	-100.0	-0.03274328332920912	-2.715372048441232E-4	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+327	0	0.5 testsAB_RAW	-100.0	0.15300726608684387	2.8051737652390507	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+328	0	0.5 testsAB_RAW	-100.0	0.06636448519131333	1.5111000641086416	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+329	0	0.5 testsAB_RAW	-100.0	0.06671081961619339	2.047486447907818	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+330	0	0.5 testsAB_RAW	-100.0	0.09702849774325134	1.0768241294559862	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+331	0	0.5 testsAB_RAW	-100.0	-0.006425578731136035	-0.7285424380800773	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+332	0	0.5 testsAB_RAW	-100.0	0.008176150157002625	-0.11659741887834449	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+333	0	0.5 testsAB_RAW	-100.0	0.1541536380449328	2.201232556242623	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+334	0	0.5 testsAB_RAW	-100.0	0.03068348350202626	0.7171932976456513	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+335	0	0.5 testsAB_RAW	-100.0	0.10191569163935751	1.3510797448798213	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+336	0	0.5 testsAB_RAW	-100.0	0.05194084195002774	0.5538808590898563	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+337	0	0.5 testsAB_RAW	-100.0	-0.08855593652346877	-1.4596971317515934	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+338	0	0.5 testsAB_RAW	-100.0	-0.13853152524131396	-2.2418481336849383	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+339	0	0.5 testsAB_RAW	-100.0	-0.09417032103051816	-1.0539420015235927	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+340	0	0.5 testsAB_RAW	-100.0	-0.07363053279645769	-1.8325778009098854	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+341	0	0.5 testsAB_RAW	-100.0	0.05092993851823996	0.9785535253449068	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+342	0	0.5 testsAB_RAW	-100.0	0.00156570033157125	0.5708198342505316	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+343	0	0.5 testsAB_RAW	-100.0	0.020229340901708377	0.4137732048653661	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+344	0	0.5 testsAB_RAW	-100.0	0.015557770170771137	1.3089007026273065	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+345	0	0.5 testsAB_RAW	-100.0	0.08425686935157212	2.7149322390584634	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+346	0	0.5 testsAB_RAW	-100.0	0.018812945382390072	0.2677984115863909	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+347	0	0.5 testsAB_RAW	-100.0	0.03415416786927092	0.19155401371429653	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+348	0	0.5 testsAB_RAW	-100.0	-0.008220623109012335	-0.4144177846493665	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+349	0	0.5 testsAB_RAW	-100.0	0.021260635388934954	-0.2461076754412176	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+350	0	0.5 testsAB_RAW	-100.0	0.13450095929969832	1.8894309804764202	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+351	0	0.5 testsAB_RAW	-100.0	-0.022976625884465574	-0.8006046220372729	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+352	0	0.5 testsAB_RAW	-100.0	-0.0806614451249885	-0.994650231279767	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+353	0	0.5 testsAB_RAW	-100.0	-0.08185109664583416	-1.6250796644187824	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+354	0	0.5 testsAB_RAW	-100.0	0.011589957083088458	0.37340678049502024	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+355	0	0.5 testsAB_RAW	-100.0	-0.1001804084770635	-1.8665980138890894	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+356	0	0.5 testsAB_RAW	-100.0	0.00978705134920337	-0.0854643450961889	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+357	0	0.5 testsAB_RAW	-100.0	-0.06069663574962679	-0.5377356431311323	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+358	0	0.5 testsAB_RAW	-100.0	-0.027140995223864147	-0.8032928203704546	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+359	0	0.5 testsAB_RAW	-100.0	0.06142926514538368	1.235530672632288	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+360	0	0.5 testsAB_RAW	-100.0	0.0725403233834823	0.7548188907469325	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+361	0	0.5 testsAB_RAW	-100.0	-0.08250485032116954	-1.0236325871427756	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+362	0	0.5 testsAB_RAW	-100.0	-0.03099062455013613	-0.581930640620206	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+363	0	0.5 testsAB_RAW	-100.0	-0.028726516181277837	-0.5003119296339322	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+364	0	0.5 testsAB_RAW	-100.0	-0.002514170402263211	-0.48271336723670794	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+365	0	0.5 testsAB_RAW	-100.0	0.05213988039934077	0.9838544780170897	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+366	0	0.5 testsAB_RAW	-100.0	-0.016715294956963563	0.1468272408261456	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+367	0	0.5 testsAB_RAW	-100.0	-0.15364430623256037	-3.3773528219094646	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+368	0	0.5 testsAB_RAW	-100.0	0.01896695667104451	0.24948876741194612	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+369	0	0.5 testsAB_RAW	-100.0	-0.023261195066127477	-0.5250081187718115	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+370	0	0.5 testsAB_RAW	-100.0	0.03641676516897169	1.1281455677842118	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+371	0	0.5 testsAB_RAW	-100.0	0.022156934154894906	0.5303064235790605	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+372	0	0.5 testsAB_RAW	-100.0	0.04614973292976523	0.33479701656988625	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+373	0	0.5 testsAB_RAW	-100.0	-0.07683228595344899	-2.2708173990328526	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+374	0	0.5 testsAB_RAW	-100.0	-0.018821720247425944	-0.07488872581445312	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+375	0	0.5 testsAB_RAW	-100.0	0.006327312529101775	-0.08076139785707175	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+376	0	0.5 testsAB_RAW	-100.0	0.0016482498797277712	-0.4510783708498206	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+377	0	0.5 testsAB_RAW	-100.0	-0.12166303797323301	-2.182261014201881	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+378	0	0.5 testsAB_RAW	-100.0	0.0015683791743421824	0.18435097322706026	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+379	0	0.5 testsAB_RAW	-100.0	-0.019036655054833696	0.29434651687693436	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+380	0	0.5 testsAB_RAW	-100.0	0.017107473913286243	0.5940792453005955	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+381	0	0.5 testsAB_RAW	-100.0	0.03302495767017637	0.6300080058465609	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+382	0	0.5 testsAB_RAW	-100.0	0.03275972371699094	0.3509550609677235	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+383	0	0.5 testsAB_RAW	-100.0	0.11097431723970233	2.2339473992784145	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+384	0	0.5 testsAB_RAW	-100.0	-0.08385721429141209	-1.1901269191983184	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+385	0	0.5 testsAB_RAW	-100.0	0.16431717669853463	1.8393392380365767	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+386	0	0.5 testsAB_RAW	-100.0	-0.1416122577912363	-2.561783030280359	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+387	0	0.5 testsAB_RAW	-100.0	-0.16825820081694826	-2.8137576799195605	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+388	0	0.5 testsAB_RAW	-100.0	0.04485439153434041	0.5084699228004642	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+389	0	0.5 testsAB_RAW	-100.0	0.04120285808352993	0.6285707170345654	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+390	0	0.5 testsAB_RAW	-100.0	-0.005168403324783428	0.16958134115039772	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+391	0	0.5 testsAB_RAW	-100.0	-0.0036837084861924656	0.10393606575051599	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+392	0	0.5 testsAB_RAW	-100.0	0.01962231473676074	0.22253407101232758	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+393	0	0.5 testsAB_RAW	-100.0	0.02453530404846444	0.6097790929738791	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+394	0	0.5 testsAB_RAW	-100.0	0.13958566409492673	1.5736214826589925	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+395	0	0.5 testsAB_RAW	-100.0	-0.029572540472789333	-0.516469850999963	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+396	0	0.5 testsAB_RAW	-100.0	0.0204744546934554	0.3431003806062127	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+397	0	0.5 testsAB_RAW	-100.0	-0.10637081044516888	-2.484565022942399	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+398	0	0.5 testsAB_RAW	-100.0	0.042611309942132844	0.6798284961959272	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+399	0	0.5 testsAB_RAW	-100.0	-0.04341957167067017	-1.4431611706278311	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+400	0	0.5 testsAB_RAW	-100.0	0.04016464595202734	0.4691930354643771	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+401	0	0.5testsAB_SHUFFLE	-100.0	0.07357166639467212	1.3581284665046927	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+402	0	0.5testsAB_SHUFFLE	-100.0	-0.01951878338898724	-0.7106642859875356	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+403	0	0.5testsAB_SHUFFLE	-100.0	-0.04364428826036253	-0.8143043106123486	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+404	0	0.5testsAB_SHUFFLE	-100.0	0.032263335275563035	0.7242420361960135	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+405	0	0.5testsAB_SHUFFLE	-100.0	-0.03788985458516513	-0.4480449726762546	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+406	0	0.5testsAB_SHUFFLE	-100.0	0.03990267088523116	0.615406437453105	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+407	0	0.5testsAB_SHUFFLE	-100.0	-0.01907017479173659	-0.4501390017658038	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+408	0	0.5testsAB_SHUFFLE	-100.0	-0.0212600202739906	-0.5197636494018396	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+409	0	0.5testsAB_SHUFFLE	-100.0	-0.024548930881312336	-0.12747003864475304	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+410	0	0.5testsAB_SHUFFLE	-100.0	-0.12007281358090706	-1.6058871199392484	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+411	0	0.5testsAB_SHUFFLE	-100.0	0.03323671216660789	1.241322911280297	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+412	0	0.5testsAB_SHUFFLE	-100.0	0.12867011338087347	1.7411436102420346	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+413	0	0.5testsAB_SHUFFLE	-100.0	0.06873001451923713	0.7339033451657182	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+414	0	0.5testsAB_SHUFFLE	-100.0	-0.08175359961195447	-1.0081964860703567	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+415	0	0.5testsAB_SHUFFLE	-100.0	0.07955583565740888	1.0232293253422875	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+416	0	0.5testsAB_SHUFFLE	-100.0	0.1030232335919015	1.2728803122412808	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+417	0	0.5testsAB_SHUFFLE	-100.0	-0.006082035586228867	-0.1882008847838385	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+418	0	0.5testsAB_SHUFFLE	-100.0	-0.03666514150747251	-0.37803273307723667	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+419	0	0.5testsAB_SHUFFLE	-100.0	0.09944006121509283	1.621626790277562	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+420	0	0.5testsAB_SHUFFLE	-100.0	0.09938765661998142	1.4228483275571429	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_0}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+421	0	0.5testsAB_SHUFFLE	-100.0	-0.0010033045708488142	-0.2802913909223954	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+422	0	0.5testsAB_SHUFFLE	-100.0	0.09910082842976457	1.7085132763004083	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+423	0	0.5testsAB_SHUFFLE	-100.0	-0.016900498078411173	-0.013809504994755846	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+424	0	0.5testsAB_SHUFFLE	-100.0	0.028928017795498303	0.677852776103052	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+425	0	0.5testsAB_SHUFFLE	-100.0	-0.04399313180283604	-0.6497352861502756	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+426	0	0.5testsAB_SHUFFLE	-100.0	-0.014613066852587188	-0.12936027362896987	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+427	0	0.5testsAB_SHUFFLE	-100.0	-0.06016137611777641	-0.9811408446888639	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+428	0	0.5testsAB_SHUFFLE	-100.0	-0.07530026911307082	-1.5482603642153159	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+429	0	0.5testsAB_SHUFFLE	-100.0	0.10563926711158772	2.5583624937180782	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+430	0	0.5testsAB_SHUFFLE	-100.0	-0.028647252656128712	-0.6492518115461149	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+431	0	0.5testsAB_SHUFFLE	-100.0	0.037109846280679135	0.10047127768097606	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+432	0	0.5testsAB_SHUFFLE	-100.0	-0.11839775902374106	-2.3730713976903486	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+433	0	0.5testsAB_SHUFFLE	-100.0	-0.03228018997250269	-0.08316663831842452	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+434	0	0.5testsAB_SHUFFLE	-100.0	0.03651875640611552	0.25939464784425625	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+435	0	0.5testsAB_SHUFFLE	-100.0	-0.06034154571872972	-1.1560008754205373	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+436	0	0.5testsAB_SHUFFLE	-100.0	0.07383815687974693	1.0194263248814621	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+437	0	0.5testsAB_SHUFFLE	-100.0	0.09630925867580867	1.8203421265999513	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+438	0	0.5testsAB_SHUFFLE	-100.0	0.031667035565095605	0.3122508306034558	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+439	0	0.5testsAB_SHUFFLE	-100.0	-0.003996827463474016	0.49697991328767105	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+440	0	0.5testsAB_SHUFFLE	-100.0	0.05519546827677341	0.662988538243364	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_1}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+441	0	0.5testsAB_SHUFFLE	-100.0	0.05505597409678617	1.9737067064048517	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+442	0	0.5testsAB_SHUFFLE	-100.0	-0.04123098131630663	-0.5836358543408703	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+443	0	0.5testsAB_SHUFFLE	-100.0	-0.07065057082904003	-1.9712321591753077	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+444	0	0.5testsAB_SHUFFLE	-100.0	-0.022890438157852896	-0.7273398294207649	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+445	0	0.5testsAB_SHUFFLE	-100.0	0.08376405752042586	1.6846388382854918	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+446	0	0.5testsAB_SHUFFLE	-100.0	-0.03186691229918071	-0.6391820033753561	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+447	0	0.5testsAB_SHUFFLE	-100.0	0.03843659473831383	0.41757631096160935	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+448	0	0.5testsAB_SHUFFLE	-100.0	-0.050308014598379205	-0.3297345303278823	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+449	0	0.5testsAB_SHUFFLE	-100.0	0.024062725069668913	0.2679187703872063	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+450	0	0.5testsAB_SHUFFLE	-100.0	-0.07885398762631482	-1.3630236687274122	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+451	0	0.5testsAB_SHUFFLE	-100.0	-0.003801623991794491	-0.258439571636707	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+452	0	0.5testsAB_SHUFFLE	-100.0	0.017500082472588913	0.3387822770103862	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+453	0	0.5testsAB_SHUFFLE	-100.0	0.04886784166201641	0.986132615732037	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+454	0	0.5testsAB_SHUFFLE	-100.0	-0.09487401587419628	-1.6311990586157712	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+455	0	0.5testsAB_SHUFFLE	-100.0	-0.015545686508401614	-0.0926532724080037	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+456	0	0.5testsAB_SHUFFLE	-100.0	-0.010733571000393136	-0.2539245936995041	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+457	0	0.5testsAB_SHUFFLE	-100.0	-0.060770606229324904	-0.9718329609672693	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+458	0	0.5testsAB_SHUFFLE	-100.0	0.03243432889211043	0.1998231808696062	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+459	0	0.5testsAB_SHUFFLE	-100.0	0.1363703939623005	2.047901007469276	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+460	0	0.5testsAB_SHUFFLE	-100.0	-0.019418389140948664	0.2969716570312887	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_2}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+461	0	0.5testsAB_SHUFFLE	-100.0	0.0754319318701659	0.9510033335208318	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+462	0	0.5testsAB_SHUFFLE	-100.0	-0.006171534948734386	0.3854825047834057	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+463	0	0.5testsAB_SHUFFLE	-100.0	0.03918322857461341	0.40608580808769457	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+464	0	0.5testsAB_SHUFFLE	-100.0	-0.008934880091532373	-0.6736109310763478	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+465	0	0.5testsAB_SHUFFLE	-100.0	0.07310745042298536	1.1350058832271173	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+466	0	0.5testsAB_SHUFFLE	-100.0	-0.11756983420831113	-2.0529268529197027	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+467	0	0.5testsAB_SHUFFLE	-100.0	0.08535209832122177	0.9245255695937327	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+468	0	0.5testsAB_SHUFFLE	-100.0	0.06481603291445755	1.5658032456135607	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+469	0	0.5testsAB_SHUFFLE	-100.0	0.038149356055498775	1.2646732870768347	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+470	0	0.5testsAB_SHUFFLE	-100.0	-0.05470744499159175	-1.3736709445505677	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+471	0	0.5testsAB_SHUFFLE	-100.0	0.05221028828816702	1.4278402300793778	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+472	0	0.5testsAB_SHUFFLE	-100.0	0.00798165718235363	0.46357290279968444	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+473	0	0.5testsAB_SHUFFLE	-100.0	-0.10703094891459079	-1.2697622693425183	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+474	0	0.5testsAB_SHUFFLE	-100.0	-0.054411078276026786	-0.7878451279549707	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+475	0	0.5testsAB_SHUFFLE	-100.0	-0.06255550555535387	-1.3518785799131179	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+476	0	0.5testsAB_SHUFFLE	-100.0	-0.08449334138291782	-1.2653568087632103	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+477	0	0.5testsAB_SHUFFLE	-100.0	-0.04330249730240845	-0.6126256058193783	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+478	0	0.5testsAB_SHUFFLE	-100.0	-0.062392518454840895	-1.4723769708002858	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+479	0	0.5testsAB_SHUFFLE	-100.0	0.07439630731703745	1.2836187047558598	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+480	0	0.5testsAB_SHUFFLE	-100.0	0.09216807748823504	1.5545047780076804	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_3}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+481	0	0.5testsAB_SHUFFLE	-100.0	0.02595268816558058	0.36062917258962635	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+482	0	0.5testsAB_SHUFFLE	-100.0	0.035937289304061135	0.7084375839973843	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+483	0	0.5testsAB_SHUFFLE	-100.0	0.08335674919828173	1.5241035915356682	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+484	0	0.5testsAB_SHUFFLE	-100.0	0.15193389232433754	2.4357594925610653	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+485	0	0.5testsAB_SHUFFLE	-100.0	-0.03786960212572611	-0.68401344769081	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+486	0	0.5testsAB_SHUFFLE	-100.0	-0.04241673716838632	-0.947218661424231	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+487	0	0.5testsAB_SHUFFLE	-100.0	0.054951690478720026	1.2580878231320267	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+488	0	0.5testsAB_SHUFFLE	-100.0	-0.02637077392693073	-0.2471777795138169	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+489	0	0.5testsAB_SHUFFLE	-100.0	-0.027889668460687026	-0.024836692965586736	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+490	0	0.5testsAB_SHUFFLE	-100.0	-0.015389775357870512	0.004318806505037271	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+491	0	0.5testsAB_SHUFFLE	-100.0	0.08148185155140569	1.0074906336785674	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+492	0	0.5testsAB_SHUFFLE	-100.0	-0.022341572341678863	-0.9672737346567132	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+493	0	0.5testsAB_SHUFFLE	-100.0	0.020929707280398297	0.5499799287181547	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+494	0	0.5testsAB_SHUFFLE	-100.0	-0.07630846377848292	-0.9483421111274967	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+495	0	0.5testsAB_SHUFFLE	-100.0	0.07989966217365124	1.1688056384797259	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+496	0	0.5testsAB_SHUFFLE	-100.0	0.023552568192075147	-0.10995470806324524	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+497	0	0.5testsAB_SHUFFLE	-100.0	0.03916035798058897	0.4847790117603941	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+498	0	0.5testsAB_SHUFFLE	-100.0	-0.07978924346274609	-1.317334767240894	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+499	0	0.5testsAB_SHUFFLE	-100.0	-0.017383292765682845	-0.23226494567181513	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+500	0	0.5testsAB_SHUFFLE	-100.0	0.04490787003136187	0.3974456684612865	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_4}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+501	0	0.5testsAB_SHUFFLE	-100.0	0.0069413168343319225	-0.03759255922273004	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+502	0	0.5testsAB_SHUFFLE	-100.0	-0.048608223366228595	-0.6926602576479217	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+503	0	0.5testsAB_SHUFFLE	-100.0	-0.002980563005185346	-0.058334445836056875	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+504	0	0.5testsAB_SHUFFLE	-100.0	0.10858988973669677	1.8446312855296667	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+505	0	0.5testsAB_SHUFFLE	-100.0	-0.00962519926246289	0.009358370233575917	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+506	0	0.5testsAB_SHUFFLE	-100.0	-0.018107719086964322	-0.15194858430607686	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+507	0	0.5testsAB_SHUFFLE	-100.0	0.022925050832889194	0.43105370942028853	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+508	0	0.5testsAB_SHUFFLE	-100.0	0.09029130036713834	1.4949104236227075	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+509	0	0.5testsAB_SHUFFLE	-100.0	0.005705483592586072	0.16320309951226689	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+510	0	0.5testsAB_SHUFFLE	-100.0	-0.055090434717756494	-0.5752006184750346	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+511	0	0.5testsAB_SHUFFLE	-100.0	-0.009820731566545882	0.5831037175735391	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+512	0	0.5testsAB_SHUFFLE	-100.0	-0.034589497397410005	-0.16498521534193558	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+513	0	0.5testsAB_SHUFFLE	-100.0	-0.09310033168821263	-1.223421657432175	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+514	0	0.5testsAB_SHUFFLE	-100.0	0.12079535619078795	1.9784944969654583	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+515	0	0.5testsAB_SHUFFLE	-100.0	0.04958098901539039	0.4354558785524802	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+516	0	0.5testsAB_SHUFFLE	-100.0	0.004417702164142965	-0.11843957961766402	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+517	0	0.5testsAB_SHUFFLE	-100.0	0.09497514377765183	1.074904477162123	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+518	0	0.5testsAB_SHUFFLE	-100.0	0.10316062154383676	1.9774263203548996	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+519	0	0.5testsAB_SHUFFLE	-100.0	-0.04487080989622582	-1.755171084358915	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+520	0	0.5testsAB_SHUFFLE	-100.0	-0.04690832632103835	-0.7384660788532659	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_5}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+521	0	0.5testsAB_SHUFFLE	-100.0	0.05839808981441705	0.7903821979394162	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+522	0	0.5testsAB_SHUFFLE	-100.0	0.04040844738680119	0.20271495244768983	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+523	0	0.5testsAB_SHUFFLE	-100.0	-0.015285043363862692	-1.0623538005716686	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+524	0	0.5testsAB_SHUFFLE	-100.0	0.014132528870690546	-0.024897052640341193	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+525	0	0.5testsAB_SHUFFLE	-100.0	0.06082832141595772	0.5812019181196023	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+526	0	0.5testsAB_SHUFFLE	-100.0	-0.03381148213029057	-1.4447947550277902	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+527	0	0.5testsAB_SHUFFLE	-100.0	0.03926716211728571	1.3275704044886845	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+528	0	0.5testsAB_SHUFFLE	-100.0	-0.02809014736693502	-0.5116272797139062	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+529	0	0.5testsAB_SHUFFLE	-100.0	0.0215491828060544	0.38043312029467014	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+530	0	0.5testsAB_SHUFFLE	-100.0	-0.04649832379198547	-1.360423289847408	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+531	0	0.5testsAB_SHUFFLE	-100.0	0.05741595738176478	1.4633129391724762	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+532	0	0.5testsAB_SHUFFLE	-100.0	0.08392974113068949	1.2419591799950793	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+533	0	0.5testsAB_SHUFFLE	-100.0	0.010668051626014044	0.4720568600873065	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+534	0	0.5testsAB_SHUFFLE	-100.0	0.031955772372104216	0.43144693118318894	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+535	0	0.5testsAB_SHUFFLE	-100.0	-0.01628599570404606	0.08125202342782009	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+536	0	0.5testsAB_SHUFFLE	-100.0	0.05603091146542195	0.7497876270035745	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+537	0	0.5testsAB_SHUFFLE	-100.0	0.00499350658760687	0.22344766071115707	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+538	0	0.5testsAB_SHUFFLE	-100.0	0.0030352626189077653	-0.07641124124017022	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+539	0	0.5testsAB_SHUFFLE	-100.0	0.08921649979018663	1.197106593346372	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+540	0	0.5testsAB_SHUFFLE	-100.0	-0.1360134460174607	-1.7883409600787996	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_6}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+541	0	0.5testsAB_SHUFFLE	-100.0	-0.017836404958333562	-0.5726023344595033	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+542	0	0.5testsAB_SHUFFLE	-100.0	0.0860069283556892	1.4022839666625377	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+543	0	0.5testsAB_SHUFFLE	-100.0	0.08334336203718667	1.1781617807090186	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+544	0	0.5testsAB_SHUFFLE	-100.0	-0.0659817035883655	-1.2188974724925852	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+545	0	0.5testsAB_SHUFFLE	-100.0	0.05978186640096595	0.8326266584085762	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+546	0	0.5testsAB_SHUFFLE	-100.0	0.11830918501234806	1.8878807108215434	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+547	0	0.5testsAB_SHUFFLE	-100.0	0.0794470024252518	1.5132975028399989	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+548	0	0.5testsAB_SHUFFLE	-100.0	-0.03191401868959214	-0.6900338646055606	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+549	0	0.5testsAB_SHUFFLE	-100.0	-0.001902382970481584	-0.21292967983604388	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+550	0	0.5testsAB_SHUFFLE	-100.0	0.08241294815802935	1.5873231613037404	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+551	0	0.5testsAB_SHUFFLE	-100.0	-0.07232999319196144	-1.7574139378546967	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+552	0	0.5testsAB_SHUFFLE	-100.0	0.021989381913734188	0.12204632796197945	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+553	0	0.5testsAB_SHUFFLE	-100.0	-0.01186117569005601	-0.4401303871172141	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+554	0	0.5testsAB_SHUFFLE	-100.0	-0.04614232498069949	-0.4117391990934341	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+555	0	0.5testsAB_SHUFFLE	-100.0	0.04718541356085013	1.3571448496691707	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+556	0	0.5testsAB_SHUFFLE	-100.0	-0.0010794490654602116	-0.47776783541432694	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+557	0	0.5testsAB_SHUFFLE	-100.0	0.031857011906896764	0.20555929667644857	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+558	0	0.5testsAB_SHUFFLE	-100.0	-0.02234222215028489	-0.6619024236780731	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+559	0	0.5testsAB_SHUFFLE	-100.0	0.04379554512622955	1.3592855016068301	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+560	0	0.5testsAB_SHUFFLE	-100.0	-0.015982286522575252	-0.12314028751277133	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_7}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+561	0	0.5testsAB_SHUFFLE	-100.0	-0.08720980892874232	-2.003680045947922	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+562	0	0.5testsAB_SHUFFLE	-100.0	-0.07064910006983438	-1.1416934644183299	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+563	0	0.5testsAB_SHUFFLE	-100.0	0.007456810312905076	0.09654616496147554	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+564	0	0.5testsAB_SHUFFLE	-100.0	0.021278721117360566	0.6074045086401859	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+565	0	0.5testsAB_SHUFFLE	-100.0	-0.11936986086111864	-1.4421702588152532	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+566	0	0.5testsAB_SHUFFLE	-100.0	0.004587857346573073	-0.12168565723781147	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+567	0	0.5testsAB_SHUFFLE	-100.0	-0.04101979232580555	-0.9913032511692815	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+568	0	0.5testsAB_SHUFFLE	-100.0	-0.02437697661370502	-0.37045732154356964	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+569	0	0.5testsAB_SHUFFLE	-100.0	-0.03813760012949238	0.01749549769805718	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+570	0	0.5testsAB_SHUFFLE	-100.0	0.1114089020189082	1.751362700760528	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+571	0	0.5testsAB_SHUFFLE	-100.0	0.018396249918312336	0.2150168384762115	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+572	0	0.5testsAB_SHUFFLE	-100.0	2.0124071239303163E-4	-0.006894629020546158	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+573	0	0.5testsAB_SHUFFLE	-100.0	0.020938388138739255	0.8107495092042564	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+574	0	0.5testsAB_SHUFFLE	-100.0	0.012338997880544997	0.7909662106398948	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+575	0	0.5testsAB_SHUFFLE	-100.0	0.04599349279648244	0.5893940798654483	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+576	0	0.5testsAB_SHUFFLE	-100.0	-0.058648033885288976	-0.8123580200100906	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+577	0	0.5testsAB_SHUFFLE	-100.0	-0.03624433789979384	-0.2983393794751164	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+578	0	0.5testsAB_SHUFFLE	-100.0	-0.048047872129855715	-1.0797845044001515	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+579	0	0.5testsAB_SHUFFLE	-100.0	-0.02555874929071936	-0.7711103444188364	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+580	0	0.5testsAB_SHUFFLE	-100.0	0.11950682788535916	1.0887048472652494	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_8}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+581	0	0.5testsAB_SHUFFLE	-100.0	-0.09738923396576132	-1.4331213261987217	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+582	0	0.5testsAB_SHUFFLE	-100.0	-0.03564500948157253	-0.6456854069004426	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+583	0	0.5testsAB_SHUFFLE	-100.0	-0.1013609555675781	-1.5752741029407618	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+584	0	0.5testsAB_SHUFFLE	-100.0	0.06089121452963918	0.9348745722083632	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+585	0	0.5testsAB_SHUFFLE	-100.0	0.08745928404554539	1.1398999667977132	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+586	0	0.5testsAB_SHUFFLE	-100.0	-0.012802263855746409	-0.21739028893899875	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+587	0	0.5testsAB_SHUFFLE	-100.0	0.18129100002504284	3.6384091302321084	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+588	0	0.5testsAB_SHUFFLE	-100.0	-0.0660941935793705	-1.5136486720825093	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+589	0	0.5testsAB_SHUFFLE	-100.0	0.009048979235690787	-0.19642903679518647	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+590	0	0.5testsAB_SHUFFLE	-100.0	0.013690048293167037	0.2759616637608542	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+591	0	0.5testsAB_SHUFFLE	-100.0	0.04658446815713237	0.7931688898443882	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+592	0	0.5testsAB_SHUFFLE	-100.0	0.006343530745048824	-0.21404910808222	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+593	0	0.5testsAB_SHUFFLE	-100.0	0.01038442942429885	0.6797290668937267	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+594	0	0.5testsAB_SHUFFLE	-100.0	0.027122029925361196	0.5287593643508252	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+595	0	0.5testsAB_SHUFFLE	-100.0	0.003209256875916197	0.47994523491816504	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+596	0	0.5testsAB_SHUFFLE	-100.0	-0.07802176862851905	-0.5832381605387763	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+597	0	0.5testsAB_SHUFFLE	-100.0	-0.03592072223403653	-1.3386254107539324	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+598	0	0.5testsAB_SHUFFLE	-100.0	-0.03254805728426343	-0.8842090135151361	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+599	0	0.5testsAB_SHUFFLE	-100.0	-0.15881205230815776	-2.4083856174881006	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+600	0	0.5testsAB_SHUFFLE	-100.0	-0.061819916722566114	-1.8825061841343604	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_9}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+601	0	0.5testsAB_SHUFFLE	-100.0	0.004964295297755326	-0.06103979053153144	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+602	0	0.5testsAB_SHUFFLE	-100.0	-0.07099418301750977	-1.1912707372512927	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+603	0	0.5testsAB_SHUFFLE	-100.0	0.06588486560330639	0.7447601209791056	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+604	0	0.5testsAB_SHUFFLE	-100.0	-0.021331051830952633	-0.9301738036457302	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+605	0	0.5testsAB_SHUFFLE	-100.0	0.1375431193801797	2.216349266705123	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+606	0	0.5testsAB_SHUFFLE	-100.0	-0.08708971845647112	-0.89447107249537	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+607	0	0.5testsAB_SHUFFLE	-100.0	0.07206192091355129	0.5400480630662529	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+608	0	0.5testsAB_SHUFFLE	-100.0	-0.0037331874349108424	-0.2734496048654224	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+609	0	0.5testsAB_SHUFFLE	-100.0	0.002606940290372315	-0.4373691259401617	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+610	0	0.5testsAB_SHUFFLE	-100.0	-0.021116537609137745	-0.45742754955958237	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+611	0	0.5testsAB_SHUFFLE	-100.0	-0.0857266861715362	-1.6504958978524624	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+612	0	0.5testsAB_SHUFFLE	-100.0	-0.06377196244417124	-0.7727800429804498	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+613	0	0.5testsAB_SHUFFLE	-100.0	-0.07418175801312343	-1.9965540575584606	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+614	0	0.5testsAB_SHUFFLE	-100.0	0.005007257436097561	-0.2851787579313515	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+615	0	0.5testsAB_SHUFFLE	-100.0	-0.0025825074563190346	-0.05157824320312966	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+616	0	0.5testsAB_SHUFFLE	-100.0	-0.093509780750225	-2.0583271697892345	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+617	0	0.5testsAB_SHUFFLE	-100.0	0.047285603926759685	0.7434375490562197	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+618	0	0.5testsAB_SHUFFLE	-100.0	-0.015050803148780241	0.11857699704802249	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+619	0	0.5testsAB_SHUFFLE	-100.0	-0.019673341137758083	-0.7228837547768756	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+620	0	0.5testsAB_SHUFFLE	-100.0	-0.054545466433001434	-0.491649367456602	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_10}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+621	0	0.5testsAB_SHUFFLE	-100.0	-0.008635201065581133	-0.5339101421741145	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+622	0	0.5testsAB_SHUFFLE	-100.0	0.010376662988880498	0.734050690570342	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+623	0	0.5testsAB_SHUFFLE	-100.0	-0.012522821488407321	-0.36702268355294504	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+624	0	0.5testsAB_SHUFFLE	-100.0	-0.0397621804723456	-0.6727726427299273	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+625	0	0.5testsAB_SHUFFLE	-100.0	-0.011544279416811938	-0.11869848192508595	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+626	0	0.5testsAB_SHUFFLE	-100.0	-0.03664948635292552	-0.9299488939689997	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+627	0	0.5testsAB_SHUFFLE	-100.0	-0.010433565005307925	-0.2687185890062763	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+628	0	0.5testsAB_SHUFFLE	-100.0	0.027284236239948786	0.6658375688575469	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+629	0	0.5testsAB_SHUFFLE	-100.0	0.041877376327634365	0.847854280704767	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+630	0	0.5testsAB_SHUFFLE	-100.0	0.03285403044608921	0.3831263964727463	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+631	0	0.5testsAB_SHUFFLE	-100.0	0.05721178545350661	0.8638218992548801	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+632	0	0.5testsAB_SHUFFLE	-100.0	0.006921455687366585	-0.7556206304163915	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+633	0	0.5testsAB_SHUFFLE	-100.0	0.013891458111608553	0.7461100804966403	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+634	0	0.5testsAB_SHUFFLE	-100.0	-0.06681793388789208	-1.5911234332036739	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+635	0	0.5testsAB_SHUFFLE	-100.0	-0.004261845487830199	0.26825984760890387	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+636	0	0.5testsAB_SHUFFLE	-100.0	-0.0048565254819320685	0.4679328543842897	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+637	0	0.5testsAB_SHUFFLE	-100.0	-0.012645657807752037	0.1124005663702876	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+638	0	0.5testsAB_SHUFFLE	-100.0	0.12587875028170634	2.19173507934154	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+639	0	0.5testsAB_SHUFFLE	-100.0	0.09501632971714875	2.12274664958982	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+640	0	0.5testsAB_SHUFFLE	-100.0	-0.02427830980744229	-0.36630777985898805	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_11}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+641	0	0.5testsAB_SHUFFLE	-100.0	-0.0017809838725803145	-0.5055054832049407	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+642	0	0.5testsAB_SHUFFLE	-100.0	0.07450937128107156	0.7706028155643544	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+643	0	0.5testsAB_SHUFFLE	-100.0	-0.014862603932984265	-0.22175425248134836	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+644	0	0.5testsAB_SHUFFLE	-100.0	0.007074715418534295	-0.0976326362771072	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+645	0	0.5testsAB_SHUFFLE	-100.0	0.0021364002629078475	-0.6644051680545818	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+646	0	0.5testsAB_SHUFFLE	-100.0	-0.048165924519059496	-1.5504328514252306	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+647	0	0.5testsAB_SHUFFLE	-100.0	0.05829146218148501	1.17051180328578	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+648	0	0.5testsAB_SHUFFLE	-100.0	-0.047405169972177946	-0.3461531581181768	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+649	0	0.5testsAB_SHUFFLE	-100.0	0.03722811725391734	1.0018156933959868	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+650	0	0.5testsAB_SHUFFLE	-100.0	0.0355422242478713	0.6706709805491797	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+651	0	0.5testsAB_SHUFFLE	-100.0	-0.016134687764336964	-0.2849831543281113	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+652	0	0.5testsAB_SHUFFLE	-100.0	0.08089891007211444	1.5532573996015464	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+653	0	0.5testsAB_SHUFFLE	-100.0	3.589960425354907E-4	-0.2564972410497388	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+654	0	0.5testsAB_SHUFFLE	-100.0	0.10192045803709181	2.361653064962777	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+655	0	0.5testsAB_SHUFFLE	-100.0	0.052678483051139306	0.6430019064907674	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+656	0	0.5testsAB_SHUFFLE	-100.0	0.04374373585645343	1.0221649920749996	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+657	0	0.5testsAB_SHUFFLE	-100.0	-0.06084420411839922	-0.8887570772570615	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+658	0	0.5testsAB_SHUFFLE	-100.0	-0.03522700687346727	-0.9064683515911071	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+659	0	0.5testsAB_SHUFFLE	-100.0	0.0894810062691707	1.4802980988060623	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+660	0	0.5testsAB_SHUFFLE	-100.0	-0.0014144791435779086	-0.11650358033039254	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_12}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+661	0	0.5testsAB_SHUFFLE	-100.0	0.10431469066777994	0.8731708016271694	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+662	0	0.5testsAB_SHUFFLE	-100.0	-0.08593648536817405	-1.125246417086421	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+663	0	0.5testsAB_SHUFFLE	-100.0	0.0614055405251395	0.545179265241908	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+664	0	0.5testsAB_SHUFFLE	-100.0	-0.10414605958729095	-1.5196195977548586	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+665	0	0.5testsAB_SHUFFLE	-100.0	-0.0214726491885762	0.7236253585854157	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+666	0	0.5testsAB_SHUFFLE	-100.0	-0.002096790448358666	-0.04555057336219027	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+667	0	0.5testsAB_SHUFFLE	-100.0	-0.0878295899993213	-1.8165630747464516	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+668	0	0.5testsAB_SHUFFLE	-100.0	0.05460774276273036	1.6433392175375294	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+669	0	0.5testsAB_SHUFFLE	-100.0	0.058186410117902126	0.3287479215986573	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+670	0	0.5testsAB_SHUFFLE	-100.0	-0.02627685027694748	-0.0626252554773555	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+671	0	0.5testsAB_SHUFFLE	-100.0	8.09332436086019E-4	0.3633009760717781	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+672	0	0.5testsAB_SHUFFLE	-100.0	0.022554317601483236	0.11987656543286022	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+673	0	0.5testsAB_SHUFFLE	-100.0	0.058084602357892264	0.5651552871277324	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+674	0	0.5testsAB_SHUFFLE	-100.0	0.08380099589551455	1.7875345105869644	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+675	0	0.5testsAB_SHUFFLE	-100.0	0.049527600890972974	0.462607912792712	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+676	0	0.5testsAB_SHUFFLE	-100.0	0.08679297630663044	1.2588333824088724	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+677	0	0.5testsAB_SHUFFLE	-100.0	-0.028001039742408976	-1.3838591341799125	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+678	0	0.5testsAB_SHUFFLE	-100.0	0.07320624161201338	1.0368857688268414	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+679	0	0.5testsAB_SHUFFLE	-100.0	0.022959997805662616	0.322481300460758	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+680	0	0.5testsAB_SHUFFLE	-100.0	-0.08856003093243113	-1.6276930827264144	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_13}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+681	0	0.5testsAB_SHUFFLE	-100.0	0.04153600690279768	0.8693057120234426	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+682	0	0.5testsAB_SHUFFLE	-100.0	-0.07628082659238997	-0.8029339216797837	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+683	0	0.5testsAB_SHUFFLE	-100.0	0.025451728744773146	0.9864845709183582	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+684	0	0.5testsAB_SHUFFLE	-100.0	0.004685454358202279	-0.35700891232740584	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+685	0	0.5testsAB_SHUFFLE	-100.0	-0.03313227252996505	-0.001339265490099892	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+686	0	0.5testsAB_SHUFFLE	-100.0	-0.12909947186594156	-1.6533929341205875	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+687	0	0.5testsAB_SHUFFLE	-100.0	0.10172497853799466	1.1347533961947354	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+688	0	0.5testsAB_SHUFFLE	-100.0	-0.009643959639878196	-0.2067759584939602	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+689	0	0.5testsAB_SHUFFLE	-100.0	0.011083330930961704	1.050417848557958	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+690	0	0.5testsAB_SHUFFLE	-100.0	-0.08605187900343161	-1.6082275575761427	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+691	0	0.5testsAB_SHUFFLE	-100.0	-0.03314176603988829	-1.4926402156243277	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+692	0	0.5testsAB_SHUFFLE	-100.0	-0.04418634216431068	-0.9341546694048778	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+693	0	0.5testsAB_SHUFFLE	-100.0	0.10376450506219341	1.607778224518033	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+694	0	0.5testsAB_SHUFFLE	-100.0	0.07408259045474876	0.772421001871459	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+695	0	0.5testsAB_SHUFFLE	-100.0	0.07149776086289364	0.9464851931753998	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+696	0	0.5testsAB_SHUFFLE	-100.0	-0.16209788009948245	-2.1885049991075736	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+697	0	0.5testsAB_SHUFFLE	-100.0	0.047423911364846034	1.6166113606116648	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+698	0	0.5testsAB_SHUFFLE	-100.0	-0.0011372841436354008	0.123959238625272	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+699	0	0.5testsAB_SHUFFLE	-100.0	-0.08546626584069508	-1.1598708679415826	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+700	0	0.5testsAB_SHUFFLE	-100.0	-0.05752318510044996	-0.7708252277712007	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_14}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+701	0	0.5testsAB_SHUFFLE	-100.0	-0.049372453552459894	-1.0301246045984667	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+702	0	0.5testsAB_SHUFFLE	-100.0	0.035594562169059284	0.7047000389811886	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+703	0	0.5testsAB_SHUFFLE	-100.0	-0.03980468139029804	-1.6626086990577067	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+704	0	0.5testsAB_SHUFFLE	-100.0	-0.08071124033070513	-2.4172743692829513	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+705	0	0.5testsAB_SHUFFLE	-100.0	0.07858656169360838	1.6418485740038993	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+706	0	0.5testsAB_SHUFFLE	-100.0	-0.09202638960871425	-1.8821116696350841	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+707	0	0.5testsAB_SHUFFLE	-100.0	-0.0025675708652576575	-0.6617585174149553	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+708	0	0.5testsAB_SHUFFLE	-100.0	-0.0010217577349795918	0.1585653971500732	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+709	0	0.5testsAB_SHUFFLE	-100.0	0.03849114656895609	0.9343596644487459	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+710	0	0.5testsAB_SHUFFLE	-100.0	0.06302319132478357	1.115397922342646	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+711	0	0.5testsAB_SHUFFLE	-100.0	-0.02475734019095311	-0.23022163875734483	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+712	0	0.5testsAB_SHUFFLE	-100.0	-0.10957424998173375	-2.1061951515080413	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+713	0	0.5testsAB_SHUFFLE	-100.0	-0.02433246955451005	-0.6885740137989211	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+714	0	0.5testsAB_SHUFFLE	-100.0	0.045810398936832385	0.6571645095444058	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+715	0	0.5testsAB_SHUFFLE	-100.0	-0.012225255302603303	0.05897378021919796	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+716	0	0.5testsAB_SHUFFLE	-100.0	-0.04276860360655797	-0.8872770782096471	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+717	0	0.5testsAB_SHUFFLE	-100.0	0.03191975358760343	-0.2729586772563969	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+718	0	0.5testsAB_SHUFFLE	-100.0	0.07286905201776923	1.050715428452729	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+719	0	0.5testsAB_SHUFFLE	-100.0	0.1460082265124274	2.6338604048534044	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+720	0	0.5testsAB_SHUFFLE	-100.0	-0.11696708977190454	-3.247110956074554	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_15}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+721	0	0.5testsAB_SHUFFLE	-100.0	-0.05973465544031913	-0.9801580471251452	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+722	0	0.5testsAB_SHUFFLE	-100.0	0.03762489669717644	0.650022727138562	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+723	0	0.5testsAB_SHUFFLE	-100.0	0.06554121282647815	1.8282758182622245	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+724	0	0.5testsAB_SHUFFLE	-100.0	-0.10067440612460793	-1.9425622326765988	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+725	0	0.5testsAB_SHUFFLE	-100.0	-0.08266341533769392	-0.9542882657430457	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+726	0	0.5testsAB_SHUFFLE	-100.0	0.10297978079176115	1.3034558448456801	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+727	0	0.5testsAB_SHUFFLE	-100.0	0.01647551913176686	0.26645279310971337	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+728	0	0.5testsAB_SHUFFLE	-100.0	-0.07347177524115764	-1.458169521872069	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+729	0	0.5testsAB_SHUFFLE	-100.0	0.008662685723236484	0.045034749604443584	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+730	0	0.5testsAB_SHUFFLE	-100.0	-0.030375262728087507	-0.008066491380594601	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+731	0	0.5testsAB_SHUFFLE	-100.0	-0.01559634235580778	-0.6635225706632191	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+732	0	0.5testsAB_SHUFFLE	-100.0	-0.014977876841235136	0.27391422440785457	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+733	0	0.5testsAB_SHUFFLE	-100.0	-0.04184383103050971	-1.6395369555661905	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+734	0	0.5testsAB_SHUFFLE	-100.0	-0.03436676059176852	-0.18133537407343808	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+735	0	0.5testsAB_SHUFFLE	-100.0	0.020419608358154272	1.3503409423612072	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+736	0	0.5testsAB_SHUFFLE	-100.0	0.024117620321096152	0.5355238065676915	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+737	0	0.5testsAB_SHUFFLE	-100.0	-0.009803665335982382	0.17038091125035762	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+738	0	0.5testsAB_SHUFFLE	-100.0	0.07969389434168332	1.5006662901213967	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+739	0	0.5testsAB_SHUFFLE	-100.0	-0.04580082266923106	-1.1207155681283614	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+740	0	0.5testsAB_SHUFFLE	-100.0	-0.035491274529689094	-0.7676940245917642	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_16}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+741	0	0.5testsAB_SHUFFLE	-100.0	0.10549982854904515	2.5471214579040087	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+742	0	0.5testsAB_SHUFFLE	-100.0	0.0343880583092318	0.15810151192451072	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+743	0	0.5testsAB_SHUFFLE	-100.0	-0.06111007034518849	-0.18034754880527404	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+744	0	0.5testsAB_SHUFFLE	-100.0	0.03331257784227318	0.17566868353450626	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+745	0	0.5testsAB_SHUFFLE	-100.0	-0.04304289713444846	-0.42694400453629816	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+746	0	0.5testsAB_SHUFFLE	-100.0	0.042063224296258465	0.8143583469324615	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+747	0	0.5testsAB_SHUFFLE	-100.0	0.07784855243765862	0.7393362077685787	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+748	0	0.5testsAB_SHUFFLE	-100.0	0.10962838946817581	2.2718113086008427	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+749	0	0.5testsAB_SHUFFLE	-100.0	-0.028695817988984247	-0.74522111570732	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+750	0	0.5testsAB_SHUFFLE	-100.0	0.0806322498694822	1.6522915397818925	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+751	0	0.5testsAB_SHUFFLE	-100.0	-0.11083596539203909	-1.7065256233476815	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+752	0	0.5testsAB_SHUFFLE	-100.0	0.07004255680210411	0.31164068211198953	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+753	0	0.5testsAB_SHUFFLE	-100.0	-0.03436646605451652	-0.6272562872877584	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+754	0	0.5testsAB_SHUFFLE	-100.0	-0.060761637245741205	-1.677265814073484	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+755	0	0.5testsAB_SHUFFLE	-100.0	-0.12763478258563296	-1.2263339028698133	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+756	0	0.5testsAB_SHUFFLE	-100.0	-0.04480244828882984	-1.2216253047950492	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+757	0	0.5testsAB_SHUFFLE	-100.0	0.0696546263429903	0.6770223365889168	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+758	0	0.5testsAB_SHUFFLE	-100.0	-0.05892578735467867	-1.302376151416141	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+759	0	0.5testsAB_SHUFFLE	-100.0	-0.010616798192294564	-0.6943345193925388	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+760	0	0.5testsAB_SHUFFLE	-100.0	-0.027570656504204	-0.5049379172680463	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_17}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+761	0	0.5testsAB_SHUFFLE	-100.0	0.008871049710969229	0.05979375948419663	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+762	0	0.5testsAB_SHUFFLE	-100.0	0.02130139452707601	0.20494067373477817	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+763	0	0.5testsAB_SHUFFLE	-100.0	-0.011176929565041377	-0.4030231846068422	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+764	0	0.5testsAB_SHUFFLE	-100.0	0.0610734528479431	1.2825335675731884	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+765	0	0.5testsAB_SHUFFLE	-100.0	0.052544363149163754	0.5102028300213122	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+766	0	0.5testsAB_SHUFFLE	-100.0	0.1180267483086668	2.5636585504239835	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+767	0	0.5testsAB_SHUFFLE	-100.0	-0.03361382834801069	0.15267833149757778	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+768	0	0.5testsAB_SHUFFLE	-100.0	-0.015496837316950082	-0.36058293054100743	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+769	0	0.5testsAB_SHUFFLE	-100.0	0.024644102409099297	0.281521948390503	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+770	0	0.5testsAB_SHUFFLE	-100.0	0.16016533304133157	2.9970557877373625	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+771	0	0.5testsAB_SHUFFLE	-100.0	-0.038439928069737284	-0.008476267068270985	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+772	0	0.5testsAB_SHUFFLE	-100.0	0.009784206624102091	0.17793918116216553	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+773	0	0.5testsAB_SHUFFLE	-100.0	-0.002652036435501593	0.28005375051095904	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+774	0	0.5testsAB_SHUFFLE	-100.0	-0.04059154659089964	-1.0342032969895119	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+775	0	0.5testsAB_SHUFFLE	-100.0	-0.002478295359873547	-0.3131410640354121	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+776	0	0.5testsAB_SHUFFLE	-100.0	0.05775326756736227	1.1985026765438507	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+777	0	0.5testsAB_SHUFFLE	-100.0	0.0361984143933262	0.12636534991991913	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+778	0	0.5testsAB_SHUFFLE	-100.0	0.06306463160877865	0.7469157141382424	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+779	0	0.5testsAB_SHUFFLE	-100.0	-0.02543981539279558	-0.40542205498708506	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+780	0	0.5testsAB_SHUFFLE	-100.0	-0.014729629172985767	-0.19836842327668036	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_18}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}
+781	0	0.5testsAB_SHUFFLE	-100.0	0.009823464417330242	-0.4611735425398535	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_0}
+782	0	0.5testsAB_SHUFFLE	-100.0	-0.08176222736981277	-1.0859022341493165	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_1}
+783	0	0.5testsAB_SHUFFLE	-100.0	0.01613656498588991	0.3822309325680508	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_2}
+784	0	0.5testsAB_SHUFFLE	-100.0	0.004790953835424828	-0.024739634590542858	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_3}
+785	0	0.5testsAB_SHUFFLE	-100.0	-0.03026490626388146	-0.3362631694190989	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_4}
+786	0	0.5testsAB_SHUFFLE	-100.0	0.009706761461206814	0.43868325748477877	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_5}
+787	0	0.5testsAB_SHUFFLE	-100.0	0.06459143138754724	0.8369669006395297	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_6}
+788	0	0.5testsAB_SHUFFLE	-100.0	0.07408962671421676	1.3637723855293489	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_7}
+789	0	0.5testsAB_SHUFFLE	-100.0	0.0696055449388196	1.112927340036848	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_8}
+790	0	0.5testsAB_SHUFFLE	-100.0	0.03215777736944348	0.7634504630896426	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_9}
+791	0	0.5testsAB_SHUFFLE	-100.0	0.020584044852690095	-0.2550250779236675	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_10}
+792	0	0.5testsAB_SHUFFLE	-100.0	-0.056076079899765846	-1.43404268283558	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_11}
+793	0	0.5testsAB_SHUFFLE	-100.0	-0.03962975217574024	-0.2910346135487209	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_12}
+794	0	0.5testsAB_SHUFFLE	-100.0	0.03830588849365623	1.0324641248202011	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_13}
+795	0	0.5testsAB_SHUFFLE	-100.0	-0.06051717020882632	-1.3013810877260177	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_14}
+796	0	0.5testsAB_SHUFFLE	-100.0	0.0173352624273712	0.4124076035834271	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_15}
+797	0	0.5testsAB_SHUFFLE	-100.0	-0.017625404893836034	-0.5123455679976245	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_16}
+798	0	0.5testsAB_SHUFFLE	-100.0	-0.08641873262838033	-1.993553618717989	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_17}
+799	0	0.5testsAB_SHUFFLE	-100.0	-0.038256252692256215	-1.3465808636770265	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_18}
+800	0	0.5testsAB_SHUFFLE	-100.0	0.01059577575908613	0.0990381566130479	0.0	{FourierFilterd (beta=0.5){256 => gaussian}_a_19}{FourierFilterd (beta=0.5){256 => gaussian}_b_19}

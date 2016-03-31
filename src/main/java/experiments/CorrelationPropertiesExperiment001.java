@@ -29,6 +29,7 @@ import m3.wikipedia.corpus.extractor.NetDensityCalc;
 import metadata.ExperimentDescriptor;
 import org.apache.hadoopts.app.thesis.LongTermCorrelationSeriesGenerator;
 import org.apache.commons.math3.transform.TransformType;
+import org.apache.hadoopts.app.bucketanalyser.TSOperationControlerPanel;
 import statistics.HaeufigkeitsZaehlerDoubleSIMPLE;
 
 /**
@@ -69,16 +70,20 @@ public class CorrelationPropertiesExperiment001 {
          * Setup the project with Metadata to keep parameters and runtime logs
          */
 
+        
         testsA = new Vector<Messreihe>();
         testsB = new Vector<Messreihe>();  
         
-        int z = 40;
-        int exp = 10;
+        int z = 20;
+        int exp = 8;
         
         int N = (int)Math.pow(2, exp);
     
         // some sample frequencies ...
         double beta = 0.5; 
+
+        TSOperationControlerPanel.label_of_EXPERIMENT = "Run_l_" + exp + "_beta_" + beta;
+        TSOperationControlerPanel.baseFolder = "/Volumes/Exp001/WikiExplorer.NG_DATA";
         
         for( int i = 0; i < z; i++ ) {
             Messreihe mra = LongTermCorrelationSeriesGenerator.getRandomRow(N, beta, false, false);
