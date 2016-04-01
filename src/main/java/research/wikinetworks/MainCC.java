@@ -348,7 +348,7 @@ public class MainCC implements LogFileUser {
                  * DI 1.11.2011
                  */
                 CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_CC_TAU_0;
-                CheckInfluenceOfSingelPeaks._debug = false;
+//                CheckInfluenceOfSingelPeaks._debug = false;
                 KreuzKorrelation.debug = false;
 
 //                NodeGroup.doShuffle = false;
@@ -365,7 +365,7 @@ public class MainCC implements LogFileUser {
                 /**
                  * DI 1.11.2011 MI 2.11.
                  */
-                CheckInfluenceOfSingelPeaks._debug = false;
+//                CheckInfluenceOfSingelPeaks._debug = false;
                 KreuzKorrelation.debug = false;
                 NodeGroup.debug = false;
                 DailyCrossCorrelationMapper.debug = false;
@@ -411,7 +411,7 @@ public class MainCC implements LogFileUser {
                 /**
                  * MO 7.11.2011
                  */
-                CheckInfluenceOfSingelPeaks._debug = false;
+//                CheckInfluenceOfSingelPeaks._debug = false;
                 KreuzKorrelation.debug = false;
                 NodeGroup.debug = false;
                 DailyCrossCorrelationMapper.debug = false;
@@ -456,7 +456,7 @@ public class MainCC implements LogFileUser {
                 /**
                  * MI 8.11.2011
                  */
-                CheckInfluenceOfSingelPeaks._debug = false;
+//                CheckInfluenceOfSingelPeaks._debug = false;
                 KreuzKorrelation.debug = false;
                 NodeGroup.debug = false;
 

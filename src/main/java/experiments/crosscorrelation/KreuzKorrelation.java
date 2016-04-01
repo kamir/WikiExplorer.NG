@@ -36,13 +36,16 @@ public class KreuzKorrelation extends Messreihe {
     private static boolean notTested = true;
     
     // if this is false, we have also to change the range in the plots.
-    public static boolean _DO_CALC_ADJUSTED = false;
+    public static boolean _DO_CALC_ADJUSTED = true;
     
     public static boolean DO_CALC_ADJUSTED_FFT_PR = false;
     
     public static boolean DO_CALC_ADJUSTED_SimpleShuffle = true;
     
-    private static int DO_CALC_ADJUSTED_z = 10; // nr of shuffelings
+    /**
+     * MIN 3 für statistik !!!
+     */
+    private static int DO_CALC_ADJUSTED_z = 3; // nr of shuffelings
 
     public static String getCalcTypeLabel() {
         String t = DO_CALC_ADJUSTED_z + "-";
@@ -74,7 +77,7 @@ public class KreuzKorrelation extends Messreihe {
     double t_max = 0.0;
     double tt_max = 0.0;
     
-    public static int _defaultK;
+    public static int _defaultK = 7;
 
     public static void setK(int k) {
         setK(k, -1 * k);
@@ -85,7 +88,7 @@ public class KreuzKorrelation extends Messreihe {
         k_max = max;
     }
     
-    public double adjustedSIGMA = 1.0;
+    public double _adjustedSIGMA = 1.0;
     public double adjustedCCSMEAN = 1.0;
     public double adjustedCC = 1.0;
 
@@ -104,7 +107,9 @@ public class KreuzKorrelation extends Messreihe {
             
             } 
             else if (DO_CALC_ADJUSTED_FFT_PR) {
-                
+                /**
+                 * Destroys the MultiFractal PROPERTIES
+                 */
                 mr_xl = FFTPhaseRandomizer.getPhaseRandomizedRow(mr_x, false, false, 0,FFTPhaseRandomizer.MODE_multiply_phase_with_random_value );
                 mr_yl = FFTPhaseRandomizer.getPhaseRandomizedRow(mr_y, false, false, 0,FFTPhaseRandomizer.MODE_multiply_phase_with_random_value);
 
@@ -150,7 +155,7 @@ public class KreuzKorrelation extends Messreihe {
         }
 
         adjustedCCSMEAN = stdlib.StdStats.mean(ls);
-        adjustedSIGMA = stdlib.StdStats.stddev(ls);
+        _adjustedSIGMA = stdlib.StdStats.stddev(ls);
 
     }
 
@@ -567,6 +572,9 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
             mr1 = mr1.cutOut(von, bis);
             mr2 = mr2.cutOut(von, bis);
         }
+        else {
+        
+        }
 
         int a1 = mr1.getSize()[0];
         int b1 = mr2.getSize()[0];
@@ -574,22 +582,24 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
         mr1.calcAverage();
         mr2.calcAverage();
 
+        
         try {
             String a = mr1.getLabel();
             String b = mr2.getLabel();
 
-            if (notTested) {
-                int k = dk;
-                int index = CCFunction.ID_TO_SELECT_CC_FROM;
-                // javax.swing.JOptionPane.showMessageDialog(
-                //    new JFrame(), 
-                //    "k=[" + (-1.0 * k) + "..." + k + "], 
-                //    selected: " + index);
-                System.out.println( 
-                        ">>>> k=[" + (-1.0 * k) + "..." + k 
-                        + "], selected: " + index);
-                notTested = false;
-            }
+//            if (notTested) {
+//                int k = dk;
+//                int index = CCFunction.ID_TO_SELECT_CC_FROM;
+//                 javax.swing.JOptionPane.showMessageDialog(
+//                    new JFrame(), "k=[" + (-1.0 * k) + "..." + k + "], selected: " + index);
+//
+//                 System.out.println( 
+//                        ">>>> k=[" + (-1.0 * k) + "..." + k 
+//                        + "], selected: " + index);
+//                notTested = false;
+//            }
+            
+            
             kr.label = "CC(" + a + "," + b 
                     + ")[" + _defaultK + ":" 
                     + CCFunction.ID_TO_SELECT_CC_FROM + "]";
@@ -603,9 +613,9 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
             kr.calcKR();
 
             // ADJUSTED KR BERECHNEN
-//            if (_DO_CALC_ADJUSTED) {
+            if (_DO_CALC_ADJUSTED) {
                 kr.calcKR__adjusted(DO_CALC_ADJUSTED_z);
-//            }
+            }
 
 
 //            // DATEN PRÜFEN
@@ -621,28 +631,28 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
 ////                vtKR.add(mr1);
 ////                vtKR.add(mr2);
 //             MultiChart mcKR = new MultiChart(null, true);
-//  //mcKR.openNormalized(vtKR, "Korrelationsfunktion R(k)", "k", "R(k)", true);
+//             mcKR.openNormalized(vtKR, "Korrelationsfunktion R(k)", "k", "R(k)", true);
 //             mcKR.open(vtKR, "Correlation function CC(k)", "k", "CC(k)", true);
 //             debugCounter++;
 //
 //
 //
 //
-//                //  check for dominant frequencies
-//                Messreihe mrFFTA = new Messreihe();
-//                Messreihe mrFFTB = new Messreihe();
-//                MessreiheFFT mrFFT2 = MessreiheFFT.convertToMessreiheFFT(mr1);
-//                MessreiheFFT mrFFT3 = MessreiheFFT.convertToMessreiheFFT(mr2);
-//
-//                
-//                mrFFTA = MessreiheFFT.calcFFT(mrFFT2, defaultSR, TransformType.FORWARD);
-//                testB.add(mrFFTA);
-//
-//                mrFFTB = MessreiheFFT.calcFFT(mrFFT3, defaultSR, TransformType.FORWARD);
-//                testB.add(mrFFTB);
-//
-//                MultiChart.open(testB, "FFT tests",
-//                        "f [Hz]", "c", true, "");
+////                //  check for dominant frequencies
+////                Messreihe mrFFTA = new Messreihe();
+////                Messreihe mrFFTB = new Messreihe();
+////                MessreiheFFT mrFFT2 = MessreiheFFT.convertToMessreiheFFT(mr1);
+////                MessreiheFFT mrFFT3 = MessreiheFFT.convertToMessreiheFFT(mr2);
+////
+////                
+////                mrFFTA = MessreiheFFT.calcFFT(mrFFT2, defaultSR, TransformType.FORWARD);
+////                testB.add(mrFFTA);
+////
+////                mrFFTB = MessreiheFFT.calcFFT(mrFFT3, defaultSR, TransformType.FORWARD);
+////                testB.add(mrFFTB);
+////
+////                MultiChart.open(testB, "FFT tests",
+////                        "f [Hz]", "c", true, "");
 //
 //
 //            }

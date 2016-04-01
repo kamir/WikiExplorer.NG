@@ -36,6 +36,7 @@ import java.util.Vector;
 import research.wikinetworks.NodePair;
 import experiments.linkstrength.CheckInfluenceOfSingelPeaks;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
+import experiments.linkstrength.CCFunction;
 
 /**
  *
@@ -67,7 +68,7 @@ public class DailyCrossCorrelationMapper {
             Messreihe mwDB = hourlyData_dayB.cutOut(begin, ende);
 
             KreuzKorrelation kr = KreuzKorrelation.calcKR(mwDA, mwDB, false, false);
-            cc[i] = CheckInfluenceOfSingelPeaks.calcStrength(kr);
+            cc[i] = CCFunction.calcStrength_VERSION_B(kr);
         }
 
         v = getMedianOfArray( cc );
@@ -100,7 +101,7 @@ public class DailyCrossCorrelationMapper {
 
             // nur einen Wert bestimmen ...
             KreuzKorrelation kr = KreuzKorrelation.calcKR(mwDA, mwDB, false, false);
-            cc[i] = CheckInfluenceOfSingelPeaks.calcStrength(kr);
+            cc[i] = CCFunction.calcStrength_VERSION_B(kr);
         }
 
         v[0] = getMedianOfArray( cc );

@@ -47,7 +47,7 @@ public class ExtendedNodePairSFE extends NodePair {
     public int[] esBint = null;
     public Messreihe esA = null;
     public Messreihe esB = null;
-    public KreuzKorrelation kk = null;
+    
     
     public Messreihe getEsA() {
         return esA;
@@ -456,52 +456,60 @@ public class ExtendedNodePairSFE extends NodePair {
     public String t = null;
     public String type = null;
     
-    /**
-     * Produce two link strength values as JSON Strings.
-     * 
-     * @return 
-     */
-    public String getLinkStrength() {
+//    /**
+//     * Produce two link strength values as JSON Strings.
+//     * 
+//     * @return 
+//     */
+//    public String getLinkStrength() {
+//
+//        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_NORMALIZED;
+//        linkA = CheckInfluenceOfSingelPeaks.calcStrength(kk);
+//        String s = "\"link_mode_NORMALIZED\":\"" + linkA + "\"";
+//
+//        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_CC_TAU_0;
+//        linkB = CheckInfluenceOfSingelPeaks.calcStrength(kk);
+//        s = s + ", \"mode_CC_TAU_0\":\"" + linkB + "\"";
+//
+//        return s;
+//    }
 
-        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_NORMALIZED;
-        linkA = CheckInfluenceOfSingelPeaks.calcStrength(kk);
-        String s = "\"link_mode_NORMALIZED\":\"" + linkA + "\"";
-
-        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_CC_TAU_0;
-        linkB = CheckInfluenceOfSingelPeaks.calcStrength(kk);
-        s = s + ", \"mode_CC_TAU_0\":\"" + linkB + "\"";
-
-        return s;
-    }
+//    public double getLinkA() {
+//        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_NORMALIZED;
+//        linkA = CheckInfluenceOfSingelPeaks.calcStrength(kk);
+//        return validate( linkA );
+//    }
 
     public double getLinkA() {
-        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_NORMALIZED;
-        linkA = CheckInfluenceOfSingelPeaks.calcStrength(kk);
-        return validate( linkA );
+        return CCFunction.calcStrength_VERSION_A( this.kk );
     }
-
     public double getLinkB() {
-        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_CC_TAU_0;
-        linkB = CheckInfluenceOfSingelPeaks.calcStrength(kk);
-        return validate( linkB );
+        return CCFunction.calcStrength_VERSION_B( this.kk );
+    }
+    public double getLinkC() {
+        return CCFunction.calcStrength_VERSION_C(kk, false);
+    }
+    public double getLinkD() {
+        return CCFunction.calcStrength_VERSION_D(kk);
     }
     
-    public double getLinkD() {
-        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_CLEAN_ONE_PEAK;
-        linkD = CheckInfluenceOfSingelPeaks.calcStrength(kk);
-        return validate( linkD );
-    }
+
+    
+    
+//    public double getLinkB() {
+//        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_CC_TAU_0;
+//        linkB = CheckInfluenceOfSingelPeaks.calcStrength(kk);
+//        return validate( linkB );
+//    }
+    
+//    public double getLinkD() {
+//        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_CLEAN_ONE_PEAK;
+//        linkD = CheckInfluenceOfSingelPeaks.calcStrength(kk);
+//        return validate( linkD );
+//    }
 
 
-    /**
-     * 
-     * Is used by default and is for mode=2;
-     * 
-     * @return 
-     */
-    public double getLinkC() {
-        return validate (CCFunction.calcStrength_VERSION__ADJUSTED(kk, false));
-    }
+    
 
     public void show() {
         

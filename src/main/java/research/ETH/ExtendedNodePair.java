@@ -69,14 +69,15 @@ public class ExtendedNodePair extends NodePair {
     double linkB = 0.0;
     public String getLinkStrength() {
         
-        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_NORMALIZED;
-        linkA = CheckInfluenceOfSingelPeaks.calcStrength(kk);
-        String s = "\t" + linkA;
+//        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_NORMALIZED;
+//        linkA = CheckInfluenceOfSingelPeaks.calcStrength(kk);
+//        String s = "\t" + linkA;
+//        
+//        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_CC_TAU_0;
+//        linkB = CheckInfluenceOfSingelPeaks.calcStrength(kk);
         
-        CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_CC_TAU_0;
-        linkB = CheckInfluenceOfSingelPeaks.calcStrength(kk);
-        s = s + "\t" + linkB + "\t";
-        if ( Double.isNaN( linkA ) || Double.isNaN( linkB ) ) check = false;
+        String s = "\t" + getLinkA() + "\t" + getLinkB();
+        
         return s;
     }
     

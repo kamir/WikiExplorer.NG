@@ -639,8 +639,8 @@ public class NodeIDSelection extends javax.swing.JDialog {
             KreuzKorrelation KKedits = KreuzKorrelation.calcKR( edits1, edits2, KreuzKorrelation.debug, false);
             KreuzKorrelation KKaccess = KreuzKorrelation.calcKR( access1, access2, KreuzKorrelation.debug, false);
 
-            np1.kr = KKedits;
-            np2.kr = KKaccess;
+            np1.kk = KKedits;
+            np2.kk = KKaccess;
 
             np1.initKRResults(null, null, null);
             np2.initKRResults(null, null, null);

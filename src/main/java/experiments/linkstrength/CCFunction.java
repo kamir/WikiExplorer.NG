@@ -1,9 +1,7 @@
 package experiments.linkstrength;
 
 import org.apache.hadoopts.data.series.Messreihe;
-import experiments.crosscorrelation.KreuzKorrelation;
-import static experiments.linkstrength.CheckInfluenceOfSingelPeaks._debug;
-import static experiments.linkstrength.CheckInfluenceOfSingelPeaks.removeMaximumValueFromRow;
+import experiments.crosscorrelation.KreuzKorrelation; 
 
 /**
  *
@@ -18,18 +16,31 @@ public class CCFunction {
      **/
     public static int ID_TO_SELECT_CC_FROM = 0;
     
-    public static double calcStrength_VERSION__ADJUSTED(KreuzKorrelation kr, boolean debug ) {
+    /**
+     * ZScore for shuffled data compared to real data
+     * 
+     * @param kr
+     * @param debug
+     * @return 
+     */
+    public static double calcStrength_VERSION_C(KreuzKorrelation kr, boolean debug ) {
     
         double C = kr.adjustedCC;
         double CS = kr.adjustedCCSMEAN;
-        double SIGMA = kr.adjustedSIGMA;
+        double SIGMA = kr._adjustedSIGMA;
+        if ( debug ) System.out.println( "***"  + C + " " + " " + CS + " " + " " + SIGMA + "==>"  );
         
         double str = ( C - CS ) / SIGMA;
-        if ( debug ) System.out.println( "***"  + C + " " + " " + CS + " " + " " + SIGMA + "==>" + str );
         return str;
         
     }
 
+    /**
+     * The value at a given position in the CC-Function (allows delay analysis).
+     * 
+     * @param mr
+     * @return 
+     */
     public static double calcStrength_VERSION_B( Messreihe mr ) {
         double v = -100.0;
         if ( mr != null ) {
@@ -50,7 +61,7 @@ public class CCFunction {
         return v;
     };
     
-        /**
+    /**
      * Calculates the standardized Link strength for the Cross-Correlation
      * function of a certain length.
      * 
@@ -118,7 +129,7 @@ public class CCFunction {
      * 
      * and check results....
      */ 
-    public static double _calcStrength_VERSION_D(KreuzKorrelation kr) {
+    public static double calcStrength_VERSION_D(KreuzKorrelation kr) {
 
         // maximum der CC-Function ermitteln
         double maxY = kr.getMaxY();
@@ -158,9 +169,41 @@ public class CCFunction {
         double v1 = ( maxY - mwA ) / stdevA;
         
         double v2 = ( maxY - mwB ) / stdevB;
-        
 
         return v2/v1;
+    }
+    
+    /**
+     * Tool function to manipulate a time series object.
+     * 
+     * @param athis
+     * @return 
+     */
+    static public Messreihe removeMaximumValueFromRow( Messreihe athis ) {
+
+        boolean removed = false;
+
+        Messreihe mr = new Messreihe();
+        mr.setLabel( athis.getLabel() );
+
+        int max = athis.yValues.size();
+        double maxY = athis.getMaxY();
+        
+        for( int i = 0; i < max ; i++ ) {
+            double v = (Double)athis.yValues.elementAt(i);
+            if ( !removed ) {
+                if( v != maxY ) {
+                    mr.addValuePair( (double)i , v);
+                }
+                else { 
+                    removed = true;
+                }
+            }   
+            else {
+                mr.addValuePair( (double)i , (Double)athis.yValues.elementAt(i) );
+            }
+        }
+        return mr;
     }
     
 }

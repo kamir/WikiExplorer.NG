@@ -7,11 +7,15 @@ import experiments.linkstrength.CheckInfluenceOfSingelPeaks;
 import experiments.crosscorrelation.DailyCrossCorrelationMapper;
 import experiments.crosscorrelation.KreuzKorrelation;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
+import experiments.linkstrength.CCFunction;
 
 /**
  * @author kamir
  */
 public class NodePair {
+    
+    public KreuzKorrelation kk = null;
+
 
     public double[] advancedResults = null;
     public int pageIDA = 0;
@@ -67,7 +71,6 @@ public class NodePair {
 
     static public boolean debug = false;
 
-    public KreuzKorrelation kr = null;
 
     /**
      * 
@@ -100,9 +103,9 @@ public class NodePair {
 
             this.advancedResults = value;
 
-            kr = new KreuzKorrelation();
+            kk = new KreuzKorrelation();
 
-            kr.addValuePair( delay , value[0] );
+            kk.addValuePair( delay , value[0] );
 
             return initKRResults(wrong, histMaxY, histSigLevel );
         }
@@ -119,15 +122,12 @@ public class NodePair {
            
             // System.out.println( "### *** ###" );
             
-            kr = KreuzKorrelation.calcKR(a, b, KreuzKorrelation.debug, false);
+            kk = KreuzKorrelation.calcKR(a, b, KreuzKorrelation.debug, false);
             
             // kr = KreuzKorrelation.calcKR(a, b, true, false);
             // System.out.println( "*** ### ***" );
             
             bb = initKRResults(wrong, histMaxY, histSigLevel);
-            
-            
-            
                         
          }
          catch(Exception ex) { 
@@ -151,7 +151,7 @@ public class NodePair {
             stdDev = 0.0;            
             xForMaxY = 0.0;
 
-            signLevel = CheckInfluenceOfSingelPeaks.calcStrength(kr);
+            signLevel = CCFunction.calcStrength_VERSION_B(kk);
 
             maxY = signLevel;
 
@@ -168,7 +168,8 @@ public class NodePair {
             stdDev = 0.0;            
             xForMaxY = 0.0;
 
-            signLevel = CheckInfluenceOfSingelPeaks.calcStrength(kr);
+            signLevel = CCFunction.calcStrength_VERSION_B(kk);
+
 
             maxY = signLevel;
 
@@ -184,12 +185,13 @@ public class NodePair {
             else {
                 back = true;
                 try {
-                    stdDev = kr.getStddev();
-                    maxY = kr.getMaxY();
+                    stdDev = kk.getStddev();
+                    maxY = kk.getMaxY();
                 
-                    xForMaxY = kr.getX_for_Y2( maxY, 0.01 );
+                    xForMaxY = kk.getX_for_Y2( maxY, 0.01 );
 
-                    signLevel = CheckInfluenceOfSingelPeaks.calcStrength(kr);
+                    signLevel = CCFunction.calcStrength_VERSION_B(kk);
+
 
                     /*
                     * nicht immer ein sinnvoller Wert => nur in Modus 1

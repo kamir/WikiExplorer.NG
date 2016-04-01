@@ -34,11 +34,11 @@ public class PeakedRandomNodeGroup extends NodeGroup {
     public boolean checkAccessTimeSeries() {
         if ( unchecked ) {
             for( int id : ids ) {
-                Messreihe mr = CheckInfluenceOfSingelPeaks.createRandomSeries_A_Peaks(id +  "_rand_access" );
+//                Messreihe mr = CheckInfluenceOfSingelPeaks.createRandomSeries_A_Peaks(id +  "_rand_access" );
 
                 // mr.doFilter(3);
 
-                this.getAaccessReihen().add(mr);
+//                this.getAaccessReihen().add(mr);
             }
             unchecked = false;
         }
@@ -48,8 +48,8 @@ public class PeakedRandomNodeGroup extends NodeGroup {
     @Override
     public boolean checkEditTimeSeries() {
         for( int id : ids ) {
-            Messreihe mr = CheckInfluenceOfSingelPeaks.createRandomSeries_A_Peaks( id +  "_rand_edit" );
-            this.editReihen.add(mr);
+//            Messreihe mr = CheckInfluenceOfSingelPeaks.createRandomSeries_A_Peaks( id +  "_rand_edit" );
+//            this.editReihen.add(mr);
         }
         return true;
     }

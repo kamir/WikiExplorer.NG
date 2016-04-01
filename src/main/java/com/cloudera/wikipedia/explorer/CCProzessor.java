@@ -57,8 +57,6 @@ public class CCProzessor {
             
                 KreuzKorrelation kk = np.calcCrossCorrelation();
 
-                String s = np.getLinkStrength();
-
                 String extension = "{ \"norm\":\"" + NORM + "\" }";
 
                 ResultManager.process(np, kk, bw, _ndc, hz, extension, groupKEY, runID);
@@ -104,8 +102,6 @@ public class CCProzessor {
 
         int z1 = source.size();
         int z2 = target.size();
-
-//        System.out.println( z1 + " => " + z2 );
         
         int i = 0;
         int j = 0;
@@ -136,7 +132,7 @@ public class CCProzessor {
                     
                     if (kk != null) {
                     
-                        String s = np.getLinkStrength();
+//                        String s = np.getLinkStrength();
 
                         /**
                          * wir haben ein:
@@ -152,9 +148,9 @@ public class CCProzessor {
                         
                         ResultManager.process(np, kk, bw, ndc, hz, extension, gK, runID);
 
-                        if (useRECOMMENDATION) {
-                            cont.add(np);
-                        }
+//                        if (useRECOMMENDATION) {
+//                            cont.add(np);
+//                        }
 
                     }
                 } 
@@ -197,7 +193,7 @@ public class CCProzessor {
 
             kk = np.calcCrossCorrelation();
 
-            String s = np.getLinkStrength();
+//            String s = np.getLinkStrength();
 
         } 
         catch (Exception ex) {

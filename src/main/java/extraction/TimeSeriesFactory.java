@@ -15,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import experiments.linkstrength.CheckInfluenceOfSingelPeaks;
 import experiments.crosscorrelation.KreuzKorrelation;
+import experiments.linkstrength.CCFunction;
 
 public class TimeSeriesFactory {
 //    public static String folderIn = "C:/Users/kamir/Documents/DATA raw Wiki an Financial Markets/FinanceNetworks_v1/021_DAX/accessTS/";
@@ -436,13 +437,13 @@ public class TimeSeriesFactory {
 
         KreuzKorrelation._defaultK = 45;
 
-        CheckInfluenceOfSingelPeaks._debug = true;
+//        CheckInfluenceOfSingelPeaks._debug = true;
         // CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_NORMALIZED;
         CheckInfluenceOfSingelPeaks.mode = CheckInfluenceOfSingelPeaks.mode_CC_TAU_0;
 
         KreuzKorrelation kr = KreuzKorrelation.calcKR( a, b, true, false );
 
-        double sv = CheckInfluenceOfSingelPeaks.calcStrength( kr );
+        double sv = CCFunction.calcStrength_VERSION_B( kr );
 
         System.out.println( "\n>>> sv=" + sv );
 

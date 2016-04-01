@@ -384,7 +384,7 @@ public class CCCalculator {
                         if ( v ) {
                             ccResult = np.getResultOfCC();
                             ccLine = "[" + i + "," + j + "] \t " + ccResult;
-                            if ( showKKEdits ) kksE.add( np.kr);
+                            if ( showKKEdits ) kksE.add( np.kk);
                             if ( logCrossCorrelations ) {
                                 System.out.println(w +
                                         " {*} MatrixID:=" + c + " " + "\t" + ccLine );
@@ -521,7 +521,7 @@ public class CCCalculator {
 
                                 ccLine = np.appendAdvancdeResults( ccLine );
 
-                                if ( showKKAccess )kksA.add( np.kr);
+                                if ( showKKAccess )kksA.add( np.kk);
                                 if ( logCrossCorrelations ) {
                                     if ( logCounter == 10000 ) {
                                         System.out.println( w +

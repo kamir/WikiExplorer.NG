@@ -26,7 +26,7 @@ public class ResultManager {
      *   2 = adjusted ...
      * 
      */
-    public static int mode = 2;
+    public static int mode = 1;
 
     public static void process(
             ExtendedNodePairSFE np,
@@ -40,7 +40,7 @@ public class ResultManager {
 
         counter++;
 
-        double staerkeCOUNT = getStaerke(np, mode);  
+        double staerkeCOUNT1 = getStaerke(np, mode);   
 
         String result = np._toString2(groupKEY, counter);
         
@@ -65,17 +65,20 @@ public class ResultManager {
 
         if (debug) {
             System.out.println(">>> NP : " + np.toString());
-            System.out.println(">>> NP2: " + np._toString2(groupKEY, runID));
-            System.out.println(">>> s  : " + staerkeCOUNT);
+            System.out.println(">>> NP2: " + np._toString2(groupKEY, counter));
+            System.out.println(">>> NP3: " + np._toString3(groupKEY, counter));
+            System.out.println(">>> s  : " + staerkeCOUNT1);
+            System.out.println(">>> la : " + np.getLinkA());
             System.out.println(">>> lB : " + np.getLinkB());
             System.out.println(">>> lC : " + np.getLinkC());
+            System.out.println(">>> lD : " + np.getLinkD());
         }
 
         // Welche Linkstärke wird gesammelt ?
-        if ( staerkeCOUNT > 2.0 ) _ndc.collectLink(groupKEY, np);
+//        if ( staerkeCOUNT > 2.0 ) _ndc.collectLink(groupKEY, np);
 
         // Welche LinkStärke ist zu zeigen?
-        hz.addData(staerkeCOUNT);
+        hz.addData(staerkeCOUNT1);
 
     }
     
@@ -91,6 +94,7 @@ public class ResultManager {
             case 0 :  return np.getLinkA();
             case 1 :  return np.getLinkB();
             case 2 :  return np.getLinkC();
+            case 3 :  return np.getLinkD();
 
         }
         return Double.NaN;
