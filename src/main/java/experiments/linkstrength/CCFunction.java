@@ -88,7 +88,9 @@ public class CCFunction {
             System.out.println( mr.getLabel() + "\n\tstDev=" + stdDev + 
                     "\tmaxY=" + maxY + "\t<y>=" + avY + "\tstr=" + v );
         }
+        
         return v;
+        
     };
 
     

@@ -262,7 +262,7 @@ public class KKEntropieTest {
         
         if ( true ) {
                 DecimalFormat df = new DecimalFormat("0.000");
-                MultiChart.open(v, "fluctuation function F(s) [order:" + order + "] ", "log(s)", "log(F(s))", true, "???");
+                MultiChart.open(v, "fluctuation function F(s) [order:" + order + "] ", "log(s)", "log(F(s))", true, "???", null);
                 
 //                System.out.println(" alpha = " + df.format(alpha));
 //                System.out.println("       = " + ((2 * alpha) - 1.0));

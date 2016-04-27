@@ -1,7 +1,7 @@
-/*
+/**
  
  */
-package m3.wikipedia.corpus.extractor;
+package analysis.wikipagecorpus;
  
 import m3.io.CNResultManager2;
 import java.io.File;
@@ -67,7 +67,7 @@ public class CorpusStatisticsMain2 {
 
         FileWriter fw = new FileWriter(file);
 
-        SimpleClusterConnector.initHeader(fw);
+        PageCorpusAnalyser.initHeader(fw);
 
         FileWriter bubble = RepresentationPlotBubbleChart.getWriter(studie);
 
@@ -80,7 +80,7 @@ public class CorpusStatisticsMain2 {
 
             System.out.println("> textanalysis : " + i);
 
-            DATA = DATA + SimpleClusterConnector.runPerPageCorpusTextAnalysis(wiki[i], page[i], studie, fw, mode, ext[i], rm, i, bubble);
+            DATA = DATA + PageCorpusAnalyser.runPerPageCorpusTextAnalysis(wiki[i], page[i], studie, fw, mode, ext[i], rm, i, bubble);
 
         }
 

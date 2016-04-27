@@ -263,7 +263,7 @@ public class NetDensityCalc implements Runnable {
         for (String l : langs) {
             Wiki wiki = new Wiki(l + ".wikipedia.org");
 
-            link = WikiToolHelper.isCleanPagename(link);
+            link = WikiToolHelper.ignoreUncleanPageNames(link);
 
             if (link == null) {
                 return false;

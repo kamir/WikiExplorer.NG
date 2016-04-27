@@ -53,8 +53,7 @@ import m3.wikipedia.corpus.extractor.edits.WikiHistoryExtraction2;
 import m3.wikipedia.explorer.data.WikiNode;
 import org.apache.hadoopts.statistics.HaeufigkeitsZaehlerDouble;
 import com.cloudera.wikipedia.explorer.AdvancedSequenceFileExplorer;
-import com.cloudera.wikipedia.explorer.BucketLoaderTool;
-import com.cloudera.wikipedia.explorer.CCProzessor;
+import com.cloudera.wikipedia.explorer.BucketLoaderTool; 
 import com.cloudera.wikipedia.explorer.ChartComparisonFrame;
 import com.cloudera.wikipedia.explorer.ChartFrame;
 import com.cloudera.wikipedia.explorer.ESProcessor2;
@@ -64,6 +63,7 @@ import com.cloudera.wikipedia.explorer.LocalNetFrame;
 import com.cloudera.wikipedia.explorer.MetacorrelationAnalysisV2;
 import com.cloudera.wikipedia.explorer.ResultManager;
 import com.cloudera.wikipedia.explorer.StockDataLoader2;
+import experiments.crosscorrelation.CCProzessor;
 
 /**
  *
@@ -3855,10 +3855,10 @@ System.out.println( A );
 //    private void sumUpData(int i) {
 //    }
     private void showCharts1() {
-        MultiChart.open(al, "A.L", "t", "#access", false, getMrVectorInfo(al));
-        MultiChart.open(bl, "B.L", "t", "#access", false, getMrVectorInfo(bl));
-        MultiChart.open(iwl, "IWL", "t", "#access", false, getMrVectorInfo(iwl));
-        MultiChart.open(cn, "CN", "t", "#access", false, getMrVectorInfo(cn));
+        MultiChart.open(al, "A.L", "t", "#access", false, getMrVectorInfo(al), null);
+        MultiChart.open(bl, "B.L", "t", "#access", false, getMrVectorInfo(bl), null);
+        MultiChart.open(iwl, "IWL", "t", "#access", false, getMrVectorInfo(iwl), null);
+        MultiChart.open(cn, "CN", "t", "#access", false, getMrVectorInfo(cn), null);
     }
 
     private JComponent[] showChartsRAW(int i, boolean multi) {
@@ -3945,7 +3945,7 @@ System.out.println( A );
         gtsb.putAll(v);
 
         // String CN_Name = hash.get("CN").elementAt(0).label;
-        MultiChart.open(v, "", "t", "<#access>", true, "");
+        MultiChart.open(v, "", "t", "<#access>", true, "", null);
     }
 
     private JComponent[] _showChartsAV(int i, boolean multi) {
@@ -4588,7 +4588,7 @@ System.out.println( A );
 
 
         String CN_Name = hash.get("CN").elementAt(0).label;
-        MultiChart.open(v, CN_Name, "t", "<#access>", true, "");
+        MultiChart.open(v, CN_Name, "t", "<#access>", true, "", null);
 
         MesswertTabelle tab = new MesswertTabelle();
         File f = new File("data/out/FS_" + CN_Name + "_RATIO.dat");

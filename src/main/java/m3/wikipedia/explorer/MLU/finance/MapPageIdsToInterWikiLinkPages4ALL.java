@@ -53,7 +53,7 @@ public class MapPageIdsToInterWikiLinkPages4ALL {
         BufferedReader br = new BufferedReader(fr);
         while (br.ready()) {
             String line = br.readLine();
-            line = WikiToolHelper.isCleanPagename(line);
+            line = WikiToolHelper.ignoreUncleanPageNames(line);
             if (line == null) {
                 wrong++;
             } else {

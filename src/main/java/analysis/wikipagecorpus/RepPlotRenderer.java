@@ -1,4 +1,4 @@
-package m3.wikipedia.corpus.extractor;
+package analysis.wikipagecorpus;
 
 import hadoop.cluster.connector.SimpleClusterConnector;
 import java.io.File;
@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
+import m3.util.html.HTMLRenderer;
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -19,10 +20,13 @@ import wikiapiclient.WikiORIGINAL;
 import m3.wikipedia.analysis.charts.RepresentationPlotBubbleChart;
 
 /**
- *
+ * Needs a clear refactoring ...
+ * 
+ * ... extracts go into HTMLRenderer.
+ * 
  * @author kamir
  */
-public class SnippetRenderer {
+public class RepPlotRenderer extends HTMLRenderer {
     
     public static void main(String[] args) throws IOException, ParseException {
     
@@ -34,7 +38,7 @@ public class SnippetRenderer {
 
         FileWriter fw = new FileWriter(file);
 
-        SimpleClusterConnector.initHeader(fw);
+        PageCorpusAnalyser.initHeader(fw);
 
         FileWriter bubble = RepresentationPlotBubbleChart.getWriter("snippetRendererTests");
 

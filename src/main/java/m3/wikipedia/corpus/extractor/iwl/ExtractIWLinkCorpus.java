@@ -1,5 +1,6 @@
 package m3.wikipedia.corpus.extractor.iwl;
 
+import analysis.wikipagecorpus.PageCorpusAnalyser;
 import com.cloudera.wikiexplorer.ng.app.WikipediaCorpusLoaderTool;
 import m3.wikipedia.corpus.extractor.FileNameFilter;
 import m3.io.CNResultManager2;
@@ -227,9 +228,9 @@ public class ExtractIWLinkCorpus implements Runnable {
             FileWriter fw = RepresentationPlotBubbleChart.getWriter( studie );
             
             // load corpus-file and show simple group statistics ...
-            SimpleClusterConnector.runPerPageCorpusTextAnalysis(centerPage.wiki, centerPage.page, studie, fwResults, fileMode, "", new CNResultManager2(), 1, fw);
+            PageCorpusAnalyser.runPerPageCorpusTextAnalysis(centerPage.wiki, centerPage.page, studie, fwResults, fileMode, "", new CNResultManager2(), 1, fw);
             
-            String listFile = SimpleClusterConnector.getListFile();
+            String listFile = PageCorpusAnalyser.getListFile();
                     
             fw.close();
             

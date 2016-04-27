@@ -9,10 +9,10 @@ package com.cloudera.wikipedia.explorer;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import org.openide.util.Exceptions;
-import research.ETH.ExtendedNodePairSFE;
-import statistics.HaeufigkeitsZaehlerDoubleSIMPLE;
+import research.ETH.ExtendedNodePairSFE; 
 import experiments.crosscorrelation.KreuzKorrelation;
 import m3.wikipedia.corpus.extractor.NetDensityCalc;
+import statistics.HaeufigkeitsZaehlerDoubleSIMPLE;
 
 /**
  *

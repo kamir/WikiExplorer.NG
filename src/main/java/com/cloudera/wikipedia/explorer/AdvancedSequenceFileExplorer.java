@@ -1836,10 +1836,10 @@ public class AdvancedSequenceFileExplorer extends javax.swing.JFrame {
     }
 
     private void showCharts1() {
-        MultiChart.open(al, "A.L", "t", "#access", false, getMrVectorInfo(al));
-        MultiChart.open(bl, "B.L", "t", "#access", false, getMrVectorInfo(bl));
-        MultiChart.open(iwl, "IWL", "t", "#access", false, getMrVectorInfo(iwl));
-        MultiChart.open(cn, "CN", "t", "#access", false, getMrVectorInfo(cn));
+        MultiChart.open(al, "A.L", "t", "#access", false, getMrVectorInfo(al), null);
+        MultiChart.open(bl, "B.L", "t", "#access", false, getMrVectorInfo(bl), null);
+        MultiChart.open(iwl, "IWL", "t", "#access", false, getMrVectorInfo(iwl), null);
+        MultiChart.open(cn, "CN", "t", "#access", false, getMrVectorInfo(cn), null);
     }
 
     private JComponent[] showChartsRAW(int i, boolean multi) {
@@ -1886,7 +1886,7 @@ public class AdvancedSequenceFileExplorer extends javax.swing.JFrame {
         gtsb.putAll(v);
 
         // String CN_Name = hash.get("CN").elementAt(0).label;
-        MultiChart.open(v, "", "t", "<#access>", true, "");
+        MultiChart.open(v, "", "t", "<#access>", true, "", null);
     }
 
     /**
@@ -1949,10 +1949,10 @@ public class AdvancedSequenceFileExplorer extends javax.swing.JFrame {
     }
 
     private void showChartsSUM() {
-        MultiChart.open(sum(al), "A.L", "t", "log( #access )", false, getMrVectorInfo(al));
-        MultiChart.open(sum(bl), "B.L", "t", "log( #access)", false, getMrVectorInfo(bl));
-        MultiChart.open(sum(iwl), "IWL", "t", "log( #access)", false, getMrVectorInfo(iwl));
-        MultiChart.open(sum(cn), "CN", "t", "log( #access)", false, getMrVectorInfo(cn));
+        MultiChart.open(sum(al), "A.L", "t", "log( #access )", false, getMrVectorInfo(al), null);
+        MultiChart.open(sum(bl), "B.L", "t", "log( #access)", false, getMrVectorInfo(bl), null);
+        MultiChart.open(sum(iwl), "IWL", "t", "log( #access)", false, getMrVectorInfo(iwl), null);
+        MultiChart.open(sum(cn), "CN", "t", "log( #access)", false, getMrVectorInfo(cn), null);
     }
 
     private String getMrVectorInfo(Vector<Messreihe> al) {
@@ -2145,7 +2145,7 @@ public class AdvancedSequenceFileExplorer extends javax.swing.JFrame {
 
 
         String CN_Name = hash.get("CN").elementAt(0).label;
-        MultiChart.open(v, CN_Name, "t", "<#access>", true, "");
+        MultiChart.open(v, CN_Name, "t", "<#access>", true, "", null);
     }
 
     /**

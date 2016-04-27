@@ -1,6 +1,8 @@
 package m3.wikipedia.explorer.data;
 
 import java.util.Calendar;
+import java.util.Vector;
+import java.util.logging.Logger;
 
 /**
  *
@@ -114,6 +116,25 @@ public class WikiNode extends WebNode {
         return getKey().replace( "/", "_");
     }
 
+   
+        /**
+     * DOMAIN-FUNCTION:Analysis
+     * 
+     * The property pageVolume is aggregated over a set of WikiNode objects.
+     */ 
+    public static double getSummeVolume(Vector<WikiNode> ACN) {
+        int s = 0;
+        for (WikiNode wn : ACN) {
+            if (wn.pageVolume != -1) {
+                s = s + wn.pageVolume;
+            }
+        }
+        LOG.info("CONTAINERSIZE:" + ACN.size() + " : SUM=" + s);
+        return (double) s;
+    }
+    
+    private static final Logger LOG = Logger.getLogger(WikiNode.class.getName());
+   
     
             
 }

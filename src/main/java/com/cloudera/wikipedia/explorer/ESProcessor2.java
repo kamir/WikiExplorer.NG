@@ -84,7 +84,7 @@ public class ESProcessor2 {
             } catch (Exception ex) {
                 errors++;
                 //ex.printStackTrace();
-                Logger.getLogger(CCProzessor.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ESProcessor2.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -298,7 +298,7 @@ public class ESProcessor2 {
                 } catch (Exception ex) {
                     errors++;
                     //ex.printStackTrace();
-                    Logger.getLogger(CCProzessor.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ESProcessor2.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }

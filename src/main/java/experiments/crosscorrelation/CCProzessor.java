@@ -1,3 +1,5 @@
+package experiments.crosscorrelation;
+
 /**
  * 
  * The CCProzessor calculates possible pairs of correlations.
@@ -8,8 +10,9 @@
  * 
  * 
  **/
-package com.cloudera.wikipedia.explorer;
 
+
+import com.cloudera.wikipedia.explorer.ResultManager;
 import org.apache.hadoopts.chart.simple.MultiChart;
 import org.apache.hadoopts.data.series.Messreihe;
 import java.io.BufferedWriter;
@@ -17,13 +20,12 @@ import java.util.Enumeration;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import research.ETH.ExtendedNodePair;
-import research.ETH.ExtendedNodePairSFE; 
-import statistics.HaeufigkeitsZaehlerDoubleSIMPLE;
-import experiments.crosscorrelation.KreuzKorrelation;
-import experiments.linkstrength.CheckInfluenceOfSingelPeaks;
 import m3.wikipedia.corpus.extractor.NetDensityCalc;
-
+  
+import org.apache.hadoopts.statistics.HaeufigkeitsZaehlerDouble;
+import research.ETH.ExtendedNodePairSFE;
+import statistics.HaeufigkeitsZaehlerDoubleSIMPLE;
+ 
 /**
  *
  * @author kamir
@@ -97,6 +99,7 @@ public class CCProzessor {
             BufferedWriter bw, int runID, boolean useRECOMMENDATION) {
 
         HaeufigkeitsZaehlerDoubleSIMPLE hz = initHZ(shuffle);
+        hz.label = gK + " " + shuffle;
 
         Enumeration enA = source.elements();
 
@@ -169,9 +172,9 @@ public class CCProzessor {
     public static HaeufigkeitsZaehlerDoubleSIMPLE initHZ(boolean shuffle) {
 
         HaeufigkeitsZaehlerDoubleSIMPLE hz = new HaeufigkeitsZaehlerDoubleSIMPLE();
-        hz.min = -10.0;
+        hz.min = 0.0;
         hz.max = 10.0;
-        hz.intervalle = 50;
+        hz.intervalle = 150;
 
         KreuzKorrelation.globalShuffle = shuffle;
 
@@ -179,7 +182,7 @@ public class CCProzessor {
     }
 
     public static KreuzKorrelation getPairComparison(Messreihe FD, Vector<Messreihe> grCN, boolean shuffle,
-            NetDensityCalc ndc, String fn, double ts, Vector<Messreihe> norms) {
+            Object ndc, String fn, double ts, Vector<Messreihe> norms) {
 
 
         KreuzKorrelation.GLdebug = false;

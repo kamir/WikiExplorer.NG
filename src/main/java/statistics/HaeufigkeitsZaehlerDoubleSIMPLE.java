@@ -12,13 +12,13 @@ import org.apache.commons.math3.stat.Frequency;
  */
 public class HaeufigkeitsZaehlerDoubleSIMPLE {
 
-    public static double DEFAULT_min = -100.0;
-    public static double DEFAULT_max = 100.0;
-    public static int DEFAULT_intervalle = 200;
+    public static double DEFAULT_min = -1.0;
+    public static double DEFAULT_max = 1.0;
+    public static int DEFAULT_intervalle = 150;
 
     public double min = -1.0;
     public double max = 1.0;
-    public int intervalle = 50;
+    public int intervalle = 150;
 
     public Frequency f = new Frequency();
 

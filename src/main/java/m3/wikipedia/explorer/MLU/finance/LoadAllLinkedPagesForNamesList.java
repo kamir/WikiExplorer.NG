@@ -63,7 +63,7 @@ public class LoadAllLinkedPagesForNamesList {
             }
             else {
                 deduplicator.put( tok2 , tok2 );
-                line = WikiToolHelper.isCleanPagename(tok2);
+                line = WikiToolHelper.ignoreUncleanPageNames(tok2);
                 if (line == null) {
                     wrong++;
                 } 

@@ -14,7 +14,7 @@ import java.util.HashSet;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import m3.jstat.analytics.CorpusAnalyser;
+import analysis.wikipagecorpus.CorpusAnalyser;
 import m3.jstat.data.Corpus;
 import m3.terms.TermCollectionTools;
 

@@ -7,11 +7,8 @@ package research.ETH;
 import org.apache.hadoopts.chart.simple.MultiChart;
 import org.apache.hadoopts.data.series.Messreihe;
 import java.util.Vector;
-import org.apache.hadoopts.statistics.DistributionTester;
 import research.wikinetworks.NodePair;
 import experiments.crosscorrelation.KreuzKorrelation;
-import experiments.linkstrength.CheckInfluenceOfSingelPeaks;
-import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 
 /**
  *

@@ -7,38 +7,28 @@
  *    1 chart to check individual series is created for valiation
  */
 package experiments;
-
-import com.cloudera.wikipedia.explorer.CCProzessor;
+ 
 import com.cloudera.wikipedia.explorer.ResultManager;
-import experiments.linkstrength.CheckInfluenceOfSingelPeaks;
+import experiments.crosscorrelation.CCProzessor;
+
 import org.apache.hadoopts.data.series.Messreihe;
+
 import java.util.Vector;
+
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.MessreiheFFT;
-import org.apache.hadoopts.hadoopts.core.TSBucket;
-import java.awt.Color;
-import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Hashtable;
-import javax.imageio.ImageIO;
-import javax.swing.JFrame;
-import m3.wikipedia.corpus.extractor.NetDensityCalc;
-import metadata.ExperimentDescriptor;
-import org.apache.hadoopts.app.thesis.LongTermCorrelationSeriesGenerator;
-import org.apache.commons.math3.transform.TransformType;
-import org.apache.hadoopts.app.bucketanalyser.TSOperationControlerPanel;
-import org.apache.hadoopts.chart.panels.MessreihePanel;
-import statistics.HaeufigkeitsZaehlerDoubleSIMPLE;
 
-/**
- *
- * @author kamir
- */
+import m3.wikipedia.corpus.extractor.NetDensityCalc;
+
+import metadata.ExperimentDescriptor;
+
+
+import org.apache.hadoopts.app.thesis.LongTermCorrelationSeriesGenerator;
+import org.apache.hadoopts.app.bucketanalyser.TSOperationControlerPanel;
+
+import statistics.HaeufigkeitsZaehlerDoubleSIMPLE;
 
 @ExperimentDescriptor (
    author = "Mirko Kämpf",
@@ -60,6 +50,7 @@ public class CorrelationPropertiesExperiment001 {
     static Vector<Messreihe> testsC = null;
     static Vector<Messreihe> testsD = null;
     static Vector<Messreihe> testsE = null;
+    
     static Vector<Messreihe> check = null;
 
     public static void main( String[] args ) throws Exception { 
@@ -67,18 +58,17 @@ public class CorrelationPropertiesExperiment001 {
         // never forget !!!
         stdlib.StdRandom.initRandomGen(1);
 
-//        int a1 = 20;
-//        int a2 = 12;
-//        double a3 = -2.0;
-//        int a4 = 3;
-//        boolean a5 = false;  // NOLTR
+        int a1 = 10;
+        int a2 = 14;
+        double a3 = -1.0;
+        int a4 = 3;
+        boolean a5 = false;  // NOLTR
         
-        int a1 = Integer.parseInt( args[0] );
-        int a2 = Integer.parseInt( args[1] );
-        double a3 = Double.parseDouble( args[2] );
-        int a4 = Integer.parseInt( args[3] );
-        boolean a5 = Boolean.parseBoolean( args[4] );
-        
+//        int a1 = Integer.parseInt( args[0] );
+//        int a2 = Integer.parseInt( args[1] );
+//        double a3 = Double.parseDouble( args[2] );
+//        int a4 = Integer.parseInt( args[3] );
+//        boolean a5 = Boolean.parseBoolean( args[4] );
         
         testsA = new Vector<Messreihe>();
         testsB = new Vector<Messreihe>();  
@@ -89,14 +79,13 @@ public class CorrelationPropertiesExperiment001 {
     
         // some sample frequencies ...
         double beta = a3; 
-        
-        
 
         /** 
          * Setup the project with Metadata to keep parameters and runtime logs
          */
         TSOperationControlerPanel.label_of_EXPERIMENT = "Mode_" + a4 + "_z_" + z + "_l_" + exp + "_beta_" + beta;
-        TSOperationControlerPanel.baseFolder = "/Volumes/Exp001/WikiExplorer.NG_DATA";
+
+        TSOperationControlerPanel.baseFolder = "/TSBASE/Exp2/WikiExplorer.NG_DATA";
         
         File f = new File( TSOperationControlerPanel.baseFolder + "/" + TSOperationControlerPanel.label_of_EXPERIMENT + ".tsv" );
         if ( !f.getParentFile().exists() ) f.getParentFile().mkdirs();
@@ -136,6 +125,7 @@ public class CorrelationPropertiesExperiment001 {
             
             vmr.add( Messreihe.getUniformDistribution(N, 0.0, 1.0) );
             vmr.add( Messreihe.getExpDistribution(N, 1.0) );
+            
         }
         
         String label;
@@ -165,16 +155,15 @@ public class CorrelationPropertiesExperiment001 {
         boolean showLegend = true;
         int runID = 0;
         
-        
         ResultManager.mode = a4;
         
-        HaeufigkeitsZaehlerDoubleSIMPLE r1 = CCProzessor.getPartial(testsA, testsB, false, ts, null, ndc, beta + " testsAB_RAW", bw, runID, false);
- 
-        HaeufigkeitsZaehlerDoubleSIMPLE r2 = CCProzessor.getPartial(testsA, testsB, true, ts, null, ndc, beta + "testsAB_SHUFFLE", bw, runID, false);
-        
-        Vector<Messreihe> vr = new Vector<Messreihe>();
-        vr.add( r1.getHistogramNORM() );
-        vr.add( r2.getHistogramNORM() );
+//        HaeufigkeitsZaehlerDoubleSIMPLE r1 = CCProzessor.getPartial(testsA, testsB, false, ts, null, ndc, beta + " testsAB_RAW", bw, runID, false);
+// 
+//        HaeufigkeitsZaehlerDoubleSIMPLE r2 = CCProzessor.getPartial(testsA, testsB, true, ts, null, ndc, beta + "testsAB_SHUFFLE", bw, runID, false);
+//        
+//        Vector<Messreihe> vr = new Vector<Messreihe>();
+//        vr.add( r1.getHistogramNORM() );
+//        vr.add( r2.getHistogramNORM() );
         
         /**
          * TODO:
@@ -182,14 +171,15 @@ public class CorrelationPropertiesExperiment001 {
          * Tune the MultiChartPanel with right Metadata ...
          *
          */
-        MultiChart.xRangDEFAULT_MIN = -1;
-        MultiChart.xRangDEFAULT_MAX = 1;
-        MultiChart.open( vr, true, TSOperationControlerPanel.label_of_EXPERIMENT );
+//        MultiChart.xRangDEFAULT_MIN = -1;
+//        MultiChart.xRangDEFAULT_MAX = 1;
+//        MultiChart.open( vr, true, TSOperationControlerPanel.label_of_EXPERIMENT );
         
         System.out.println(">>> Link-Creation-Mode:  " + ResultManager.mode );
         
         bw.flush();
         bw.close();
+        
         
          
     };

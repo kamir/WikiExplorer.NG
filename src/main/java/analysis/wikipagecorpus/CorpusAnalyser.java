@@ -1,6 +1,6 @@
-package m3.jstat.analytics;
+package analysis.wikipagecorpus;
 
-import util.Counter;
+import m3.util.Counter;
 import org.apache.hadoopts.chart.simple.MultiBarChart;
 import org.apache.hadoopts.chart.simple.MultiChart;
 import org.apache.hadoopts.data.series.Messreihe;
