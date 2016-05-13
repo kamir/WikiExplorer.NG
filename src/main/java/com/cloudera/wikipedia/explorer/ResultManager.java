@@ -32,7 +32,7 @@ public class ResultManager {
             ExtendedNodePairSFE np,
             KreuzKorrelation kk,
             BufferedWriter bw,
-            NetDensityCalc _ndc,
+            NetDensityCalc ndc,
             HaeufigkeitsZaehlerDoubleSIMPLE hz,
             String extension,
             String groupKEY,
@@ -79,6 +79,9 @@ public class ResultManager {
 
         // Welche LinkStärke ist zu zeigen?
         hz.addData(staerkeCOUNT1);
+        
+        
+        ndc.collectLink(groupKEY, np);
 
     }
     
@@ -88,7 +91,7 @@ public class ResultManager {
         counter = 0;        
     }
 
-    private static double getStaerke(ExtendedNodePairSFE np, int mode) {
+    public static double getStaerke(ExtendedNodePairSFE np, int mode) {
         switch ( mode ) {
 
             case 0 :  return np.getLinkA();

@@ -88,6 +88,9 @@ public class ExtendedNodePairSFE extends NodePair {
         String key1 = a.getLabel() + "_" + b.getLabel();
         String key2 = b.getLabel() + "_" + a.getLabel();
 
+        s = mrA.getLabel();
+        t = mrB.getLabel();
+        
         if (keys != null) {
 
             if (keys.contains(key1) || keys.contains(key2)) {
@@ -423,7 +426,7 @@ public class ExtendedNodePairSFE extends NodePair {
         if ( kk != null )         
             weights = kk.getResultLine2();
 
-        return (s + "\t" + t + "\t" + typ + "\t" + linkid + "\t" + label + "\t" + getLinkA() + "\t" + getLinkB() + "\t" + getLinkC() + "\t" + weights + "\t");
+        return (s + "\t" + t + "\t" + typ + "\t" + linkid + "\t" + label + "\t" + getLinkA() + "\t" + getLinkB() + "\t" + getLinkC() + "\t" + getLinkD() );
 
     };
     

@@ -3135,7 +3135,7 @@ public class SimpleSFE extends javax.swing.JFrame {
 
         _ndc._flushNetworks(runID);
         if (exportViaGephi) {
-            _ndc._flushGephiNetwork(runID);
+            _ndc._flushGephiNetwork(runID, false, -100000.0);
         }
         /**
          * STORE SUCH LISTS in a external FILE ...

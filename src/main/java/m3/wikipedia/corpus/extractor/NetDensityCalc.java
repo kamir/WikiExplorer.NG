@@ -1,6 +1,7 @@
 package m3.wikipedia.corpus.extractor;
 
-import com.itextpdf.text.PageSize; 
+import com.cloudera.wikipedia.explorer.ResultManager;
+import com.itextpdf.text.PageSize;
 import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -29,7 +30,7 @@ import org.gephi.graph.api.Node;
 import org.gephi.io.exporter.api.ExportController;
 import org.gephi.io.exporter.preview.PDFExporter;
 import org.gephi.io.exporter.spi.CharacterExporter;
-import org.gephi.io.exporter.spi.Exporter; 
+import org.gephi.io.exporter.spi.Exporter;
 import m3.util.WikiToolHelper;
 import m3.wikipedia.explorer.data.WikiNode;
 import org.etosha.core.sc.connector.external.Wiki;
@@ -38,9 +39,39 @@ import org.gephi.io.importer.api.Container;
 import org.gephi.io.importer.api.ContainerFactory;
 import org.gephi.project.api.ProjectController;
 import org.gephi.project.api.Workspace;
-import org.openide.util.Lookup; 
+import org.openide.util.Lookup;
 import research.ETH.ExtendedNodePairSFE;
 import experiments.crosscorrelation.KreuzKorrelation;
+import java.awt.Color;
+import java.util.concurrent.TimeUnit;
+import org.gephi.filters.api.FilterController;
+import org.gephi.filters.api.Query;
+import org.gephi.filters.api.Range;
+import org.gephi.layout.plugin.AutoLayout;
+import org.gephi.layout.plugin.force.StepDisplacement;
+import org.gephi.layout.plugin.force.yifanHu.YifanHuLayout;
+import org.gephi.layout.plugin.forceAtlas.ForceAtlasLayout;
+import org.gephi.layout.plugin.labelAdjust.LabelAdjust;
+import org.gephi.partition.api.Partition;
+import org.gephi.partition.api.PartitionController;
+import org.gephi.partition.plugin.NodeColorTransformer;
+import org.gephi.preview.api.PreviewController;
+import org.gephi.preview.api.PreviewModel;
+import org.gephi.preview.api.PreviewProperty;
+import org.gephi.ranking.api.Ranking;
+import org.gephi.ranking.api.RankingController;
+import org.gephi.ranking.api.Transformer;
+import org.gephi.ranking.plugin.transformer.AbstractColorTransformer;
+import org.gephi.ranking.plugin.transformer.AbstractSizeTransformer;
+import org.gephi.statistics.plugin.Degree;
+import org.gephi.statistics.plugin.GraphDistance;
+import org.gephi.statistics.plugin.Modularity;
+import org.openide.util.Exceptions;
+
+import org.gephi.filters.plugin.edge.EdgeWeightBuilder;
+import org.gephi.filters.plugin.edge.EdgeWeightBuilder.EdgeWeightFilter;
+import org.gephi.graph.api.GraphView;
+
 
 /**
  * Wir laden hier alle Gruppen und ermittlen sowohl die tatsächliche als auch
@@ -53,18 +84,26 @@ public class NetDensityCalc implements Runnable {
 
     private LocalWikipediaNetwork2 network = null;
 
-    public NetDensityCalc() {}
+    String BASE = "/TSBASE/networks/gephi_";
 
-    
+    public NetDensityCalc() {
+
+    }
+
+    public NetDensityCalc(String BASEFOLDER) {
+        BASE = BASEFOLDER;
+    }
+
     boolean verbose = false;
-    public NetDensityCalc(WikiNode wn,   boolean verbose) {
+
+    public NetDensityCalc(WikiNode wn, boolean verbose) {
         this.wn = wn;
         this.verbose = verbose;
     }
-    
+
     String version = "v4";
-    
-    static String[] pages = { "Gaels" , "Surströmming", "Sorben", "Joachim_Gauck","Stollberg/Erzgeb." }; //, "Illuminati_(Buch)" , "Sulingen", "Amoklauf_von_Erfurt"  }; // , "Stollberg"}; // {"Daimler_AG", "Sulingen", "Bad Harzburg"}; // , "Fritiof_Nilsson_Piraten"};
+
+    static String[] pages = {"Gaels", "Surströmming", "Sorben", "Joachim_Gauck", "Stollberg/Erzgeb."}; //, "Illuminati_(Buch)" , "Sulingen", "Amoklauf_von_Erfurt"  }; // , "Stollberg"}; // {"Daimler_AG", "Sulingen", "Bad Harzburg"}; // , "Fritiof_Nilsson_Piraten"};
     static String[] wikis = {"en", "sv", "de", "de", "de"};//
 
     int i = 0;
@@ -78,17 +117,16 @@ public class NetDensityCalc implements Runnable {
         NetDensityCalc nc = new NetDensityCalc();
 
 //        nc.doit(true, true);
-        int z ; //= Integer.parseInt( javax.swing.JOptionPane.showInputDialog("Index: ") );
-        
+        int z; //= Integer.parseInt( javax.swing.JOptionPane.showInputDialog("Index: ") );
+
         z = 1;
 
         boolean useBackLinks = false;
-        
+
         boolean threads = false;
-        nc._doit( threads, useBackLinks, z);
+        nc._doit(threads, useBackLinks, z);
     }
-    
-    
+
     int[] A = null;
     int[] B = null;
     int[] I = null;
@@ -109,7 +147,6 @@ public class NetDensityCalc implements Runnable {
 //            Logger.getLogger(NetDensityCalc.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
-
 //    public void doit(WikiNode wn, boolean thread, boolean back) {
 //        try {
 //            doit(thread, back); // no threads ... no backlinks
@@ -123,7 +160,6 @@ public class NetDensityCalc implements Runnable {
 //            Logger.getLogger(NetDensityCalc.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
-
     public void _doit(boolean useThreads, boolean useBacklinksss) throws IOException, ClassNotFoundException, FailedLoginException, Exception {
 
         int i = 0;
@@ -147,26 +183,25 @@ public class NetDensityCalc implements Runnable {
 //            }
         }
     }
-    
+
     public void _doit(boolean useThreads, boolean useBacklinksss, int ip) throws IOException, ClassNotFoundException, FailedLoginException, Exception {
 
-            String pn = pages[ip];
-            String w = wikis[ip];
-            i++;
+        String pn = pages[ip];
+        String w = wikis[ip];
+        i++;
 
-            WikiNode wn = new WikiNode(w, pn);
+        WikiNode wn = new WikiNode(w, pn);
 
-            NetDensityCalc ndc2 = new NetDensityCalc(wn, false);
-            ndc2._useBacklinks = useBacklinksss;
-            if (useThreads) {
-                Thread tr = new Thread(ndc2);
-                tr.start();
-            } else {
-                ndc2._grabData(wn);
-            }
+        NetDensityCalc ndc2 = new NetDensityCalc(wn, false);
+        ndc2._useBacklinks = useBacklinksss;
+        if (useThreads) {
+            Thread tr = new Thread(ndc2);
+            tr.start();
+        } else {
+            ndc2._grabData(wn);
+        }
     }
-    
-    
+
     double rhoCORE = 0.0;
     double rhoAL = 0.0;
     double rhoBL = 0.0;
@@ -177,13 +212,13 @@ public class NetDensityCalc implements Runnable {
         Wiki wiki = new Wiki(wikipedia + ".wikipedia.org"); // create a new wiki connection to en.wikipedia.org
 
         HashMap<String, String> map = wiki.getInterWikiLinks(pn);
-        
+
         System.out.println("> # of interwiki links: " + map.size());
 
         int SUMIWL = 0;
 
         SUMIWL = map.size();
-        
+
         WikiNode cnNODE = new WikiNode(wikipedia, pn);
 
         int j = 0;
@@ -196,32 +231,30 @@ public class NetDensityCalc implements Runnable {
             Wiki wikiIWL = new Wiki(key + ".wikipedia.org"); // create a new wiki connection to en.wikipedia.org
 
             WikiNode iwlNODE = new WikiNode(key, pnIWL);
-                    
+
             i++;
             IWL.put(i, iwlNODE);
-            
-            ExtendedNodePairSFE l = new ExtendedNodePairSFE( cnNODE.getKey(), iwlNODE.getKey(), "IWL" );
-            System.out.println( l.getStaticLinkLine() );
+
+            ExtendedNodePairSFE l = new ExtendedNodePairSFE(cnNODE.getKey(), iwlNODE.getKey(), "IWL");
+            System.out.println(l.getStaticLinkLine());
             enps.add(l);
 
             j++;
 
             HashMap<String, String> map2 = wikiIWL.getInterWikiLinks(pnIWL);
             SUMIWL = SUMIWL + map2.size();
-            
+
             for (String key22 : map2.keySet()) {
                 i++;
-                
-                WikiNode il_B_NODE = new WikiNode( key22, map2.get(key22) );
-                            
-                ExtendedNodePairSFE l2 = new ExtendedNodePairSFE( iwlNODE.getKey(), il_B_NODE.getKey() , "IWLB" );
-                System.out.println( l2.getStaticLinkLine() );
+
+                WikiNode il_B_NODE = new WikiNode(key22, map2.get(key22));
+
+                ExtendedNodePairSFE l2 = new ExtendedNodePairSFE(iwlNODE.getKey(), il_B_NODE.getKey(), "IWLB");
+                System.out.println(l2.getStaticLinkLine());
                 enps.add(l2);
 
             }
-            
-            
-             
+
         }
 
         DecimalFormat df = new DecimalFormat("0.000");
@@ -231,11 +264,6 @@ public class NetDensityCalc implements Runnable {
         double rho = SUMIWL / z;
 
         rhoCORE = rho;
-        
- 
-        
-        
-        
 
         System.out.println("---------------------------------\n\n\n");
         System.out.println("n        : " + n);
@@ -247,11 +275,9 @@ public class NetDensityCalc implements Runnable {
             fw.write(wikipedia + "\t" + pn + "\t" + n + "\t" + z + "\t" + SUMIWL + "\t" + df.format(rho));
             fw.newLine();
             fw.flush();
+        } else {
+            System.out.println(wikipedia + "\t" + pn + "\t" + n + "\t" + z + "\t" + SUMIWL + "\t" + df.format(rho));
         }
-        else { 
-            System.out.println( wikipedia + "\t" + pn + "\t" + n + "\t" + z + "\t" + SUMIWL + "\t" + df.format(rho));
-        }
-
 
         System.out.flush();
         System.out.println("=================================\n\n\n");
@@ -299,47 +325,43 @@ public class NetDensityCalc implements Runnable {
             }
             j++;
 
-
         }
         Wiki.Revision r = wiki.getFirstRevision(pn);
         System.out.println("*****" + r.getTimestamp().getTime());
 
     }
 
-    
     private void loadLocalNeighbors() throws IOException {
-        
-        
+
         for (WikiNode n : CN.values()) {
-            
+
             Wiki wiki = new Wiki(n.wiki + ".wikipedia.org"); // create a new wiki connection to en.wikipedia.org
 
             String[] map = wiki.getLinksOnPage(n.page);
 
             for (String key : map) {
                 i++;
-                
+
                 WikiNode alNODE = new WikiNode(n.wiki, key);
                 AL.put(i, alNODE);
-                
-                ExtendedNodePairSFE l = new ExtendedNodePairSFE( n.getKey(), alNODE.getKey() , "AL" );
-                System.out.println( l.getStaticLinkLine() );
+
+                ExtendedNodePairSFE l = new ExtendedNodePairSFE(n.getKey(), alNODE.getKey(), "AL");
+                System.out.println(l.getStaticLinkLine());
                 enps.add(l);
 
             }
-
 
             if (_useBacklinks) {
                 String[] map2 = wiki.whatLinksHere(n.page);
 
                 for (String key : map2) {
-                    
+
                     i++;
                     WikiNode alNODE = new WikiNode(n.wiki, key);
-                    AL.put(i, alNODE );
-                    
-                    ExtendedNodePairSFE l = new ExtendedNodePairSFE( alNODE.getKey(), n.getKey() , "ALB" );
-                    System.out.println( l.getStaticLinkLine() );
+                    AL.put(i, alNODE);
+
+                    ExtendedNodePairSFE l = new ExtendedNodePairSFE(alNODE.getKey(), n.getKey(), "ALB");
+                    System.out.println(l.getStaticLinkLine());
                     enps.add(l);
                 }
             }
@@ -356,8 +378,8 @@ public class NetDensityCalc implements Runnable {
                 i++;
                 WikiNode blNODE = new WikiNode(n.wiki, key);
                 BL.put(i, blNODE);
-                 ExtendedNodePairSFE l = new ExtendedNodePairSFE( n.getKey(), blNODE.getKey() , "BL" );
-                 System.out.println( l.getStaticLinkLine() );
+                ExtendedNodePairSFE l = new ExtendedNodePairSFE(n.getKey(), blNODE.getKey(), "BL");
+                System.out.println(l.getStaticLinkLine());
                 enps.add(l);
             }
 
@@ -367,8 +389,8 @@ public class NetDensityCalc implements Runnable {
                     i++;
                     WikiNode blNODE = new WikiNode(n.wiki, key);
                     BL.put(i, new WikiNode(n.wiki, key));
-                    ExtendedNodePairSFE l = new ExtendedNodePairSFE( blNODE.getKey(), n.getKey() , "BLB" );
-                    System.out.println( l.getStaticLinkLine() );
+                    ExtendedNodePairSFE l = new ExtendedNodePairSFE(blNODE.getKey(), n.getKey(), "BLB");
+                    System.out.println(l.getStaticLinkLine());
                     enps.add(l);
                 }
             }
@@ -386,7 +408,6 @@ public class NetDensityCalc implements Runnable {
         }
 
         int n = hash.size();
-
 
         for (WikiNode wn : AL.values()) {
 
@@ -561,58 +582,47 @@ public class NetDensityCalc implements Runnable {
         throw new UnsupportedOperationException("Not yet implemented");
     }
     BufferedWriter bwNL;
-    
+
     public int COUNTS = 0;
 
     public void _grabData(WikiNode wn) throws Exception {
 
-        
         CN = new Hashtable<Integer, WikiNode>();
         IWL = new Hashtable<Integer, WikiNode>();
         AL = new Hashtable<Integer, WikiNode>();
         BL = new Hashtable<Integer, WikiNode>();
 
-
         try {
-            bwNL = new BufferedWriter(new FileWriter(new File("/Volumes/MyExternalDrive/CALCULATIONS/networks/" + wn.getKeySAFEFILENAME() + "." + _useBacklinks + "."+version+".NET.log.csv")));
+            bwNL = new BufferedWriter(new FileWriter(new File("/Volumes/MyExternalDrive/CALCULATIONS/networks/" + wn.getKeySAFEFILENAME() + "." + _useBacklinks + "." + version + ".NET.log.csv")));
 
-            bwNL.write( "# \n");
-            bwNL.write( "# \n");
-            bwNL.write( "# \n");
-            bwNL.write( "# \n");
+            bwNL.write("# \n");
+            bwNL.write("# \n");
+            bwNL.write("# \n");
+            bwNL.write("# \n");
             CN.put(i, wn);
 
 //                IWL.put( i , wn );
 //                AL.put( i , wn );
 //                BL.put( i , wn );
-
             loadCore(wn.wiki, wn.page, null);
-            
+
             loadLocalNeighbors();
             loadGlobalNeighbors();
 
             calcTheorieValues(bwNL);
             calcRatios();
 
-            storeStaticNetAsCSV(new BufferedWriter(new FileWriter(new File("/Volumes/MyExternalDrive/CALCULATIONS/networks/" + wn.getKeySAFEFILENAME() + "." + _useBacklinks + "."+version+".stat.net.csv"))));
+            storeStaticNetAsCSV(new BufferedWriter(new FileWriter(new File("/Volumes/MyExternalDrive/CALCULATIONS/networks/" + wn.getKeySAFEFILENAME() + "." + _useBacklinks + "." + version + ".stat.net.csv"))));
 
-            
-            
-            
-            String fn = "/Volumes/MyExternalDrive/CALCULATIONS/networks/" + wn.getKeySAFEFILENAME() + "." + _useBacklinks + "."+version+".stat.net";
-            
-            
+            String fn = "/Volumes/MyExternalDrive/CALCULATIONS/networks/" + wn.getKeySAFEFILENAME() + "." + _useBacklinks + "." + version + ".stat.net";
 
 //            storeStaticNetAsGEPHIFile(new BufferedWriter(new FileWriter(new File(fn + ".gexf"))), fn);
-            
 //            double k[][] = calcAverageDegree();
 //
 //            A = getIntraGroupDENS(AL);
 //            B = getIntraGroupDENS(BL);
-
 //            rhoAL = (double) A[0] / (double) A[1] * (A[1] - 1);
 //            rhoBL = (double) B[0] / (double) B[1] * (B[1] - 1);
-
 //            StringBuffer sb = new StringBuffer();
 //
 //            sb.append("\n\n" + CN.elements().nextElement().getKey());
@@ -642,7 +652,6 @@ public class NetDensityCalc implements Runnable {
 //            sb.append("S2  " + S2 + "\t R2 : " + df.format(R2) + n);
 //            sb.append("S3  " + S3 + "\t R3 : " + df.format(R3) + n);
 //            sb.append("Sum " + sum + "\t SUM²" + (sum * sum) + "\t : " + S + n);
-
 //            sb.append("\n<k>_internal_IWL " + k[0][0] + n);
 //            sb.append("<k>_internal_AL  " + k[1][0] + n);
 //            sb.append("<k>_internal_BL  " + k[2][0] + n);
@@ -654,9 +663,7 @@ public class NetDensityCalc implements Runnable {
 //            sb.append("\n<k>_external_IWL " + k[0][2] + n);
 //            sb.append("<k>_external_AL  " + k[1][2] + n);
 //            sb.append("<k>_external_BL  " + k[2][2] + n);
-
 //            bwNL.write(sb.toString());
-
             bwNL.flush();
             bwNL.close();
 
@@ -664,12 +671,13 @@ public class NetDensityCalc implements Runnable {
             Logger.getLogger(NetDensityCalc.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     WikiNode wn = null;
 
     /**
-     * 
+     *
      * Interface RUNNABLE() ... wird in doIt( ... ) aufgerufen !!!
-     * 
+     *
      */
     public void run() {
 
@@ -689,30 +697,29 @@ public class NetDensityCalc implements Runnable {
         System.out.println("[NDC.Process] ... {" + wn.toString() + "} is done ...");
     }
 
-    /** 
+    /**
      * Erstelle die Linkstärken-Datei ...
-     * 
+     *
      * @param label
      * @return
-     * @throws IOException 
+     * @throws IOException
      */
     public BufferedWriter logToCCFile(String label) throws IOException {
-        
-        String fn =   label +  wn.getKey() + ".json";
-        
+
+        String fn = label + wn.getKey() + ".json";
+
         File fold = new File("/Volumes/MyExternalDrive/CALCULATIONS/CC/");
         fold.mkdir();
-        
-        System.out.println(">>> LOG label        : " + label );
-        System.out.println(">>> Output location  : " + fold + " e:" + fold.exists() + " w:" + fold.canWrite() );
-        System.out.println(">>> CREATE ResultLog : " + fn );
-        
-        BufferedWriter bwNL2 = new BufferedWriter(new FileWriter(new File( fn )));
+
+        System.out.println(">>> LOG label        : " + label);
+        System.out.println(">>> Output location  : " + fold + " e:" + fold.exists() + " w:" + fold.canWrite());
+        System.out.println(">>> CREATE ResultLog : " + fn);
+
+        BufferedWriter bwNL2 = new BufferedWriter(new FileWriter(new File(fn)));
         return bwNL2;
-        
+
     }
-    
-    
+
     public void logToAnalysisFile(String data, String label) throws IOException {
         BufferedWriter bwNL2 = new BufferedWriter(new FileWriter(new File("/Volumes/MyExternalDrive/CALCULATIONS/" + wn.getKey() + "." + label + ".csv")));
 
@@ -722,13 +729,18 @@ public class NetDensityCalc implements Runnable {
     Hashtable<String, Vector> links = new Hashtable<String, Vector>();
 
     public void _flushNetworks(int runID) {
+
+        String kkType = KreuzKorrelation.getCalcTypeLabel();
+
         BufferedWriter bwNL2;
         try {
-            bwNL2 = new BufferedWriter(new FileWriter(new File("/Volumes/MyExternalDrive/CALCULATIONS/networks/" + wn.getKey() + ".use_back_links=" + _useBacklinks + "." + runID + ".LINKNET.csv")));
 
-            bwNL2.write("Source\tTarget\tType\tId\tLabel\tWeight1\tWeight\tWeight2\n");
+            bwNL2 = new BufferedWriter(new FileWriter(new File(BASE + "_" + kkType + "." + runID + ".tsv")));
+
+            // (s + "\t" + t + "\t" + typ + "\t" + linkid + "\t" + label + "\t" + getLinkA() + "\t" + getLinkB() + "\t" + getLinkC() + "\t" + getLinkD() );
+            bwNL2.write("Source\tTarget\tType\tId\tLabel\tWeightA\tWeightB\tWeightC\tWeightD\n");
+
             for (String key : links.keySet()) {
-
 
                 int id = 0;
                 Vector v = links.get(key);
@@ -748,8 +760,8 @@ public class NetDensityCalc implements Runnable {
     }
 
     private void storeStaticNetAsCSV(BufferedWriter bw) throws IOException {
-        
-        writeLinksToStream( bw );
+
+        writeLinksToStream(bw);
 
     }
 
@@ -773,20 +785,14 @@ public class NetDensityCalc implements Runnable {
         AttributeController ac = Lookup.getDefault().lookup(AttributeController.class);
         AttributeModel model = ac.getModel();
 
-
         AttributeColumn testCol4 = model.getNodeTable().addColumn("nT", AttributeType.STRING);
 
-
         Graph undirectedGraph = graphModel.getGraph();
-
 
         int lid = addLinksToGraph(CN, bw, "CN", 0, graphModel);
         lid = addLinksToGraph(IWL, bw, "IWL", lid, graphModel);
         lid = addLinksToGraph(AL, bw, "AL", lid, graphModel);
         lid = addLinksToGraph(BL, bw, "BL", lid, graphModel);
-
-
-
 
         //Export to Writer
         ExportController ec = Lookup.getDefault().lookup(ExportController.class);
@@ -810,15 +816,7 @@ public class NetDensityCalc implements Runnable {
         outs.flush();
         outs.close();
 
-
         bw.close();
-
-
-
-
-
-
-
 
     }
 
@@ -851,14 +849,14 @@ public class NetDensityCalc implements Runnable {
             }
         }
     }
-    
+
     Vector<ExtendedNodePairSFE> enps = new Vector<ExtendedNodePairSFE>();
-    
-    private int writeLinksToStream( BufferedWriter bw) throws IOException {
+
+    private int writeLinksToStream(BufferedWriter bw) throws IOException {
 
         int lastId = 0;
-        
-        for ( ExtendedNodePairSFE enp : enps ) {
+
+        for (ExtendedNodePairSFE enp : enps) {
 
             String n1 = enp.s;
             String n2 = enp.t;
@@ -871,13 +869,12 @@ public class NetDensityCalc implements Runnable {
 
             bw.write(linkid + "\t" + n1 + "\t" + n2 + "\t" + typ + "\t" + label + "\t" + weight + "\n");
             lastId++;
-            
+
             bw.flush();
 
         }
         return lastId;
     }
-
 
 //    private int writeLinksToStreamOLD(Hashtable<Integer, WikiNode> CN, BufferedWriter bw, String key, int lastId) throws IOException {
 //        for (Integer id : CN.keySet()) {
@@ -927,7 +924,6 @@ public class NetDensityCalc implements Runnable {
 //        }
 //        return lastId;
 //    }
-
     private int addLinksToGraph(Hashtable<Integer, WikiNode> CN, BufferedWriter bw, String key, int lastId, GraphModel graphModel) throws IOException {
 
         Graph undirectedGraph = graphModel.getGraph();
@@ -941,7 +937,7 @@ public class NetDensityCalc implements Runnable {
             // Abruf aktueller Links
             Wiki wiki = new Wiki(wnSource.wiki + ".wikipedia.org"); // create a new wiki connection to en.wikipedia.org
             String[] map = wiki.getLinksOnPage(wnSource.page);
-            
+
 //            if (useBacklinks) {
 //                try { 
 //                    map2  = wiki.whatLinksHere(wnSource.page);
@@ -963,9 +959,7 @@ public class NetDensityCalc implements Runnable {
             node1.getNodeData().getAttributes().setValue("nT", key);
             undirectedGraph.addNode(node1);
 
-
             for (String pn : map) {
-
 
                 WikiNode wl = new WikiNode(wn.wiki, pn);
                 String target = wl.getKey();
@@ -976,23 +970,20 @@ public class NetDensityCalc implements Runnable {
                 String label = "(" + source + ";" + target + ")";
                 int weight = 1;
 
-                    Node node2 = graphModel.factory().newNode(target);
-                    node2.getNodeData().setLabel(target);
+                Node node2 = graphModel.factory().newNode(target);
+                node2.getNodeData().setLabel(target);
 
-                    node2.getNodeData().getAttributes().setValue("nT", key + ".LINK");
-                    undirectedGraph.addNode(node2);
+                node2.getNodeData().getAttributes().setValue("nT", key + ".LINK");
+                undirectedGraph.addNode(node2);
 
-                    Edge e1 = graphModel.factory().newEdge(node1, node2);
+                Edge e1 = graphModel.factory().newEdge(node1, node2);
 
-                    e1.getEdgeData().getAttributes().setValue("gK", typ);
-                    e1.getEdgeData().getAttributes().setValue("Id", linkid);
+                e1.getEdgeData().getAttributes().setValue("gK", typ);
+                e1.getEdgeData().getAttributes().setValue("Id", linkid);
 
-                    e1.getEdgeData().getAttributes().setValue("Weight", weight);
+                e1.getEdgeData().getAttributes().setValue("Weight", weight);
 
-                    undirectedGraph.addEdge(e1);
-
-
-               
+                undirectedGraph.addEdge(e1);
 
             }
 //
@@ -1033,7 +1024,6 @@ public class NetDensityCalc implements Runnable {
 //                };
 //            }
 
-
         }
 
         return lastId;
@@ -1042,14 +1032,22 @@ public class NetDensityCalc implements Runnable {
     public void collectLink(String groupKEY, ExtendedNodePairSFE np) {
 
         Vector v = links.get(groupKEY);
+
         if (v == null) {
             v = new Vector();
             links.put(groupKEY, v);
+            System.out.println("CREATED: " + groupKEY);
         }
+
         v.add(np);
+
     }
 
-    public void _flushGephiNetwork(int runID) {
+    AttributeModel model = null;
+    GraphModel graphModel = null;
+
+    public void _flushGephiNetwork(int runID, boolean shuffle, double TS) {
+
         BufferedWriter bwNL2;
 
         int errorsZ = 0;
@@ -1063,99 +1061,135 @@ public class NetDensityCalc implements Runnable {
         //Generate a new random graph into a container
         Container container = Lookup.getDefault().lookup(ContainerFactory.class).newContainer();
 
-        GraphModel graphModel = Lookup.getDefault().lookup(GraphController.class).getModel();
+        
+        graphModel = Lookup.getDefault().lookup(GraphController.class).getModel();
 
         AttributeController ac = Lookup.getDefault().lookup(AttributeController.class);
-        AttributeModel model = ac.getModel();
-        AttributeColumn testCol1 = model.getEdgeTable().addColumn("Weight_shiftP", AttributeType.DOUBLE);
-        AttributeColumn testCol2 = model.getEdgeTable().addColumn("Weight_shiftK", AttributeType.DOUBLE);
-        AttributeColumn testCol3 = model.getEdgeTable().addColumn("gK", AttributeType.STRING);
 
-        AttributeColumn testCol4 = model.getNodeTable().addColumn("nT", AttributeType.STRING);
+        model = ac.getModel();
 
+        AttributeColumn testCol1 = model.getEdgeTable().addColumn("Weight0", AttributeType.DOUBLE);
+        AttributeColumn testCol2 = model.getEdgeTable().addColumn("Weight1", AttributeType.DOUBLE);
+        AttributeColumn testCol3 = model.getEdgeTable().addColumn("Weight2", AttributeType.DOUBLE);
+        AttributeColumn testCol4 = model.getEdgeTable().addColumn("Weight3", AttributeType.DOUBLE);
+        AttributeColumn testCol5 = model.getEdgeTable().addColumn("gK", AttributeType.STRING);
+        AttributeColumn testCol6 = model.getNodeTable().addColumn("nT", AttributeType.STRING);
 
         Graph undirectedGraph = graphModel.getGraph();
 
         String kkType = KreuzKorrelation.getCalcTypeLabel();
 
         try {
-            File f = new File("/Volumes/MyExternalDrive/CALCULATIONS/networks/gephi_" + wn.getKey() + ".use_back_links=" + _useBacklinks + "." + kkType + "." + runID + ".graphml");
-            File f2 = new File("/Volumes/MyExternalDrive/CALCULATIONS/networks/gephi_" + wn.getKey() + ".use_back_links=" + _useBacklinks + "." + kkType + "." + runID + ".gexf");
-            File f3 = new File("/Volumes/MyExternalDrive/CALCULATIONS/networks/gephi_" + wn.getKey() + ".use_back_links=" + _useBacklinks + "." + kkType + "." + runID + ".pdf");
-            bwNL2 = new BufferedWriter(new FileWriter(f));
 
+            String wnk = "FINANCE";
+
+            if (wn != null) {
+                wnk = wn.getKey();
+            }
+
+//            File f =  new File( BASE + "_" + kkType + "." + runID + ".graphml");
+            File f2 = new File(BASE + "_" + kkType + "." + runID + ".gexf");
+//            File f3 = new File( BASE + "_" + kkType + "." + runID + ".pdf");
+
+            if (!f2.getParentFile().exists()) {
+                f2.getParentFile().mkdirs();
+            }
+
+//            bwNL2 = new BufferedWriter(new FileWriter(f));
             for (String key : links.keySet()) {
 
                 int id = 0;
                 Vector v = links.get(key);
+
                 for (Object o : v) {
+
                     id++;
 
                     ExtendedNodePairSFE l = (ExtendedNodePairSFE) o;
+
                     String type = key;
 
+                    String s = l.s;
+                    String t = l.t;
 
-                    String s = l.extractCore(l.mrA.getLabel());
+//                    System.out.println("s : " + s );
+//                    System.out.println("t : " + t );
+                    System.out.println("np: " + l.toString());
+                    System.out.println("------");
 
-                    Node node1 = graphModel.factory().newNode(s);
-                    node1.getNodeData().setLabel(s);
+                    Node node1 = undirectedGraph.getNode(s);
 
-                    String nT = this.network.getGroup(s.replaceAll("_BIN=24_log10", ""));
+                    if (node1 == null) {
 
-                    // System.out.println( nT + " => " + s );
+                        node1 = graphModel.factory().newNode(s);
 
-                    node1.getNodeData().getAttributes().setValue("nT", nT); 
-                    undirectedGraph.addNode(node1);
+                        node1.getNodeData().setLabel(s);
 
+                        node1.getNodeData().getAttributes().setValue("nT", "nT");
 
-                    String t = l.extractCore(l.mrB.getLabel());
-                    Node node2 = graphModel.factory().newNode(t);
-                    node2.getNodeData().setLabel(t);
-                    nT = this.network.getGroup(t);
+                        undirectedGraph.addNode(node1);
+                    }
 
-                    node2.getNodeData().getAttributes().setValue("nT", nT);
-                    undirectedGraph.addNode(node2);
+                    Node node2 = undirectedGraph.getNode(t);
+
+                    if (node2 == null) {
+
+                        node2 = graphModel.factory().newNode(t);
+
+                        node2.getNodeData().setLabel(t);
+
+                        node2.getNodeData().getAttributes().setValue("nT", "nT");
+
+                        undirectedGraph.addNode(node2);
+                    }
 
                     String typ = type;
                     String linkid = "" + id;
                     String label = "(" + s + ";" + t + ")";
-                    String[] weights = l.kk.getResultLine2ARRAY();
 
-                    
-                    
-                    
-                    double[] data = new double[3];
-                    boolean use = false;
-                    try {
-                        data[0] = Double.parseDouble(weights[0]);
-                        data[1] = Double.parseDouble(weights[1]);
-                        data[2] = Double.parseDouble(weights[2]);
-                        use = true;
-                    } catch (Exception ex) {
-                        use = false;
+                    double strength0 = ResultManager.getStaerke(l, 0);
+                    double strength1 = ResultManager.getStaerke(l, 1);
+                    double strength2 = ResultManager.getStaerke(l, 2);
+                    double strength3 = ResultManager.getStaerke(l, 3);
+
+                    Edge e1 = graphModel.factory().newEdge(node1, node2);
+
+                    e1.getEdgeData().getAttributes().setValue("gK", key);
+                    e1.getEdgeData().getAttributes().setValue("Weight0", strength0);
+                    e1.getEdgeData().getAttributes().setValue("Weight1", strength1);
+                    e1.getEdgeData().getAttributes().setValue("Weight2", strength2);
+                    e1.getEdgeData().getAttributes().setValue("Weight3", strength3);
+
+                    double st = 0;
+
+                    switch ( ResultManager.mode ) {
+                        case 0  : {
+                            st = strength0;
+                            break;
+                        } 
+                        case 1  : {
+                            st = strength1;
+                            break;
+                        } 
+                        case 2  : {
+                            st = strength2;
+                            break;
+                        } 
+                        case 3  : {
+                            st = strength3;
+                            break;
+                        } 
+                        
                     }
+                    
+                    e1.getEdgeData().getAttributes().setValue("Weight", st);
 
-                    if (use) {
-                        goodZ++;
-                        Edge e1 = graphModel.factory().newEdge(node1, node2);
-
-                        e1.getEdgeData().getAttributes().setValue("gK", key);
-                        e1.getEdgeData().getAttributes().setValue("Weight_shiftN", data[0]);
-                        
-                        // e1.getEdgeData().getAttributes().setValue("Weight", data[1]);
-                        e1.getEdgeData().getAttributes().setValue("Weight", l.getLinkC() );
-                        
-                        
-                        e1.getEdgeData().getAttributes().setValue("Weight_shiftP", data[2]);
-
-                        undirectedGraph.addEdge(e1);
-                    } else {
-                        errorsZ++;
-                    };
+                    undirectedGraph.addEdge(e1);
 
                 };
 
             }
+            
             //Export full graph
             ExportController ec = Lookup.getDefault().lookup(ExportController.class);
             try {
@@ -1165,36 +1199,236 @@ public class NetDensityCalc implements Runnable {
                 return;
             }
 
-            //Export to Writer
-            Exporter exporterGraphML = ec.getExporter("graphml");     //Get GraphML exporter
-            exporterGraphML.setWorkspace(workspace);
-            StringWriter stringWriter = new StringWriter();
-            ec.exportWriter(stringWriter, (CharacterExporter) exporterGraphML);
-            bwNL2.write(stringWriter.toString());
-//System.out.println(stringWriter.toString());   //Uncomment this line
+            //Init a project - and therefore a workspace
+            pc = Lookup.getDefault().lookup(ProjectController.class);
+            pc.getCurrentProject();
 
-//PDF Exporter config and export to Byte array
-            PDFExporter pdfExporter = (PDFExporter) ec.getExporter("pdf");
-            pdfExporter.setPageSize(PageSize.A0);
-            pdfExporter.setWorkspace(workspace);
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ec.exportStream(baos, pdfExporter);
-            byte[] pdf = baos.toByteArray();
+            workspace = pc.getCurrentWorkspace();
 
-            FileOutputStream outs = new FileOutputStream(f3);
-            outs.write(pdf);
-            outs.flush();
-            outs.close();
+            ec = Lookup.getDefault().lookup(ExportController.class);
 
+            System.out.println("P  : " + pc.getCurrentProject());
+            System.out.println("WS : " + workspace);
 
-            bwNL2.close();
-        } catch (IOException ex) {
+            
+            /***
+             * 
+             * 
+             * 
+             * BUILD IN PROFILER ...
+             * 
+             * 
+             * 
+             * 
+             * 
+             */
+            
+            
+            
+//            if ( !shuffle )
+//                storeImage(new File(BASE + "_" + kkType + "." + runID), "gephi_" + kkType + "." + runID + "_" + TS, TS );
+
+        } catch (Exception ex) {
             Logger.getLogger(NetDensityCalc.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        // javax.swing.JOptionPane.showMessageDialog(new JFrame(), "good: " + goodZ + " errors: " + errorsZ );
+    }
 
-        // javax.swing.JOptionPane.showMessageDialog(new JFrame(), "good: " + goodZ + " errors: " + errorsZ );
+    public void storeImage(File folderOut, String label, double TS ) {
+
+        System.out.println(">>> SNAProfiler ### Write profile to folder:" + folderOut.getAbsolutePath());
+
+        BufferedWriter bw = null;
+        try {
+
+            folderOut.mkdirs();
+
+            bw = new BufferedWriter(new FileWriter(folderOut.getAbsolutePath() + "/" + label + "_MST.csv"));
+
+            
+            
+            
+            
+            
+            
+            
+//        //Filter, remove degree < 10
+//        FilterController filterController = Lookup.getDefault().lookup(FilterController.class);
+//        
+//        EdgeWeightFilter eFilter = new EdgeWeightFilter();
+//        
+//        eFilter.init(graphModel.getGraph());
+//        
+//        Range r = new Range( 1 , 10 );
+//        
+//        eFilter.setRange( r );
+//        
+//        //Remove nodes with degree < 10
+//        Query query = filterController.createQuery(eFilter);
+//        
+//        GraphView view = filterController.filter(query);
+//        
+//        
+//        graphModel.setVisibleView(view);    //Set the filter result as the visible view
+            
+            
+            
+            
+            //Rank color by Degree
+            RankingController rankingController = Lookup.getDefault().lookup(RankingController.class);
+            Ranking degreeRanking = rankingController.getModel().getRanking(Ranking.NODE_ELEMENT, Ranking.DEGREE_RANKING);
+            AbstractColorTransformer colorTransformer = (AbstractColorTransformer) rankingController.getModel().getTransformer(Ranking.NODE_ELEMENT, Transformer.RENDERABLE_COLOR);
+            /**
+             * The following example lets colors change from blue over white
+             * over green to red for the intervals from 0.0..0.33..0.66..1.0
+             */
+            float[] positions = {0f, 0.33f, 0.66f, 1f};
+            colorTransformer.setColorPositions(positions);
+            Color[] colors = new Color[]{new Color(0x0000FF), new Color(0xFFFFFF), new Color(0x00FF00), new Color(0xFF0000)};
+            colorTransformer.setColors(colors);
+            rankingController.transform(degreeRanking, colorTransformer);
+
+            /**
+             *
+             * Partitioning
+             *
+             */
+//            dumpModelSchema(aModel);
+
+            System.out.println( "g:" + graphModel );
+            System.out.println( "m:" + model );
+
+
+            //Get Centrality
+            GraphDistance distance = new GraphDistance();
+            distance.setDirected(true);
+            distance.execute(graphModel, model);
+            
+            
+            
+            System.out.println("### SNAProfiler ### Run Distances analysis. " + graphModel + " " + model);
+
+//            dumpModelSchema(aModel);
+            Degree degree = new Degree();
+            degree.execute(graphModel, model);
+            System.out.println("### SNAProfiler ### Run Degree analysis. " + graphModel + " " + model);
+
+//            dumpModelSchema(aModel);
+            //Run modularity algorithm - community detection
+            Modularity modularity = new Modularity();
+            modularity.execute(graphModel, model);
+            System.out.println("### SNAProfiler ### Run Modularity analysis. " + graphModel + " " + model);
+
+//            dumpModelSchema(aModel);
+            //Partition with 'modularity_class', just created by Modularity algorithm
+            AttributeColumn modColumn = model.getNodeTable().getColumn(Modularity.MODULARITY_CLASS);
+            PartitionController partitionController = Lookup.getDefault().lookup(PartitionController.class);
+            Partition p2 = partitionController.buildPartition(modColumn, graphModel.getDirectedGraph());
+            System.out.println("### SNAProfiler ### Run PARTITIONER. " + graphModel + " " + model);
+
+            System.out.println(">>> " + p2.getPartsCount() + " partitions found");
+            NodeColorTransformer nodeColorTransformer2 = new NodeColorTransformer();
+            nodeColorTransformer2.randomizeColors(p2);
+            partitionController.transform(p2, nodeColorTransformer2);
+
+            /**
+             * RANKING
+             *
+             */
+            //Rank size by centrality
+            Ranking degreeRanking2 = rankingController.getModel().getRanking(Ranking.NODE_ELEMENT, Ranking.DEGREE_RANKING);
+            AbstractSizeTransformer sizeTransformer = (AbstractSizeTransformer) rankingController.getModel().getTransformer(Ranking.NODE_ELEMENT, Transformer.RENDERABLE_SIZE);
+            sizeTransformer.setMinSize(1f);
+            sizeTransformer.setMaxSize(5f);
+            rankingController.transform(degreeRanking2, sizeTransformer);
+
+            //Rank label size - set a multiplier size
+            AttributeColumn centralityColumn = model.getNodeTable().getColumn(GraphDistance.BETWEENNESS);
+            Ranking centralityRanking2 = rankingController.getModel().getRanking(Ranking.NODE_ELEMENT, centralityColumn.getId());
+            AbstractSizeTransformer labelSizeTransformer = (AbstractSizeTransformer) rankingController.getModel().getTransformer(Ranking.NODE_ELEMENT, Transformer.LABEL_SIZE);
+            labelSizeTransformer.setMinSize(22f);
+            labelSizeTransformer.setMaxSize(48f);
+            rankingController.transform(centralityRanking2, labelSizeTransformer);
+            //Layout for 1 minute
+
+            int t = 5;
+
+            System.out.println(">>> AutoLayout uses: " + t + " seconds for rendering.");
+
+            AutoLayout autoLayout = new AutoLayout(t, TimeUnit.SECONDS);
+            autoLayout.setGraphModel(graphModel);
+            YifanHuLayout firstLayout = new YifanHuLayout(null, new StepDisplacement(1f));
+            ForceAtlasLayout secondLayout = new ForceAtlasLayout(null);
+            LabelAdjust thirdLayout = new LabelAdjust(null);
+            AutoLayout.DynamicProperty adjustBySizeProperty = AutoLayout.createDynamicProperty("forceAtlas.adjustSizes.name", Boolean.TRUE, 0.1f);//True after 10% of layout time
+            AutoLayout.DynamicProperty repulsionProperty = AutoLayout.createDynamicProperty("forceAtlas.repulsionStrength.name", new Double(500.), 0f);//500 for the complete period
+            autoLayout.addLayout(firstLayout, 0.1f);
+            autoLayout.addLayout(secondLayout, 0.25f, new AutoLayout.DynamicProperty[]{adjustBySizeProperty, repulsionProperty});
+            autoLayout.addLayout(thirdLayout, 0.65f);
+            autoLayout.execute();
+            PreviewModel previewModel = Lookup.getDefault().lookup(PreviewController.class).getModel();
+            previewModel.getProperties().putValue(PreviewProperty.SHOW_NODE_LABELS, Boolean.TRUE);
+            previewModel.getProperties().putValue(PreviewProperty.NODE_LABEL_PROPORTIONAL_SIZE, Boolean.TRUE);
+
+//            // SpanningTree analysis
+//            /**
+//             *
+//             * Problem: Our current edges are usefull if the highest values are
+//             * used, but SpanningTree works on smallest values.
+//             *
+//             */
+//            SpanningTree st = new SpanningTree();
+//            st.execute(graphModel, aModel);
+//
+//            //Iterate over edges
+//            for (Edge e : directedGraph.getEdges().toArray()) {
+//
+//                int z = (int) e.getAttributes().getValue("Spanning Tree");
+//
+//                if (z == 1) {
+//                    System.out.println(e.getSource().getNodeData().getId() + "\t" + e.getTarget().getNodeData().getId() + "\t" + e.getWeight());
+//                    bw.write(e.getSource().getNodeData().getId() + "\t" + e.getTarget().getNodeData().getId() + "\t" + e.getWeight());
+//                    bw.write("\n");
+//                }
+//
+//            }
+//            bw.close();
+        } catch (IOException ex) {
+            Exceptions.printStackTrace(ex);
+        } finally {
+            try {
+                bw.close();
+            } catch (IOException ex) {
+                Exceptions.printStackTrace(ex);
+            }
+        }
+
+//        dumpModelSchema(aModel);
+        //Export
+        ExportController ec = Lookup.getDefault().lookup(ExportController.class);
+        try {
+            ec.exportFile(new File(folderOut.getAbsolutePath() + "/" + label + ".pdf"));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        ExportController ec2 = Lookup.getDefault().lookup(ExportController.class);
+        try {
+            ec2.exportFile(new File(folderOut.getAbsolutePath() + "/" + label + ".gexf"));
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+//        //Export
+//        ExportController ec3 = Lookup.getDefault().lookup(ExportController.class);
+//        PNGExporter exporter = (PNGExporter) ec3.getExporter("png");
+//        exporter.setHeight(900);
+//        exporter.setHeight(1400);
+//        exporter.setMargin(50);
+//        
+//        try {
+//            ec3.exportFile(new File(folderOut.getAbsolutePath() + "/" + label + ".png"),exporter);
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        }
 
     }
 
@@ -1203,10 +1437,22 @@ public class NetDensityCalc implements Runnable {
     }
 
     private boolean isInternal(WikiNode wl) {
-        if ( CN.containsValue(wl) ) return true;
-        if ( IWL.containsValue(wl) ) return true;
-        if ( AL.containsValue(wl) ) return true;
-        if ( BL.containsValue(wl) ) return true;
+        if (CN.containsValue(wl)) {
+            return true;
+        }
+        if (IWL.containsValue(wl)) {
+            return true;
+        }
+        if (AL.containsValue(wl)) {
+            return true;
+        }
+        if (BL.containsValue(wl)) {
+            return true;
+        }
         return false;
+    }
+
+    public void profile() {
+
     }
 }

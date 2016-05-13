@@ -19,6 +19,7 @@ import org.apache.hadoopts.chart.simple.MultiChart;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.text.DecimalFormat;
 
 import m3.wikipedia.corpus.extractor.NetDensityCalc;
 
@@ -51,7 +52,7 @@ public class CorrelationPropertiesExperiment004 {
     static StringBuffer log = null;
 
     static Vector<Messreihe> testsA = null;
-    static Vector<Messreihe> testsB = null; 
+    static Vector<Messreihe> testsB = null;
     static Vector<Messreihe> testsC = null;
     static Vector<Messreihe> testsD = null;
 
@@ -60,8 +61,12 @@ public class CorrelationPropertiesExperiment004 {
     static Vector<Messreihe> check1 = null;
     static Vector<Messreihe> check2 = null;
 
+    static int tsPrepMode = 0;
+
     public static void main(String[] args) throws Exception {
- 
+
+        int mode = 7;
+
         testsA = new Vector<Messreihe>();
         testsB = new Vector<Messreihe>();
         testsC = new Vector<Messreihe>();
@@ -72,42 +77,28 @@ public class CorrelationPropertiesExperiment004 {
         check1 = new Vector<Messreihe>();
         check2 = new Vector<Messreihe>();
 
- 
-
         /**
          * Setup the project with Metadata to keep parameters and runtime logs
          */
         TSOperationControlerPanel.label_of_EXPERIMENT = "EXP4";
-        
+
         TSOperationControlerPanel.baseFolder = "/TSBASE/Exp004/WikiExplorer.NG_DATA";
 
         File f = new File(TSOperationControlerPanel.baseFolder + "/" + TSOperationControlerPanel.label_of_EXPERIMENT + ".tsv");
         if (!f.getParentFile().exists()) {
             f.getParentFile().mkdirs();
         }
- 
-        /**
-         * TODO:
-         *
-         * Refactor this component ...
-         */
-        NetDensityCalc ndc = new NetDensityCalc();
 
         String resultFileName = TSOperationControlerPanel.baseFolder + "/" + TSOperationControlerPanel.label_of_EXPERIMENT + ".tsv";
-        
-        BufferedWriter bw = new BufferedWriter(new FileWriter( resultFileName ));
 
         double ts = -1000;
         boolean showLegend = true;
-        int runID = 0;
-
-        ResultManager.mode = 1;
 
         String market1 = "DAX2";
         String market2 = "SDAX";
         String market3 = "TECDAX";
         String market4 = "MDAX";
-        
+
         String folder = "/TSBASE/EXP1/";
 
         String fn1 = "Components_" + market1 + "_Close__2003_2004_2005_2006_2007_2008_2009_2010_2011_2012_2013_2014.tsb.vec.seq";
@@ -125,183 +116,323 @@ public class CorrelationPropertiesExperiment004 {
         loader2.loadBucketData(folder + fn2);
         loader3.loadBucketData(folder + fn3);
         loader4.loadBucketData(folder + fn4);
+
+        if (mode == 1) {
+            ResultManager.mode = 0;                            // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 1; // 2-1 TS-PREP-MODE
+        }
+
+        if (mode == 2) {
+            ResultManager.mode = 0; // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 2; // 2-1 TS-PREP-MODE
+        }
+        if (mode == 3) {
+
+            ResultManager.mode = 2; // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 1; // 2-1 TS-PREP-MODE
+        }
+        if (mode == 4) {
+
+            ResultManager.mode = 2; // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 2; // 2-1 TS-PREP-MODE
+        }
+
+        if (mode == 5) {
+
+            ResultManager.mode = 0; // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 0; // 2-1 TS-PREP-MODE
+        }
         
-        testsA = normalizeAll( loader1.getBucketData());
-        testsB = normalizeAll( loader2.getBucketData());
-        testsC = normalizeAll( loader3.getBucketData());
-        testsD = normalizeAll( loader4.getBucketData() );
+        if (mode == 6) {
+
+            ResultManager.mode = 2; // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 0; // 2-1 TS-PREP-MODE
+        }
+
+        if (mode == 7) {
+
+            ResultManager.mode = 0; // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 3; // 2-1 TS-PREP-MODE
+        }
+        
+        if (mode == 8) {
+
+            ResultManager.mode = 2; // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 3; // 2-1 TS-PREP-MODE
+        
+        }
+
+        if (mode == 9) {
+
+            ResultManager.mode = 1; // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 0;  
+        }
+        
+        if (mode == 10) {
+
+            ResultManager.mode = 1; // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 1;  
+        }
+
+        if (mode == 11) {
+
+            ResultManager.mode = 1; // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 2;  
+        }
+        
+        if (mode == 12) {
+
+            ResultManager.mode = 1; // LINK TYPE 0-2
+            CorrelationPropertiesExperiment004.tsPrepMode = 3;  
+            
+        }
+        
+        
+        
+        
+        boolean doShuffle = true;
+
+//        int max = l.length;
+        testsA = normalizeAll(loader1.getBucketData());
+        testsB = normalizeAll(loader2.getBucketData());
+        testsC = normalizeAll(loader3.getBucketData());
+        testsD = normalizeAll(loader4.getBucketData());
 
 //        MultiChart.open(testsA, true, "raw " + market1);
 //        MultiChart.open(testsB, true, "raw " + market2);
 //        MultiChart.open(testsC, true, "raw " + market3);
 //        MultiChart.open(testsD, true, "raw " + market4);
-        
-        labelAllSeries( testsA, market1 );
-        labelAllSeries( testsB, market2 );
-        labelAllSeries( testsC, market3 );
-        labelAllSeries( testsD, market4 );
-        
+        labelAllSeries(testsA, market1);
+        labelAllSeries(testsB, market2);
+        labelAllSeries(testsC, market3);
+        labelAllSeries(testsD, market4);
+
         testsALL.addAll(testsA);
         testsALL.addAll(testsB);
         testsALL.addAll(testsC);
         testsALL.addAll(testsD);
-        
-        
-        int[] u = { 25,  400, 600,  920, 1500, 1750, 2020, 2220, 2420, 2620, 286, 820, 1065, 1300, 2060};
-        int[] o = { 275, 630, 830, 1050, 1740, 2030, 2220, 2420, 2620, 2900, 420, 930, 1300, 1540, 2265};
-        String[] l = { "⇗", "⇗","⇗","⇗","⇗","⇗","⇗","⇗","⇗","⇗", "↓","↓","↓","↓","↓"};
-        int[] c = { 0,0,0,0,0,0,0,0,0,0, 1,1,1,1,1};
-        
+
+        int[] u = {25, 2060, 400, 600, 920, 1500, 1750, 2020, 2220, 2420, 2620, 286, 820, 1065, 1300};
+        int[] o = {275, 2265, 630, 830, 1050, 1740, 2030, 2220, 2420, 2620, 2900, 420, 930, 1300, 1540};
+        String[] l = {"⇗", "↓", "⇗", "⇗", "⇗", "⇗", "⇗", "⇗", "⇗", "⇗", "↓", "↓", "↓", "↓", "↓"};
+        int[] c = {0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1};
+
         /**
          * Lets do the quarterly loops ...
          */
         Vector<Messreihe> vr1 = new Vector<Messreihe>();
         Vector<Messreihe> vr2 = new Vector<Messreihe>();
-        
-        ResultManager.mode = 2;
-        
-//            case 0 :  return np.getLinkA();
-//            case 1 :  return np.getLinkB();
-//            case 2 :  return np.getLinkC();
-//            case 3 :  return np.getLinkD();
 
-        for( int i=0; i < l.length; i++ ) {
+//        int max = 1;
+        int max = u.length;
 
-            Vector<Messreihe> testsALLs = cut( testsALL, u[i], o[i] );
-            
+        NetDensityCalc ndc = null;
+
+        MultiChart.setDefaultRange = false;
+        MultiChart.df1 = new DecimalFormat("0.00");
+        MultiChart.df2 = new DecimalFormat("0.00");
+
+        for (int i = 0; i < max; i++) {
+
+            int runID = i;
+
+            String fn11 = "/TSBASE/networks/" + l[i] + "gephi_" + tsPrepMode + "_" + ResultManager.mode + "_" + runID;
+
+            File f11 = new File(fn11);
+            f11.mkdirs();
+
+            BufferedWriter bw = new BufferedWriter(new FileWriter(fn11 + "/" + l[i] + "gephi_" + tsPrepMode + "_" + ResultManager.mode + "_" + runID + "_list.tsv"));
+
+            ndc = new NetDensityCalc(fn11);
+
+            Vector<Messreihe> testsALLs = cut(testsALL, u[i], o[i]);
+
             Messreihe c1 = Messreihe.averageForAll(testsALLs);
-            c1.setLabel( "AV " + l[i]+ " R" + i );
-            
-            if ( c[i] == 0 ) check1.add(c1);
-            else check2.add( c1 );
-            
-//            MultiChart.open(testsALLs, false, TSOperationControlerPanel.label_of_EXPERIMENT + " " + (i*180) );
-////
-            HaeufigkeitsZaehlerDoubleSIMPLE r1 = CCProzessor.getPartial(testsALLs, testsALLs, false, ts, null, ndc, "ALL" + "_RAW", bw, runID, false);
-////
-//////            HaeufigkeitsZaehlerDoubleSIMPLE r2 = CCProzessor.getPartial(testsALLs, testsALLs, true, ts, null, ndc, "ALL" + "_SHUFFLE", bw, runID, false);
-////
-            Messreihe mr1 = r1.getHistogramNORM();
-            mr1.setLabel( l[i]+ "R" + i);
-            
-////            Messreihe mr2 = r2.getHistogramNORM();
-////            mr2.setLabel( l[i]+ "S" + i);
-            
-            if ( c[i] == 0 ) vr1.add(mr1);
-            else vr2.add( mr1 );
-            
-//            vr.add(mr2);
+            c1.setLabel("AV " + l[i] + " R" + i);
+
+            if (c[i] == 0) {
+                check1.add(c1);
+            } else {
+                check2.add(c1);
+            }
+
+//            // MultiChart.open(testsALLs, false, TSOperationControlerPanel.label_of_EXPERIMENT + " " + u[i] + " - " + o[i] + " " + tsPrepMode + "_" + ResultManager.mode + "_" + runID);
+//            HaeufigkeitsZaehlerDoubleSIMPLE r1 = CCProzessor.getPartial(testsALLs, testsALLs, false, ts, null, ndc, "ALL" + "_RAW", bw, runID, false);
+//
+//            Messreihe mr1 = r1.getHistogramNORM();
+//            mr1.setLabel(l[i] + "R" + i);
+//
+//            if (c[i] == 0) {
+//                vr1.add(mr1);
+//            } else {
+//                vr2.add(mr1);
+//            }
+
+//            if (doShuffle) {
+//
+//                HaeufigkeitsZaehlerDoubleSIMPLE r2 = CCProzessor.getPartial(testsALLs, testsALLs, true, ts, null, ndc, "ALL" + "_SHUFFLE", bw, runID, false);
+//                Messreihe mr2 = r2.getHistogramNORM();
+//
+//                mr2.setLabel(l[i] + "S" + i);
+//
+//                if (c[i] == 0) {
+//                    vr1.add(mr2);
+//                } else {
+//                    vr2.add(mr2);
+//                }
+//            }
+
+            bw.flush();
+            bw.close();
+
         }
-        /**
-         * TODO:
-         *
-         * Tune the MultiChartPanel with right Metadata ...
-         *
-         */
+
         MultiChart.xRangDEFAULT_MIN = -1;
         MultiChart.xRangDEFAULT_MAX = 1;
-        MultiChart.open(vr1, true, "UP ⇗ " + TSOperationControlerPanel.label_of_EXPERIMENT);
-        MultiChart.open(vr2, true, "DOWNN ↓ " + TSOperationControlerPanel.label_of_EXPERIMENT);
+        MultiChart.open(vr1, true, "UP ⇗ " + TSOperationControlerPanel.label_of_EXPERIMENT + " " + tsPrepMode + "_" + ResultManager.mode);
+        MultiChart.open(vr2, true, "DOWNN ↓ " + TSOperationControlerPanel.label_of_EXPERIMENT + " " + tsPrepMode + "_" + ResultManager.mode);
 
-        MultiChart.open(check1, true, TSOperationControlerPanel.label_of_EXPERIMENT + "_check");
-        MultiChart.open(check2, true, TSOperationControlerPanel.label_of_EXPERIMENT + "_check");
+        MultiChart.open(check1, true, TSOperationControlerPanel.label_of_EXPERIMENT + "_check1 " + tsPrepMode + "_" + ResultManager.mode);
+        MultiChart.open(check2, true, TSOperationControlerPanel.label_of_EXPERIMENT + "_check1 " + tsPrepMode + "_" + ResultManager.mode);
 
-        System.out.println(">>> Link-Creation-Mode:  " + ResultManager.mode);
-        System.out.println(">>> ALL:  " + testsALL.size() );
-        System.out.println(">>> FN :  " + resultFileName );
-        
-        
-        
+        System.out.println(">>> TS-Prep-Mode       :  " + tsPrepMode);
+        System.out.println(">>> Link-Creation-Mode :  " + ResultManager.mode);
+        System.out.println(">>> ALL :  " + testsALL.size());
+        System.out.println(">>> FN  :  " + resultFileName);
 
-        bw.flush();
-        bw.close();
     }
 
     private static void labelAllSeries(Vector<Messreihe> v, String l) {
-        for( Messreihe mr : v)
-            mr.setLabel( l + "___" + mr.getLabel() );
+        for (Messreihe mr : v) {
+            mr.setLabel(l + "___" + mr.getLabel());
+        }
     }
 
-    
-    /***
-     * 
-     * 
+    /**
+     * *
+     *
+     *
      * Now we tune the preprocessin ...
-     * 
+     *
      * @param v
-     * @return 
+     * @return
      */
     private static Vector<Messreihe> normalizeAll(Vector<Messreihe> v) {
-        
+
         Vector<Messreihe> vmr = new Vector<Messreihe>();
-        
-        for( Messreihe mr : v) {
-           
-            // (A)
-             Messreihe mr2 = mr.normalizeToStdevIsOne();
-           
-            // (B)
-            
-//            Messreihe mr2 = getLogReturn( mr );
-           
-           vmr.add(mr2);
-           
+
+        for (Messreihe mr : v) {
+
+            Messreihe mr2 = null;
+
+            switch (CorrelationPropertiesExperiment004.tsPrepMode) {
+
+                case 0:
+                    mr2 = mr.normalizeToStdevIsOne();
+                    break;
+
+                case 1:
+                    mr2 = getLogReturn(mr);
+                    break;
+
+                case 2:
+                    mr2 = getDiff(mr);
+                    break;
+
+                case 3:
+                    mr2 = mr;
+                    break;
+
+            }
+
+            if (mr2 != null) {
+                vmr.add(mr2);
+            }
+
         }
-        
+
         return vmr;
-        
+
     }
 
     private static Vector<Messreihe> cut(Vector<Messreihe> v, int von, int bis) {
-        
+
         Vector<Messreihe> vmr = new Vector<Messreihe>();
-        
-        for( Messreihe mr : v) {
-           
+
+        for (Messreihe mr : v) {
+
             Messreihe mr2 = mr.cutOut(von, bis);
-            
-            System.out.println( mr2.getMinX() + "=>" + mr2.getMaxX() );
+
+            System.out.println(mr2.getMinX() + "=>" + mr2.getMaxX());
             vmr.add(mr2);
-           
+
         }
-        
-        return vmr;    
+
+        return vmr;
     }
 
-    private static Messreihe getLogReturn(Messreihe m) {
- 
-        
+    private static Messreihe getDiff(Messreihe m) {
+
         Messreihe mr = new Messreihe();
-        
-        mr.setLabel( m.getLabel() + "_RelDiff");
+
+        mr.setLabel(m.getLabel() + "_Diff");
 
         int len = m.xValues.size();
 
         // calc diffs from data
         double delta = 0.0;
-        double logDelta = 0.0;
+
         double now = 0.0;
-        
-        double last = (Double)m.yValues.elementAt(0);
-        
+
+        double last = (Double) m.yValues.elementAt(0);
+
         for (int i = 0; i < len; i++) {
-            
-            now = (Double)m.yValues.elementAt(i);
-            
+
+            now = (Double) m.yValues.elementAt(i);
+
             delta = now - last;
-            
-            logDelta = delta / last;
-            
+
             last = now;
-             
-            mr.addValuePair(i, Math.log( logDelta + 1 ) );
-        
+
+            mr.addValuePair(i, delta);
+
         }
 
         return mr;
-     
-    
+
     }
-    
+
+    private static Messreihe getLogReturn(Messreihe m) {
+
+        Messreihe mr = new Messreihe();
+
+        mr.setLabel(m.getLabel() + "_LogReturn");
+
+        int len = m.xValues.size();
+
+        // calc diffs from data
+        double delta = 0.0;
+        double relDelta = 0.0;
+        double now = 0.0;
+
+        double last = (Double) m.yValues.elementAt(0);
+
+        for (int i = 0; i < len; i++) {
+
+            now = (Double) m.yValues.elementAt(i);
+
+            delta = now - last;
+
+            relDelta = delta / last;
+
+            last = now;
+
+            mr.addValuePair(i, Math.log(relDelta + 1));
+
+        }
+
+        return mr;
+
+    }
 
 }

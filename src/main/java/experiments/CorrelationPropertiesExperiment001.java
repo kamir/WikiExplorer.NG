@@ -19,6 +19,7 @@ import org.apache.hadoopts.chart.simple.MultiChart;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.text.DecimalFormat;
 
 import m3.wikipedia.corpus.extractor.NetDensityCalc;
 
@@ -52,23 +53,25 @@ public class CorrelationPropertiesExperiment001 {
     static Vector<Messreihe> testsE = null;
     
     static Vector<Messreihe> check = null;
+    
+    public static String BASEFOLDER = null;
 
     public static void main( String[] args ) throws Exception { 
 
         // never forget !!!
         stdlib.StdRandom.initRandomGen(1);
 
-        int a1 = 10;
-        int a2 = 14;
-        double a3 = -1.0;
-        int a4 = 3;
-        boolean a5 = false;  // NOLTR
+//        int a1 = 50;
+//        int a2 = 10;
+//        double a3 = 0.8;
+//        int a4 = 0;
+//        boolean a5 = false;  // NOLTR
         
-//        int a1 = Integer.parseInt( args[0] );
-//        int a2 = Integer.parseInt( args[1] );
-//        double a3 = Double.parseDouble( args[2] );
-//        int a4 = Integer.parseInt( args[3] );
-//        boolean a5 = Boolean.parseBoolean( args[4] );
+        int a1 = Integer.parseInt( args[0] );
+        int a2 = Integer.parseInt( args[1] );
+        double a3 = Double.parseDouble( args[2] );
+        int a4 = Integer.parseInt( args[3] );
+        boolean a5 = Boolean.parseBoolean( args[4] );
         
         testsA = new Vector<Messreihe>();
         testsB = new Vector<Messreihe>();  
@@ -85,8 +88,11 @@ public class CorrelationPropertiesExperiment001 {
          */
         TSOperationControlerPanel.label_of_EXPERIMENT = "Mode_" + a4 + "_z_" + z + "_l_" + exp + "_beta_" + beta;
 
-        TSOperationControlerPanel.baseFolder = "/TSBASE/Exp2/WikiExplorer.NG_DATA";
-        
+        if (BASEFOLDER == null)
+            TSOperationControlerPanel.baseFolder = "/TSBASE/Exp2/WikiExplorer.NG_DATA";
+        else 
+            TSOperationControlerPanel.baseFolder = BASEFOLDER;
+            
         File f = new File( TSOperationControlerPanel.baseFolder + "/" + TSOperationControlerPanel.label_of_EXPERIMENT + ".tsv" );
         if ( !f.getParentFile().exists() ) f.getParentFile().mkdirs();
             
@@ -157,25 +163,32 @@ public class CorrelationPropertiesExperiment001 {
         
         ResultManager.mode = a4;
         
-//        HaeufigkeitsZaehlerDoubleSIMPLE r1 = CCProzessor.getPartial(testsA, testsB, false, ts, null, ndc, beta + " testsAB_RAW", bw, runID, false);
-// 
-//        HaeufigkeitsZaehlerDoubleSIMPLE r2 = CCProzessor.getPartial(testsA, testsB, true, ts, null, ndc, beta + "testsAB_SHUFFLE", bw, runID, false);
-//        
-//        Vector<Messreihe> vr = new Vector<Messreihe>();
-//        vr.add( r1.getHistogramNORM() );
-//        vr.add( r2.getHistogramNORM() );
+        HaeufigkeitsZaehlerDoubleSIMPLE r1 = CCProzessor.getPartial(testsA, testsB, false, ts, null, ndc, beta + " testsAB_RAW", bw, runID, false);
+ 
+        HaeufigkeitsZaehlerDoubleSIMPLE r2 = CCProzessor.getPartial(testsA, testsB, true, ts, null, ndc, beta + "testsAB_SHUFFLE", bw, runID, false);
+        
+        Vector<Messreihe> vr = new Vector<Messreihe>();
+        vr.add( r1.getHistogramNORM() );
+        vr.add( r2.getHistogramNORM() );
         
         /**
          * TODO:
          * 
          * Tune the MultiChartPanel with right Metadata ...
-         *
          */
-//        MultiChart.xRangDEFAULT_MIN = -1;
-//        MultiChart.xRangDEFAULT_MAX = 1;
-//        MultiChart.open( vr, true, TSOperationControlerPanel.label_of_EXPERIMENT );
+        MultiChart.xRangDEFAULT_MIN = 0;
+        MultiChart.xRangDEFAULT_MAX = 12;
+        MultiChart.df1 = new DecimalFormat("0.00");
+        MultiChart.df2 = new DecimalFormat("0.00");
+        MultiChart.setDefaultRange = false;
+        MultiChart.autoscale = true; 
         
-        System.out.println(">>> Link-Creation-Mode:  " + ResultManager.mode );
+        MultiChart.open( vr, true, TSOperationControlerPanel.label_of_EXPERIMENT );
+        
+        System.out.println(">>> Link-Creation-Mode       :  " + ResultManager.mode );
+        System.out.println(">>> Link-List was written to :  " + TSOperationControlerPanel.baseFolder + "/" + TSOperationControlerPanel.label_of_EXPERIMENT + ".tsv" );
+        
+        MultiChart.persistPixNode();
         
         bw.flush();
         bw.close();

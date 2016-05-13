@@ -42,7 +42,7 @@ public class CCProzessor {
             BufferedWriter bw,
             int runID) {
 
-        HaeufigkeitsZaehlerDoubleSIMPLE hz = initHZ(shuffle);
+        HaeufigkeitsZaehlerDoubleSIMPLE hz = initHZ(shuffle, ResultManager.mode );
 
         for (int i = 0; i < target.size(); i++) {
 
@@ -94,11 +94,11 @@ public class CCProzessor {
             boolean shuffle,
             double ts,
             Vector<ExtendedNodePairSFE> cont,
-            NetDensityCalc ndc,
+            NetDensityCalc ndc1,
             String gK,
             BufferedWriter bw, int runID, boolean useRECOMMENDATION) {
 
-        HaeufigkeitsZaehlerDoubleSIMPLE hz = initHZ(shuffle);
+        HaeufigkeitsZaehlerDoubleSIMPLE hz = initHZ(shuffle, ResultManager.mode );
         hz.label = gK + " " + shuffle;
 
         Enumeration enA = source.elements();
@@ -134,9 +134,7 @@ public class CCProzessor {
                     KreuzKorrelation kk = np.calcCrossCorrelation();
                     
                     if (kk != null) {
-                    
-//                        String s = np.getLinkStrength();
-
+                     
                         /**
                          * wir haben ein:
                          *
@@ -146,15 +144,9 @@ public class CCProzessor {
                          * generator hz => HISTOGRAM
                          */
                         String extension = "{}"; //{ \"norm\":\"" + NORM + "\" }";
-
-                        // System.out.println( "***> " + s );
-                        
-                        ResultManager.process(np, kk, bw, ndc, hz, extension, gK, runID);
-
-//                        if (useRECOMMENDATION) {
-//                            cont.add(np);
-//                        }
-
+ 
+                        ResultManager.process(np, kk, bw, ndc1, hz, extension, gK, runID);
+ 
                     }
                 } 
                 catch (Exception ex) {
@@ -166,16 +158,41 @@ public class CCProzessor {
         //javax.swing.JOptionPane.showMessageDialog(null, "SOLL: " + (z1 * z2)  +"\nIST : " + i+"\nIST': " + j );
 
         hz.calcWS();
+        
+        
+        ndc1._flushGephiNetwork(runID, shuffle, 3.5);
+        
+        ndc1._flushNetworks(runID);
+        
         return hz;
     }
 
-    public static HaeufigkeitsZaehlerDoubleSIMPLE initHZ(boolean shuffle) {
+    public static HaeufigkeitsZaehlerDoubleSIMPLE initHZ(boolean shuffle, int mode) {
 
         HaeufigkeitsZaehlerDoubleSIMPLE hz = new HaeufigkeitsZaehlerDoubleSIMPLE();
-        hz.min = 0.0;
-        hz.max = 10.0;
-        hz.intervalle = 150;
+        
+        if ( mode == 1 ) {
+            
+            hz.min = -5.0;
+            hz.max = 5.0;
+            hz.intervalle = 1000;
 
+        } 
+        else if ( mode == 2 ) {
+            
+            hz.min = -50.0;
+            hz.max = 50.0;
+            hz.intervalle = 200;
+
+        } 
+        else {
+        
+            hz.min = -50.0;
+            hz.max = 50.0;
+            hz.intervalle = 500;
+
+        }
+        
         KreuzKorrelation.globalShuffle = shuffle;
 
         return hz;
