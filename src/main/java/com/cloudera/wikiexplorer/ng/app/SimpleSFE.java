@@ -416,6 +416,11 @@ public class SimpleSFE extends javax.swing.JFrame {
         jLabel5.setText(bundle1.getString("SimpleSFE.jLabel5.text")); // NOI18N
 
         jtfFolderEXTRACT.setText(bundle1.getString("SimpleSFE.jtfFolderEXTRACT.text")); // NOI18N
+        jtfFolderEXTRACT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfFolderEXTRACTActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText(bundle1.getString("SimpleSFE.jLabel6.text")); // NOI18N
 
@@ -787,7 +792,7 @@ public class SimpleSFE extends javax.swing.JFrame {
                                     .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 829, Short.MAX_VALUE)
+                            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 829, Short.MAX_VALUE)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)
@@ -868,7 +873,7 @@ public class SimpleSFE extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1693, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1728, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -881,7 +886,7 @@ public class SimpleSFE extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1693, Short.MAX_VALUE)
+            .addGap(0, 1728, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -900,7 +905,7 @@ public class SimpleSFE extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1693, Short.MAX_VALUE)
+            .addGap(0, 1737, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1199,8 +1204,8 @@ public class SimpleSFE extends javax.swing.JFrame {
     }//GEN-LAST:event_jtfSTUDIEActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        // take the foldename
+
+        
         String folderName = jtfFolderEXTRACT.getText() + "/corpus";
         JFileChooser jfc3 = new JFileChooser();
         jfc3.setSelectedFile(new File(folderName));
@@ -1228,7 +1233,8 @@ public class SimpleSFE extends javax.swing.JFrame {
         x = list.lastIndexOf("_");
         list = list.substring(0, x);
 
-        String studienname = "/home/kamir/bin/WikiExplorer/WikiExplorer/merged_listfile_" + list + ".lst";
+        String studienname = "/ETOSHA.WS/TSDB/raw/wikipedia/metadata" + "/merged_listfile_" + list + ".lst";
+
         jtLF.setText(studienname);
 
         File f = new File(studienname);
@@ -1257,6 +1263,7 @@ public class SimpleSFE extends javax.swing.JFrame {
 
         System.out.println(">>> [Selection]=" + i);
         System.out.println(">>> DO a full analysis now ... ");
+        
         /**
          * prepare STOCK DATA ...
          */
@@ -1428,7 +1435,6 @@ public class SimpleSFE extends javax.swing.JFrame {
         OriginProject op = new OriginProject();
         op.initFolder(null);
 
-
         /**
          *  defines if we calc:
          * 
@@ -1458,10 +1464,12 @@ public class SimpleSFE extends javax.swing.JFrame {
         System.out.println("> calcDepNet    : " + calcDependencyNetwork);
         System.out.println(">\n>>> DO a full analysis now ... ");
 
-
         try {
+            
             loadRowsForSelectionOnly(i);
+            
             System.out.println(">>> loaded selected data again ... ");
+            
         } 
         catch (IOException ex) {
             Logger.getLogger(SimpleSFE.class.getName()).log(Level.SEVERE, null, ex);
@@ -1489,27 +1497,33 @@ public class SimpleSFE extends javax.swing.JFrame {
         Vector<Messreihe> grDBIG = new Vector<Messreihe>();
 
         if (typ.equals("D1")) {            
+            
             IntraCorrelationAnalysis.sampling = false;            
             grA.addAll(grCN);
             grA.addAll(grIWL);
 
             grB.addAll(grAL); 
+            
         }
 
-        if (typ.equals("D2")) {            
+        if (typ.equals("D2")) {   
+            
             IntraCorrelationAnalysis.sampling = false;
             grA.addAll(grCN);
             grA.addAll(grIWL);
  
             grB.addAll(grBL);
+            
         }
 
         if (typ.equals("C")) {
+            
             grB.addAll(grCN);
             grB.addAll(grIWL);
 
             grA.addAll(grAL);
             grA.addAll(grBL);
+            
         }
 
         if (typ.equals("B")) {
@@ -1561,15 +1575,12 @@ public class SimpleSFE extends javax.swing.JFrame {
         System.out.println("> tau           : " + tau);
         System.out.println("> dtau          : " + dtau);              
               
-              
         IntraCorrelationAnalysis.op = op;
         MetacorrelationAnalysisV2.op = op;
         
         // NAME der Seite
         String name = "Meta2.";
         String symbol = "";
-
-        
         
         if (modeWikiStock) {
 
@@ -1691,16 +1702,13 @@ public class SimpleSFE extends javax.swing.JFrame {
 
         boolean shuffle = true;
 
-        // TODO add your handling code here:
-
         /**
          * lOAD JUST THIS GROUP ...
          */
         int i = this.jList1.getSelectedIndex();
         System.out.println(">>> [Selection]=" + i);
 
-        System.out.println(">>> DO a neighborhood analysis now ... ");
-
+        System.out.println(">>> We do a neighborhood analysis now ... ");
 
         try {
 
@@ -1708,28 +1716,17 @@ public class SimpleSFE extends javax.swing.JFrame {
 
             System.out.println(">>> loaded selected data again ... ");
 
-        } catch (IOException ex) {
+        } 
+        catch (IOException ex) {
             Logger.getLogger(SimpleSFE.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        /**
-         * CHARTS ...
-         */
-//        if( !jcbCC.isSelected() && ! ) { 
-//            System.out.println(">>> open a chart Frame ... ");
-//
-//            boolean multi = true;
-//            this._openFrame4Index(i, multi);
-//        }
         /*
          *  wiki-network
          * 
          */
         System.out.println(">>> Show the localNetwork details ... in the panel");
         LocalNetFrame.showNetworkForID(i, localNet, this);
-
-
-
 
 //        java.util.GregorianCalendar von = new java.util.GregorianCalendar();
 //        von.clear();
@@ -1791,7 +1788,6 @@ public class SimpleSFE extends javax.swing.JFrame {
 
         stdlib.StdRandom.initRandomGen(1);
 
-
         IntraCorrelationAnalysis.op = op;
         MetacorrelationAnalysisV2.op = op;
 
@@ -1799,12 +1795,9 @@ public class SimpleSFE extends javax.swing.JFrame {
         String name = "Neighborhood.3.";
         String symbol = "";
 
-
-
         /**
          * call the analysis function ...
          */
-        // run 
         shuffle = false;
         Vector<Messreihe> resultRowsL = IntraCorrelationAnalysis.calcIntraCorrelation2(grA_L, grB_L, tau, dtau, debug, shuffle);
         shuffle = false;
@@ -1835,10 +1828,8 @@ public class SimpleSFE extends javax.swing.JFrame {
         raw.setLabel("norm(log(access( CN )))");
         result.add(raw);
 
-
         String header = "#\n#\tNeighborhoodCorrelation \n#\tname: " + name + "\n#\n#" + "\n#\tid: " + ii + "\n#";
         String header2 = getTimeString();
-
 
         op.setHeader(header);
         op.addToHeader(header2);
@@ -1885,7 +1876,7 @@ public class SimpleSFE extends javax.swing.JFrame {
         String title = symbol + " (3) CC local vs. global neighborhood tau=" + tau;
 
         op.storeChart(result, true, title, "neighborhood.3.image1.png");
-//        
+
         try {
             op.closeAllWriter();
         } catch (IOException ex) {
@@ -2240,9 +2231,6 @@ public class SimpleSFE extends javax.swing.JFrame {
     // MC Mode C
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         try {
-            // TODO add your handling code here:
-            
-            
             
             int k = Integer.parseInt(this.jTextField4.getText());
             int index = k + Integer.parseInt(this.selectedK.getText());
@@ -2255,7 +2243,6 @@ public class SimpleSFE extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "k=[" + (-1.0 * k) + "..." + k + "], selected: " + index);
             
             KreuzKorrelation._defaultK = k;
-            //CheckInfluenceOfSingelPeaks.ID_TO_SELECT_CC_FROM = index;
             
             String nodeDATAType = (String) this.jComboBox1.getSelectedItem();
             
@@ -2266,12 +2253,14 @@ public class SimpleSFE extends javax.swing.JFrame {
             System.err.println("NDT: " + nodeDATAType);
             
             
-            String mode = javax.swing.JOptionPane.showInputDialog("Mode: ()");
+            String mode = javax.swing.JOptionPane.showInputDialog("Mode: (D1,D2,B,C)");
             
             int direction = 0;  // NO SWITCH IN DIRECTION
             
             processMetaCorrelation(mode, direction, false);  // True:  Calc Dep Network
-        } catch (IOException ex) {
+            
+        } 
+        catch (IOException ex) {
             Exceptions.printStackTrace(ex);
         }
 
@@ -2321,12 +2310,20 @@ public class SimpleSFE extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton13ActionPerformed
 
+    /**
+     * Button: Neighborhood Correlation
+     * 
+     * For a selected CN (at time index index k) 
+     * @param evt 
+     */
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
 
 
         try {
+       
             int k = Integer.parseInt(this.jTextField4.getText());
             int index = k + Integer.parseInt(this.selectedK.getText());
+            
             System.out.println(">>> Index: " + index);
             
             this.jLabel2.setText("index: " + index);
@@ -2336,20 +2333,27 @@ public class SimpleSFE extends javax.swing.JFrame {
             javax.swing.JOptionPane.showMessageDialog(this, "k=[" + (-1.0 * k) + "..." + k + "], selected: " + index);
             
             KreuzKorrelation._defaultK = k;
-            //  CheckInfluenceOfSingelPeaks.ID_TO_SELECT_CC_FROM = index;
+            
+            // Selection options are:
+            //
+            //      raw TS
+            //      semantic norm
             
             String nodeDATAType = (String) this.jComboBox1.getSelectedItem();
             
             if (nodeDATAType == null) {
                 return;
             }
-            this.computeMode = nodeDATAType;
-            System.err.println("NDT: " + nodeDATAType);
             
-            System.out.println("NEIGHBORHOOD correlation ...  ");
+            this.computeMode = nodeDATAType;
+            System.err.println("nodeDATAType : " + nodeDATAType);
+            
+            System.out.println(">>> calculate NEIGHBORHOOD correlation ...  ");
             
             processNeighborhoodCorrelation();
-        } catch (Exception ex) {
+            
+        } 
+        catch (Exception ex) {
             Exceptions.printStackTrace(ex);
         }
 
@@ -2376,6 +2380,10 @@ public class SimpleSFE extends javax.swing.JFrame {
             Exceptions.printStackTrace(ex);
         }
     }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jtfFolderEXTRACTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfFolderEXTRACTActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtfFolderEXTRACTActionPerformed
 
     
     HaeufigkeitsZaehlerDouble linksA = null;
@@ -3335,9 +3343,12 @@ public class SimpleSFE extends javax.swing.JFrame {
     boolean useHDFS = true;
 
     public void initFileSystem() throws IOException {
+        
         config = new Configuration();
 
         System.out.println(">>HDFS<< :: " + fn);
+        
+        System.out.println("    public void initFileSystem() throws IOException { ... ");
 
         config.addResource(new Path("/etc/hadoop/conf/core-site.xml"));
         config.addResource(new Path("/etc/hadoop/conf/hdfs-site.xml"));

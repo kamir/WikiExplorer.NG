@@ -1,0 +1,8 @@
+var dataC = google.visualization.arrayToDataTable([ ['Country', 'REL click'],['en',1267.0]
+,['de',1.0]
+,['fa',88.0]
+,['ko',3888.0]
+,['pl',2.0]
+,['pt',2577.0]
+]);
+
