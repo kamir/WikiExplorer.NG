@@ -1,4 +1,4 @@
-package thesis.apps.tools;
+package m3.research;
 
 /**
  *
@@ -260,25 +260,25 @@ public class SigmaBandTool extends Messreihe {
 
         Vector<Messreihe> plotRows = getTrendRows();
 
-        MultiChart.yRangDEFAULT_MAX = 100;
-        MultiChart.yRangDEFAULT_MIN = 0;
-        MultiChart.xRangDEFAULT_MAX = 6;
-        MultiChart.xRangDEFAULT_MIN = 0;
-        MultiChart.setDefaultRange = false;
+//        MultiChart.yRangDEFAULT_MAX = 100;
+//        MultiChart.yRangDEFAULT_MIN = 0;
+//        MultiChart.xRangDEFAULT_MAX = 6;
+//        MultiChart.xRangDEFAULT_MIN = 0;
+//        MultiChart.setDefaultRange = true;
 
-        String comment = "TRENDS";
+        String comment = "" + this.rows.size();
         String dir = exportFolder;
 
         File f = new File( exportFolder );
         if ( !f.exists() )
             f.mkdir();
         
-        MultiChart.openAndStore(plotRows, "SBT_TRENDS_GROUPS" + fn , "t", "y(t)", true, dir, "SBT_TRENDS_GROUPS_" + fn, comment);
+        MultiChart.openAndStore(plotRows, "SBT_TRENDS_GROUPS_" + fn , "t", "y(t)", true, dir, "SBT_TRENDS_GROUPS_" + fn, comment);
         
-        MesswertTabelle tab = new MesswertTabelle();
-        File f2 = new File(exportFolder + "/SBT_TRENDS_GROUPS" + fn + ".dat");
-        tab.setMessReihen( rows );
-        tab.writeToFile(f2);
+//        MesswertTabelle tab = new MesswertTabelle();
+//        File f2 = new File(exportFolder + "/SBT_TRENDS_GROUPS" + fn + ".dat");
+//        tab.setMessReihen( rows );
+//        tab.writeToFile(f2);
     
     }
 

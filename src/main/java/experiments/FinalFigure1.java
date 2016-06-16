@@ -37,36 +37,36 @@ public class FinalFigure1 {
         CorrelationPropertiesExperiment001.BASEFOLDER = "/Users/kamir/Documents/THESIS/dissertationFINAL/main/FINAL/LATEX/semanpix/FinalFigure1";
     
         
+        int z = 13;
         
-        
-        String[] args1 = { "50","10", "0.0" , "0", "false" };
+        String[] args1 = { "50",z+"", "0.0" , "0", "false" };
         CorrelationPropertiesExperiment001.main(args1);
         
-        String[] args2 = { "50","10", "0.0" , "2", "false" };
+        String[] args2 = { "50",z+"", "0.0" , "2", "false" };
         CorrelationPropertiesExperiment001.main(args2);
         
         
         
-        String[] args3 = { "50","10", "0.2" , "0", "false" };
+        String[] args3 = { "50",z+"", "0.2" , "0", "false" };
         CorrelationPropertiesExperiment001.main(args3);
         
-        String[] args4 = { "50","10", "0.2" , "2", "false" };
+        String[] args4 = { "50",z+"", "0.2" , "2", "false" };
         CorrelationPropertiesExperiment001.main(args4);
         
         
 
-        String[] args5 = { "50","10", "0.5" , "0", "false" };
+        String[] args5 = { "50",z+"", "0.5" , "0", "false" };
         CorrelationPropertiesExperiment001.main(args5);
         
-        String[] args6 = { "50","10", "0.5" , "2", "false" };
+        String[] args6 = { "50",z+"", "0.5" , "2", "false" };
         CorrelationPropertiesExperiment001.main(args6);
 
         
         
-        String[] args7 = { "50","10", "0.8" , "0", "false" };
+        String[] args7 = { "50",z+"", "0.8" , "0", "false" };
         CorrelationPropertiesExperiment001.main(args7);
         
-        String[] args8 = { "50","10", "0.8" , "2", "false" };
+        String[] args8 = { "50",z+"", "0.8" , "2", "false" };
         CorrelationPropertiesExperiment001.main(args8);
 
         

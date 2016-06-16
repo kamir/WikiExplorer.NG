@@ -25,12 +25,15 @@ public class CCFunction {
      */
     public static double calcStrength_VERSION_C(KreuzKorrelation kr, boolean debug ) {
     
-        double C = kr.adjustedCC;
+        double C = kr._adjustedCC;  // CC-Function at position 0 (FIXED) !!!
+        
         double CS = kr.adjustedCCSMEAN;
         double SIGMA = kr._adjustedSIGMA;
+        
         if ( debug ) System.out.println( "***"  + C + " " + " " + CS + " " + " " + SIGMA + "==>"  );
         
         double str = ( C - CS ) / SIGMA;
+        
         return str;
         
     }
@@ -133,14 +136,32 @@ public class CCFunction {
      */ 
     public static double calcStrength_VERSION_D(KreuzKorrelation kr) {
 
+        /**
+         * This code was for testing the effect of artificial peaks 
+         * on MODE 3 values .
+         * 
+         * 
+         */
+//        double check = Math.random();
+//        if ( check > 20.5 ) {
+//            kr.yValues.setElementAt( 100.0, 8 );  
+//        }
+        
+        
         // maximum der CC-Function ermitteln
-        double maxY = kr.getMaxY();
-
+        double maxYA = kr.getMaxY();
+        
+        
         Messreihe mr2 = kr.copy();
+        
+        
         
 //        System.out.println( mr2.getStatisticData("<<<") );
         
         mr2 = removeMaximumValueFromRow( mr2 );
+        
+        double maxYB = mr2.getMaxY();
+
 //        System.out.println( mr2.getStatisticData(">>>") );
         
         // mittelwert ermitteln mit dem Maximum
@@ -149,16 +170,20 @@ public class CCFunction {
         
         // Maximum entfernen (auf null setzen)  und neuen Mittelwert (zahl = zahl - 1 ) !!!!
         double mwB = mr2.getAvarage2();
-        
         double stdevB = mr2.getStddev();
         
         // Effekt in den Daten
-        double v1 = ( maxY - mwA ) / stdevA;
+        double vRAW = ( maxYA - mwA ) / stdevA;
         
         // Rauschen
-        double v2 = ( maxY - mwB ) / stdevB;
+        double vTRANSFOMRED = ( maxYB - mwB ) / stdevB;
         
-        return v2/v1;
+        
+//        System.out.println(vRAW + "\t" + vTRANSFOMRED );
+        
+//        return v2/v1;
+        return vTRANSFOMRED/vRAW;
+        
     }
 
     

@@ -90,9 +90,10 @@ public class KreuzKorrelation extends Messreihe {
     
     public double _adjustedSIGMA = 1.0;
     public double adjustedCCSMEAN = 1.0;
-    public double adjustedCC = 1.0;
+    public double _adjustedCC = 1.0;
 
     private void calcKR__adjusted(int z) throws Exception {
+        
         Messreihe mr_xl = mr_x.copy();
         Messreihe mr_yl = mr_y.copy();
 
@@ -210,11 +211,20 @@ public class KreuzKorrelation extends Messreihe {
 
 
         for (int i = k_min; i < (k_max + 1); i++) {
+
             // System.out.println( "k=" + i );
+            
+            /**
+             * This is the CC-value for a particular k to build a 
+             * Cross-Correlation Function.
+             */
             double KR = calcKRCoeffizient(mr_x, mr_y, i);
 
+            /**
+             * take value at k=0 for link calculation mode 2 ...
+             */
             if (i == 0) {
-                adjustedCC = KR;
+                _adjustedCC = KR;
             }
 
             if (KR > t_max) {

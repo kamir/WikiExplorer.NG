@@ -3,8 +3,7 @@
  * and open the template in the editor.
  */
 package bigdata.explorer.nutch.corpus.creator;
-
-import wikipedia.corpus.extractor.*;
+ 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

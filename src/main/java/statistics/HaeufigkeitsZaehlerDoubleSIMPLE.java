@@ -4,6 +4,10 @@ import org.apache.hadoopts.data.series.Messreihe;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Vector; 
+import org.apache.commons.math.stat.descriptive.moment.Kurtosis;
+import org.apache.commons.math.stat.descriptive.moment.Mean;
+import org.apache.commons.math.stat.descriptive.moment.Skewness;
+import org.apache.commons.math.stat.descriptive.moment.Variance;
 import org.apache.commons.math3.stat.Frequency;
 
 /**
@@ -11,6 +15,32 @@ import org.apache.commons.math3.stat.Frequency;
  * @author kamir
  */
 public class HaeufigkeitsZaehlerDoubleSIMPLE {
+    
+    Mean mean = new Mean();
+    Variance var = new Variance();
+    Skewness skew = new Skewness();
+    Kurtosis kurt = new Kurtosis();
+    
+    public double[] getMoments() {
+        double[] mom = new double[4];
+    
+        Double[] values = new Double[ dists.size() ];
+        double[] v = new double[ dists.size() ];
+        dists.copyInto( values );
+        int i = 0;
+        for( Double D : values ) {
+            v[i] = (double)D;
+            i++;
+        }
+        
+        mom[0] = mean.evaluate( v );
+        mom[1] = var.evaluate( v );
+        mom[2] = skew.evaluate( v );
+        mom[3] = kurt.evaluate( v );
+        
+        return mom;
+    }
+
 
     public static double DEFAULT_min = -1.0;
     public static double DEFAULT_max = 1.0;
@@ -46,7 +76,7 @@ public class HaeufigkeitsZaehlerDoubleSIMPLE {
         dists.add(value);
     }
 
-    ;
+    
 
     /**
      * Einfügen einer Reihe von Zeitpunkten und
@@ -201,6 +231,10 @@ public class HaeufigkeitsZaehlerDoubleSIMPLE {
 
     public Messreihe getHistogramNORM() {
         return mr2;
+    }
+    
+    public Messreihe getHistogramLOG() {
+        return mr2.calcMR_Log_for_Y();
     }
     
     public Messreihe getHistogram(double v) {

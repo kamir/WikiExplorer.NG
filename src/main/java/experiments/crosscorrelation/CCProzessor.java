@@ -185,6 +185,14 @@ public class CCProzessor {
             hz.intervalle = 200;
 
         } 
+        else if ( mode == 3 ) {
+            
+            hz.min = -5.0;
+            hz.max = 5.0;
+            hz.intervalle = 200;
+
+        } 
+        
         else {
         
             hz.min = -50.0;

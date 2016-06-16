@@ -22,7 +22,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.etosha.tsstore.HBasePrefixStreamLoader;
 import org.crunchts.store.TSB;
-import thesis.apps.tools.SigmaBandTool;
+import m3.research.SigmaBandTool;
 import m3.wikipedia.corpus.extractor.WikiStudieMetaData;
 import static m3.wikipedia.corpus.extractor.edits.WikiHistoryExtractionBASE.getMrFromCache;
 import static m3.wikipedia.corpus.extractor.edits.WikiHistoryExtractionBASE.pages;
