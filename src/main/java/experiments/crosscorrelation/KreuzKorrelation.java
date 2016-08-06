@@ -77,7 +77,7 @@ public class KreuzKorrelation extends Messreihe {
     double t_max = 0.0;
     double tt_max = 0.0;
     
-    public static int _defaultK = 7;
+    public static int _defaultK = 1;
 
     public static void setK(int k) {
         setK(k, -1 * k);
