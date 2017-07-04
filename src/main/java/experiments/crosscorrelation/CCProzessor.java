@@ -160,7 +160,7 @@ public class CCProzessor {
         hz.calcWS();
         
         
-        ndc1._flushGephiNetwork(runID, shuffle, 3.5);
+        /// ndc1._flushGephiNetwork(runID, shuffle, 3.5);
         
         ndc1._flushNetworks(runID);
         
@@ -173,9 +173,9 @@ public class CCProzessor {
         
         if ( mode == 1 ) {
             
-            hz.min = -5.0;
-            hz.max = 5.0;
-            hz.intervalle = 1000;
+            hz.min = -1.0;
+            hz.max = 1.0;
+            hz.intervalle = 100;
 
         } 
         else if ( mode == 2 ) {

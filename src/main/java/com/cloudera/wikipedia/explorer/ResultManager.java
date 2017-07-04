@@ -52,7 +52,8 @@ public class ResultManager {
         
         try {
             
-            bw.write(lineSHORT);
+            if ( !lineSHORT.contains("NaN") )
+                bw.write(lineSHORT);
             
         } catch (IOException ex) {
             Exceptions.printStackTrace(ex);

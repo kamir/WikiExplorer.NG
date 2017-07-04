@@ -40,7 +40,6 @@ public class ExtendedNodePairSFE extends NodePair {
         return sDep;
     }
 
-     
     public Messreihe mrA = null;
     public Messreihe mrB = null;
     public int[] esAint = null;

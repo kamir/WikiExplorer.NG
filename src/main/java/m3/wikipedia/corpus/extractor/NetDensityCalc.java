@@ -84,7 +84,7 @@ public class NetDensityCalc implements Runnable {
 
     private LocalWikipediaNetwork2 network = null;
 
-    String BASE = "/TSBASE/networks/gephi_";
+    String BASE = "/__A__/networks/gephi_";
 
     public NetDensityCalc() {
 

@@ -135,34 +135,17 @@ public class CCFunction {
      * and check results....
      */ 
     public static double calcStrength_VERSION_D(KreuzKorrelation kr) {
-
-        /**
-         * This code was for testing the effect of artificial peaks 
-         * on MODE 3 values .
-         * 
-         * 
-         */
-//        double check = Math.random();
-//        if ( check > 20.5 ) {
-//            kr.yValues.setElementAt( 100.0, 8 );  
-//        }
-        
-        
-        // maximum der CC-Function ermitteln
+       // maximum der CC-Function ermitteln
         double maxYA = kr.getMaxY();
         
-        
         Messreihe mr2 = kr.copy();
-        
-        
         
 //        System.out.println( mr2.getStatisticData("<<<") );
         
         mr2 = removeMaximumValueFromRow( mr2 );
         
         double maxYB = mr2.getMaxY();
-
-//        System.out.println( mr2.getStatisticData(">>>") );
+/        System.out.println( mr2.getStatisticData(">>>") );
         
         // mittelwert ermitteln mit dem Maximum
         double mwA = kr.getAvarage2();
@@ -177,13 +160,12 @@ public class CCFunction {
         
         // Rauschen
         double vTRANSFOMRED = ( maxYB - mwB ) / stdevB;
-        
-        
+
 //        System.out.println(vRAW + "\t" + vTRANSFOMRED );
         
 //        return v2/v1;
         return vTRANSFOMRED/vRAW;
-        
+
     }
 
     
