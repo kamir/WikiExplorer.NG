@@ -1,6 +1,6 @@
 package research.wikinetworks;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.util.Date;
 import java.util.Vector;
 import experiments.linkstrength.CheckInfluenceOfSingelPeaks;
@@ -83,15 +83,15 @@ public class NodePair {
      * @return
      * 
      */
-    public boolean _calcCrossCorrelation(NodeGroup ng, Vector<Messreihe> input, Messreihe histMaxY, Messreihe histSigLevel, Vector<NodePair> wrong) throws Exception {
+    public boolean _calcCrossCorrelation(NodeGroup ng, Vector<TimeSeriesObject> input, TimeSeriesObject histMaxY, TimeSeriesObject histSigLevel, Vector<NodePair> wrong) throws Exception {
         
         boolean back = true;
         int delay = 0;
 
         if ( CheckInfluenceOfSingelPeaks.mode == CheckInfluenceOfSingelPeaks.mode_ADVANCED ) {
 
-            Messreihe a = input.elementAt(id_A);
-            Messreihe b = input.elementAt(id_B);
+            TimeSeriesObject a = input.elementAt(id_A);
+            TimeSeriesObject b = input.elementAt(id_B);
 
             KreuzKorrelation._defaultK = 0;
             if ( debug) System.out.println("Monat: " + (NodeGroup.splitIndex+1) );
@@ -113,8 +113,8 @@ public class NodePair {
             if ( debug)  System.out.println("{ ID_A : ID_B +++ } " + id_A + " : " + id_B);
             
             boolean bb = false; 
-            Messreihe a = null;
-            Messreihe b = null;
+            TimeSeriesObject a = null;
+            TimeSeriesObject b = null;
             
             try{
                 a = input.elementAt(id_A).limitTo( 300 );
@@ -137,7 +137,7 @@ public class NodePair {
         }
     }
 
-    public boolean initKRResults( Vector<NodePair> wrong, Messreihe histMaxY, Messreihe histSigLevel ) throws Exception {
+    public boolean initKRResults( Vector<NodePair> wrong, TimeSeriesObject histMaxY, TimeSeriesObject histSigLevel ) throws Exception {
         
         boolean back = false;
 

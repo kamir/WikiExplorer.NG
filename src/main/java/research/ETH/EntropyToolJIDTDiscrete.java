@@ -3,7 +3,7 @@
  **/
 package research.ETH;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import infodynamics.measures.continuous.kernel.EntropyCalculatorKernel;
 
  
@@ -39,7 +39,7 @@ public class EntropyToolJIDTDiscrete {
      * @throws InstantiationException
      * @throws Exception 
      */
-    public static double calcEntropy(Messreihe r1, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
+    public static double calcEntropy(TimeSeriesObject r1, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
 
         double[] variable1 = r1.getYData();
 
@@ -93,7 +93,7 @@ public class EntropyToolJIDTDiscrete {
      * @throws InstantiationException
      * @throws Exception 
      */
-    public static double calcMutualInformation(Messreihe r1, Messreihe r2, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
+    public static double calcMutualInformation(TimeSeriesObject r1, TimeSeriesObject r2, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
 
         double[][] variable1 = r1.getDataT();
         double[][] variable2 = r2.getDataT();
@@ -146,7 +146,7 @@ public class EntropyToolJIDTDiscrete {
      * @throws InstantiationException
      * @throws Exception 
      */
-    public static double[] calcMutualInformationDISCRETE(Messreihe r1, Messreihe r2, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
+    public static double[] calcMutualInformationDISCRETE(TimeSeriesObject r1, TimeSeriesObject r2, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
 
         double[][] variable1 = r1.getDataT();
         double[][] variable2 = r2.getDataT();
@@ -187,7 +187,7 @@ public class EntropyToolJIDTDiscrete {
         return back;
     }
     
-    public static double calcEntropyDISCRETE(Messreihe r1, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
+    public static double calcEntropyDISCRETE(TimeSeriesObject r1, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
 
         int[] v1 = MatrixUtils.discretise(r1.getYData(), 100);
 

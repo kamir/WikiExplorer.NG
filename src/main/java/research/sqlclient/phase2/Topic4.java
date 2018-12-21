@@ -1,17 +1,14 @@
 package research.sqlclient.phase2;
 
-import extraction.TimeSeriesFactory;
 import extraction.ExtractEditHistory;
 import experiments.crosscorrelation.KreuzKorrelationTag;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.Enumeration;
-import java.util.Locale;
 import java.util.StringTokenizer;
 import java.util.Vector;
 import java.util.logging.Level;
@@ -75,8 +72,8 @@ public class Topic4 {
         TimeLog tl = new TimeLog(false);
 
 
-        Messreihe c = null;
-        Messreihe d = null;
+        TimeSeriesObject c = null;
+        TimeSeriesObject d = null;
 
      
 

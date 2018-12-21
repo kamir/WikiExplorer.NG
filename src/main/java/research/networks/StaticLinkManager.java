@@ -22,8 +22,6 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import research.wikinetworks.NodePair;
-import experiments.crosscorrelation.CCResultViewer;
-import experiments.crosscorrelation.CCResults;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 import com.cloudera.wikiexplorer.ng.util.TimeLog;
 import com.cloudera.wikiexplorer.ng.util.nodegroups.EditActivityFilter;

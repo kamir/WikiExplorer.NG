@@ -3,7 +3,7 @@
  */
 package experiments.kw5;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -25,18 +25,18 @@ public class TestSeriesGenerator {
         int N = 50;
         int Z = 7195;
         
-        Vector<Messreihe> reihen = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> reihen = new Vector<TimeSeriesObject>();
         for ( int n = 0 ; n < N; n++ ) { 
-            Messreihe mr = Messreihe.getGaussianDistribution( Z , 0.0, 1.0 );
+            TimeSeriesObject mr = TimeSeriesObject.getGaussianDistribution( Z , 0.0, 1.0 );
             reihen.add(mr);
         }
-        writeMessreihe( reihen, label );
+        writeTimeSeriesObject( reihen, label );
         
         
         
     }
 
-    private static void writeMessreihe(Vector<Messreihe> reihen, String label ) throws IOException {
+    private static void writeTimeSeriesObject(Vector<TimeSeriesObject> reihen, String label ) throws IOException {
         
         String pfad = "P:/DATA/testreihen/" + label;
         
@@ -45,7 +45,7 @@ public class TestSeriesGenerator {
         else { f.mkdirs(); };
         
         StringBuffer sb = new StringBuffer();
-        Enumeration<Messreihe> en = reihen.elements();
+        Enumeration<TimeSeriesObject> en = reihen.elements();
         int i = 1;
         DecimalFormat df = new DecimalFormat("0.000000");
         
@@ -54,7 +54,7 @@ public class TestSeriesGenerator {
             System.out.println( file.getAbsolutePath() );
             FileWriter fw = new FileWriter( pfad + "/PageID_" + i + ".wmd.h.dat" );
             
-            Messreihe mr = en.nextElement();
+            TimeSeriesObject mr = en.nextElement();
             int zz = mr.getSize()[1];
             double[][] data = mr.getData();
             for( int j = 0; j < zz; j++ ) {  

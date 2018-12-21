@@ -22,8 +22,8 @@ package m3.research;
  *
  */
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
-import org.apache.hadoopts.data.export.MesswertTabelle;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
+import org.apache.hadoopts.data.export.MeasurementTable;
 import java.io.File;
 import java.util.Vector;
 
@@ -31,7 +31,7 @@ import java.util.Vector;
  *
  * @author kamir
  */
-public class SigmaBandTool extends Messreihe {
+public class SigmaBandTool extends TimeSeriesObject {
     
     public static String exportFolder = "/Volumes/MyExternalDrive/CALCULATIONS/data/export";
 
@@ -47,7 +47,7 @@ public class SigmaBandTool extends Messreihe {
         SigmaBandTool sf = new SigmaBandTool();
 
         // here we do some tests 
-        Messreihe[] rows = new Messreihe[z + 50];
+        TimeSeriesObject[] rows = new TimeSeriesObject[z + 50];
 
         int LENGTH = 24;  // * 365
 
@@ -60,8 +60,8 @@ public class SigmaBandTool extends Messreihe {
             System.out.println("======== " + sigma + " " + mw);
 
             // one year with one point per hour ...  
-            // Messreihe mr = Messreihe.getGaussianDistribution( sf.scale * 365, 10.0, 5.0 );
-            Messreihe mr = Messreihe.getGaussianDistribution(LENGTH * 365, mw, sigma);
+            // TimeSeriesObject mr = TimeSeriesObject.getGaussianDistribution( sf.scale * 365, 10.0, 5.0 );
+            TimeSeriesObject mr = TimeSeriesObject.getGaussianDistribution(LENGTH * 365, mw, sigma);
             rows[i] = mr;
 
             sf.addCollect(mr, false);
@@ -94,13 +94,13 @@ public class SigmaBandTool extends Messreihe {
      * Collection of raw time series ...
      * 
      */
-    Vector<Messreihe> rows = new Vector<Messreihe>();
+    Vector<TimeSeriesObject> rows = new Vector<TimeSeriesObject>();
     
     /**
      * Collection of trend series ...
      * Only available if trend calculation was applied to the raw series. 
      */
-    Vector<Messreihe> trends = new Vector<Messreihe>();
+    Vector<TimeSeriesObject> trends = new Vector<TimeSeriesObject>();
     
     // factor to define the width of the sigma band
     double upperTS = 1.0;
@@ -109,13 +109,13 @@ public class SigmaBandTool extends Messreihe {
     /**
      * Group statistics
      */
-    Messreihe averageRows = null;
-    Messreihe sigmaRows = null;
+    TimeSeriesObject averageRows = null;
+    TimeSeriesObject sigmaRows = null;
 
-    Messreihe averageTrends = null;
-    Messreihe sigmaTrends = null;
+    TimeSeriesObject averageTrends = null;
+    TimeSeriesObject sigmaTrends = null;
 
-    Messreihe sum = null;
+    TimeSeriesObject sum = null;
 
     /**
      * Add a collection to the tool ...
@@ -123,11 +123,11 @@ public class SigmaBandTool extends Messreihe {
      * @param mrs
      * @param aggregateNow 
      */
-    private void addCollection(Messreihe[] mrs, boolean aggregateNow) {
+    private void addCollection(TimeSeriesObject[] mrs, boolean aggregateNow) {
 
         System.out.println( ">>> added " + mrs.length + " rows to SBT: " + getLabel() );
 
-        for (Messreihe mr : mrs) {
+        for (TimeSeriesObject mr : mrs) {
             rows.add(mr);
 
             if (aggregateNow) {
@@ -137,16 +137,16 @@ public class SigmaBandTool extends Messreihe {
     }
 
     boolean debug = true;
-    public void addCollect(Vector<Messreihe> vmr, boolean aggregateNow) {
+    public void addCollect(Vector<TimeSeriesObject> vmr, boolean aggregateNow) {
         
         if ( debug ) System.out.println( "\n\n\n\n### added " + vmr.size() + " rows to SBT: " + getLabel() );
 
-        for (Messreihe mr : vmr) {
+        for (TimeSeriesObject mr : vmr) {
             addCollect(mr, aggregateNow);
         }
     }
 
-    public void addCollect(Messreihe mr, boolean aggregateNow) {
+    public void addCollect(TimeSeriesObject mr, boolean aggregateNow) {
 
         if ( debug ) System.out.println( ">>> added one row to SBT: " + getLabel() );
 
@@ -157,7 +157,7 @@ public class SigmaBandTool extends Messreihe {
         }
     }
 
-    private void plotRows(Vector<Messreihe> rawRows, String label) {
+    private void plotRows(Vector<TimeSeriesObject> rawRows, String label) {
 
         MultiChart.yRangDEFAULT_MAX = 1;
         MultiChart.yRangDEFAULT_MIN = 0;
@@ -171,7 +171,7 @@ public class SigmaBandTool extends Messreihe {
     }
 
     private void plotRawRows() {
-        Vector<Messreihe> rawRows = rows;
+        Vector<TimeSeriesObject> rawRows = rows;
 
         MultiChart.yRangDEFAULT_MAX = 1;
         MultiChart.yRangDEFAULT_MIN = -1;
@@ -191,14 +191,14 @@ public class SigmaBandTool extends Messreihe {
      * 
      * @return 
      */
-    private Vector<Messreihe> getTrendRows() {
+    private Vector<TimeSeriesObject> getTrendRows() {
 
-        Vector<Messreihe> trendRows = new Vector();
+        Vector<TimeSeriesObject> trendRows = new Vector();
 
         aggregate(); // populate the rows averageRows and mwBINNED
 
-        Messreihe upper = averageTrends.add(sigmaTrends.scaleY_2(upperTS));
-        Messreihe lower = averageTrends.add(sigmaTrends.scaleY_2(lowerTS));
+        TimeSeriesObject upper = averageTrends.add(sigmaTrends.scaleY_2(upperTS));
+        TimeSeriesObject lower = averageTrends.add(sigmaTrends.scaleY_2(lowerTS));
 
         trendRows.add(averageTrends);
         trendRows.add(upper);
@@ -215,14 +215,14 @@ public class SigmaBandTool extends Messreihe {
      * 
      * @return 
      */
-    public Vector<Messreihe> getRows() {
+    public Vector<TimeSeriesObject> getRows() {
 
-        Vector<Messreihe> plotRows = new Vector();
+        Vector<TimeSeriesObject> plotRows = new Vector();
 
         aggregate(); // populate the rows averageRows and mwBINNED
 
-        Messreihe upper = averageRows.add(sigmaRows.scaleY_2(upperTS));
-        Messreihe lower = averageRows.add(sigmaRows.scaleY_2(lowerTS));
+        TimeSeriesObject upper = averageRows.add(sigmaRows.scaleY_2(upperTS));
+        TimeSeriesObject lower = averageRows.add(sigmaRows.scaleY_2(lowerTS));
 
         plotRows.add(averageRows);
         plotRows.add(upper);
@@ -235,7 +235,7 @@ public class SigmaBandTool extends Messreihe {
 
     public void plotAndStore(String fn) {
 
-        Vector<Messreihe> plotRows = getRows();
+        Vector<TimeSeriesObject> plotRows = getRows();
 
         MultiChart.yRangDEFAULT_MAX = 10000;
         MultiChart.yRangDEFAULT_MIN = 0;
@@ -250,15 +250,15 @@ public class SigmaBandTool extends Messreihe {
 
         MultiChart.openAndStore(plotRows, "SBT_ROWS_" + fn, "t", "<y(t)> , sigma(t)", true, dir, "SBT_ROWS_" + fn, comment);
         
-        MesswertTabelle tab = new MesswertTabelle();
+        MeasurementTable tab = new MeasurementTable();
         File f2 = new File( exportFolder + "/SBT_ROWS_SINGLE_" + fn + ".dat");
-        tab.setMessReihen( rows );
+        tab.setMessReihen(rows );
         tab.writeToFile(f2);
     }
     
     public void _plotAndStoreTrends( String fn) {
 
-        Vector<Messreihe> plotRows = getTrendRows();
+        Vector<TimeSeriesObject> plotRows = getTrendRows();
 
 //        MultiChart.yRangDEFAULT_MAX = 100;
 //        MultiChart.yRangDEFAULT_MIN = 0;
@@ -277,7 +277,7 @@ public class SigmaBandTool extends Messreihe {
         
 //        MesswertTabelle tab = new MesswertTabelle();
 //        File f2 = new File(exportFolder + "/SBT_TRENDS_GROUPS" + fn + ".dat");
-//        tab.setMessReihen( rows );
+//        tab.setTimeSeriesObjectn( rows );
 //        tab.writeToFile(f2);
     
     }
@@ -285,7 +285,7 @@ public class SigmaBandTool extends Messreihe {
 
     public void plot(String l, int[] labels) {
 
-        Vector<Messreihe> plotRows = getRows();
+        Vector<TimeSeriesObject> plotRows = getRows();
 
         if (labels != null) {
             plotRows = relabelRows(plotRows, labels);
@@ -309,26 +309,26 @@ public class SigmaBandTool extends Messreihe {
         
         System.out.println("--> SigmaBandTool aggregates now ... (Label: " + getLabel() + ")" );
        
-        sum = new Messreihe();
+        sum = new TimeSeriesObject();
        
-        trends = new Vector<Messreihe>();
+        trends = new Vector<TimeSeriesObject>();
         
         // Extract the trends and calculate the sum ...
-        for (Messreihe m : rows) {
+        for (TimeSeriesObject m : rows) {
             trends.add( m.getTrendRow() );
             sum = sum.add(m);
         }
  
-        averageRows = Messreihe.averageForAll(rows);
+        averageRows = TimeSeriesObject.averageForAll(rows);
         averageRows.setLabel(getLabel() + "_" + averageRows.getLabel() );
         
-        sigmaRows = Messreihe.sigmaForAll(rows);
+        sigmaRows = TimeSeriesObject.sigmaForAll(rows);
         sigmaRows.setLabel(getLabel() + "_" + sigmaRows.getLabel() );
         
-        averageTrends = Messreihe.averageForAll(trends);
+        averageTrends = TimeSeriesObject.averageForAll(trends);
         averageTrends.setLabel(getLabel() + "_" + averageTrends.getLabel() );
 
-        sigmaTrends = Messreihe.sigmaForAll(trends);
+        sigmaTrends = TimeSeriesObject.sigmaForAll(trends);
         sigmaTrends.setLabel( getLabel() + "_" + sigmaTrends.getLabel() );
 
         isAggregated = true;
@@ -336,9 +336,9 @@ public class SigmaBandTool extends Messreihe {
     
     
 
-    private Vector<Messreihe> relabelRows(Vector<Messreihe> plotRows, int[] labels) {
+    private Vector<TimeSeriesObject> relabelRows(Vector<TimeSeriesObject> plotRows, int[] labels) {
 
-        for (Messreihe m : plotRows) {
+        for (TimeSeriesObject m : plotRows) {
             for (int i = 0; i < m.xValues.size(); i++) {
                 m.xValues.set(i, labels[i]);
             }
@@ -349,17 +349,17 @@ public class SigmaBandTool extends Messreihe {
 
     public void storeRawAndSigmaBandTables(String ln, String tsRange, String pn, int i ) {
 
-        MesswertTabelle tab = new MesswertTabelle();
+        MeasurementTable tab = new MeasurementTable();
         File f = new File( exportFolder + "/TS_ROWS_" + tsRange + "_" + pn + "_" + i + "_" + ln + ".dat");
         tab.setMessReihen( rows );
         tab.writeToFile(f);
 
-        MesswertTabelle tab2 = new MesswertTabelle();
+        MeasurementTable tab2 = new MeasurementTable();
         File f2 = new File( exportFolder + "/TS_ROWS_SIGMABANDS_" + tsRange + "_" + pn + "_" + i + "_" + ln + ".dat");
         tab2.setMessReihen(getRows());
         tab2.writeToFile(f2);
         
-        MesswertTabelle tab3 = new MesswertTabelle();
+        MeasurementTable tab3 = new MeasurementTable();
         File f3 = new File( exportFolder + "/TS_TRENDS_SIGMABANDS_" + tsRange + "_" + pn + "_" + i + "_" + ln + ".dat");
         tab3.setMessReihen(getTrendRows());
         tab3.writeToFile(f3);

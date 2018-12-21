@@ -3,7 +3,7 @@ package analysis.wikipagecorpus;
 import m3.util.Counter;
 import org.apache.hadoopts.chart.simple.MultiBarChart;
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
@@ -26,7 +26,7 @@ import m3.jstat.data.Document;
  */
 public class CorpusAnalyser {
 
-    public static Messreihe analyseCharacterDistribution(Corpus c, String page) {
+    public static TimeSeriesObject analyseCharacterDistribution(Corpus c, String page) {
 
         HashMap<Character, Counter> map = new HashMap<Character, Counter>();
         for (Document doc : c.docs) {
@@ -45,7 +45,7 @@ public class CorpusAnalyser {
             }
         }
 
-        Messreihe mr = new Messreihe();
+        TimeSeriesObject mr = new TimeSeriesObject();
         mr.setLabel(page);
         for (Object o : map.keySet()) {
             Character ccc = (Character) o;
@@ -60,7 +60,7 @@ public class CorpusAnalyser {
 
     ;
     
-    public static Messreihe analyseTermDistribution(Corpus c, String page) throws Exception {
+    public static TimeSeriesObject analyseTermDistribution(Corpus c, String page) throws Exception {
 
         HashMap<String, Counter> map = new HashMap<String, Counter>();
         for (Document doc : c.docs) {
@@ -85,7 +85,7 @@ public class CorpusAnalyser {
         l.addAll(map.keySet());
         Collections.sort(l);
 
-        Messreihe mr = new Messreihe();
+        TimeSeriesObject mr = new TimeSeriesObject();
         mr.setLabel(page);
         int i = 0;
         for (Object o : l) {

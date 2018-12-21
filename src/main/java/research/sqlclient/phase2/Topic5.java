@@ -4,7 +4,7 @@ import extraction.TimeSeriesFactory;
 import extraction.ExtractEditHistory;
 import experiments.crosscorrelation.KreuzKorrelationStunde;
 import experiments.crosscorrelation.KreuzKorrelationTag;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -80,8 +80,8 @@ public class Topic5 {
         TimeLog tl = new TimeLog(false);
 
 
-        Messreihe c = null;
-        Messreihe d = null;
+        TimeSeriesObject c = null;
+        TimeSeriesObject d = null;
 
     
 

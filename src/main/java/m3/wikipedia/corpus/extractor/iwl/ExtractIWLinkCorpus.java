@@ -16,7 +16,9 @@ import m3.wikipedia.corpus.extractor.category.ExtractCategorieCorpus;
 import m3.wikipedia.explorer.gui.PageInfoView2;
 import m3.wikipedia.explorer.data.WikiNode;
 import hadoop.cluster.connector.SimpleClusterConnector;
+
 import wikiapiclient.WikiORIGINAL;
+
 import m3.wikipedia.corpus.extractor.*;
 import m3.wikipedia.analysis.charts.RepresentationPlotBubbleChart;
 

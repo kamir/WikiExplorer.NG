@@ -6,23 +6,14 @@
 
 package extraction;
 
-import org.apache.hadoopts.statistics.HaeufigkeitsZaehler;
-import org.apache.hadoopts.data.series.Messreihe;
 import com.cloudera.wikiexplorer.ng.db.DB;
 import com.cloudera.wikiexplorer.ng.db.notebook.WikipediaDB;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.Time;
-import java.util.StringTokenizer;
-import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 import com.cloudera.wikiexplorer.ng.util.nodegroups.VphMean32bit;
 

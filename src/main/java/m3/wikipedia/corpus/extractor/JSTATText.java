@@ -6,7 +6,7 @@
 package m3.wikipedia.corpus.extractor;
 
 import org.apache.hadoopts.chart.simple.MultiBarChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import m3.io.CorpusFile2;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -36,8 +36,8 @@ public class JSTATText {
         
         String wiki = "de";
         
-        Vector<Messreihe> mrs1 = new Vector<Messreihe>();
-        Vector<Messreihe> mrsTermDist = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrs1 = new Vector<TimeSeriesObject>();
+        Vector<TimeSeriesObject> mrsTermDist = new Vector<TimeSeriesObject>();
         
         for( String page : pages ) {
             // wikipedia.explorer.ExtractCategorieCorpus.extractCorpus(wiki, page);
@@ -45,10 +45,10 @@ public class JSTATText {
             String file = "cat_corpus_de_" + page + ".dat.corpus.seq";
             Corpus c = CorpusFile2.loadFromLocalFS("/home/kamir/bin/WikiExplorer/WikiExplorer/" + file );
 
-//            Messreihe mr1 = CorpusAnalyser.analyseCharacterDistribution(c, page);
+//            TimeSeriesObject mr1 = CorpusAnalyser.analyseCharacterDistribution(c, page);
 //            mrs1.add(mr1);
 
-            Messreihe mr2 = null;
+            TimeSeriesObject mr2 = null;
             try {
                 mr2 = CorpusAnalyser.analyseTermDistribution(c, page);
             } catch (Exception ex) {
@@ -60,7 +60,7 @@ public class JSTATText {
         }   
         
         TermCollectionTools.initGlobalOrder( mrsTermDist , referenz );
-        Vector<Messreihe> mrsTermDistTV = createGlobalOrder( mrsTermDist );
+        Vector<TimeSeriesObject> mrsTermDistTV = createGlobalOrder( mrsTermDist );
         
 //        MultiBarChart.open(mrs1, "Character Count" , "symbol" , "log( anz )", true );
         MultiBarChart.open(mrsTermDistTV, "Term Count" , "symbol" , "log( anz )", true );
@@ -68,12 +68,12 @@ public class JSTATText {
         
     }
 
-    private static Vector<Messreihe> createGlobalOrder(Vector<Messreihe> mrsTermDist) {
+    private static Vector<TimeSeriesObject> createGlobalOrder(Vector<TimeSeriesObject> mrsTermDist) {
 
-        Vector<Messreihe> mrsTermDistT = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrsTermDistT = new Vector<TimeSeriesObject>();
         // determine all terms of all rows
         HashSet<String> terms = new HashSet<String>();
-        for( Messreihe mr : mrsTermDist ) { 
+        for( TimeSeriesObject mr : mrsTermDist ) { 
             for( String a : mr.xLabels2 ) {
                 if ( !terms.contains(a) ) {
                     terms.add( a );
@@ -82,7 +82,7 @@ public class JSTATText {
             System.out.println( "Nr of terms : [" + mr.getLabel() + "] " + terms.size() );
         }
         
-        for( Messreihe mr : mrsTermDist ) { 
+        for( TimeSeriesObject mr : mrsTermDist ) { 
             int sVor = mr.getXValues().size();
             for( String term : terms ) {
                 if ( !mr.xLabels2.contains(term) ) {
@@ -90,7 +90,7 @@ public class JSTATText {
                 }    
             };
             System.out.println( "expandet : " + mr.getLabel() + " from: " + sVor + " => " + mr.xValues.size() );
-            Messreihe r = TermCollectionTools.getTermVector(mr);
+            TimeSeriesObject r = TermCollectionTools.getTermVector(mr);
             mrsTermDistT.add(r.getYLogData());
         }
         

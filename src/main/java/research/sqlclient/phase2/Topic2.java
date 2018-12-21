@@ -1,9 +1,8 @@
 package research.sqlclient.phase2;
 
-import org.apache.hadoopts.chart.simple.MultiBarChart;
 import org.apache.hadoopts.chart.simple.MultiChart;
 import org.apache.hadoopts.chart.simple.MyXYPlot;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import org.apache.hadoopts.data.series.Zeitreihe;
 import org.apache.hadoopts.data.export.OriginProject;
 import extraction.ExtractEditHistory;
@@ -20,7 +19,6 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.math3.stat.regression.SimpleRegression;
-import org.apache.hadoopts.statistics.HaeufigkeitsZaehler;
 import org.apache.hadoopts.statistics.HaeufigkeitsZaehlerDouble;
 import org.apache.hadoopts.statphys.ris.experimental.ReturnIntervallStatistik2;
 import com.cloudera.wikiexplorer.ng.util.TimeLog;
@@ -63,7 +61,7 @@ public class Topic2 {
     
     static FileWriter fw;
     
-    static Vector<Messreihe> mrv = null;
+    static Vector<TimeSeriesObject> mrv = null;
     
     static int risBinning = 300*24;  // Auflösung in Stunden
     static int risScale = 1;
@@ -153,7 +151,7 @@ public class Topic2 {
                      break;
         }    
                             
-        mrv = new Vector<Messreihe>();
+        mrv = new Vector<TimeSeriesObject>();
         
         TimeLog tl = new TimeLog(false);
         /**
@@ -264,7 +262,7 @@ public class Topic2 {
                     data = zr.xValues;
                 }
                 
-                // if( debug ) System.out.println( ((Messreihe)zr).toString() );
+                // if( debug ) System.out.println( ((TimeSeriesObject)zr).toString() );
                 
                 // x = Zeitpunkt, y = Wachstum
                 
@@ -303,7 +301,7 @@ public class Topic2 {
                     anzahlEdits = risEinzeln.anzFiltered; 
                     
                     if ( storeSingleDistributions ) {
-//                        risEinzeln.calcMessreihen();   
+//                        risEinzeln.calcTimeSeriesObjectn();   
 //                        risEinzeln.showData();
 //                        risEinzeln.store();
                     }
@@ -341,11 +339,11 @@ public class Topic2 {
             }
 
 //            ReturnIntervallStatistik2.verbose = true;
-//            risALL.calcMessreihen();
+//            risALL.calcTimeSeriesObjectn();
             // risALL.store();
             
             // mrv.add( risALL.mrHaeufigkeit );
-//            Messreihe mrA = risALL.mrVerteilungSkaliert;
+//            TimeSeriesObject mrA = risALL.mrVerteilungSkaliert;
             // mrA = mrA.calcMR_Ln_for_Y();
 //            mrv.add( mrA );
             
@@ -363,14 +361,14 @@ public class Topic2 {
             int minEdits = 0;
             
             System.out.println(">>> errors=" + errors );
-            Vector<Messreihe> mrv2 = new Vector<Messreihe>();
+            Vector<TimeSeriesObject> mrv2 = new Vector<TimeSeriesObject>();
             for( int i = 0; i < grenzen.length - 1; i++ ) {
                 
-                risContainer[i].calcMessreihen();
+                risContainer[i].calcMessreihen();;
                 
-                Messreihe mr = risContainer[i].mrVerteilungSkaliert;
+                TimeSeriesObject mr = risContainer[i].mrVerteilungSkaliert;
                 // mr = mr.calcMR_Ln_for_Y();
-                debugMessreihe( mr );
+                debugTimeSeriesObject( mr );
 
                 rawRows.add( risContainer[i].mrVerteilung);
                 
@@ -399,7 +397,7 @@ public class Topic2 {
             checkRqCollectors( b );
              
 //            // Verteilung der Länder der Reihen vor und nach dem Filtern anzeigen
-//            Vector<Messreihe> rows = new Vector<Messreihe>();
+//            Vector<TimeSeriesObject> rows = new Vector<TimeSeriesObject>();
 //            rows.add( ReturnIntervallStatistik2.anzRowsFILTERED.getDistributionMR() );
 //            rows.add( ReturnIntervallStatistik2.anzRowRAW.getDistributionMR() );
 //            String labelX = "length of rows";
@@ -419,12 +417,12 @@ public class Topic2 {
         
         
         
-        projekt.closeAllWriter();
+        projekt.closeAllWriters();
         
         System.out.println( "Errors LÄNGE=" + ReturnIntervallStatistik2.errosLENGTH );
     }
     
-    static Vector<Messreihe> rawRows = new Vector<Messreihe>();
+    static Vector<TimeSeriesObject> rawRows = new Vector<TimeSeriesObject>();
     
     
     
@@ -526,7 +524,7 @@ public class Topic2 {
         
         risContainer = new ReturnIntervallStatistik2[ grenzen.length ];
         
-        rawRows = new Vector<Messreihe>();
+        rawRows = new Vector<TimeSeriesObject>();
         
         for( int i = 0; i < grenzen.length; i++ ) { 
             System.out.println(">>> erzeuge RIS-Cont.: " + grenzen[i]+"_ris" );
@@ -652,8 +650,8 @@ public class Topic2 {
 
     private static void showRqHistogramme( int variante, int nodeGrupID ) {
         
-     Vector<Messreihe> mrv = new Vector<Messreihe>();
-     Vector<Messreihe> mrv3 = new Vector<Messreihe>();
+     Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
+     Vector<TimeSeriesObject> mrv3 = new Vector<TimeSeriesObject>();
      
      double maxRQ = 0.0;
      /**
@@ -665,7 +663,7 @@ public class Topic2 {
  
         zaehler.calcWS(); 
         
-        Messreihe mr = zaehler.getHistogram();
+        TimeSeriesObject mr = zaehler.getHistogram();
         
         System.out.println(mr);
         double _maxRQ = mr.getMaxX();
@@ -689,7 +687,7 @@ public class Topic2 {
   
         zaehler2.calcWS();
 
-        Messreihe mr2 = zaehler2.getHistogram();
+        TimeSeriesObject mr2 = zaehler2.getHistogram();
         mr2.setLabel(grenzen[i]+"_ANZ_Distr");
         mrv3.add( mr2 );
      }
@@ -713,7 +711,7 @@ public class Topic2 {
      
     }
 
-    private static void debugMessreihe(Messreihe mr) {
+    private static void debugTimeSeriesObject(TimeSeriesObject mr) {
         System.out.println( mr.label + "\t" + mr.getMaxY() + "\t" + mr.yValues.size() );
     }
     

@@ -3,13 +3,11 @@ package research.wikinetworks;
 import com.mysql.jdbc.Statement;
 // hier wird die DB ausgewählt ...
 import com.cloudera.wikiexplorer.ng.db.notebook.WikipediaDB;
-import java.io.FileWriter;
+
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Hashtable;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import com.cloudera.wikiexplorer.ng.util.TimeLog;

@@ -1,19 +1,19 @@
 package htstb.data;
 
 import htstb.data.TimeSeriesData;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.util.Date;
 import org.apache.hadoop.io.Text;
 
 /**
  * This is the logic around the TimeSeriesData Object
- * to map data from Messreihe to  an hadoopable DataObject.
+ * to map data from TimeSeriesObject to  an hadoopable DataObject.
  * @author kamir
  */
 public class TSFactory {
 
     
-    public static TimeSeriesData map( Messreihe mr, Date t0, int dt ) { 
+    public static TimeSeriesData map( TimeSeriesObject mr, Date t0, int dt ) { 
         TimeSeriesData tsd = new TimeSeriesData();
         
         tsd.label = mr.getLabel();

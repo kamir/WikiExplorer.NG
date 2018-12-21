@@ -7,7 +7,7 @@
 
 package graph;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.UndirectedGraph;
 import edu.uci.ics.jung.graph.UndirectedSparseMultigraph;
@@ -39,8 +39,8 @@ public class TemporalNetworkOfWikipediaNodes {
      * 
      * @return 
      */
-    public static UndirectedGraph<WikiVertice,WikiEdge> createNetworkFromHashedMessreihe(
-            Messreihe mr) {
+    public static UndirectedGraph<WikiVertice,WikiEdge> createNetworkFromHashedTimeSeriesObject(
+            TimeSeriesObject mr) {
 
 //                UndirectedGraph<String,Number> g = 
 //                        new UndirectedSparseMultigraph<String,Number>();

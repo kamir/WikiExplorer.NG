@@ -1,7 +1,7 @@
 package m3.tscache;
 
 import org.apache.hadoopts.data.series.MRT;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import m3.io.WikiNodeCacheEntry;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -59,7 +59,7 @@ public class TSCache {
         if (RAM) {
             System.out.println(">>> chache in RAM ... ");
             if (c == null) {
-                c = new Hashtable<String, Messreihe>();
+                c = new Hashtable<String, TimeSeriesObject>();
             }
         }
 
@@ -67,9 +67,9 @@ public class TSCache {
     
     static public boolean debug = true;
     
-    private static Hashtable<String, Messreihe> c = new Hashtable<String, Messreihe>();
+    private static Hashtable<String, TimeSeriesObject> c = new Hashtable<String, TimeSeriesObject>();
 
-    public Messreihe getMrFromCache(WikiNode wikiNode) throws IOException {
+    public TimeSeriesObject getMrFromCache(WikiNode wikiNode) throws IOException {
 
         String key = getKey(wikiNode, WikiHistoryExtraction2.getVon(), WikiHistoryExtraction2.getBis());
 
@@ -78,7 +78,7 @@ public class TSCache {
 //        System.out.println("      HBASE :" + WebHBase  );
 
         if (RAM) {
-            Messreihe mr = c.get(key);
+            TimeSeriesObject mr = c.get(key);
             if (mr != null) {
                 System.out.println("[RAM]");
                 return mr;
@@ -95,7 +95,7 @@ public class TSCache {
 
             String value = proxy.get(key);
             
-            Messreihe mr = null;
+            TimeSeriesObject mr = null;
 
 
             if (value != null) {
@@ -127,7 +127,7 @@ public class TSCache {
  
     HBaseCacheService service = null;
 
-    public void putIntoCache(Messreihe exp1) throws IOException {
+    public void putIntoCache(TimeSeriesObject exp1) throws IOException {
         
         String key = getKey(exp1, WikiHistoryExtraction2.getVon(), WikiHistoryExtraction2.getBis());
 
@@ -179,7 +179,7 @@ public class TSCache {
      * @param bis
      * @return 
      */
-    public static String getKey(Messreihe exp1, Calendar von, Calendar bis) {
+    public static String getKey(TimeSeriesObject exp1, Calendar von, Calendar bis) {
         if ( von == null ) von = WikiHistoryExtractionBASE.getVon();
         if ( bis == null ) bis = WikiHistoryExtractionBASE.getBis();
 
@@ -218,23 +218,23 @@ public class TSCache {
         return "" + v;
     }
 
-    public static Hashtable<String, Messreihe> getC() {
+    public static Hashtable<String, TimeSeriesObject> getC() {
         return tsc.c;
     }
 
-    public static void setC(Hashtable<String, Messreihe> c) {
+    public static void setC(Hashtable<String, TimeSeriesObject> c) {
         tsc.c = c;
         for (String s : tsc.c.keySet()) {
             System.out.println("k=> " + s);
         }
     }
 
-//    public Hashtable<String, Messreihe> _getC(Vector<WikiNode> n) {
-//        Hashtable<String, Messreihe> cSUB = new Hashtable<String, Messreihe>();
+//    public Hashtable<String, TimeSeriesObject> _getC(Vector<WikiNode> n) {
+//        Hashtable<String, TimeSeriesObject> cSUB = new Hashtable<String, TimeSeriesObject>();
 //
 //        for (WikiNode node : n) {
 //            String key = getKey(node, WikiHistoryExtraction2.getVon(), WikiHistoryExtraction2.getBis());
-//            Messreihe mr = c.get(key);
+//            TimeSeriesObject mr = c.get(key);
 //            cSUB.put(key, mr);
 //        }
 //

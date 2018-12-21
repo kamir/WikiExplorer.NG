@@ -4,12 +4,8 @@
  */
 package bigdata.explorer.nutch.corpus.creator;
  
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -17,14 +13,11 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import m3.jstat.data.Corpus;
+
 import com.cloudera.wikiexplorer.ng.app.WikipediaCorpusLoaderTool;
 import m3.wikipedia.explorer.data.WebNode;
-import m3.wikipedia.explorer.data.WikiNode;
 
 /**
  *

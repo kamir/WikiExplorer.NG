@@ -9,15 +9,13 @@
 package research.sqlclient.phase2;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.util.Locale;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
@@ -306,13 +304,13 @@ public void collect() {
 //        fw.close();
     }
     
-    Vector<Messreihe> mrRIS_ZR = new Vector<Messreihe>();
+    Vector<TimeSeriesObject> mrRIS_ZR = new Vector<TimeSeriesObject>();
 
     static int z=0;
     private void countEditsForID(File f, FileWriter fw) throws IOException {
         
         // für das Sammeln der Return Intervalle ...
-        Messreihe mr = new Messreihe();
+        TimeSeriesObject mr = new TimeSeriesObject();
         
         int index = f.getName().indexOf(".");
         z++;

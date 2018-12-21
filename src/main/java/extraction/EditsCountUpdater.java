@@ -14,13 +14,11 @@ package extraction;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
 import com.cloudera.wikiexplorer.ng.db.DB;
 import com.cloudera.wikiexplorer.ng.db.notebook.WikipediaDB;
 import java.io.BufferedReader;
 import java.io.File; 
 import java.io.FileReader;
-import java.sql.SQLException;
 import java.util.StringTokenizer;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 import com.cloudera.wikiexplorer.ng.util.nodegroups.VphMean32bit;

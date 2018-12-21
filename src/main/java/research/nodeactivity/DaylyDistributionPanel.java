@@ -11,7 +11,7 @@
 
 package research.nodeactivity;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -179,11 +179,11 @@ public class DaylyDistributionPanel extends javax.swing.JDialog {
         this.createChart();
     }//GEN-LAST:event_jSpinner1StateChanged
 
-    static Vector<Messreihe> mrs = null;
+    static Vector<TimeSeriesObject> mrs = null;
     /**
     * @param args the command line arguments
     */
-    public static void open( Vector<Messreihe> _mrs) {
+    public static void open( Vector<TimeSeriesObject> _mrs) {
         mrs = _mrs;
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -226,7 +226,7 @@ public class DaylyDistributionPanel extends javax.swing.JDialog {
 
         if ( v < 0 ) v = 0;
         
-        Messreihe cut = mrs.elementAt(v); //DaylyDistribution.getHorizontalCut( mrs , v );
+        TimeSeriesObject cut = mrs.elementAt(v); //DaylyDistribution.getHorizontalCut( mrs , v );
         Container c = DaylyDistribution.createHistogramm(DaylyDistribution.ng, cut, bins, 0, maxX);
         Dimension d = jPanel3.getSize();
         System.out.println( d );

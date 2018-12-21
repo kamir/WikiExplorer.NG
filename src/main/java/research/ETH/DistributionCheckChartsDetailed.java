@@ -7,8 +7,8 @@
 package research.ETH;
 
 import org.apache.hadoopts.chart.simple.MyXYPlot;
-import org.apache.hadoopts.data.series.Messreihe;
-import org.apache.hadoopts.data.export.MesswertTabelle;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
+
 import java.io.*;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
@@ -86,10 +86,10 @@ public class DistributionCheckChartsDetailed {
     static double[][][] counter2 = new double[tmax][11][5];
     static double[][] av = new double[11][5];
     
-    static Messreihe[] reihenMWArray = new Messreihe[5];
-    static Messreihe[] reihenSIGMAArray = new Messreihe[5];
-    static Messreihe[] reihenSIGMAArray2 = new Messreihe[5];
-    static Messreihe[] reihenSIGMAArray3 = new Messreihe[5];
+    static TimeSeriesObject[] reihenMWArray = new TimeSeriesObject[5];
+    static TimeSeriesObject[] reihenSIGMAArray = new TimeSeriesObject[5];
+    static TimeSeriesObject[] reihenSIGMAArray2 = new TimeSeriesObject[5];
+    static TimeSeriesObject[] reihenSIGMAArray3 = new TimeSeriesObject[5];
 
     public static void doWorkNow(String fnBase, String inputset, boolean storSignificanz) throws FileNotFoundException, IOException {
 
@@ -111,25 +111,25 @@ public class DistributionCheckChartsDetailed {
                 av[i][j] = 0.0;
 
             }
-            reihenMWArray[j] = new Messreihe("l=" + keysR[j]);
-            reihenSIGMAArray[j] = new Messreihe("l1=" + keysR[j]);
-            reihenSIGMAArray2[j] = new Messreihe("l2=" + keysR[j]);
-            reihenSIGMAArray3[j] = new Messreihe("l3=" + keysR[j]);
+            reihenMWArray[j] = new TimeSeriesObject("l=" + keysR[j]);
+            reihenSIGMAArray[j] = new TimeSeriesObject("l1=" + keysR[j]);
+            reihenSIGMAArray2[j] = new TimeSeriesObject("l2=" + keysR[j]);
+            reihenSIGMAArray3[j] = new TimeSeriesObject("l3=" + keysR[j]);
         }
 
         int[] tau = {5};
         
         int[] nrMW_L = { 0,0,0,0,0 };
 
-        Hashtable<String, Hashtable<String, Messreihe>> charts = new Hashtable<String, Hashtable<String, Messreihe>>();
+        Hashtable<String, Hashtable<String, TimeSeriesObject>> charts = new Hashtable<String, Hashtable<String, TimeSeriesObject>>();
         String[] keysC = {"tv" , "lrp"  , "abs_lrp"};       
 
         for (String key1 : keysC) {
 
-            Hashtable<String, Messreihe> reihen = new Hashtable<String, Messreihe>();
+            Hashtable<String, TimeSeriesObject> reihen = new Hashtable<String, TimeSeriesObject>();
 
             for (int key : keysR) {
-                Messreihe reihe = new Messreihe();
+                TimeSeriesObject reihe = new TimeSeriesObject();
                 reihe.setLabel("" + key);
                 reihen.put("" + key, reihe);
                 System.out.println("key: " + key + " ... " + key1 );
@@ -171,9 +171,9 @@ public class DistributionCheckChartsDetailed {
                     Record2 rec = processLine(line, key + "", c + "");
 
                     // 
-                    Hashtable<String, Messreihe> temp = charts.get(rec.keyChart);
+                    Hashtable<String, TimeSeriesObject> temp = charts.get(rec.keyChart);
 
-                    Messreihe mr = temp.get(rec.keyReihe);
+                    TimeSeriesObject mr = temp.get(rec.keyReihe);
 
                     if (mr != null) {
 
@@ -311,9 +311,9 @@ public class DistributionCheckChartsDetailed {
 //
 //            String FULLchartLabel = inputset + "_" + chartLabel + "_" + AnalysisFileFilter.shuffle;
 //            
-//            Hashtable<String, Messreihe> tempReihen = charts.get(chartLabel);
+//            Hashtable<String, TimeSeriesObject> tempReihen = charts.get(chartLabel);
 //
-//            Messreihe[] reihenArray = new Messreihe[tempReihen.size()];
+//            TimeSeriesObject[] reihenArray = new TimeSeriesObject[tempReihen.size()];
 //
 //            int i = 0;
 //            for (String key : tempReihen.keySet()) {
@@ -341,7 +341,7 @@ public class DistributionCheckChartsDetailed {
 //
 //           MesswertTabelle mwt = new MesswertTabelle();
 //           mwt.setLabel( f.getAbsolutePath() );
-//           mwt.setMessReihen(reihenArray);
+//           mwt.setTimeSeriesObjectn(reihenArray);
 //
 //           String header = MesswertTabelle.getCommentLine(   "dataset   : " + chartLabel  );
 //           header = header + MesswertTabelle.getCommentLine( "inputfile : " + fn2   );
@@ -357,7 +357,7 @@ public class DistributionCheckChartsDetailed {
 //           
 //           reihenArray = pro.sortRosByLabel_INTEGER(reihenArray);
 //           String[] labels = {"20","40","60","80","100" };
-//           pro.addMessreihenToBook( inputset + "_"+ chartLabel + "_" + label , reihenArray, labels);
+//           pro.addTimeSeriesObjectnToBook( inputset + "_"+ chartLabel + "_" + label , reihenArray, labels);
 //           
 
 //        }

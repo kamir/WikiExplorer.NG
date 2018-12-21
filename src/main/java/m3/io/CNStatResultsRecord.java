@@ -11,7 +11,7 @@
 package m3.io;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.text.DecimalFormat;
 import java.util.Collections;
 import java.util.Hashtable;

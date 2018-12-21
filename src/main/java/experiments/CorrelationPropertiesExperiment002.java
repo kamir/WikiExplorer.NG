@@ -9,9 +9,8 @@
 package experiments;
 
 import com.cloudera.wikipedia.explorer.ResultManager;
-import experiments.crosscorrelation.CCProzessor;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 
 import java.util.Vector;
 
@@ -24,12 +23,9 @@ import m3.wikipedia.corpus.extractor.NetDensityCalc;
 
 import metadata.ExperimentDescriptor;
 
-import org.apache.hadoopts.app.thesis.LongTermCorrelationSeriesGenerator;
 import org.apache.hadoopts.app.bucketanalyser.TSOperationControlerPanel;
 import org.apache.hadoopts.hadoopts.buckets.BucketLoader;
 import org.apache.hadoopts.hadoopts.core.TSBucket;
-
-import statistics.HaeufigkeitsZaehlerDoubleSIMPLE;
 
 /**
  *
@@ -50,19 +46,19 @@ public class CorrelationPropertiesExperiment002 {
 
     static StringBuffer log = null;
 
-    static Vector<Messreihe> testsA = null;
-    static Vector<Messreihe> testsB = null; 
-    static Vector<Messreihe> testsC = null;
-    static Vector<Messreihe> testsD = null;
+    static Vector<TimeSeriesObject> testsA = null;
+    static Vector<TimeSeriesObject> testsB = null; 
+    static Vector<TimeSeriesObject> testsC = null;
+    static Vector<TimeSeriesObject> testsD = null;
 
-    static Vector<Messreihe> check = null;
+    static Vector<TimeSeriesObject> check = null;
 
     public static void main(String[] args) throws Exception {
  
-        testsA = new Vector<Messreihe>();
-        testsB = new Vector<Messreihe>();
-        testsC = new Vector<Messreihe>();
-        testsD = new Vector<Messreihe>();
+        testsA = new Vector<TimeSeriesObject>();
+        testsB = new Vector<TimeSeriesObject>();
+        testsC = new Vector<TimeSeriesObject>();
+        testsD = new Vector<TimeSeriesObject>();
 
  
 
@@ -140,7 +136,7 @@ public class CorrelationPropertiesExperiment002 {
         
 //        HaeufigkeitsZaehlerDoubleSIMPLE r6 = CCProzessor.getPartial(testsC, testsA, true, ts, null, ndc, market3 + "_SHUFFLE", bw, runID, false);
         
-//        Vector<Messreihe> vr = new Vector<Messreihe>();
+//        Vector<TimeSeriesObject> vr = new Vector<TimeSeriesObject>();
 //        vr.add(r1.getHistogramNORM());
 //        vr.add(r2.getHistogramNORM());
 //        vr.add(r3.getHistogramNORM());

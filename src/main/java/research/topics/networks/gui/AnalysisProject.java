@@ -4,7 +4,7 @@
  */
 package research.topics.networks.gui;
 
-import org.apache.hadoopts.data.export.MesswertTabelle;
+import org.apache.hadoopts.data.export.MeasurementTable;
 import org.apache.hadoopts.data.export.OriginProject;
 
 /**
@@ -22,8 +22,8 @@ public class AnalysisProject {
         originPro.folderName = baseFolder + "origindata/";
     };
 
-    public void storeMesswertTabelle(MesswertTabelle mwt) {
-        originPro.storeMesswertTabelle( mwt );
+    public void storeMesswertTabelle(MeasurementTable mwt) {
+        originPro.storeMeasurementTable( mwt );
     }
     
 }

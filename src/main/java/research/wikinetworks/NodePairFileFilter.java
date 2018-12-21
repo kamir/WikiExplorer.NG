@@ -6,7 +6,7 @@
 package research.wikinetworks;
 
 import java.io.File;
-import java.io.FileFilter;
+
 import com.cloudera.wikiexplorer.ng.util.nodegroups.EditActivityFilter;
 
 /**

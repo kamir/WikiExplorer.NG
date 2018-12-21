@@ -7,7 +7,7 @@ package research.nodeactivity;
 
 import org.apache.hadoopts.chart.statistic.HistogramChart;
 import com.mysql.jdbc.*;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import com.cloudera.wikiexplorer.ng.db.DB;
 import extraction.TimeSeriesFactory;
 import extraction.TimeSeriesTransformer;
@@ -76,13 +76,13 @@ public class DaylyDistribution {
 //        /*
 //         * Container for all rows ... of that group ...
 //         */
-//        Vector<Messreihe> mr = loadAllRows( nc );
+//        Vector<TimeSeriesObject> mr = loadAllRows( nc );
 //
 //        System.out.println( ">>> prepare the cuts ... ");
 //
-//        Vector<Messreihe> horiCuts = loadAllRows( nc );
+//        Vector<TimeSeriesObject> horiCuts = loadAllRows( nc );
 //        for( int i = 0; i < nrOfDays; i++) {
-//            Messreihe cut = getHorizontalCut( mr , i );
+//            TimeSeriesObject cut = getHorizontalCut( mr , i );
 //            horiCuts.add(cut);
 //        }
 
@@ -91,18 +91,18 @@ public class DaylyDistribution {
         /**
          * Wie sind alle Zugriffe an aller Tagen in allen Nodes verteilt?
          */
-        Messreihe allAccessValues = createRowOfAllValues( data );
+        TimeSeriesObject allAccessValues = createRowOfAllValues( data );
         createHistogramm(ng, allAccessValues, 100, -25, ((int) allAccessValues.getMaxY() + 1) );
 
 
         /**
          * Wie sind die std, av und Q=av/std an den Tagen verteilt?
          */
-        Vector<Messreihe> mr = createDailyRows( data );
-        Messreihe mrDayly_av = new Messreihe("daily   <access>");
-        Messreihe mrDayly_std = new Messreihe("daily   std(access)");
-        Messreihe mrDayly_av_by_std = new Messreihe("daily   std / <access>");
-        for( Messreihe m : mr ) {
+        Vector<TimeSeriesObject> mr = createDailyRows( data );
+        TimeSeriesObject mrDayly_av = new TimeSeriesObject("daily   <access>");
+        TimeSeriesObject mrDayly_std = new TimeSeriesObject("daily   std(access)");
+        TimeSeriesObject mrDayly_av_by_std = new TimeSeriesObject("daily   std / <access>");
+        for( TimeSeriesObject m : mr ) {
             m.calcAverage();
             double av = m.getAvarage();
             double std = m.getStddev();
@@ -127,7 +127,7 @@ public class DaylyDistribution {
 
     }
 
-    public static Container createHistogramm( NodeGroup ng,Messreihe mr, int bins, int min, int max ) {
+    public static Container createHistogramm( NodeGroup ng,TimeSeriesObject mr, int bins, int min, int max ) {
         HistogramChart demo = new HistogramChart( mr.getLabel()  );
 
         demo.addSerieWithBinning( mr, bins, min, max );
@@ -139,7 +139,7 @@ public class DaylyDistribution {
         return demo.getContentPane();
     };
 
-    public static Vector<Messreihe> loadAllRows( CCCalculator nc ) {
+    public static Vector<TimeSeriesObject> loadAllRows( CCCalculator nc ) {
         nc.ng.checkAccessTimeSeries();
         System.out.println( nc.ng.getAaccessReihen().size() + " rows loaded ...");
         return nc.ng.getAaccessReihen();
@@ -151,25 +151,25 @@ public class DaylyDistribution {
         //ng.checkForDoubleIds();
     }
 
-    public static Messreihe getHorizontalCut(Vector<Messreihe> mrs, int i) {
-        Messreihe mr = new Messreihe();
+    public static TimeSeriesObject getHorizontalCut(Vector<TimeSeriesObject> mrs, int i) {
+        TimeSeriesObject mr = new TimeSeriesObject();
         mr.setLabel( "Cut at: " + i );
         int c= 0;
-        for( Messreihe r : mrs ) {
+        for( TimeSeriesObject r : mrs ) {
             mr.addValuePair(1.0*c, (Double)r.yValues.elementAt(i) );
             c++;
         }
         return mr;
     }
 
-    private static Vector<Messreihe> createDailyRows(double[][] data) {
-        Vector<Messreihe> v = new Vector<Messreihe>();
+    private static Vector<TimeSeriesObject> createDailyRows(double[][] data) {
+        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
         int day_max = data.length;
         int rows_max = data[0].length;
         System.out.println( day_max + " " + rows_max);
         for( int i = 0; i < day_max; i++ ) {
         
-            Messreihe r = new Messreihe();
+            TimeSeriesObject r = new TimeSeriesObject();
             r.setLabel("day_"+(i+1) );
             for( int j = 0; j < rows_max; j++ ) {
                 r.addValuePair( i , data[i][j] );
@@ -179,8 +179,8 @@ public class DaylyDistribution {
         return v;
     }
 
-    private static Messreihe createRowOfAllValues(double[][] data) {
-        Messreihe mr = new  Messreihe();
+    private static TimeSeriesObject createRowOfAllValues(double[][] data) {
+        TimeSeriesObject mr = new  TimeSeriesObject();
         mr.setLabel("allDaysAccessValues");
 
         int day_max = data.length;
@@ -194,8 +194,8 @@ public class DaylyDistribution {
         return mr;
     }
 
-//    private static Messreihe createRowOfAllValues_LOG(double[][] data) {
-//        Messreihe mr = new  Messreihe();
+//    private static TimeSeriesObject createRowOfAllValues_LOG(double[][] data) {
+//        TimeSeriesObject mr = new  TimeSeriesObject();
 //        mr.setLabel("allDaysAccessValues");
 //
 //        int day_max = data.length;

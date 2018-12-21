@@ -5,22 +5,17 @@
 
 package experiments.crosscorrelation;
 
-import org.apache.hadoopts.chart.simple.MultiChart;
 import org.apache.hadoopts.chart.simple.MyXYPlot;
 import org.apache.hadoopts.chart.statistic.HistogramChart;
-import org.apache.hadoopts.data.series.Messreihe;
-import java.awt.Color;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
+
 import java.awt.Container;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.*;
-import javax.swing.JFileChooser; 
+
 import org.jfree.ui.RefineryUtilities;
-import research.networks.StaticLinkManager;
 import research.wikinetworks.NodePair;
 import org.apache.hadoopts.statistics.HaeufigkeitsZaehlerDouble;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
@@ -97,7 +92,7 @@ public class ConfidenceChecker {
     public static void main(String[] args) throws Exception {
 
 
-    Vector<Messreihe> conf = new Vector<Messreihe>();
+    Vector<TimeSeriesObject> conf = new Vector<TimeSeriesObject>();
 
         int c=0;
         boolean noBreake = true;
@@ -138,16 +133,16 @@ public class ConfidenceChecker {
         }
 
 
-        Messreihe[] r = new Messreihe[lang.length];
-        Messreihe[] tau = new Messreihe[lang.length];
+        TimeSeriesObject[] r = new TimeSeriesObject[lang.length];
+        TimeSeriesObject[] tau = new TimeSeriesObject[lang.length];
         
         CCResults[][] ccr = new CCResults[lang.length][2];
 
         for ( int i = 0; i < max ; i++ ) {
-            r[i] = new Messreihe();
+            r[i] = new TimeSeriesObject();
             r[i].setLabel( "lang=" + lang[i] );
 
-            tau[i] = new Messreihe();
+            tau[i] = new TimeSeriesObject();
             tau[i].setLabel( "lang=" + lang[i] );
 
             for( int j = 0; j < 2; j++ ) {
@@ -168,8 +163,8 @@ public class ConfidenceChecker {
             HaeufigkeitsZaehlerDouble zaehler1 = new HaeufigkeitsZaehlerDouble();
             HaeufigkeitsZaehlerDouble zaehler2 = new HaeufigkeitsZaehlerDouble();
 
-            Messreihe histSHUFF = new Messreihe( modes[0] );
-            Messreihe histNORMAL = new Messreihe( modes[1] );
+            TimeSeriesObject histSHUFF = new TimeSeriesObject( modes[0] );
+            TimeSeriesObject histNORMAL = new TimeSeriesObject( modes[1] );
 
 
             System.out.println( ccr[i][0].lang + " " + ccr[i][1].lang );
@@ -201,7 +196,7 @@ public class ConfidenceChecker {
                 z++;
             }
 
-            Vector<Messreihe> v = new Vector<Messreihe>();
+            Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
             v.add( histNORMAL );
             v.add( histSHUFF );
             int maxB = 8;
@@ -210,7 +205,7 @@ public class ConfidenceChecker {
             zaehler2.calcWS();
 
             System.out.println( zaehler1.getConfidence().toString() );
-            Messreihe fmr = zaehler1.getConfidence();
+            TimeSeriesObject fmr = zaehler1.getConfidence();
             fmr.setLabel( ccr[i][0].lang + " conf");
             conf.add( fmr );
 
@@ -236,7 +231,7 @@ public class ConfidenceChecker {
 //
 //        MyXYPlot.rowONEDefualtColor = Color.BLACK;
 //
-//        for( Messreihe m: r) {
+//        for( TimeSeriesObject m: r) {
 //            SimpleRegression linFit = m.linFit(0.0, 10.0);
 //            System.out.println( m.getLabel()+"\n\tR=" + linFit.getR() );
 //            System.out.println( "\tm=" + linFit.getSlope() );
@@ -289,7 +284,7 @@ public class ConfidenceChecker {
         return b;
     };
 
-    // hier kommen die Zeilen an und werden in die Messreihen bzw.
+    // hier kommen die Zeilen an und werden in die TimeSeriesObjectn bzw.
     // Netzwerkdarstellungen überführt.
     static int counter = 0;
     static public NodePair parseLine(String line, int j, String lang) {
@@ -323,13 +318,13 @@ public class ConfidenceChecker {
         return lang + "_" + modes[mode];
     }
 
-    static public Container createHistogramm( Vector<Messreihe> mrs, int bins, int min, int max ) {
+    static public Container createHistogramm( Vector<TimeSeriesObject> mrs, int bins, int min, int max ) {
 
 
         HistogramChart demo = new HistogramChart( mrs.elementAt(0).getLabel()  );
         demo.useLegend = true;
 
-        for( Messreihe mr : mrs ) {
+        for( TimeSeriesObject mr : mrs ) {
             demo.addSerieWithBinning( mr, bins, min, max );
         }
 

@@ -21,8 +21,9 @@ import org.apache.velocity.runtime.RuntimeSingleton;
 import org.apache.velocity.runtime.parser.ParseException;
 import org.apache.velocity.runtime.parser.node.SimpleNode;
 import org.crunchts.store.TSB;
-import wikiapiclient.SnippetLoader;
-import wikiapiclient.WikiORIGINAL;
+
+//import wikiapiclient.SnippetLoader;
+//import wikiapiclient.WikiORIGINAL;
 /**
  *
  * @author kamir
@@ -113,10 +114,10 @@ public class CorpusStatisticsMain2 {
         
         String tplName = "RepresentationPlot";
         
-        WikiORIGINAL wikiServer = new WikiORIGINAL("semanpix.de/opendata/wiki", "");
+//        WikiORIGINAL wikiServer = new WikiORIGINAL("semanpix.de/opendata/wiki", "");
         
-        SnippetLoader sl = new SnippetLoader();
-        sl.init(wikiServer);
+//        SnippetLoader sl = new SnippetLoader();
+//        sl.init(wikiServer);
         
         /**
          * 
@@ -124,31 +125,31 @@ public class CorpusStatisticsMain2 {
          * 
          */
         
-        String template = sl.loadVelocityTemplate( tplName + ".code", fileTemplateFileFromSnippet, false);
-
-        RuntimeServices runtimeServices = RuntimeSingleton.getRuntimeServices();
-        StringReader reader = new StringReader( template );
-        SimpleNode node = runtimeServices.parse( reader, tplName );
-
-        Template tpl = new Template();
-        tpl.setRuntimeServices(runtimeServices);
-        tpl.setData(node);
-        tpl.initDocument();
-
-        Velocity.mergeTemplate("REPPLOTTemplate.vm", context, sw);
-
-        System.out.println(" template : " + sw.toString().length());
-
-        System.out.println(" report : " + sw.toString());
-
-        File fn2 = new File("./charts/repplot_" + studie + ".html");
-
-        System.out.println(" create file : " + fn2.getAbsolutePath());
-
-        FileWriter fw2 = new FileWriter(fn2);
-        fw2.write(sw.toString());
-        fw2.flush();
-        fw2.close();
+//        String template = sl.loadVelocityTemplate( tplName + ".code", fileTemplateFileFromSnippet, false);
+//
+//        RuntimeServices runtimeServices = RuntimeSingleton.getRuntimeServices();
+//        StringReader reader = new StringReader( template );
+//        SimpleNode node = runtimeServices.parse( reader, tplName );
+//
+//        Template tpl = new Template();
+//        tpl.setRuntimeServices(runtimeServices);
+//        tpl.setData(node);
+//        tpl.initDocument();
+//
+//        Velocity.mergeTemplate("REPPLOTTemplate.vm", context, sw);
+//
+//        System.out.println(" template : " + sw.toString().length());
+//
+//        System.out.println(" report : " + sw.toString());
+//
+//        File fn2 = new File("./charts/repplot_" + studie + ".html");
+//
+//        System.out.println(" create file : " + fn2.getAbsolutePath());
+//
+//        FileWriter fw2 = new FileWriter(fn2);
+//        fw2.write(sw.toString());
+//        fw2.flush();
+//        fw2.close();
 
     }
 

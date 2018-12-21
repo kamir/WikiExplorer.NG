@@ -11,7 +11,6 @@
 package extraction;
 
 import org.apache.hadoopts.data.series.Zeitreihe;
-import org.apache.hadoopts.data.series.Messreihe;
 import com.cloudera.wikiexplorer.ng.db.DB;
 import com.cloudera.wikiexplorer.ng.db.mlu3.WikipediaDB;
 import java.io.FileWriter;

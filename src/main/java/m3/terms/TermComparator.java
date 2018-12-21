@@ -4,7 +4,7 @@
  */
 package m3.terms;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -36,7 +36,7 @@ public class TermComparator {
         System.out.println("results: "+sorted_map);
     }
     
-    public static Map<String,Double> getMapSortedByValue( Messreihe mr ) { 
+    public static Map<String,Double> getMapSortedByValue( TimeSeriesObject mr ) { 
         
         HashMap<String,Double> map = new HashMap<String,Double>();
         ValueComparator bvc =  new ValueComparator(map);

@@ -7,13 +7,12 @@
 package research.results;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import com.cloudera.wikiexplorer.ng.gui.NodeIDSelection;
 import java.io.File;
 import java.util.Vector;
-import research.wikinetworks.PageNameLoader;
+
 import org.apache.hadoopts.statphys.detrending.DetrendingMethodFactory;
-import org.apache.hadoopts.statphys.detrending.MultiDFATool;
 import org.apache.hadoopts.statphys.detrending.methods.IDetrendingMethod;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 
@@ -47,15 +46,15 @@ public class NodeGroupClusterAnalyser {
             for( NodeGroup ng : clusters ) {
 
                 analyser.ng = ng;
-                Messreihe[] rows = analyser.getAccessRowsForAllIds();
+                TimeSeriesObject[] rows = analyser.getAccessRowsForAllIds();
                 MultiChart.open( rows, rows.length + " " + ng.fn.substring(0, 11) + " access time series", "h", "#of clicks per hour", false);
                 
                 System.out.println( ">>> DFA für anz=" + rows.length + " Reihen berechnen ... ");
                 
-                Vector<Messreihe> k = new Vector<Messreihe>();
+                Vector<TimeSeriesObject> k = new Vector<TimeSeriesObject>();
                 
                 if ( rows.length > 3 ) {
-                    for( Messreihe d1 : rows ) { 
+                    for( TimeSeriesObject d1 : rows ) { 
                         
                         int N = 299;
                         
@@ -91,8 +90,8 @@ public class NodeGroupClusterAnalyser {
 
                         // Übergabe der Ergebnisse ...
                         double[][] results = dfa.getResults();
-                        Vector<Messreihe> v = new Vector<Messreihe>();
-                        Messreihe mr1 = dfa.getResultsMRLogLog();
+                        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
+                        TimeSeriesObject mr1 = dfa.getResultsMRLogLog();
                         mr1.setLabel( d1.getLabel() );
                         k.add(mr1);
 
@@ -113,12 +112,12 @@ public class NodeGroupClusterAnalyser {
     NodeGroup ng = null;
     StringBuffer sbCurrentLabels = null;
 
-    public Messreihe[] getAccessRowsForAllIds() {
+    public TimeSeriesObject[] getAccessRowsForAllIds() {
         sbCurrentLabels = new StringBuffer();
-        Messreihe[] mr = new Messreihe[ng.ids.length];
+        TimeSeriesObject[] mr = new TimeSeriesObject[ng.ids.length];
         int x = 0;
         for (int id : ng.ids) {
-            Messreihe m = ng.loadAccessForOneID(new Integer(id));
+            TimeSeriesObject m = ng.loadAccessForOneID(new Integer(id));
             String l = m.getLabel();
             String name = "?"; // PageNameLoader.getPagenameForId(id);
             sbCurrentLabels.append( name + "\n");

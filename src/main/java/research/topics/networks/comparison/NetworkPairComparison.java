@@ -7,7 +7,7 @@
  * 
  * 
  * doCalc( ... ) ist dazu die wesentliche Methode, um den Vergleich
- *               zweier Netzwerke, in Darstellung einer Messreihe
+ *               zweier Netzwerke, in Darstellung einer TimeSeriesObject
  *               zu berechnen.
  * 
  * 
@@ -35,7 +35,7 @@
 package research.topics.networks.comparison;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.text.DecimalFormat;
 import java.util.Date;
 import java.util.Hashtable;
@@ -55,27 +55,27 @@ public class NetworkPairComparison {
         showRows = false;
         
         stdlib.StdRandom.initRandomGen(1);
-        // Vector<Messreihe> vmr = loadRows();
+        // Vector<TimeSeriesObject> vmr = loadRows();
 
-        Vector<Messreihe> vmr = NetworkPairComparison.getTestData_A();
-        Messreihe a = vmr.elementAt(0);
-        Messreihe b = vmr.elementAt(1);
+        Vector<TimeSeriesObject> vmr = NetworkPairComparison.getTestData_A();
+        TimeSeriesObject a = vmr.elementAt(0);
+        TimeSeriesObject b = vmr.elementAt(1);
 
-        Vector<Messreihe> vmr2 = NetworkPairComparison.getTestData_B();
-        Messreihe a1 = vmr2.elementAt(0);
-        Messreihe b1 = vmr2.elementAt(1);
+        Vector<TimeSeriesObject> vmr2 = NetworkPairComparison.getTestData_B();
+        TimeSeriesObject a1 = vmr2.elementAt(0);
+        TimeSeriesObject b1 = vmr2.elementAt(1);
 
-        Vector<Messreihe> vmr3 = NetworkPairComparison.getTestData_C();
-        Messreihe a2 = vmr3.elementAt(0);
-        Messreihe b2 = vmr3.elementAt(1);
+        Vector<TimeSeriesObject> vmr3 = NetworkPairComparison.getTestData_C();
+        TimeSeriesObject a2 = vmr3.elementAt(0);
+        TimeSeriesObject b2 = vmr3.elementAt(1);
         
-        Vector<Messreihe> vmr4 = NetworkPairComparison.getTestData_D();
-        Messreihe d2 = vmr4.elementAt(0);
-        Messreihe d3 = vmr4.elementAt(1);
+        Vector<TimeSeriesObject> vmr4 = NetworkPairComparison.getTestData_D();
+        TimeSeriesObject d2 = vmr4.elementAt(0);
+        TimeSeriesObject d3 = vmr4.elementAt(1);
 //        
-        Vector<Messreihe> vmr5 = NetworkPairComparison.getTestData_TM1();
-        Messreihe a5 = vmr5.elementAt(0);
-        Messreihe b5 = vmr5.elementAt(1);
+        Vector<TimeSeriesObject> vmr5 = NetworkPairComparison.getTestData_TM1();
+        TimeSeriesObject a5 = vmr5.elementAt(0);
+        TimeSeriesObject b5 = vmr5.elementAt(1);
         
         TimeLog tl = new TimeLog(true);
         
@@ -97,20 +97,20 @@ public class NetworkPairComparison {
     static boolean debug = false;
 
     /**
-     * Die beiden Messreihen müssen beide die gleichen geordneten Listen
+     * Die beiden TimeSeriesObjectn müssen beide die gleichen geordneten Listen
      * von Keys haben. 
      * 
      * @param mrA
      * @param mrB 
      */
-    public static double[] doCalc(Messreihe _mrA, Messreihe _mrB, TimeLog tl, NetworkComparator comp) {
+    public static double[] doCalc(TimeSeriesObject _mrA, TimeSeriesObject _mrB, TimeLog tl, NetworkComparator comp) {
 
         // umwandeln der Link-Liste in ein vollständige
         // Adjaceny Matrix
-        Messreihe[] reihen = joinLabeledRows( _mrA, _mrB );
+        TimeSeriesObject[] reihen = joinLabeledRows( _mrA, _mrB );
         
-        Messreihe mrA = reihen[0];
-        Messreihe mrB = reihen[1];
+        TimeSeriesObject mrA = reihen[0];
+        TimeSeriesObject mrB = reihen[1];
         
         if ( debug ) {
             System.out.println(mrA.getSize()[0]);
@@ -127,11 +127,11 @@ public class NetworkPairComparison {
         double stAB = 0.0;
         double[] kendall_tau_AB = new double[4];
 
-        Vector<Messreihe> mrv = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
         mrv.add(mrA);
         mrv.add(mrB);
 
-//        Vector<Messreihe> mrv2 = new Vector<Messreihe>();
+//        Vector<TimeSeriesObject> mrv2 = new Vector<TimeSeriesObject>();
 //        mrv2.add(mrA.normalizeToStdevIsOne());
 //        mrv2.add(mrB.normalizeToStdevIsOne());
 
@@ -155,9 +155,9 @@ public class NetworkPairComparison {
         }
 
 //        StdRandom.initRandomGen(1);
-//        Messreihe mrA = Messreihe.getGaussianDistribution(50);
-//        Messreihe mrB = Messreihe.getGaussianDistribution(50);
-//        Messreihe mrC = Messreihe.getGaussianDistribution(50);
+//        TimeSeriesObject mrA = TimeSeriesObject.getGaussianDistribution(50);
+//        TimeSeriesObject mrB = TimeSeriesObject.getGaussianDistribution(50);
+//        TimeSeriesObject mrC = TimeSeriesObject.getGaussianDistribution(50);
 
         if ( comp != null ) calcCC = comp.doCalc( "cc" );
         if (calcCC) {
@@ -199,7 +199,7 @@ public class NetworkPairComparison {
 
     }
 
-    private static double calcSignifikanzTest(Messreihe mrA, Messreihe mrE) {
+    private static double calcSignifikanzTest(TimeSeriesObject mrA, TimeSeriesObject mrE) {
 
         double x = 0.0;
         double mwA = mrA.getAvarage2();
@@ -260,7 +260,7 @@ public class NetworkPairComparison {
     }
 
     //
-    private static double[] calcKendallTau2(Messreihe mrA, Messreihe mrE) {
+    private static double[] calcKendallTau2(TimeSeriesObject mrA, TimeSeriesObject mrE) {
         
         double[] dat = new double[4];
         
@@ -322,7 +322,7 @@ public class NetworkPairComparison {
         return dat;
     }
     
-    private static double calcKendallTau(Messreihe mrA, Messreihe mrE) {
+    private static double calcKendallTau(TimeSeriesObject mrA, TimeSeriesObject mrE) {
         double tau = 0.0;
         int nd = 0;
         int nc = 0;
@@ -391,18 +391,18 @@ public class NetworkPairComparison {
         return ids;
     }
     
-    public static Vector<Messreihe> getTestData_C() {
+    public static Vector<TimeSeriesObject> getTestData_C() {
         int n = 50;
         System.out.println( "C) - zufällige Linkstärken für n=" + n + " Werte.");
 
         
-        Messreihe mrA = new Messreihe("C1");
-        Messreihe mrB = new Messreihe("C2");
+        TimeSeriesObject mrA = new TimeSeriesObject("C1");
+        TimeSeriesObject mrB = new TimeSeriesObject("C2");
 
         
         
-        Messreihe mrAr = Messreihe.getGaussianDistribution(n, 0.0, 0.2);
-        Messreihe mrBr = Messreihe.getGaussianDistribution(n, 0.0, 0.2);
+        TimeSeriesObject mrAr = TimeSeriesObject.getGaussianDistribution(n, 0.0, 0.2);
+        TimeSeriesObject mrBr = TimeSeriesObject.getGaussianDistribution(n, 0.0, 0.2);
         
 
         for( int i = 0; i < n; i++ ) {
@@ -413,18 +413,18 @@ public class NetworkPairComparison {
         }    
 
 
-        Vector<Messreihe> mrv = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
         mrv.add(mrA);
         mrv.add(mrB);
 
         return mrv;
     }
     
-    public static Vector<Messreihe> getTestData_B() {
+    public static Vector<TimeSeriesObject> getTestData_B() {
         System.out.println( "B) - identische Beträge aber invertiert.");
 
-        Messreihe mrA = new Messreihe("B1");
-        Messreihe mrB = new Messreihe("B2");
+        TimeSeriesObject mrA = new TimeSeriesObject("B1");
+        TimeSeriesObject mrB = new TimeSeriesObject("B2");
 
         Link l1 = new Link("1", "2", 0.0);
         Link l2 = new Link("2", "3", 0.2);
@@ -451,18 +451,18 @@ public class NetworkPairComparison {
         mrB.addValue(l50.strength, l50.labels);
 
 
-        Vector<Messreihe> mrv = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
         mrv.add(mrA);
         mrv.add(mrB);
 
         return mrv;
     }
 
-    public static Vector<Messreihe> getTestData_D() {
+    public static Vector<TimeSeriesObject> getTestData_D() {
         System.out.println( "D) - verschobene identische Link-Listen");
 
-        Messreihe mrA = new Messreihe("D1");
-        Messreihe mrB = new Messreihe("D2");
+        TimeSeriesObject mrA = new TimeSeriesObject("D1");
+        TimeSeriesObject mrB = new TimeSeriesObject("D2");
 
         Link l1 = new Link("1", "2", 0.0);
         Link l2 = new Link("2", "3", 0.0);
@@ -489,18 +489,18 @@ public class NetworkPairComparison {
         mrB.addValue(l50.strength, l50.labels);
 
 
-        Vector<Messreihe> mrv = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
         mrv.add(mrA);
         mrv.add(mrB);
 
         return mrv;
     }
  
-    public static Vector<Messreihe> getTestData_TM1() {
+    public static Vector<TimeSeriesObject> getTestData_TM1() {
         System.out.println( "TM1) - TestMatrix");
 
-        Messreihe mrA = new Messreihe("M1");
-        Messreihe mrB = new Messreihe("M2");
+        TimeSeriesObject mrA = new TimeSeriesObject("M1");
+        TimeSeriesObject mrB = new TimeSeriesObject("M2");
 
         Link l1 = new Link("1", "2", 0.0);
         Link l2 = new Link("2", "3", 0.2);
@@ -518,18 +518,18 @@ public class NetworkPairComparison {
         mrB.addValue(l20.strength, l20.labels);
         
         
-        Vector<Messreihe> mrv = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
         mrv.add(mrA);
         mrv.add(mrB);
 
         return mrv;
     }
 
-    public static Vector<Messreihe> getTestData_A() {
+    public static Vector<TimeSeriesObject> getTestData_A() {
         System.out.println( "A) - identische Link-Listen");
 
-        Messreihe mrA = new Messreihe("A1");
-        Messreihe mrB = new Messreihe("A2");
+        TimeSeriesObject mrA = new TimeSeriesObject("A1");
+        TimeSeriesObject mrB = new TimeSeriesObject("A2");
 
         Link l1 = new Link("1", "2", 0.0);
         Link l2 = new Link("2", "3", 0.2);
@@ -556,7 +556,7 @@ public class NetworkPairComparison {
         mrB.addValue(l50.strength, l50.labels);
 
 
-        Vector<Messreihe> mrv = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
         mrv.add(mrA);
         mrv.add(mrB);
 
@@ -564,8 +564,8 @@ public class NetworkPairComparison {
     }
 
     
-    private static Messreihe[] joinLabeledRows(Messreihe _mrA, Messreihe _mrB) {
-        Messreihe[] rows = new Messreihe[2];
+    private static TimeSeriesObject[] joinLabeledRows(TimeSeriesObject _mrA, TimeSeriesObject _mrB) {
+        TimeSeriesObject[] rows = new TimeSeriesObject[2];
         
         
         // sind die Keys schon gleich ???  ggf sind si noch nicht vollständig ...
@@ -589,7 +589,7 @@ public class NetworkPairComparison {
      * @param _mrB
      * @return 
      */
-    private static boolean checkRows(Messreihe _mrA, Messreihe _mrB) {
+    private static boolean checkRows(TimeSeriesObject _mrA, TimeSeriesObject _mrB) {
         boolean b = true;
         Hashtable t1 = _mrA.hashedValues;
         Hashtable t2 = _mrB.hashedValues;
@@ -614,9 +614,9 @@ public class NetworkPairComparison {
         return b;
     }
 
-    private static Messreihe[] mergeRows(Messreihe _mrA, Messreihe _mrB) {
+    private static TimeSeriesObject[] mergeRows(TimeSeriesObject _mrA, TimeSeriesObject _mrB) {
         
-        Messreihe[] rows = new Messreihe[2];
+        TimeSeriesObject[] rows = new TimeSeriesObject[2];
         
         Vector<String> allKeys = new Vector<String>();
         
@@ -653,8 +653,8 @@ public class NetworkPairComparison {
         System.out.println(" nrOfKeys : " + allKeys.size() + " nr of keys.");
 
         
-        Messreihe rA = new Messreihe();
-        Messreihe rB = new Messreihe();
+        TimeSeriesObject rA = new TimeSeriesObject();
+        TimeSeriesObject rB = new TimeSeriesObject();
         
         
         // alle Paare ermitteln und mit null belegen bzw. den Wert aus mrA oder mrB einstellen

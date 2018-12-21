@@ -13,16 +13,14 @@ package experiments.crosscorrelation;
 
 
 import com.cloudera.wikipedia.explorer.ResultManager;
-import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.BufferedWriter;
 import java.util.Enumeration;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import m3.wikipedia.corpus.extractor.NetDensityCalc;
-  
-import org.apache.hadoopts.statistics.HaeufigkeitsZaehlerDouble;
+
 import research.ETH.ExtendedNodePairSFE;
 import statistics.HaeufigkeitsZaehlerDoubleSIMPLE;
  
@@ -35,10 +33,10 @@ public class CCProzessor {
     public static int NORM = 0;
 
     public static HaeufigkeitsZaehlerDoubleSIMPLE getAll(
-            Messreihe source, Vector<Messreihe> target,
+            TimeSeriesObject source, Vector<TimeSeriesObject> target,
             boolean shuffle, NetDensityCalc _ndc,
             String groupKEY, double ts,
-            Vector<Messreihe> norms,
+            Vector<TimeSeriesObject> norms,
             BufferedWriter bw,
             int runID) {
 
@@ -46,8 +44,8 @@ public class CCProzessor {
 
         for (int i = 0; i < target.size(); i++) {
 
-            Messreihe a = source;
-            Messreihe b = target.elementAt(i);
+            TimeSeriesObject a = source;
+            TimeSeriesObject b = target.elementAt(i);
 
             if (norms != null) {
                 b = b.divide_by(norms.elementAt(NORM));
@@ -89,8 +87,8 @@ public class CCProzessor {
      * @return
      */
     public static HaeufigkeitsZaehlerDoubleSIMPLE getPartial(
-            Vector<Messreihe> source,
-            Vector<Messreihe> target,
+            Vector<TimeSeriesObject> source,
+            Vector<TimeSeriesObject> target,
             boolean shuffle,
             double ts,
             Vector<ExtendedNodePairSFE> cont,
@@ -115,7 +113,7 @@ public class CCProzessor {
 
             j++;
             
-            Messreihe a = (Messreihe) enA.nextElement();
+            TimeSeriesObject a = (TimeSeriesObject) enA.nextElement();
             
             Enumeration enB = target.elements();
 
@@ -125,7 +123,7 @@ public class CCProzessor {
                 
 //                System.out.println( "i: " + i + " => j: " + j  );
 
-                Messreihe b = (Messreihe) enB.nextElement();
+                TimeSeriesObject b = (TimeSeriesObject) enB.nextElement();
 
                 ExtendedNodePairSFE np = new ExtendedNodePairSFE(a, b, keys);
 
@@ -206,8 +204,8 @@ public class CCProzessor {
         return hz;
     }
 
-    public static KreuzKorrelation getPairComparison(Messreihe FD, Vector<Messreihe> grCN, boolean shuffle,
-            Object ndc, String fn, double ts, Vector<Messreihe> norms) {
+    public static KreuzKorrelation getPairComparison(TimeSeriesObject FD, Vector<TimeSeriesObject> grCN, boolean shuffle,
+            Object ndc, String fn, double ts, Vector<TimeSeriesObject> norms) {
 
 
         KreuzKorrelation.GLdebug = false;

@@ -13,7 +13,7 @@ import experiments.crosscorrelation.CCProzessor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 
 import java.util.Vector;
 
@@ -29,8 +29,6 @@ import metadata.ExperimentDescriptor;
 import org.apache.hadoopts.app.bucketanalyser.ICorrelator;
 
 import org.apache.hadoopts.app.bucketanalyser.TSOperationControlerPanel;
-import org.apache.hadoopts.hadoopts.buckets.BucketLoader;
-import org.apache.hadoopts.hadoopts.core.TSBucket;
 
 import statistics.HaeufigkeitsZaehlerDoubleSIMPLE;
 
@@ -54,7 +52,7 @@ public class Correlator implements ICorrelator, ActionListener {
     String label = "CCCorrelator";
     StringBuffer log = null;
 
-    Vector<Messreihe> testsA = null;
+    Vector<TimeSeriesObject> testsA = null;
     
     TSOperationControlerPanel p = null;
 
@@ -64,7 +62,7 @@ public class Correlator implements ICorrelator, ActionListener {
     }
 
     @Override
-    public void calcSingleBucketCorrelations(Vector<Messreihe> testsA, String label) {
+    public void calcSingleBucketCorrelations(Vector<TimeSeriesObject> testsA, String label) {
 
         try {
             /**
@@ -97,7 +95,7 @@ public class Correlator implements ICorrelator, ActionListener {
 
             HaeufigkeitsZaehlerDoubleSIMPLE r2 = CCProzessor.getPartial(testsA, testsA, true, ts, null, ndc, label + "_SHUFFLE", bw, runID, false);
 
-            Vector<Messreihe> vr = new Vector<Messreihe>();
+            Vector<TimeSeriesObject> vr = new Vector<TimeSeriesObject>();
             vr.add(r1.getHistogramNORM());
             vr.add(r2.getHistogramNORM());
 

@@ -15,9 +15,10 @@ import org.apache.velocity.runtime.RuntimeSingleton;
 import org.apache.velocity.runtime.parser.ParseException;
 import org.apache.velocity.runtime.parser.node.SimpleNode;
 import org.crunchts.store.TSB; 
-import wikiapiclient.SnippetLoader;
-import wikiapiclient.WikiORIGINAL;
+//import wikiapiclient.SnippetLoader;
+//import wikiapiclient.WikiORIGINAL;
 import m3.wikipedia.analysis.charts.RepresentationPlotBubbleChart;
+import org.openide.util.Exceptions;
 
 /**
  * Needs a clear refactoring ...
@@ -52,9 +53,13 @@ public class RepPlotRenderer extends HTMLRenderer {
 
         System.out.println(">>> RESULT in : " + file.getAbsolutePath());
 
-        // Create the plot with VELOCITY 
-        /* first, we init the runtime engine.  Defaults are fine. */
-        Velocity.init();
+        try {
+            // Create the plot with VELOCITY
+            /* first, we init the runtime engine.  Defaults are fine. */
+            Velocity.init();
+        } catch (Exception ex) {
+            Exceptions.printStackTrace(ex);
+        }
 
         /* lets make a Context and put data into it */
         VelocityContext context = new VelocityContext();
@@ -79,11 +84,11 @@ public class RepPlotRenderer extends HTMLRenderer {
         String tplName = "RepresentationPlot";
         // String tplName = "LatexEquation";
         
-        WikiORIGINAL wikiServer = new WikiORIGINAL("semanpix.de/opendata/wiki/", "");
-        SnippetLoader sl = new SnippetLoader();
-        sl.init(wikiServer);
+       // WikiORIGINAL wikiServer = new WikiORIGINAL("semanpix.de/opendata/wiki/", "");
+       // SnippetLoader sl = new SnippetLoader();
+       //  sl.init(wikiServer);
         
-        String template = sl.loadVelocityTemplate( tplName + ".code", fileTemplateFileFromSnippet, false);
+       // String template = sl.loadVelocityTemplate( tplName + ".code", fileTemplateFileFromSnippet, false);
 
         
         
@@ -91,31 +96,31 @@ public class RepPlotRenderer extends HTMLRenderer {
         
         
         
-        RuntimeServices runtimeServices = RuntimeSingleton.getRuntimeServices();
-        StringReader reader = new StringReader( template );
-        
-        SimpleNode node = runtimeServices.parse( reader, tplName );
-
-//        Template tpl = new Template();
-//        tpl.setRuntimeServices(runtimeServices);
-//        tpl.setData(node);
-//        tpl.initDocument();
-
-        // Velocity.mergeTemplate("REPPLOTTemplate.vm", context, sw);
-        Velocity.mergeTemplate( fileTemplateFileFromSnippet.getName(), context, sw);
-
-        System.out.println(" template : " + sw.toString().length());
-
-        System.out.println(" report : " + sw.toString());
-
-        File fn2 = new File("./charts/repplot_snippetRendererTests.html");
-
-        System.out.println(" create file : " + fn2.getAbsolutePath());
-
-        FileWriter fw2 = new FileWriter(fn2);
-        fw2.write(sw.toString());
-        fw2.flush();
-        fw2.close();
+//        RuntimeServices runtimeServices = RuntimeSingleton.getRuntimeServices();
+//        StringReader reader = new StringReader( template );
+//        
+//        SimpleNode node = runtimeServices.parse( reader, tplName );
+//
+////        Template tpl = new Template();
+////        tpl.setRuntimeServices(runtimeServices);
+////        tpl.setData(node);
+////        tpl.initDocument();
+//
+//        // Velocity.mergeTemplate("REPPLOTTemplate.vm", context, sw);
+//        Velocity.mergeTemplate( fileTemplateFileFromSnippet.getName(), context, sw);
+//
+//        System.out.println(" template : " + sw.toString().length());
+//
+//        System.out.println(" report : " + sw.toString());
+//
+//        File fn2 = new File("./charts/repplot_snippetRendererTests.html");
+//
+//        System.out.println(" create file : " + fn2.getAbsolutePath());
+//
+//        FileWriter fw2 = new FileWriter(fn2);
+//        fw2.write(sw.toString());
+//        fw2.flush();
+//        fw2.close();
 
     }
     

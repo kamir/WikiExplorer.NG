@@ -4,7 +4,7 @@
 package experiments.crosscorrelation;
 
 import org.apache.hadoopts.chart.statistic.HistogramChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.awt.Container;
 import java.beans.XMLEncoder;
 import java.io.FileNotFoundException;
@@ -35,10 +35,10 @@ public class CCResults {
         CCResultsPanel.open(this);
     }
 
-    Messreihe histMaxY = null;
-    Messreihe histSigLevel = null;
-    Messreihe histMaxYO = null;
-    Messreihe histSigLevelO = null;
+    TimeSeriesObject histMaxY = null;
+    TimeSeriesObject histSigLevel = null;
+    TimeSeriesObject histMaxYO = null;
+    TimeSeriesObject histSigLevelO = null;
 
     public void store() throws FileNotFoundException {
 //        FileOutputStream os = new FileOutputStream("./" + lang + "_" + nrOfNodes + "CCResults.xml" );
@@ -54,16 +54,16 @@ public class CCResults {
 
         selected = new Vector<NodePair>();
 
-        histMaxY = new Messreihe();
+        histMaxY = new TimeSeriesObject();
         histMaxY.setLabel( lang + "_" + nrOfNodes + " Hist (maxY at \u03C4)");
 
-        histSigLevel = new Messreihe();
+        histSigLevel = new TimeSeriesObject();
         histSigLevel.setLabel( lang + "_" + nrOfNodes + " Hist (stength)");
 
-        histMaxYO = new Messreihe();
+        histMaxYO = new TimeSeriesObject();
         histMaxYO.setLabel( lang + "_" + nrOfNodes + " Hist (maxY \u03C4)");
 
-        histSigLevelO = new Messreihe();
+        histSigLevelO = new TimeSeriesObject();
         histSigLevelO.setLabel( lang + "_" + nrOfNodes + " Hist (sigLevel) \u03C4=["+t_low+","+t_high+"]");
 
 
@@ -92,7 +92,7 @@ public class CCResults {
     };
     
     public Container  getHistSigLevel() {
-        Vector<Messreihe> histSigLevels = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> histSigLevels = new Vector<TimeSeriesObject>();
 
         double max1 = histSigLevel.getMaxY();
         double max2 = histSigLevelO.getMaxY();
@@ -114,13 +114,13 @@ public class CCResults {
                 10 );
     };
 
-    public Container createHistogramm( Vector<Messreihe> mrs, int bins, int min, int max ) {
+    public Container createHistogramm( Vector<TimeSeriesObject> mrs, int bins, int min, int max ) {
 
 
         HistogramChart demo = new HistogramChart( mrs.elementAt(0).getLabel()  );
         demo.useLegend = true;
         
-        for( Messreihe mr : mrs ) {
+        for( TimeSeriesObject mr : mrs ) {
             demo.addSerieWithBinning( mr, bins, min, max );
         }
 
@@ -131,7 +131,7 @@ public class CCResults {
         return demo.getContentPane();
     };
 
-    public Container createHistogramm( Messreihe mr, int bins, int min, int max ) {
+    public Container createHistogramm( TimeSeriesObject mr, int bins, int min, int max ) {
         HistogramChart demo = new HistogramChart( mr.getLabel()  );
         demo.addSerieWithBinning( mr, bins, min, max );
         demo.setContentPane( demo.createChartPanel() );
@@ -158,8 +158,8 @@ public class CCResults {
             "srength"};
 
 
-    public Messreihe getMessreiheForColumn(int i ) {
-        Messreihe model = new Messreihe(colNames[i+1]);
+    public TimeSeriesObject getTimeSeriesObjectForColumn(int i ) {
+        TimeSeriesObject model = new TimeSeriesObject(colNames[i+1]);
         for( NodePair np : paare ) {
             switch(i) {
                 case 0: {

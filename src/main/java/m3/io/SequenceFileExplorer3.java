@@ -3,38 +3,28 @@ package m3.io;
 import org.apache.hadoopts.chart.simple.MultiChart;
 import com.ibm.icu.util.Calendar;
 import com.ibm.icu.util.GregorianCalendar;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import org.apache.hadoopts.hadoopts.core.TSBucket;
 import org.apache.hadoopts.hadoopts.topics.wikipedia.LocalWikipediaNetwork2;
 import java.awt.Toolkit;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JComponent;
-import javax.swing.JFileChooser;
-import javax.swing.JList;
 import javax.swing.JPanel;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.SequenceFile;
 import org.apache.hadoop.io.Text;
-import org.apache.mahout.math.NamedVector;
-import org.apache.mahout.math.VectorWritable;
 import com.cloudera.wikiexplorer.ng.gui.ChartFrame;
 
 /**
@@ -610,12 +600,12 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 //                double s = 0;
 //                
 //                
-//                Vector<Messreihe> cn = hash.get(key);
+//                Vector<TimeSeriesObject> cn = hash.get(key);
 //                String name = key;
 //                if ( cn != null ) {
 //                    // System.out.println( key + " " + (cn!=null) + " " + cn.elementAt(0).yValues.size() );
 //                    if ( cn.size() > 0 ) {
-//                        Messreihe r = cn.elementAt(0);
+//                        TimeSeriesObject r = cn.elementAt(0);
 //                        if ( r != null ) {
 //                            name = r.label;
 //                        }
@@ -805,10 +795,10 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
             z = Integer.parseInt(javax.swing.JOptionPane.showInputDialog(" Anzahl CN=", new Integer(zz)));
             for (int i = 0; i < z; i++) {
 
-                al = new Vector<Messreihe>();
-                bl = new Vector<Messreihe>();
-                iwl = new Vector<Messreihe>();
-                cn = new Vector<Messreihe>();
+                al = new Vector<TimeSeriesObject>();
+                bl = new Vector<TimeSeriesObject>();
+                iwl = new Vector<TimeSeriesObject>();
+                cn = new Vector<TimeSeriesObject>();
 
                 hash.put((i + 1) + ".A.L", al);
                 hash.put((i + 1) + ".B.L", bl);
@@ -817,10 +807,10 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 
             }
         } else {
-            al = new Vector<Messreihe>();
-            bl = new Vector<Messreihe>();
-            iwl = new Vector<Messreihe>();
-            cn = new Vector<Messreihe>();
+            al = new Vector<TimeSeriesObject>();
+            bl = new Vector<TimeSeriesObject>();
+            iwl = new Vector<TimeSeriesObject>();
+            cn = new Vector<TimeSeriesObject>();
 
             hash.put("A.L", al);
             hash.put("B.L", bl);
@@ -865,10 +855,10 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
             z = Integer.parseInt(javax.swing.JOptionPane.showInputDialog(" Anzahl CN=", new Integer(zz)));
             for (int i = 0; i < z; i++) {
 
-                al = new Vector<Messreihe>();
-                bl = new Vector<Messreihe>();
-                iwl = new Vector<Messreihe>();
-                cn = new Vector<Messreihe>();
+                al = new Vector<TimeSeriesObject>();
+                bl = new Vector<TimeSeriesObject>();
+                iwl = new Vector<TimeSeriesObject>();
+                cn = new Vector<TimeSeriesObject>();
 
                 hash.put((i + 1) + ".A.L", al);
                 hash.put((i + 1) + ".B.L", bl);
@@ -877,10 +867,10 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 
             }
         } else {
-            al = new Vector<Messreihe>();
-            bl = new Vector<Messreihe>();
-            iwl = new Vector<Messreihe>();
-            cn = new Vector<Messreihe>();
+            al = new Vector<TimeSeriesObject>();
+            bl = new Vector<TimeSeriesObject>();
+            iwl = new Vector<TimeSeriesObject>();
+            cn = new Vector<TimeSeriesObject>();
 
             hash.put("A.L", al);
             hash.put("B.L", bl);
@@ -890,11 +880,11 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
         }
 
     }
-    Vector<Messreihe> al = null;
-    Vector<Messreihe> bl = null;
-    Vector<Messreihe> iwl = null;
-    Vector<Messreihe> cn = null;
-    Hashtable<String, Vector<Messreihe>> hash = new Hashtable<String, Vector<Messreihe>>();
+    Vector<TimeSeriesObject> al = null;
+    Vector<TimeSeriesObject> bl = null;
+    Vector<TimeSeriesObject> iwl = null;
+    Vector<TimeSeriesObject> cn = null;
+    Hashtable<String, Vector<TimeSeriesObject>> hash = new Hashtable<String, Vector<TimeSeriesObject>>();
     
     LocalWikipediaNetwork2 localNet = new LocalWikipediaNetwork2();
 
@@ -921,7 +911,7 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 
             reader.getCurrentValue(val);
 
-            Messreihe mr = new Messreihe();
+            TimeSeriesObject mr = new TimeSeriesObject();
             mr.setDescription(i + " ) " + fn + "_[" + key.toString() + "]");
             mr.setLabel( key.toString() );
 
@@ -938,7 +928,7 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 
 
             try {
-                Messreihe mr2 = expandTimeStampMap(val, cal, tsFRAME_hours, mr);
+                TimeSeriesObject mr2 = expandTimeStampMap(val, cal, tsFRAME_hours, mr);
 
                 if ( BINNING_RAW[binLevel] != 1) mr2 = mr2.setBinningX_sum( BINNING_RAW[binLevel] );
                 
@@ -964,7 +954,7 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 
                 if (group != null) {
                     // System.out.println("g=" + group);
-                    Vector<Messreihe> vmr = hash.get(group);
+                    Vector<TimeSeriesObject> vmr = hash.get(group);
                     if (vmr != null) {
                         vmr.add(mr2);
                     }
@@ -1010,7 +1000,7 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 
             reader.getCurrentValue(val);
 
-            Messreihe mr = new Messreihe();
+            TimeSeriesObject mr = new TimeSeriesObject();
             mr.setDescription(i + " ) " + fn + "_[" + key.toString() + "]");
             mr.setLabel( key.toString() );
 
@@ -1027,7 +1017,7 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 
 
             try {
-                Messreihe mr2 = expandTimeStampMap(val, cal, tsFRAME_hours, mr);
+                TimeSeriesObject mr2 = expandTimeStampMap(val, cal, tsFRAME_hours, mr);
 
                 if ( BINNING_RAW[binLevel] != 1) mr2 = mr2.setBinningX_sum( BINNING_RAW[binLevel] );
                 
@@ -1053,7 +1043,7 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 
                 if (group != null) {
                     // System.out.println("g=" + group);
-                    Vector<Messreihe> vmr = hash.get(group);
+                    Vector<TimeSeriesObject> vmr = hash.get(group);
                     if (vmr != null) {
                         vmr.add(mr2);
                     }
@@ -1076,7 +1066,7 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
     }
     boolean initialized = false;
 
-    private Messreihe expandTimeStampMap(Text val, Calendar calVON, int tsFRAME_hours, Messreihe mr) {
+    private TimeSeriesObject expandTimeStampMap(Text val, Calendar calVON, int tsFRAME_hours, TimeSeriesObject mr) {
         String hash = val.toString().substring(1, val.toString().length() - 2);
 
         long t0 = calVON.getTimeInMillis();
@@ -1137,10 +1127,10 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 
         JComponent[] c = new JComponent[4];
 
-        Vector<Messreihe> al = hash.get(i + "." + "A.L");
-        Vector<Messreihe> bl = hash.get(i + "." + "B.L");
-        Vector<Messreihe> iwl = hash.get(i + "." + "IWL");
-        Vector<Messreihe> cn = hash.get(i + "." + "CN");
+        Vector<TimeSeriesObject> al = hash.get(i + "." + "A.L");
+        Vector<TimeSeriesObject> bl = hash.get(i + "." + "B.L");
+        Vector<TimeSeriesObject> iwl = hash.get(i + "." + "IWL");
+        Vector<TimeSeriesObject> cn = hash.get(i + "." + "CN");
 
         if (al != null) {
             MultiChart mc = MultiChart.open2( al, i + " A.L", "t", "#access", false, getMrVectorInfo(al));
@@ -1163,7 +1153,7 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 
     private void showChartsAV() {
 
-        Vector<Messreihe> v = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
         v.addAll(av(al,null, BINNING_AV[binLevel]));
         v.addAll(av(bl,null, BINNING_AV[binLevel]));
         v.addAll(av(iwl,null, BINNING_AV[binLevel]));
@@ -1175,14 +1165,14 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 
     private JComponent[] showChartsAV(int i) {
 
-        Vector<Messreihe> al = hash.get(i + "." + "A.L");
-        Vector<Messreihe> bl = hash.get(i + "." + "B.L");
-        Vector<Messreihe> iwl = hash.get(i + "." + "IWL");
-        Vector<Messreihe> cn = hash.get(i + "." + "CN");
+        Vector<TimeSeriesObject> al = hash.get(i + "." + "A.L");
+        Vector<TimeSeriesObject> bl = hash.get(i + "." + "B.L");
+        Vector<TimeSeriesObject> iwl = hash.get(i + "." + "IWL");
+        Vector<TimeSeriesObject> cn = hash.get(i + "." + "CN");
 
         int B2 = 24;
         
-        Vector<Messreihe> v = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
         if (al != null) {
             v.addAll(av(al,null,BINNING_AV[binLevel]));
         }
@@ -1210,19 +1200,19 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
         MultiChart.open(sum(cn), "CN", "t", "log( #access)", false, getMrVectorInfo(cn), null);
     }
 
-    private String getMrVectorInfo(Vector<Messreihe> al) {
+    private String getMrVectorInfo(Vector<TimeSeriesObject> al) {
         StringBuffer sb = new StringBuffer();
         sb.append(al.size() + " rows" + "\n\n");
-        for (Messreihe mr : al) {
+        for (TimeSeriesObject mr : al) {
             sb.append(mr.summeY() + " : " + mr.getLabel() + "\n");
         }
         return sb.toString();
     }
     
-    private Messreihe av2(Vector<Messreihe> al, String label) {
+    private TimeSeriesObject av2(Vector<TimeSeriesObject> al, String label) {
         int i = 0;
-        Messreihe mr = new Messreihe();
-        for (Messreihe m : al) {
+        TimeSeriesObject mr = new TimeSeriesObject();
+        for (TimeSeriesObject m : al) {
             mr = mr.add(m);
             i++;
         }
@@ -1234,11 +1224,11 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
         return mr;
     }
 
-    private Vector<Messreihe> av(Vector<Messreihe> al, String label, int b2) {
-        Vector<Messreihe> d = new Vector<Messreihe>();
+    private Vector<TimeSeriesObject> av(Vector<TimeSeriesObject> al, String label, int b2) {
+        Vector<TimeSeriesObject> d = new Vector<TimeSeriesObject>();
         int i = 0;
-        Messreihe mr = new Messreihe();
-        for (Messreihe m : al) {
+        TimeSeriesObject mr = new TimeSeriesObject();
+        for (TimeSeriesObject m : al) {
             mr = mr.add(m);
             i++;
         }
@@ -1251,9 +1241,9 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
         return d;
     }
 
-    private double summe(Vector<Messreihe> cn) {
-        Messreihe mr = new Messreihe();
-        for (Messreihe m : cn) {
+    private double summe(Vector<TimeSeriesObject> cn) {
+        TimeSeriesObject mr = new TimeSeriesObject();
+        for (TimeSeriesObject m : cn) {
             mr = mr.add(m);
             // System.out.println(" \t\t" + m.label );
         }
@@ -1261,19 +1251,19 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
         return d;
     }
     
-    private Vector<Messreihe> sum(Vector<Messreihe> cn) {
-        Vector<Messreihe> d = new Vector<Messreihe>();
-        Messreihe mr = new Messreihe();
-        for (Messreihe m : al) {
+    private Vector<TimeSeriesObject> sum(Vector<TimeSeriesObject> cn) {
+        Vector<TimeSeriesObject> d = new Vector<TimeSeriesObject>();
+        TimeSeriesObject mr = new TimeSeriesObject();
+        for (TimeSeriesObject m : al) {
             mr = mr.add(m);
         }
         d.add(mr);
         return d;
     }
 
-//    private Vector<Messreihe> binning(Vector<Messreihe> v, int i, String l) {
-//        Vector<Messreihe> b = new Vector<Messreihe>();
-//        for (Messreihe m : v) {
+//    private Vector<TimeSeriesObject> binning(Vector<TimeSeriesObject> v, int i, String l) {
+//        Vector<TimeSeriesObject> b = new Vector<TimeSeriesObject>();
+//        for (TimeSeriesObject m : v) {
 //            m = m.setBinningX_sum(i);
 //            m.setLabel(l);
 //            b.add(m);
@@ -1281,29 +1271,29 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
 //        return b;
 //    }
 
-//    private Messreihe binning2(Vector<Messreihe> vv, int i, String l) {
-//        Messreihe v = vv.elementAt(0).setBinningX_sum(i);
+//    private TimeSeriesObject binning2(Vector<TimeSeriesObject> vv, int i, String l) {
+//        TimeSeriesObject v = vv.elementAt(0).setBinningX_sum(i);
 //        v.setLabel(l);
 //        return v;
 //    }
 
     private JComponent[] showChartsRatio(int i) {
 
-        Vector<Messreihe> al = hash.get(i + "." + "A.L");
-        Vector<Messreihe> bl = hash.get(i + "." + "B.L");
-        Vector<Messreihe> iwl = hash.get(i + "." + "IWL");
-        Vector<Messreihe> cn = hash.get(i + "." + "CN");
+        Vector<TimeSeriesObject> al = hash.get(i + "." + "A.L");
+        Vector<TimeSeriesObject> bl = hash.get(i + "." + "B.L");
+        Vector<TimeSeriesObject> iwl = hash.get(i + "." + "IWL");
+        Vector<TimeSeriesObject> cn = hash.get(i + "." + "CN");
 
-        Vector<Messreihe> v = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
 
-        Messreihe a2 = av2(al, i + ".A.L");
-        Messreihe a1 = av2(cn, i + ".CN");
+        TimeSeriesObject a2 = av2(al, i + ".A.L");
+        TimeSeriesObject a1 = av2(cn, i + ".CN");
 
-        Messreihe b2 = av2(bl, i + ".B.L");
-        Messreihe b1 = av2(iwl, i + ".IWL");
+        TimeSeriesObject b2 = av2(bl, i + ".B.L");
+        TimeSeriesObject b1 = av2(iwl, i + ".IWL");
 
-        Messreihe r1LOCAL = a1.divide_by(a2);
-        Messreihe r2GLOBAL = b1.divide_by(b2);
+        TimeSeriesObject r1LOCAL = a1.divide_by(a2);
+        TimeSeriesObject r2GLOBAL = b1.divide_by(b2);
 
         v.add(r1LOCAL);
         v.add(r2GLOBAL);
@@ -1311,7 +1301,7 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
         JComponent[] c = new JComponent[1];
         c[0] = new JPanel();
 
-        Vector<Messreihe> vv = (Vector<Messreihe>) hash.get(i + ".CN");
+        Vector<TimeSeriesObject> vv = (Vector<TimeSeriesObject>) hash.get(i + ".CN");
         String CN_Name = "CN?";
         if (vv != null) {
             if (vv.size() > 0) {
@@ -1327,16 +1317,16 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
     }
 
     private void showChartsRatio() {
-        Vector<Messreihe> v = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
 
-        Messreihe a2 = av2(al,"A.L");
-        Messreihe a1 = av2(cn,"CN");
+        TimeSeriesObject a2 = av2(al,"A.L");
+        TimeSeriesObject a1 = av2(cn,"CN");
 
-        Messreihe b2 = av2(bl,"B.L");
-        Messreihe b1 = av2(iwl,"IWL");
+        TimeSeriesObject b2 = av2(bl,"B.L");
+        TimeSeriesObject b1 = av2(iwl,"IWL");
 
-        Messreihe r1LOCAL = a1.divide_by(a2);
-        Messreihe r2GLOBAL = b1.divide_by(b2);
+        TimeSeriesObject r1LOCAL = a1.divide_by(a2);
+        TimeSeriesObject r2GLOBAL = b1.divide_by(b2);
 
         v.add(r1LOCAL);
         v.add(r2GLOBAL);
@@ -1372,8 +1362,8 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
     
     int zCN = 0;
 
-//    private Vector<Messreihe> log(Vector<Messreihe> al) {
-//        for (Messreihe mr : al) {
+//    private Vector<TimeSeriesObject> log(Vector<TimeSeriesObject> al) {
+//        for (TimeSeriesObject mr : al) {
 //            mr.calcLog10_for_Y();
 //        }
 //        return al;
@@ -1433,12 +1423,12 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
     public void initListe2() { 
         for( int i = 0; i < zCN; i++ ) {
             String key = (i+1) + "." + "CN";
-            Vector<Messreihe> cn = hash.get(key);
+            Vector<TimeSeriesObject> cn = hash.get(key);
             String name = key;
             if ( cn != null ) {
                 
                 if ( cn.size() > 0 ) {
-                    Messreihe r = cn.elementAt(0);
+                    TimeSeriesObject r = cn.elementAt(0);
                     if ( r != null ) name = r.label;
                 }
                 System.out.println( name + " " + key + " " + (cn!=null) + " " + cn.elementAt(0).yValues.size() );
@@ -1451,13 +1441,13 @@ public class SequenceFileExplorer3 extends javax.swing.JFrame {
         DefaultListModel dlm = (DefaultListModel) this.jList1.getModel();
         for( int i = 0; i < zCN; i++ ) {
             String key = (i+1) + "." + "CN";
-            Vector<Messreihe> cn = hash.get(key);
+            Vector<TimeSeriesObject> cn = hash.get(key);
             String name = key;
             if ( cn != null ) {
                 // System.out.println( key + " " + (cn!=null) + " " + cn.elementAt(0).yValues.size() );
 
                 if ( cn.size() > 0 ) {
-                    Messreihe r = cn.elementAt(0);
+                    TimeSeriesObject r = cn.elementAt(0);
                     if ( r != null ) name = r.label;
                 }    
             }    

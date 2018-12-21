@@ -11,7 +11,7 @@ package experiments;
 import com.cloudera.wikipedia.explorer.ResultManager;
 import experiments.crosscorrelation.CCProzessor;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 
 import java.util.Vector;
 
@@ -24,7 +24,6 @@ import java.text.DecimalFormat;
 import m3.wikipedia.corpus.extractor.NetDensityCalc;
 
 import metadata.ExperimentDescriptor;
-import org.apache.commons.math.stat.descriptive.moment.*;
 
 import org.apache.hadoopts.app.thesis.LongTermCorrelationSeriesGenerator;
 import org.apache.hadoopts.app.bucketanalyser.TSOperationControlerPanel;
@@ -47,13 +46,13 @@ public class CorrelationPropertiesExperiment001a {
 
     static StringBuffer log = null;
 
-    static Vector<Messreihe> testsA = null;
-    static Vector<Messreihe> testsB = null;
-    static Vector<Messreihe> testsC = null;
-    static Vector<Messreihe> testsD = null;
-    static Vector<Messreihe> testsE = null;
+    static Vector<TimeSeriesObject> testsA = null;
+    static Vector<TimeSeriesObject> testsB = null;
+    static Vector<TimeSeriesObject> testsC = null;
+    static Vector<TimeSeriesObject> testsD = null;
+    static Vector<TimeSeriesObject> testsE = null;
 
-    static Vector<Messreihe> check = null;
+    static Vector<TimeSeriesObject> check = null;
 
     public static String BASEFOLDER = null;
 
@@ -73,8 +72,8 @@ public class CorrelationPropertiesExperiment001a {
         
         SigmaBandTool.exportFolder = "/TSBASE/FIG_3_4";
 
-        testsA = new Vector<Messreihe>();
-        testsB = new Vector<Messreihe>();
+        testsA = new Vector<TimeSeriesObject>();
+        testsB = new Vector<TimeSeriesObject>();
 
         int z = a1;
         int exp = a2;
@@ -98,16 +97,16 @@ public class CorrelationPropertiesExperiment001a {
             f.getParentFile().mkdirs();
         }
 
-        Vector<Messreihe> vr = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> vr = new Vector<TimeSeriesObject>();
 
         BufferedWriter bw = new BufferedWriter(new FileWriter(TSOperationControlerPanel.baseFolder + "/" + TSOperationControlerPanel.label_of_EXPERIMENT + ".tsv"));
 
         BufferedWriter bw2 = new BufferedWriter(new FileWriter("/Users/kamir/Documents/THESIS/dissertationFINAL/main/FINAL/LATEX/semanpix/FinalFigure1/imagedata/v5/" + TSOperationControlerPanel.label_of_EXPERIMENT + "_STATS" + ".tsv"));
 
-        Vector<Messreihe> means = new Vector<Messreihe>();
-        Vector<Messreihe> vars = new Vector<Messreihe>();
-        Vector<Messreihe> skews = new Vector<Messreihe>();
-        Vector<Messreihe> kurtosis = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> means = new Vector<TimeSeriesObject>();
+        Vector<TimeSeriesObject> vars = new Vector<TimeSeriesObject>();
+        Vector<TimeSeriesObject> skews = new Vector<TimeSeriesObject>();
+        Vector<TimeSeriesObject> kurtosis = new Vector<TimeSeriesObject>();
 
         SigmaBandTool t1 = new SigmaBandTool();
         SigmaBandTool t2 = new SigmaBandTool();
@@ -116,10 +115,10 @@ public class CorrelationPropertiesExperiment001a {
 
         for (int RUN = 0; RUN < 50; RUN++) {
 
-            Messreihe m = new Messreihe();
-            Messreihe v = new Messreihe();
-            Messreihe s = new Messreihe();
-            Messreihe k = new Messreihe();
+            TimeSeriesObject m = new TimeSeriesObject();
+            TimeSeriesObject v = new TimeSeriesObject();
+            TimeSeriesObject s = new TimeSeriesObject();
+            TimeSeriesObject k = new TimeSeriesObject();
 
             m.setLabel("means");
             v.setLabel("vars");
@@ -128,15 +127,15 @@ public class CorrelationPropertiesExperiment001a {
 
             for (double beta : a3) {
 
-                testsA = new Vector<Messreihe>();
-                testsB = new Vector<Messreihe>();
+                testsA = new Vector<TimeSeriesObject>();
+                testsB = new Vector<TimeSeriesObject>();
 
                 for (int i = 0; i < z; i++) {
 
-                    Messreihe mra = null;
+                    TimeSeriesObject mra = null;
 
                     if (a5) {
-                        mra = Messreihe.getGaussianDistribution(N);
+                        mra = TimeSeriesObject.getGaussianDistribution(N);
                     } else {
                         mra = LongTermCorrelationSeriesGenerator.getRandomRow(N, beta, false, false);
                     }
@@ -147,10 +146,10 @@ public class CorrelationPropertiesExperiment001a {
 
                 for (int i = 0; i < z; i++) {
 
-                    Messreihe mrb = null;
+                    TimeSeriesObject mrb = null;
 
                     if (a5) {
-                        mrb = Messreihe.getGaussianDistribution(N);
+                        mrb = TimeSeriesObject.getGaussianDistribution(N);
                     } else {
                         mrb = LongTermCorrelationSeriesGenerator.getRandomRow(N, beta, false, false);
                     }
@@ -159,19 +158,19 @@ public class CorrelationPropertiesExperiment001a {
                     testsB.add(mrb);
                 }
 
-                Vector<Messreihe> vmr = new Vector<Messreihe>();
+                Vector<TimeSeriesObject> vmr = new Vector<TimeSeriesObject>();
                 vmr.add(testsA.elementAt(0));
                 vmr.add(testsB.elementAt(0));
 
                 if (!a5) {
 
-                    Messreihe mrX = Messreihe.getGaussianDistribution(N);
+                    TimeSeriesObject mrX = TimeSeriesObject.getGaussianDistribution(N);
 
                     vmr.add(LongTermCorrelationSeriesGenerator.getRandomRow(mrX, 0.0, false, false));
                     vmr.add(mrX);
 
-                    vmr.add(Messreihe.getUniformDistribution(N, 0.0, 1.0));
-                    vmr.add(Messreihe.getExpDistribution(N, 1.0));
+                    vmr.add(TimeSeriesObject.getUniformDistribution(N, 0.0, 1.0));
+                    vmr.add(TimeSeriesObject.getExpDistribution(N, 1.0));
 
                 }
 
@@ -189,7 +188,7 @@ public class CorrelationPropertiesExperiment001a {
 //         */
 //        
 //        JFrame f =new JFrame("Debug");
-//        f.getContentPane().add(new MessreihePanel(testsA.elementAt(0)) );
+//        f.getContentPane().add(new TimeSeriesObjectPanel(testsA.elementAt(0)) );
 //        f.setVisible( true );
                 /**
                  * TODO:

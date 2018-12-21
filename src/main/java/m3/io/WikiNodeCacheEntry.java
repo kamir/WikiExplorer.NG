@@ -1,6 +1,6 @@
 package m3.io;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -17,7 +17,7 @@ import m3.wikipedia.explorer.data.WikiNode;
 public class WikiNodeCacheEntry {
 
     public String key;
-    public Messreihe mr;
+    public TimeSeriesObject mr;
 
     public void _store(ObjectOutputStream store) throws IOException {
         store.writeUTF(key);
@@ -29,7 +29,7 @@ public class WikiNodeCacheEntry {
         store.writeObject(mr.yValues);
     }
 
-    public int load(ObjectInputStream store, Hashtable<String, Messreihe> c, Calendar von, Calendar bis) throws IOException, ClassNotFoundException {
+    public int load(ObjectInputStream store, Hashtable<String, TimeSeriesObject> c, Calendar von, Calendar bis) throws IOException, ClassNotFoundException {
 
         int i = 0;
 
@@ -45,7 +45,7 @@ public class WikiNodeCacheEntry {
     }
     
     static boolean debug = false;
-    public boolean loadMore(ObjectInputStream store, Hashtable<String, Messreihe> c, Calendar von, Calendar bis) throws IOException, ClassNotFoundException {
+    public boolean loadMore(ObjectInputStream store, Hashtable<String, TimeSeriesObject> c, Calendar von, Calendar bis) throws IOException, ClassNotFoundException {
         boolean v;
         try {
         
@@ -57,7 +57,7 @@ public class WikiNodeCacheEntry {
             Object x = store.readObject();
             Object y = store.readObject();
 
-            Messreihe mr = new Messreihe();
+            TimeSeriesObject mr = new TimeSeriesObject();
             mr.setLabel(label);
             mr.setIdentifier(id);
             mr.setLabel_X(labelx);

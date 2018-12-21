@@ -11,7 +11,7 @@ package experiments;
 import com.cloudera.wikipedia.explorer.ResultManager;
 import experiments.crosscorrelation.CCProzessor;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 
 import java.util.Vector;
 
@@ -24,7 +24,6 @@ import m3.wikipedia.corpus.extractor.NetDensityCalc;
 
 import metadata.ExperimentDescriptor;
 
-import org.apache.hadoopts.app.thesis.LongTermCorrelationSeriesGenerator;
 import org.apache.hadoopts.app.bucketanalyser.TSOperationControlerPanel;
 import org.apache.hadoopts.hadoopts.buckets.BucketLoader;
 import org.apache.hadoopts.hadoopts.core.TSBucket;
@@ -50,23 +49,23 @@ public class CorrelationPropertiesExperiment003 {
 
     static StringBuffer log = null;
 
-    static Vector<Messreihe> testsA = null;
-    static Vector<Messreihe> testsB = null; 
-    static Vector<Messreihe> testsC = null;
-    static Vector<Messreihe> testsD = null;
+    static Vector<TimeSeriesObject> testsA = null;
+    static Vector<TimeSeriesObject> testsB = null; 
+    static Vector<TimeSeriesObject> testsC = null;
+    static Vector<TimeSeriesObject> testsD = null;
 
-    static Vector<Messreihe> testsALL = null;
+    static Vector<TimeSeriesObject> testsALL = null;
 
-    static Vector<Messreihe> check = null;
+    static Vector<TimeSeriesObject> check = null;
 
     public static void main(String[] args) throws Exception {
  
-        testsA = new Vector<Messreihe>();
-        testsB = new Vector<Messreihe>();
-        testsC = new Vector<Messreihe>();
-        testsD = new Vector<Messreihe>();
+        testsA = new Vector<TimeSeriesObject>();
+        testsB = new Vector<TimeSeriesObject>();
+        testsC = new Vector<TimeSeriesObject>();
+        testsD = new Vector<TimeSeriesObject>();
 
-        testsALL = new Vector<Messreihe>();
+        testsALL = new Vector<TimeSeriesObject>();
 
  
 
@@ -146,11 +145,11 @@ public class CorrelationPropertiesExperiment003 {
         /**
          * Lets do the quarterly loops ...
          */
-        Vector<Messreihe> vr = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> vr = new Vector<TimeSeriesObject>();
 
         for( int i=0; i < 20; i++ ) {
 
-            Vector<Messreihe> testsALLs = cut( testsALL, i * 180, i * 180 + 180 );
+            Vector<TimeSeriesObject> testsALLs = cut( testsALL, i * 180, i * 180 + 180 );
             
             MultiChart.open(testsALLs, false, TSOperationControlerPanel.label_of_EXPERIMENT + " " + (i*180) );
 
@@ -158,10 +157,10 @@ public class CorrelationPropertiesExperiment003 {
 
             HaeufigkeitsZaehlerDoubleSIMPLE r2 = CCProzessor.getPartial(testsALLs, testsALLs, true, ts, null, ndc, "ALL" + "_SHUFFLE", bw, runID, false);
 
-            Messreihe mr1 = r1.getHistogramNORM();
+            TimeSeriesObject mr1 = r1.getHistogramNORM();
             mr1.setLabel( "R" + i);
             
-            Messreihe mr2 = r2.getHistogramNORM();
+            TimeSeriesObject mr2 = r2.getHistogramNORM();
             mr2.setLabel( "S" + i);
             
             
@@ -189,18 +188,18 @@ public class CorrelationPropertiesExperiment003 {
         bw.close();
     }
 
-    private static void labelAllSeries(Vector<Messreihe> v, String l) {
-        for( Messreihe mr : v)
+    private static void labelAllSeries(Vector<TimeSeriesObject> v, String l) {
+        for( TimeSeriesObject mr : v)
             mr.setLabel( l + "___" + mr.getLabel() );
     }
 
-    private static Vector<Messreihe> normalizeAll(Vector<Messreihe> v) {
+    private static Vector<TimeSeriesObject> normalizeAll(Vector<TimeSeriesObject> v) {
         
-        Vector<Messreihe> vmr = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> vmr = new Vector<TimeSeriesObject>();
         
-        for( Messreihe mr : v) {
+        for( TimeSeriesObject mr : v) {
            
-            Messreihe mr2 = mr.normalizeToStdevIsOne();
+            TimeSeriesObject mr2 = mr.normalizeToStdevIsOne();
            vmr.add(mr2);
            
         }
@@ -209,13 +208,13 @@ public class CorrelationPropertiesExperiment003 {
         
     }
 
-    private static Vector<Messreihe> cut(Vector<Messreihe> v, int von, int bis) {
+    private static Vector<TimeSeriesObject> cut(Vector<TimeSeriesObject> v, int von, int bis) {
         
-        Vector<Messreihe> vmr = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> vmr = new Vector<TimeSeriesObject>();
         
-        for( Messreihe mr : v) {
+        for( TimeSeriesObject mr : v) {
            
-            Messreihe mr2 = mr.cutOut(von, bis);
+            TimeSeriesObject mr2 = mr.cutOut(von, bis);
             
             System.out.println( mr2.getMinX() + "=>" + mr2.getMaxX() );
             vmr.add(mr2);

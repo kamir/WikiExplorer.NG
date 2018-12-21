@@ -6,11 +6,10 @@
  */
 package htstb.util.generator;
 
-import org.apache.hadoopts.data.series.Messreihe;
-import extraction.TimeSeriesFactory;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import htstb.data.TSFactory;
 import htstb.data.TimeSeriesData;
-import java.io.File;
+
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.GregorianCalendar;
@@ -76,7 +75,7 @@ public class RandomTimeSeriesPairGenerator {
 
         SequenceFile.Writer writer = SequenceFile.createWriter(fs, conf, outputPath, key.getClass(), value.getClass());
         
-        Enumeration<Messreihe> en = ng.accessReihen.elements();
+        Enumeration<TimeSeriesObject> en = ng.accessReihen.elements();
 
         GregorianCalendar cal = new GregorianCalendar();
         cal.set(2009, 00, 01,0,0,0);
@@ -97,8 +96,8 @@ public class RandomTimeSeriesPairGenerator {
                     boolean v = false;
                     if ( ng.doWorkWithPair(np) ) {        
                             
-                        Messreihe mra = ng.accessReihen.elementAt(i);
-                        Messreihe mrb = ng.accessReihen.elementAt(j);
+                        TimeSeriesObject mra = ng.accessReihen.elementAt(i);
+                        TimeSeriesObject mrb = ng.accessReihen.elementAt(j);
                         
                         TimeSeriesData tsda = TSFactory.map(mra, cal.getTime(), h);
                         TimeSeriesData tsdb = TSFactory.map(mrb, cal.getTime(), h);

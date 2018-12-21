@@ -6,7 +6,7 @@
 package m3.wikipedia.corpus.extractor.edits;
  
 import org.apache.hadoopts.chart.simple.MultiBarChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import org.apache.hadoopts.hadoopts.core.TSBucket;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -124,10 +124,10 @@ public class EditTimeSeriesBucketStreamerTool extends WikiHistoryExtractionBASE 
 
     public static void processStudie(WikiStudieMetaData wd, Calendar von, Calendar bis, File f) throws FileNotFoundException, ClassNotFoundException, IOException, FailedLoginException, Exception {
         
-//        Vector<Messreihe> mrCN = new Vector<Messreihe>();
-//        Vector<Messreihe> mrAL = new Vector<Messreihe>();
-        Vector<Messreihe> mrBL = new Vector<Messreihe>();
-//        Vector<Messreihe> mrIWL = new Vector<Messreihe>();
+//        Vector<TimeSeriesObject> mrCN = new Vector<TimeSeriesObject>();
+//        Vector<TimeSeriesObject> mrAL = new Vector<TimeSeriesObject>();
+        Vector<TimeSeriesObject> mrBL = new Vector<TimeSeriesObject>();
+//        Vector<TimeSeriesObject> mrIWL = new Vector<TimeSeriesObject>();
            
         long t0 = System.currentTimeMillis();
  
@@ -281,14 +281,14 @@ public class EditTimeSeriesBucketStreamerTool extends WikiHistoryExtractionBASE 
     static StringBuffer sbFails = new StringBuffer();
  
 
-    private static Vector<Messreihe> forkBucketFromTable(
+    private static Vector<TimeSeriesObject> forkBucketFromTable(
             String grouplabel,
             int CNid,
             Vector<WikiNode> nodes, 
             Calendar von, 
             Calendar bis) throws IOException {
         
-        Vector<Messreihe> v = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
         
         // Expected KEYs are created here...
         Vector<String> nodeS = new Vector<String>();

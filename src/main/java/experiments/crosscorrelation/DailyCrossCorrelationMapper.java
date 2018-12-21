@@ -30,7 +30,7 @@ cross-correlation strenght must be combinded to define reliable links.
 
 package experiments.crosscorrelation;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.util.Arrays;
 import java.util.Vector;
 import research.wikinetworks.NodePair;
@@ -55,7 +55,7 @@ public class DailyCrossCorrelationMapper {
      *
      * This is the result.
      */
-    public static double calcLinkStrength( Messreihe hourlyData_dayA, Messreihe hourlyData_dayB) {
+    public static double calcLinkStrength( TimeSeriesObject hourlyData_dayA, TimeSeriesObject hourlyData_dayB) {
 
         double v = 0.0;
         double cc[] = new double[NodeGroup.splitLength];
@@ -64,8 +64,8 @@ public class DailyCrossCorrelationMapper {
             int begin = i * 24;
             int ende = begin + 24;
             log( "Tag: " + i + " [" + begin+", " + ende+"]");
-            Messreihe mwDA = hourlyData_dayA.cutOut(begin, ende);
-            Messreihe mwDB = hourlyData_dayB.cutOut(begin, ende);
+            TimeSeriesObject mwDA = hourlyData_dayA.cutOut(begin, ende);
+            TimeSeriesObject mwDB = hourlyData_dayB.cutOut(begin, ende);
 
             KreuzKorrelation kr = KreuzKorrelation.calcKR(mwDA, mwDB, false, false);
             cc[i] = CCFunction.calcStrength_VERSION_B(kr);
@@ -85,7 +85,7 @@ public class DailyCrossCorrelationMapper {
      *
      * This is the result.
      */
-    public static double[] calcLinkStrength2( Messreihe hourlyData_dayA, Messreihe hourlyData_dayB) {
+    public static double[] calcLinkStrength2( TimeSeriesObject hourlyData_dayA, TimeSeriesObject hourlyData_dayB) {
 
         double[] v = new double[5];
 
@@ -96,8 +96,8 @@ public class DailyCrossCorrelationMapper {
             int begin = i * 24;
             int ende = begin + 24;
             log( "Tag: " + i + " [" + begin+", " + ende+"]");
-            Messreihe mwDA = hourlyData_dayA.cutOut(begin, ende);
-            Messreihe mwDB = hourlyData_dayB.cutOut(begin, ende);
+            TimeSeriesObject mwDA = hourlyData_dayA.cutOut(begin, ende);
+            TimeSeriesObject mwDB = hourlyData_dayB.cutOut(begin, ende);
 
             // nur einen Wert bestimmen ...
             KreuzKorrelation kr = KreuzKorrelation.calcKR(mwDA, mwDB, false, false);
@@ -171,8 +171,8 @@ public class DailyCrossCorrelationMapper {
 
             NodeGroup.splitIndex = split;
 
-            Messreihe histMaxY = new Messreihe("hist Max");
-            Messreihe histSigLevel = new Messreihe("hist Strength");
+            TimeSeriesObject histMaxY = new TimeSeriesObject("hist Max");
+            TimeSeriesObject histSigLevel = new TimeSeriesObject("hist Strength");
             Vector<NodePair> wrong = new Vector<NodePair>();
 
             int max = ng.getAaccessReihen().size();

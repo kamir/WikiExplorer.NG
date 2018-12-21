@@ -2,7 +2,7 @@ package org.etosha.tsstore;
  
 
 import org.apache.hadoopts.data.series.MRT;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import org.apache.hadoopts.hadoopts.core.TSBucket;
 import java.io.IOException;
 import java.util.Arrays;
@@ -96,7 +96,7 @@ public class HBasePrefixStreamLoader {
             // value we inserted at this location.
             String valueStr = Bytes.toString(value);
 
-            Messreihe mr = MRT.deserializeFromXMLString(valueStr);
+            TimeSeriesObject mr = MRT.deserializeFromXMLString(valueStr);
 
             String newID = CNid + "." + grouplabel;
             

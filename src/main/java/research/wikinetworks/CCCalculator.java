@@ -9,7 +9,7 @@ import com.cloudera.wikiexplorer.ng.util.FinancialDataNodeGroup;
 import com.cloudera.wikiexplorer.ng.gui.NodeIDSelection;
 //import charts.MultiBarChart;
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.File;
 import java.io.IOException;
 import java.util.Vector;
@@ -250,21 +250,21 @@ public class CCCalculator {
         // if ( !(editsAvailable && accessAvailable )) return false;
 
 
-        Vector<Messreihe> rE = ng.editReihen;
+        Vector<TimeSeriesObject> rE = ng.editReihen;
         nrOfEditSeries = rE.size();
 
         
         
-        Vector<Messreihe> rA = ng.accessReihen;
+        Vector<TimeSeriesObject> rA = ng.accessReihen;
         if ( NodeGroup.useStockData ) {
             
-            Vector<Messreihe> rASch = new Vector<Messreihe>();
+            Vector<TimeSeriesObject> rASch = new Vector<TimeSeriesObject>();
             
             FinancialDataNodeGroup ngF = (FinancialDataNodeGroup)ng;
             rA = ng.stockDataReihen;
             
             if ( NodeGroup.doShuffle ) { 
-                for( Messreihe m : rA ) { 
+                for( TimeSeriesObject m : rA ) { 
                     m.shuffleYValues();
                     rASch.add( m );
                 }
@@ -330,15 +330,15 @@ public class CCCalculator {
         // run crosscorrelation on EDITS
         if ( doCC_on_EDITS ) {
 
-            Vector<Messreihe> kksE = new Vector<Messreihe>();
+            Vector<TimeSeriesObject> kksE = new Vector<TimeSeriesObject>();
 
             KreuzKorrelation._defaultK = 14;
             KreuzKorrelation.debug = false;
 
-            Messreihe histMaxY = new Messreihe();
+            TimeSeriesObject histMaxY = new TimeSeriesObject();
             histMaxY.setLabel( " edits Hist (tau)");
 
-            Messreihe histSigLevel = new Messreihe();
+            TimeSeriesObject histSigLevel = new TimeSeriesObject();
             histSigLevel.setLabel( " edits Hist (strength)");
 
             Vector<String> keysOfPairs = new Vector<String>();
@@ -408,9 +408,9 @@ public class CCCalculator {
 
 
                 // 100 * 100 Reihen sind zu viele ...
-                Vector<Messreihe> nr = new Vector<Messreihe>();
+                Vector<TimeSeriesObject> nr = new Vector<TimeSeriesObject>();
                 int i = 0;
-                for( Messreihe mr : kksE ) {
+                for( TimeSeriesObject mr : kksE ) {
                     i++;
                     nr.add(mr);
                     if ( i > 1000 ) break;
@@ -428,8 +428,8 @@ public class CCCalculator {
 
                 data.put("dat_E_AVG_CC", fn+".png");
 
-                Messreihe mr2 = Messreihe.calcAveragOfRows(kksE);
-                Vector<Messreihe> mrv = new Vector<Messreihe>();
+                TimeSeriesObject mr2 = TimeSeriesObject.calcAveragOfRows(kksE);
+                Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
                 mrv.add(mr2);
                 // MultiChart.open(mrv, langID + " Edits <CC[k=+/-"+ KreuzKorrelation.defaultK +"]> <R(k)>", "k", "<R(k)>", false);
                 MultiChart.store(mrv, langID + " Edits <CC[k=+/-"+ KreuzKorrelation._defaultK +"]> <R(k)>", "k", "<R(k)>", false, pfad, fn, "");
@@ -462,15 +462,15 @@ public class CCCalculator {
         // run crosscorrelation on ACCESS
 
         if ( doCC_on_ACCESS ) {
-            Vector<Messreihe> kksA = new Vector<Messreihe>();
+            Vector<TimeSeriesObject> kksA = new Vector<TimeSeriesObject>();
 
             KreuzKorrelation._defaultK = 14;
             KreuzKorrelation.debug = false;
 
-            Messreihe histMaxYA = new Messreihe();
+            TimeSeriesObject histMaxYA = new TimeSeriesObject();
             histMaxYA.setLabel( " Access-rate Histogam (tau)");
 
-            Messreihe histSigLevelA = new Messreihe();
+            TimeSeriesObject histSigLevelA = new TimeSeriesObject();
             histSigLevelA.setLabel( " Access-rate Histogram (strength)");
 
             Vector<String> keysOfPairs = new Vector<String>();
@@ -549,9 +549,9 @@ public class CCCalculator {
                 data.put("dat_A_CC", fn+".png");
 
                 // 100 * 100 Reihen sind zu viele ...
-                Vector<Messreihe> nr = new Vector<Messreihe>();
+                Vector<TimeSeriesObject> nr = new Vector<TimeSeriesObject>();
                 int i = 0;
-                for( Messreihe mr : kksA ) {
+                for( TimeSeriesObject mr : kksA ) {
                     i++;
                     nr.add(mr);
                     if ( i > 1000 ) break;
@@ -569,8 +569,8 @@ public class CCCalculator {
 
                 data.put("dat_A_AVG_CC", fn+".png");
 
-                Messreihe mr2 = Messreihe.calcAveragOfRows(kksA);
-                Vector<Messreihe> mrv = new Vector<Messreihe>();
+                TimeSeriesObject mr2 = TimeSeriesObject.calcAveragOfRows(kksA);
+                Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
                 mrv.add(mr2);
                 // MultiChart.open(mrv, langID + " Access <CC[k=+/-"+ KreuzKorrelation.defaultK +"]> <R(k)>", "k", "<R(k)>", false);
                 MultiChart.store(mrv, langID + " Access <CC[k=+/-"+ KreuzKorrelation._defaultK +"]> <R(k)>", "k", "<R(k)>", false, pfad, fn, "");
@@ -654,8 +654,8 @@ public class CCCalculator {
         //ng.checkForDoubleIds();
     }
 
-    static Messreihe[] mrn = null;
-    static Messreihe[] mrn2 = null;
+    static TimeSeriesObject[] mrn = null;
+    static TimeSeriesObject[] mrn2 = null;
 
     /**
      * Histogramm für TAU ...
@@ -667,8 +667,8 @@ public class CCCalculator {
      * @param max
      * @return
      */
-    public static String createHistogramm( NodeGroup ng,Messreihe mr, int bins, int min, int max ) {
-        if ( mrn == null ) mrn = new Messreihe[ NodeGroup.maxSplitIndex ];
+    public static String createHistogramm( NodeGroup ng,TimeSeriesObject mr, int bins, int min, int max ) {
+        if ( mrn == null ) mrn = new TimeSeriesObject[ NodeGroup.maxSplitIndex ];
 
         String pfad = ng.pfad + "img/";
         // String fp = ng.getLangID() + "_" + ng.ids.length + mr.getLabel().replaceAll(" ", "_" );
@@ -687,7 +687,7 @@ public class CCCalculator {
             z.max = max;
             z.intervalle = bins;
             z.calcWS();
-            Messreihe mrr = z.getHistogram();
+            TimeSeriesObject mrr = z.getHistogram();
             mrr.setLabel( NodeGroup.splitIndex + "  " + fp );
             mrn[ NodeGroup.splitIndex ] = mrr;
             
@@ -721,8 +721,8 @@ public class CCCalculator {
      * @param max
      * @return
      */
-    public static String createHistogramm2( NodeGroup ng,Messreihe mr, int bins, int min, int max ) {
-        if ( mrn2 == null ) mrn2 = new Messreihe[ NodeGroup.maxSplitIndex ];
+    public static String createHistogramm2( NodeGroup ng,TimeSeriesObject mr, int bins, int min, int max ) {
+        if ( mrn2 == null ) mrn2 = new TimeSeriesObject[ NodeGroup.maxSplitIndex ];
 
         String pfad = ng.pfad + "img/";
         // String fp = ng.getLangID() + "_" + ng.ids.length + mr.getLabel().replaceAll(" ", "_" );
@@ -741,7 +741,7 @@ public class CCCalculator {
             z.max = max;
             z.intervalle = bins;
             z.calcWS();
-            Messreihe mrr = z.getHistogram();
+            TimeSeriesObject mrr = z.getHistogram();
             mrr.setLabel( NodeGroup.splitIndex + "  " + fp );
             mrn2[ NodeGroup.splitIndex ] = mrr;
 

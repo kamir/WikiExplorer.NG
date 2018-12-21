@@ -4,7 +4,7 @@
  */
 package experiments.crosscorrelation;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 
 /**
  *
@@ -51,7 +51,7 @@ public class TSCompareForm extends javax.swing.JDialog {
     /**
      * @param args the command line arguments
      */
-    public static void open(final Messreihe a, final Messreihe b) {
+    public static void open(final TimeSeriesObject a, final TimeSeriesObject b) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -87,7 +87,7 @@ public class TSCompareForm extends javax.swing.JDialog {
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
 
-    private void setRows(Messreihe a, Messreihe b) {
+    private void setRows(TimeSeriesObject a, TimeSeriesObject b) {
         this.jPanel1.removeAll();
         this.jPanel2.removeAll();
         

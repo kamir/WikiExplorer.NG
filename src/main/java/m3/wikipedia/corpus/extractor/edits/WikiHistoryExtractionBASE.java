@@ -9,7 +9,7 @@ package m3.wikipedia.corpus.extractor.edits;
 import org.apache.hadoopts.chart.simple.MultiBarChart;
 import com.thoughtworks.xstream.XStream;
 import org.apache.hadoopts.data.series.MRT;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import org.apache.hadoopts.hadoopts.core.TSBucket;
 import m3.io.WikiNodeCacheEntry;
 import java.io.File;
@@ -56,7 +56,7 @@ public class WikiHistoryExtractionBASE {
     static String[] wikis = {"de", "en"};
     static String[] pages = {"Deutschland", "United_States"};
     
-    static Vector<Messreihe> _rows1 = new Vector<Messreihe>();
+    static Vector<TimeSeriesObject> _rows1 = new Vector<TimeSeriesObject>();
     
     static boolean showChart = false;
     
@@ -75,7 +75,7 @@ public class WikiHistoryExtractionBASE {
      *
      * work( ... )
      *
-     * => Messreihen liegen vor ... und können gepuffert werden ...
+     * => TimeSeriesObjectn liegen vor ... und können gepuffert werden ...
      *
      * @param args
      * @throws IOException
@@ -221,8 +221,8 @@ public class WikiHistoryExtractionBASE {
     }
 
     static boolean debug = true;
-    protected static Messreihe getMrFromCache(WikiNode wikiNode) {
-        Messreihe mr = null;
+    protected static TimeSeriesObject getMrFromCache(WikiNode wikiNode) {
+        TimeSeriesObject mr = null;
         try {
             if (debug)
                 System.out.println(">>> get(" + wikiNode.getKey() + ")");
@@ -239,23 +239,23 @@ public class WikiHistoryExtractionBASE {
         return von;
     }
 
-    public static Hashtable<String, Messreihe> load(File f) throws FileNotFoundException {
+    public static Hashtable<String, TimeSeriesObject> load(File f) throws FileNotFoundException {
         System.out.println(">>> " + f.getAbsolutePath() + " (" + f.canRead() + ")");
         if (f.canRead()) {
             FileInputStream os = new FileInputStream(f);
             XStream xstream = new XStream();
             try {
                 Object o = xstream.fromXML(os);
-                Hashtable<String, Messreihe> d = (Hashtable<String, Messreihe>) o;
+                Hashtable<String, TimeSeriesObject> d = (Hashtable<String, TimeSeriesObject>) o;
                 return d;
             } 
             catch(Exception ex) { 
                 System.err.println(">>> " + f.getAbsolutePath() + " ... was not filled !!!");
-                return new Hashtable<String, Messreihe>();
+                return new Hashtable<String, TimeSeriesObject>();
             }    
         } else {
             System.err.println(">>> " + f.getAbsolutePath() + " ... was created !!!");
-            return new Hashtable<String, Messreihe>();
+            return new Hashtable<String, TimeSeriesObject>();
         }
     }
 
@@ -265,7 +265,7 @@ public class WikiHistoryExtractionBASE {
         
         System.out.println(">>> WARM-UP local cache ... ");
         File f = new File(path2 + "/editts-cache." + name + ".dump");
-        Hashtable<String, Messreihe> c = load(f);
+        Hashtable<String, TimeSeriesObject> c = load(f);
         TSCache.setC(c);
         JOptionPane.showMessageDialog(null, c.size() + " Reihen von " + wd.getNrOfNodes_ALL(path2, name));
     }
@@ -307,16 +307,16 @@ public class WikiHistoryExtractionBASE {
         
     }
 
-    public static Messreihe loadPageHistory(WikiNode wn) throws IOException, Exception {
+    public static TimeSeriesObject loadPageHistory(WikiNode wn) throws IOException, Exception {
         return loadPageHistory(wn.wiki, wn.page);
     }
 
     public static boolean useTSCache = true;
     
-    public static Messreihe loadPageHistory(String wikipedia, String pn) throws IOException, Exception {
+    public static TimeSeriesObject loadPageHistory(String wikipedia, String pn) throws IOException, Exception {
         
         WikiNode wn = new WikiNode(wikipedia, pn);
-        Messreihe m = null;
+        TimeSeriesObject m = null;
         
         if ( useTSCache ) {
             System.out.println("useTSCache=" + useTSCache);
@@ -354,11 +354,11 @@ public class WikiHistoryExtractionBASE {
 //        System.out.println("*** EDITS: " + label + " ===> " + v.size());
         // TODO : OPRIMIEREN auf BEDARF ...
         // CONVERTIERE die Reihen ... (NICHT ALLES BENÖTIGT !!!)
-        Messreihe mr = MRT.convertDates2Messreihe(v, label, descr);
+        TimeSeriesObject mr = MRT.convertDates2Messreihe(v, label, descr);
         mr.setIdentifier(wn.getKey());
         // wird in den cache gelegt ..
         
-        Messreihe exp1 = null;
+        TimeSeriesObject exp1 = null;
         try {
             exp1 = MRT.expand(mr, von, bis, 60 * 60, false);
             // System.out.println(late.getTime());
@@ -402,16 +402,16 @@ public class WikiHistoryExtractionBASE {
         return revs;
     }
 
-//    protected static Messreihe preprocess(Messreihe m) {
+//    protected static TimeSeriesObject preprocess(TimeSeriesObject m) {
 //        if (showChart) {
-//            Messreihe day1 = m.setBinningX_sum(24);
+//            TimeSeriesObject day1 = m.setBinningX_sum(24);
 //            rows1.add(day1);
 //            rowsBINARY1.add(m);
 //        }
 //        return m;
 //    }
 
-    protected static void putIntoCache(WikiNode wn, Messreihe exp1) {
+    protected static void putIntoCache(WikiNode wn, TimeSeriesObject exp1) {
         try {
             System.out.println(">>> put( " + wn.getKey() + " );");
             TSCache.getTSCache().putIntoCache(exp1);
@@ -528,7 +528,7 @@ public class WikiHistoryExtractionBASE {
         von = _von;
     }
 
-    public static void store(File f, Hashtable<String, Messreihe> data) throws FileNotFoundException, IOException {
+    public static void store(File f, Hashtable<String, TimeSeriesObject> data) throws FileNotFoundException, IOException {
         FileWriter os = new FileWriter(f);
         XStream xstream = new XStream();
         String s = xstream.toXML(data);
@@ -551,7 +551,7 @@ public class WikiHistoryExtractionBASE {
         return oos;
     }    
     
-    public static void _store2(File f, Hashtable<String, Messreihe> data) throws FileNotFoundException, IOException {
+    public static void _store2(File f, Hashtable<String, TimeSeriesObject> data) throws FileNotFoundException, IOException {
         System.out.println(">>> store ... ");
         OutputStream os = new FileOutputStream( f );
         ObjectOutputStream oos = new ObjectOutputStream( os );
@@ -607,7 +607,7 @@ public class WikiHistoryExtractionBASE {
         System.out.println( ">>> LOCAL DUMP (split) : " + f.getAbsolutePath() );
         try {
             
-            Hashtable<String, Messreihe> c = new Hashtable<String, Messreihe>();
+            Hashtable<String, TimeSeriesObject> c = new Hashtable<String, TimeSeriesObject>();
             Vector<WikiNode> n = wd.extractByCN( CN );
             
             // Umweg über STRING und Object-Serialisierung
@@ -636,7 +636,7 @@ public class WikiHistoryExtractionBASE {
         
         for (String pn : pages) {
             String w = wikis[i];
-            Messreihe mr = loadPageHistory(w, pn);
+            TimeSeriesObject mr = loadPageHistory(w, pn);
             tsb.putMessreihe( mr );
             
             if (mr != null) { 

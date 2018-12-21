@@ -7,12 +7,10 @@ package experiments.crosscorrelation;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
 import java.util.*;
 import javax.swing.JFileChooser;
-import research.networks.StaticLinkManager;
+
 import research.wikinetworks.NodePair;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 
@@ -137,7 +135,7 @@ public class CCResultViewer {
         return b;
     };
 
-    // hier kommen die Zeilen an und werden in die Messreihen bzw.
+    // hier kommen die Zeilen an und werden in die TimeSeriesObjectn bzw.
     // Netzwerkdarstellungen überführt.
     static int counter = 0;
     static public NodePair parseLine(String line, int nrOfNodes, String lang) {

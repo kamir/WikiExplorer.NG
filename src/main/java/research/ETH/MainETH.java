@@ -22,9 +22,8 @@
  */
 package research.ETH;
 
-import org.apache.hadoopts.chart.simple.MultiBarChart;
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import extraction.TimeSeriesFactory;
 import java.io.*;
 import java.util.*;
@@ -32,7 +31,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.hadoopts.statistics.DistributionTester;
 import org.apache.hadoopts.statistics.HaeufigkeitsZaehlerDouble;
-import experiments.linkstrength.CheckInfluenceOfSingelPeaks;
 import experiments.crosscorrelation.KreuzKorrelation;
 import experiments.linkstrength.CCFunction;
 import com.cloudera.wikiexplorer.ng.util.FinancialDataNodeGroup;
@@ -84,8 +82,8 @@ public class MainETH implements LogFileUser {
     /**
      * Stunden Daten werden hier gebinnt auf Tage, ohne Filterung..
      */
-    private static Messreihe getPageForID(Integer id) {
-        Messreihe mr = null;
+    private static TimeSeriesObject getPageForID(Integer id) {
+        TimeSeriesObject mr = null;
         try {
             mr = TimeSeriesFactory.prepareAccessDataSTUNDE(id, 299 * 24);
 
@@ -221,7 +219,7 @@ public class MainETH implements LogFileUser {
 //                        zB.addData( MainETH.dtB.getData() );
 //                        zB.calcWS();
 //
-//                        Messreihe[] r = new Messreihe[2];
+//                        TimeSeriesObject[] r = new TimeSeriesObject[2];
 //                        r[0] = zA.getHistogram();
 //                        r[1] = zB.getHistogram();
 //
@@ -258,8 +256,8 @@ public class MainETH implements LogFileUser {
 
         stdlib.StdRandom.initRandomGen(1);
 
-        distrA = new Vector<Messreihe>();
-        distrB = new Vector<Messreihe>();
+        distrA = new Vector<TimeSeriesObject>();
+        distrB = new Vector<TimeSeriesObject>();
 
         NodeGroup.useStockData = true;
         
@@ -282,8 +280,8 @@ public class MainETH implements LogFileUser {
             MultiChart.open(distrB, group + " [o=" + o + " n=" + n + " k=" + k + "] : trading volume", "link strength -> cc("+offset+")", "# of links", true);
         }
 
-//        distrA = new Vector<Messreihe>();
-//        distrB = new Vector<Messreihe>();
+//        distrA = new Vector<TimeSeriesObject>();
+//        distrB = new Vector<TimeSeriesObject>();
 //
 //        NodeGroup.useStockData = true;
 //        FinancialDataNodeGroup.doUseLogReturn = true;
@@ -302,8 +300,8 @@ public class MainETH implements LogFileUser {
 //            MultiChart.open(distrB, group + " [o=" + o + " n=" + n + " k=" + k + "] : logreturn of prices", "link strength -> cc("+offset+") ", "# of links", true);
 //        }
 //
-//        distrA = new Vector<Messreihe>();
-//        distrB = new Vector<Messreihe>();
+//        distrA = new Vector<TimeSeriesObject>();
+//        distrB = new Vector<TimeSeriesObject>();
 //
 //        NodeGroup.useStockData = true;
 //        FinancialDataNodeGroup.doUseLogReturn = false;
@@ -325,8 +323,8 @@ public class MainETH implements LogFileUser {
 //        }
 
     }
-    public static Vector<Messreihe> distrA = new Vector<Messreihe>();
-    public static Vector<Messreihe> distrB = new Vector<Messreihe>();
+    public static Vector<TimeSeriesObject> distrA = new Vector<TimeSeriesObject>();
+    public static Vector<TimeSeriesObject> distrB = new Vector<TimeSeriesObject>();
     static HaeufigkeitsZaehlerDouble linksA = null;
     static HaeufigkeitsZaehlerDouble linksB = null;
 
@@ -373,9 +371,9 @@ public class MainETH implements LogFileUser {
 
         List<Date> l = ngF.initShortRows();
 
-        Vector<Messreihe> vfmr = ngF.getStockDataReihen();
+        Vector<TimeSeriesObject> vfmr = ngF.getStockDataReihen();
 
-        Vector<Messreihe> vwmr = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> vwmr = new Vector<TimeSeriesObject>();
         ngF.checkStockTimeSeries();
 
         ngF.showRawData();        
@@ -393,9 +391,9 @@ public class MainETH implements LogFileUser {
         BufferedWriter bw2 = new BufferedWriter(new FileWriter("/home/kamir/DATA/ETH/"+run+"/" + group + "_WIKI_Missing_WIKIPAGES.dat"));
 
         // für alle Börsenkurse ...
-        for (Messreihe finanzMR : vfmr) {
+        for (TimeSeriesObject finanzMR : vfmr) {
 
-            Vector<Messreihe> mrKK = new Vector<Messreihe>();
+            Vector<TimeSeriesObject> mrKK = new Vector<TimeSeriesObject>();
 
             System.out.print(finanzMR.getLabel() + " \t");
             StringTokenizer st = new StringTokenizer(finanzMR.getLabel(), ".");
@@ -411,7 +409,7 @@ public class MainETH implements LogFileUser {
                     cBegin.clear();
                     cBegin.set(2009, 0, 1);
 
-                    Messreihe mrWIKI = getPageForID(id);
+                    TimeSeriesObject mrWIKI = getPageForID(id);
 
 //                    mr2.mapToStartingDate(2009, 1, 1);
 //                    mr2.filterAndMapBack( l );
@@ -471,8 +469,8 @@ public class MainETH implements LogFileUser {
         linksA.calcWS();
         linksB.calcWS();
 
-        Messreihe lA = linksA.getHistogram();
-        Messreihe lB = linksB.getHistogram();
+        TimeSeriesObject lA = linksA.getHistogram();
+        TimeSeriesObject lB = linksB.getHistogram();
 
         String label = "notShuffled";
 

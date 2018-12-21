@@ -4,7 +4,7 @@
  * 
  */
 package m3.terms; 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Vector;
@@ -17,14 +17,14 @@ public class TermCollectionTools {
     
     static Map<String,Double> globalMap = null; 
     
-    static public void initGlobalOrder( Messreihe mr ) { 
+    static public void initGlobalOrder( TimeSeriesObject mr ) { 
         System.out.println( ">> order by : " + mr.label );
         globalMap = TermComparator.getMapSortedByValue( mr );
         System.out.println( globalMap );
     };
     
-    public static Messreihe getTermVector( Messreihe mr ) { 
-        Messreihe mr2 = new Messreihe();
+    public static TimeSeriesObject getTermVector( TimeSeriesObject mr ) { 
+        TimeSeriesObject mr2 = new TimeSeriesObject();
         
         mr2.setLabel( mr.getLabel() + "_TV");
         
@@ -40,9 +40,9 @@ public class TermCollectionTools {
         return mr2;
     }
 
-    public static void initGlobalOrder(Vector<Messreihe> mrsTermDist, String referenz) {
-        Messreihe ref = null;
-        for( Messreihe mr : mrsTermDist ) { 
+    public static void initGlobalOrder(Vector<TimeSeriesObject> mrsTermDist, String referenz) {
+        TimeSeriesObject ref = null;
+        for( TimeSeriesObject mr : mrsTermDist ) { 
             if ( mr.getLabel().startsWith( referenz ) && ref == null ) { 
                 ref = mr;
             };

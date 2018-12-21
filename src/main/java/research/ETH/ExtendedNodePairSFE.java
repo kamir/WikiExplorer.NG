@@ -6,11 +6,10 @@ package research.ETH;
 import org.apache.hadoopts.chart.simple.MultiChart;
 import org.json.*;
 
-import org.apache.hadoopts.data.series.Messreihe;
-import org.apache.hadoopts.statphys.eventsynchronisation.ESCalc;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 
 import org.apache.hadoopts.statphys.eventsynchronisation.ESCalc2;
-import org.apache.hadoopts.statphys.eventsynchronisation.experiments.ESMain;
+
 import java.util.HashSet;
 import java.util.Vector;
 import org.openide.util.Exceptions;
@@ -18,7 +17,6 @@ import org.apache.hadoopts.statistics.DistributionTester;
 import research.wikinetworks.NodePair;
 import experiments.crosscorrelation.KreuzKorrelation;
 import experiments.linkstrength.CCFunction;
-import experiments.linkstrength.CheckInfluenceOfSingelPeaks;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 
 public class ExtendedNodePairSFE extends NodePair {
@@ -40,27 +38,27 @@ public class ExtendedNodePairSFE extends NodePair {
         return sDep;
     }
 
-    public Messreihe mrA = null;
-    public Messreihe mrB = null;
+    public TimeSeriesObject mrA = null;
+    public TimeSeriesObject mrB = null;
     public int[] esAint = null;
     public int[] esBint = null;
-    public Messreihe esA = null;
-    public Messreihe esB = null;
+    public TimeSeriesObject esA = null;
+    public TimeSeriesObject esB = null;
     
     
-    public Messreihe getEsA() {
+    public TimeSeriesObject getEsA() {
         return esA;
     }
 
-    public void setEsA(Messreihe esA) {
+    public void setEsA(TimeSeriesObject esA) {
         this.esA = esA;
     }
 
-    public Messreihe getEsB() {
+    public TimeSeriesObject getEsB() {
         return esB;
     }
 
-    public void setEsB(Messreihe esB) {
+    public void setEsB(TimeSeriesObject esB) {
         this.esB = esB;
     }
 
@@ -79,7 +77,7 @@ public class ExtendedNodePairSFE extends NodePair {
     } 
 
 
-    public ExtendedNodePairSFE(Messreihe a, Messreihe b, HashSet keys) {
+    public ExtendedNodePairSFE(TimeSeriesObject a, TimeSeriesObject b, HashSet keys) {
         
         mrA = a;
         mrB = b;
@@ -121,7 +119,7 @@ public class ExtendedNodePairSFE extends NodePair {
     /**
      * @param args the command line arguments
      */
-    private double[] calcES(Messreihe a, Messreihe b, StringBuffer sb) {
+    private double[] calcES(TimeSeriesObject a, TimeSeriesObject b, StringBuffer sb) {
 
         double[] esResult = new double[2];
         esResult[0] = -10;
@@ -239,7 +237,7 @@ public class ExtendedNodePairSFE extends NodePair {
         return stats;
     }
     
-    public static double[] calcInformationMeasures( Messreihe mr1, Messreihe mr2) {
+    public static double[] calcInformationMeasures( TimeSeriesObject mr1, TimeSeriesObject mr2) {
         double[] sDep = null;
         try {
             double[] y1 = mr1.getYData();
@@ -515,7 +513,7 @@ public class ExtendedNodePairSFE extends NodePair {
 
     public void show() {
         
-        Vector<Messreihe> v = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
         v.add(mrA);
         v.add(mrB);
 

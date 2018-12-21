@@ -4,25 +4,25 @@ import research.sqlclient.phase2.Topic4;
 import org.apache.hadoopts.chart.simple.MultiChart;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.util.Enumeration;
 import java.util.Vector;
 
 /**
  * Es handelt sich hierbei um einen Datencontainer mit Funktionalität,
- * aus anderen Containeren des Typs Messreihe, eine Kreuzkorrelation
+ * aus anderen Containeren des Typs TimeSeriesObject, eine Kreuzkorrelation
  * zu errechnen.
  *
  * @author kamir
  */
 
-public class KreuzKorrelationStunde extends Messreihe {
+public class KreuzKorrelationStunde extends TimeSeriesObject {
 
     static public int tage = 299;
     static public int steps = tage*24;
 
-    public Messreihe mr_x = null;
-    public Messreihe mr_y = null;
+    public TimeSeriesObject mr_x = null;
+    public TimeSeriesObject mr_y = null;
 
     int k_min = -72;
     int k_max = 72;
@@ -63,7 +63,7 @@ public class KreuzKorrelationStunde extends Messreihe {
 
          if ( dMR1 != 0 ) throw new Exception( "MR1 ist nicht ausgewogen ("+dMR1+").");
          if ( dMR2 != 0 ) throw new Exception( "MR2 ist nicht ausgewogen ("+dMR2+").");
-         if ( dMR1 != dMR2 ) throw new Exception( "Messreihen sind nicht gleich lang. (" + s1X +"," +s2X +"," +s1Y +"," +s2Y +")." );
+         if ( dMR1 != dMR2 ) throw new Exception( "TimeSeriesObjectn sind nicht gleich lang. (" + s1X +"," +s2X +"," +s1Y +"," +s2Y +")." );
 
          //
 //        mr_y.calcAverage();
@@ -97,7 +97,7 @@ public class KreuzKorrelationStunde extends Messreihe {
      * @param k
      * @return
      */
-    private double calcKR(Messreihe mr_x, Messreihe mr_y, int k) throws Exception {
+    private double calcKR(TimeSeriesObject mr_x, TimeSeriesObject mr_y, int k) throws Exception {
 
         mr_y = mr_y.shift( k );
         
@@ -129,8 +129,8 @@ public class KreuzKorrelationStunde extends Messreihe {
     public static void main( String[] args ) {
 
         try {
-            Messreihe mr1 = new Messreihe();
-            Messreihe mr2 = new Messreihe();
+            TimeSeriesObject mr1 = new TimeSeriesObject();
+            TimeSeriesObject mr2 = new TimeSeriesObject();
             KreuzKorrelationStunde kr = new KreuzKorrelationStunde();
             mr1.setLabel( "a" );
             mr2.setLabel( "b");
@@ -165,7 +165,7 @@ public class KreuzKorrelationStunde extends Messreihe {
             }
             ;
             kr.calcKR();
-            Vector<Messreihe> vtKR = new Vector<Messreihe>();
+            Vector<TimeSeriesObject> vtKR = new Vector<TimeSeriesObject>();
             vtKR.add(kr);
             vtKR.add(mr1);
             vtKR.add(mr2);

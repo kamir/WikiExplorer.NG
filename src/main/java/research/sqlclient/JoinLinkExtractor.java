@@ -5,7 +5,6 @@
  */
 package research.sqlclient;
 
-import research.networks.*;
 import com.mysql.jdbc.Connection;
 import com.cloudera.wikiexplorer.ng.db.DB;
 import com.cloudera.wikiexplorer.ng.db.notebook.WikipediaDB;

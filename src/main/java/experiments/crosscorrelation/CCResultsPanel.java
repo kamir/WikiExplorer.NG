@@ -14,7 +14,7 @@ package experiments.crosscorrelation;
 
 import org.apache.hadoopts.chart.simple.MyXYPlot;
 import org.apache.hadoopts.data.series.CombinedMessreihe;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -24,8 +24,6 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -253,7 +251,7 @@ public class CCResultsPanel extends javax.swing.JDialog {
         int i = javax.swing.JOptionPane.showOptionDialog(rootPane, "Select column ...", "Select column ...", javax.swing.JOptionPane.OK_OPTION, javax.swing.JOptionPane.INFORMATION_MESSAGE
                 , null, r.colNames, r.colNames[3] );
         
-        Messreihe mr = this.r.getMessreiheForColumn(i-1);
+        TimeSeriesObject mr = this.r.getTimeSeriesObjectForColumn(i-1);
         System.out.println( mr.getStatisticData("> " ) );
 
         JDialog f = new JDialog(this,"Statistic to col: " + r.colNames[i] );
@@ -269,10 +267,10 @@ public class CCResultsPanel extends javax.swing.JDialog {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
 
-        Messreihe mrK = this.r.getMessreiheForColumn(0);
-        Messreihe mrS = this.r.getMessreiheForColumn(3);
+        TimeSeriesObject mrK = this.r.getTimeSeriesObjectForColumn(0);
+        TimeSeriesObject mrS = this.r.getTimeSeriesObjectForColumn(3);
 
-        Messreihe[] mrs = new Messreihe[1];
+        TimeSeriesObject[] mrs = new TimeSeriesObject[1];
         mrs[0] = CombinedMessreihe.combine2Rows(mrK.abs(), mrS );
         
 //        JFrame f = new JFrame("Scatter-Plot for \u03C4 vs. strength" );

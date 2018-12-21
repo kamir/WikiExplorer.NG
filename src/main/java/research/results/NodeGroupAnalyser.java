@@ -1,17 +1,12 @@
 package research.results;
 
-import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import com.cloudera.wikiexplorer.ng.gui.NodeIDSelection;
 import java.io.File;
 import java.io.IOException;
-import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import research.wikinetworks.PageNameLoader;
-import org.apache.hadoopts.statphys.detrending.DetrendingMethodFactory;
-import org.apache.hadoopts.statphys.detrending.MultiDFATool;
-import org.apache.hadoopts.statphys.detrending.methods.IDetrendingMethod;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 
 /**
@@ -30,7 +25,7 @@ public class NodeGroupAnalyser {
         
         // Kontrollanzeige der AccessTS
         /*
-         * Messreihe[] rows = getAccessRowsForAllIds();
+         * TimeSeriesObject[] rows = getAccessRowsForAllIds();
          * MultiChart.open( rows, rows.length + " " + ng.fn.substring(0, 11) + " access time series", "h", "#of clicks per hour", false);
          */
         
@@ -53,16 +48,16 @@ public class NodeGroupAnalyser {
     NodeGroup ng = null;
     StringBuffer sbCurrentLabels = null;
 
-    public Messreihe[] getAccessRowsForAllIds() {
+    public TimeSeriesObject[] getAccessRowsForAllIds() {
         
         sbCurrentLabels = new StringBuffer();
         
-        Messreihe[] mr = new Messreihe[ng.ids.length];
+        TimeSeriesObject[] mr = new TimeSeriesObject[ng.ids.length];
         boolean mrNA[] = new boolean[ng.ids.length];
         
         int x = 0;
         for (int id : ng.ids) {
-            Messreihe m = ng.loadAccessForOneID(new Integer(id));
+            TimeSeriesObject m = ng.loadAccessForOneID(new Integer(id));
             if ( m !=  null ) {
                 String l = m.getLabel();
                 String name = PageNameLoader.getPagenameForId(id);

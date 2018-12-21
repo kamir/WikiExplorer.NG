@@ -7,13 +7,6 @@
 
 package experiments.linkstrength;
 
-import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.chart.statistic.HistogramChart;
-import org.apache.hadoopts.data.series.Messreihe;
-import java.awt.Container;
-import java.util.Vector;
-import org.jfree.ui.RefineryUtilities;
-import experiments.crosscorrelation.KreuzKorrelation;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 import com.cloudera.wikiexplorer.ng.util.nodegroups.RandomNodesGroup;
 
@@ -58,7 +51,7 @@ public class CheckInfluenceOfSingelPeaks {
 
 
     
-//    private static double calcStrength_VERSION_C( Messreihe mr ) {
+//    private static double calcStrength_VERSION_C( TimeSeriesObject mr ) {
 //        double stdDev = mr.getStddev();
 //        double maxY = mr.getMaxY();
 //        mr.calcAverage();
@@ -80,7 +73,7 @@ public class CheckInfluenceOfSingelPeaks {
 //     * @param threshold
 //     * @return
 //     */
-//    public static boolean doCheck( Messreihe mr , double threshold ) {
+//    public static boolean doCheck( TimeSeriesObject mr , double threshold ) {
 //        boolean b = false;
 //        double v = calcStrength_VERSION_A(mr);
 //        if ( v > threshold ) b = true;
@@ -114,27 +107,27 @@ public class CheckInfluenceOfSingelPeaks {
 //        // Wie groß ist die LINK-Stärke bei solch einem STÖR-Peak in 
 //        // der CC-Function?
 //        
-//         Vector<Messreihe> reihen_strength = new Vector<Messreihe>();
+//         Vector<TimeSeriesObject> reihen_strength = new Vector<TimeSeriesObject>();
 //        for( int j = 0; j < 5; j++ ) {
 //            
-//            Vector<Messreihe> reihen = new Vector<Messreihe>();
+//            Vector<TimeSeriesObject> reihen = new Vector<TimeSeriesObject>();
 //        
 //            double mw = j * 5.5;
-//            Messreihe mr1 = Messreihe.getGaussianDistribution(600, mw, 1);
-//            Messreihe mr2 = null;
+//            TimeSeriesObject mr1 = TimeSeriesObject.getGaussianDistribution(600, mw, 1);
+//            TimeSeriesObject mr2 = null;
 //       
 //            
-//            Messreihe test = new Messreihe();
+//            TimeSeriesObject test = new TimeSeriesObject();
 //            test.setLabel("F_CC(tau)_mw="+mw);
 //            
-//            Messreihe test2 = new Messreihe();
+//            TimeSeriesObject test2 = new TimeSeriesObject();
 //            test.setLabel("mw="+mw);
 //            
 //            
 //
 //            for ( int i = 0; i < 10; i=i+1 ) {
 //                
-//                Messreihe p = mr1.copy();
+//                TimeSeriesObject p = mr1.copy();
 //                
 //                double stdevA = p.getStddev();
 //                double mwA = p.getAvarage2();
@@ -177,20 +170,20 @@ public class CheckInfluenceOfSingelPeaks {
 //    }
 //
 //    private static void calcTestForSimulatedTS() {
-//        Messreihe mr1;
-//        Messreihe mr2;
+//        TimeSeriesObject mr1;
+//        TimeSeriesObject mr2;
 //        /**
 //         * Mit richtigen CC Reihen teste ...
 //         */
 //        double f = 0.0;
-//        Messreihe f_str = new Messreihe();
-//        Messreihe f_strH = new Messreihe();
+//        TimeSeriesObject f_str = new TimeSeriesObject();
+//        TimeSeriesObject f_strH = new TimeSeriesObject();
 //        
 //        double ts = 0.25 ;
 //        
 //        f_str.setLabel("<strength>( mittlerer Peakhöhe )");
 //        f_strH.setLabel("<strength>( mittlerer Peakhöhe ) && strength > " + ts);
-//        Vector<Messreihe> fv = new Vector<Messreihe>();
+//        Vector<TimeSeriesObject> fv = new Vector<TimeSeriesObject>();
 //        fv.add(f_str);
 //        fv.add(f_strH);
 //        for ( int j = 1; j <= 10; j++) {
@@ -201,20 +194,20 @@ public class CheckInfluenceOfSingelPeaks {
 //            double devH = 5;
 //            double devW = 0.2;
 //
-//            mr1 = Messreihe.getGaussianDistribution(300, mw, 2);
-//            mr2 = Messreihe.getGaussianDistribution(300, mw, 2);
+//            mr1 = TimeSeriesObject.getGaussianDistribution(300, mw, 2);
+//            mr2 = TimeSeriesObject.getGaussianDistribution(300, mw, 2);
 //
-//            Vector<Messreihe> rr = new Vector<Messreihe>();
-//            Vector<Messreihe> kkrr = new Vector<Messreihe>();
+//            Vector<TimeSeriesObject> rr = new Vector<TimeSeriesObject>();
+//            Vector<TimeSeriesObject> kkrr = new Vector<TimeSeriesObject>();
 //            KreuzKorrelation._defaultK = (int)tau;
 //            
-//            Messreihe test2 = new Messreihe();
+//            TimeSeriesObject test2 = new TimeSeriesObject();
 //            test2.setLabel("<strength> zur mittleren Peakhöhe f=" + f );
-//            Messreihe test3 = new Messreihe();
+//            TimeSeriesObject test3 = new TimeSeriesObject();
 //            test3.setLabel("<strength> zur mittleren Peakhöhe f=" + f +" ( strength > " + ts + ")" );
 //
 //            
-//            Messreihe test2A = new Messreihe();
+//            TimeSeriesObject test2A = new TimeSeriesObject();
 //            test2A.setLabel("<adjusted> f=" + f );
 //   
 //            double avSTR = 0.0;
@@ -234,8 +227,8 @@ public class CheckInfluenceOfSingelPeaks {
 //                double y1 = stdlib.StdRandom.gaussian( mw*f , devH );
 //                double y2 = stdlib.StdRandom.gaussian( mw*f , devH );
 //
-//                Messreihe m1 = mr1.copy();
-//                Messreihe m2 = mr2.copy();
+//                TimeSeriesObject m1 = mr1.copy();
+//                TimeSeriesObject m2 = mr2.copy();
 //
 ////                addPeak(m1, (int) (100 + r1), y1, 300);
 ////                addPeak(m2, (int) (100 + r2), y2, 300);
@@ -286,15 +279,15 @@ public class CheckInfluenceOfSingelPeaks {
 ////        MultiChart.open( fv , "f(str)", "f", "str", true );
 ////    }
 //
-//    public static void addPeak( Messreihe mr , int x, double y, int l ) {
+//    public static void addPeak( TimeSeriesObject mr , int x, double y, int l ) {
 //        if ( x > l-1 ) x = l - x;
 //        if ( x < 0 ) x = l + x;
 //        System.out.println( x + " " + y );
 //        mr.yValues.setElementAt( y, x);
 //    };
 //
-//    public static Container createHistogramm( Messreihe mr, 
-//                                              Messreihe r2, 
+//    public static Container createHistogramm( TimeSeriesObject mr, 
+//                                              TimeSeriesObject r2, 
 //                                              int bins, int min, int max ) {
 //        HistogramChart demo = new HistogramChart( mr.getLabel()  );
 //        demo.addSerieWithBinning( r2, bins, min, max );
@@ -325,7 +318,7 @@ public class CheckInfluenceOfSingelPeaks {
 ////        NodeGroup ng = new NodeGroup(label);
 ////        for( int i = 0; i < nrOfNodes ; i++ ) { 
 ////            String sl = label + "_" + (ngOffset + i);
-////            Messreihe r = createRandomSeries_A_INTERNAL( sl, length, mw, mw_peakHoeh, tau, devH, devW );
+////            TimeSeriesObject r = createRandomSeries_A_INTERNAL( sl, length, mw, mw_peakHoeh, tau, devH, devW );
 ////            ng.accessReihen.add( r );
 ////            ng.getIdsAsVector().add(ngOffset + i);
 ////        }
@@ -335,7 +328,7 @@ public class CheckInfluenceOfSingelPeaks {
 ////        return ng;
 ////    }
 //    
-//    public static Messreihe createRandomSeries_A_INTERNAL(String sl, int length, double mw, double mw_peakHoeh, double tau, double devH, double devW) {
+//    public static TimeSeriesObject createRandomSeries_A_INTERNAL(String sl, int length, double mw, double mw_peakHoeh, double tau, double devH, double devW) {
 //        
 //
 //        // double f = stdlib.StdRandom.gaussian( 1, 10 ) * 0.5;
@@ -348,7 +341,7 @@ public class CheckInfluenceOfSingelPeaks {
 //        // HÖHE des PEAKS
 //        double y1 = stdlib.StdRandom.gaussian( mw_peakHoeh , devH );
 //
-//        Messreihe m1 = Messreihe.getGaussianDistribution(length, mw, 1);
+//        TimeSeriesObject m1 = TimeSeriesObject.getGaussianDistribution(length, mw, 1);
 //        m1.setLabel(sl);
 //
 //        int pos_peak = (int) stdlib.StdRandom.gaussian(0,length);
@@ -373,7 +366,7 @@ public class CheckInfluenceOfSingelPeaks {
 //    }
 //
 //
-//    public static Messreihe createRandomSeries_A_Peaks( String label ) {
+//    public static TimeSeriesObject createRandomSeries_A_Peaks( String label ) {
 //
 //        double mw = 0;
 //        double mw_peakHoeh = 0 ;// 20;  // 10
@@ -396,11 +389,11 @@ public class CheckInfluenceOfSingelPeaks {
 //     * @param athis
 //     * @return 
 //     */
-//    static public Messreihe removeMaximumValueFromRow( Messreihe athis ) {
+//    static public TimeSeriesObject removeMaximumValueFromRow( TimeSeriesObject athis ) {
 //
 //        boolean removed = false;
 //
-//        Messreihe mr = new Messreihe();
+//        TimeSeriesObject mr = new TimeSeriesObject();
 //        mr.setLabel( athis.getLabel() );
 //
 //        int max = athis.yValues.size();

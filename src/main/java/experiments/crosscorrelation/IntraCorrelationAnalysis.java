@@ -2,7 +2,7 @@ package experiments.crosscorrelation;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
 import org.apache.hadoopts.data.export.OriginProject;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
@@ -81,19 +81,19 @@ public class IntraCorrelationAnalysis {
      *
      * @return
      */
-    public static Vector<Messreihe> getSampleRowGroupA(double amp, double ampN, String label, String ext) {
+    public static Vector<TimeSeriesObject> getSampleRowGroupA(double amp, double ampN, String label, String ext) {
 
-        Vector<Messreihe> groupA = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> groupA = new Vector<TimeSeriesObject>();
 
         // a simple sine-wave no noise
-        Messreihe r1 = TSGenerator.getSinusWave(f, z * 3600, sr, amp);
+        TimeSeriesObject r1 = TSGenerator.getSinusWave(f, z * 3600, sr, amp);
 
         // add some noise 
         for (int i = 0; i < nrA; i++) {
 
-            Messreihe m1 = Messreihe.getGaussianDistribution(z, 0, ampN);
+            TimeSeriesObject m1 = TimeSeriesObject.getGaussianDistribution(z, 0, ampN);
 
-            Messreihe m2 = m1.add(r1);
+            TimeSeriesObject m2 = m1.add(r1);
 
             System.out.println((i + 1) + ".)\t" + m2.getLabel());
 
@@ -107,7 +107,7 @@ public class IntraCorrelationAnalysis {
     }
     static boolean sampleVisible = false;
 
-    private static void createCoupledGroupsA(Vector<Messreihe> groupA, Vector<Messreihe> groupB) {
+    private static void createCoupledGroupsA(Vector<TimeSeriesObject> groupA, Vector<TimeSeriesObject> groupB) {
 
         for (int cc = 0; cc < nrA; cc++) {
 
@@ -115,11 +115,11 @@ public class IntraCorrelationAnalysis {
             int max = 200;
             double m = 2.75 / (max - min);
 
-            Messreihe randA = Messreihe.getGaussianDistribution(z, 0, 0.00000000001);
-            Messreihe randB = Messreihe.getGaussianDistribution(z, 0, 0.00000000001);
+            TimeSeriesObject randA = TimeSeriesObject.getGaussianDistribution(z, 0, 0.00000000001);
+            TimeSeriesObject randB = TimeSeriesObject.getGaussianDistribution(z, 0, 0.00000000001);
 
-            Messreihe a = new Messreihe();
-            Messreihe b = new Messreihe();
+            TimeSeriesObject a = new TimeSeriesObject();
+            TimeSeriesObject b = new TimeSeriesObject();
 
 
             double c = 0.5;
@@ -135,14 +135,14 @@ public class IntraCorrelationAnalysis {
             };
 
 
-            Messreihe A = randA.add(a);
-            Messreihe B = randB.add(b);
+            TimeSeriesObject A = randA.add(a);
+            TimeSeriesObject B = randB.add(b);
 
             groupA.add(A);
             groupB.add(B);
 
         }
-        Vector<Messreihe> c = groupA;
+        Vector<TimeSeriesObject> c = groupA;
         c.addAll(groupB);
 
         if (sampleVisible) {
@@ -161,24 +161,24 @@ public class IntraCorrelationAnalysis {
      *
      * @return
      */
-//    public static Vector<Messreihe> getSampleRowGroupB( double amp , double scaleF) {
+//    public static Vector<TimeSeriesObject> getSampleRowGroupB( double amp , double scaleF) {
 //        
-//        Vector<Messreihe> groupB = new Vector<Messreihe>();
+//        Vector<TimeSeriesObject> groupB = new Vector<TimeSeriesObject>();
 //
-//        Messreihe r2 = TSGenerator.getSinusWave(scaleF * f, z * 3600, sr, amp);
+//        TimeSeriesObject r2 = TSGenerator.getSinusWave(scaleF * f, z * 3600, sr, amp);
 //        
 //        for (int i = 0; i < nrB; i++) {
-//            groupB.add(r2.add(Messreihe.getGaussianDistribution(z,0, 2)));
+//            groupB.add(r2.add(TimeSeriesObject.getGaussianDistribution(z,0, 2)));
 //        }
 //
 //        return groupB;
 //    }
-    public static Vector<Messreihe> getNoiseRowGroup() {
+    public static Vector<TimeSeriesObject> getNoiseRowGroup() {
 
-        Vector<Messreihe> groupB = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> groupB = new Vector<TimeSeriesObject>();
 
         for (int i = 0; i < nrA; i++) {
-            groupB.add(Messreihe.getGaussianDistribution(z, 0.0, 1.0));
+            groupB.add(TimeSeriesObject.getGaussianDistribution(z, 0.0, 1.0));
         }
 
         return groupB;
@@ -215,8 +215,8 @@ public class IntraCorrelationAnalysis {
 
         IntraCorrelationAnalysis.op = op;
 
-        Vector<Messreihe> icfC = new Vector<Messreihe>();
-        Vector<Messreihe> icfB = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> icfC = new Vector<TimeSeriesObject>();
+        Vector<TimeSeriesObject> icfB = new Vector<TimeSeriesObject>();
 
 
 ///*DEMO 1*/    
@@ -227,8 +227,8 @@ public class IntraCorrelationAnalysis {
                 sampleVisible = false;
             }
 
-            Vector<Messreihe> groupA = IntraCorrelationAnalysis.getNoiseRowGroup();
-            Vector<Messreihe> groupB = IntraCorrelationAnalysis.getNoiseRowGroup();
+            Vector<TimeSeriesObject> groupA = IntraCorrelationAnalysis.getNoiseRowGroup();
+            Vector<TimeSeriesObject> groupB = IntraCorrelationAnalysis.getNoiseRowGroup();
 
 
 
@@ -237,7 +237,7 @@ public class IntraCorrelationAnalysis {
 //                op.storeChart(groupB, false, "run1.raw B", "run1.rawB");
             }
 
-            Messreihe icf1 = process(groupA, groupB, "C", "mode1");
+            TimeSeriesObject icf1 = process(groupA, groupB, "C", "mode1");
 
             icfC.add(icf1);
 
@@ -248,11 +248,11 @@ public class IntraCorrelationAnalysis {
 
 ///*DEMO 2*/        
 //
-//        Vector<Messreihe> icfC1 = new Vector<Messreihe>();
-//        Vector<Messreihe> icfC2 = new Vector<Messreihe>();
-//        Vector<Messreihe> icfC3 = new Vector<Messreihe>();
-//        Vector<Messreihe> icfC4 = new Vector<Messreihe>();
-//        Vector<Messreihe> icfC5 = new Vector<Messreihe>();
+//        Vector<TimeSeriesObject> icfC1 = new Vector<TimeSeriesObject>();
+//        Vector<TimeSeriesObject> icfC2 = new Vector<TimeSeriesObject>();
+//        Vector<TimeSeriesObject> icfC3 = new Vector<TimeSeriesObject>();
+//        Vector<TimeSeriesObject> icfC4 = new Vector<TimeSeriesObject>();
+//        Vector<TimeSeriesObject> icfC5 = new Vector<TimeSeriesObject>();
 //        
 //        for( int i = 0; i < runs; i++ ) {
 //            if( i == 0 ) sampleVisible = true;
@@ -260,19 +260,19 @@ public class IntraCorrelationAnalysis {
 //                sampleVisible = false;
 //            }
 //            
-//            Vector<Messreihe> groupA = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.1, "A" , "run2");
+//            Vector<TimeSeriesObject> groupA = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.1, "A" , "run2");
 //            
-//            Vector<Messreihe> groupB1 = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.1, "B1","run2");
-//            Vector<Messreihe> groupB2 = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.2, "B2","run2");
-//            Vector<Messreihe> groupB3 = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.3, "B3","run2");
-//            Vector<Messreihe> groupB4 = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.4, "B4","run2");
-//            Vector<Messreihe> groupB5 = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.5, "B5","run2");
+//            Vector<TimeSeriesObject> groupB1 = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.1, "B1","run2");
+//            Vector<TimeSeriesObject> groupB2 = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.2, "B2","run2");
+//            Vector<TimeSeriesObject> groupB3 = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.3, "B3","run2");
+//            Vector<TimeSeriesObject> groupB4 = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.4, "B4","run2");
+//            Vector<TimeSeriesObject> groupB5 = MetacorrelationAnalysis.getSampleRowGroupA(1.0, 0.5, "B5","run2");
 //            
-//            Messreihe icf1 = process( groupA, groupB1, "C1", "mode1" );
-//            Messreihe icf2 = process( groupA, groupB2, "C2", "mode1" );
-//            Messreihe icf3 = process( groupA, groupB3, "C3", "mode1" );
-//            Messreihe icf4 = process( groupA, groupB4, "C4", "mode1" );
-//            Messreihe icf5 = process( groupA, groupB5, "C5", "mode1" );
+//            TimeSeriesObject icf1 = process( groupA, groupB1, "C1", "mode1" );
+//            TimeSeriesObject icf2 = process( groupA, groupB2, "C2", "mode1" );
+//            TimeSeriesObject icf3 = process( groupA, groupB3, "C3", "mode1" );
+//            TimeSeriesObject icf4 = process( groupA, groupB4, "C4", "mode1" );
+//            TimeSeriesObject icf5 = process( groupA, groupB5, "C5", "mode1" );
 //       
 //            icfC1.add( icf1 );
 //            icfC2.add( icf2 );
@@ -289,15 +289,15 @@ public class IntraCorrelationAnalysis {
 //        
 
         /*DEMO 3*/
-//        Vector<Messreihe> icfD3 = new Vector<Messreihe>();
+//        Vector<TimeSeriesObject> icfD3 = new Vector<TimeSeriesObject>();
 //        for( int i = 0; i < runs; i++ ) {
 //            if( i == 0 ) sampleVisible = true;
 //            else {
 //                sampleVisible = false;
 //            }
 //            
-//            Vector<Messreihe> groupA = new Vector<Messreihe>();
-//            Vector<Messreihe> groupB = new Vector<Messreihe>();
+//            Vector<TimeSeriesObject> groupA = new Vector<TimeSeriesObject>();
+//            Vector<TimeSeriesObject> groupB = new Vector<TimeSeriesObject>();
 //            
 //            createCoupledGroupsA( groupA, groupB );
 //            
@@ -306,7 +306,7 @@ public class IntraCorrelationAnalysis {
 //                op.storeChart(groupB, false, "run3.raw B", "run3.rawB");
 //            }
 //
-//            Messreihe mr = process( groupA, groupB, "C", "mode1" );
+//            TimeSeriesObject mr = process( groupA, groupB, "C", "mode1" );
 //            
 //            icfD3.add( mr );
 //        
@@ -317,24 +317,24 @@ public class IntraCorrelationAnalysis {
     public static OriginProject op = null;
     static public boolean sampling = true;
 
-    public static Vector<Messreihe> _calcIntraCorrelation(Vector<Messreihe> groupA, Vector<Messreihe> groupB, int tau, int dtau, boolean debug, boolean shuffle) {
+    public static Vector<TimeSeriesObject> _calcIntraCorrelation(Vector<TimeSeriesObject> groupA, Vector<TimeSeriesObject> groupB, int tau, int dtau, boolean debug, boolean shuffle) {
 
         boolean buildGRAPH = false;
         
         dtau = 1;
 
-        Vector<Messreihe> mrs = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrs = new Vector<TimeSeriesObject>();
 
         if (shuffle) {
             groupA = shuffle(groupA);
             groupB = shuffle(groupB);
         }
         
-        Messreihe[] grBArray = convert( groupB );
+        TimeSeriesObject[] grBArray = convert( groupB );
 
         // instead of all rows in group B we use an average value 
         // (maybe a detrendet value)
-        Messreihe m = Messreihe.averageForAll(grBArray);
+        TimeSeriesObject m = TimeSeriesObject.averageForAll(grBArray);
 
 
 //        if (sampling) {
@@ -359,21 +359,21 @@ public class IntraCorrelationAnalysis {
             shuffleString = "*";
         }
 
-        Messreihe Ctau = new Messreihe("Ctau" + sEXT);
-        Messreihe PCtau = new Messreihe("PCtau" + sEXT);
-        Messreihe ICFtau = new Messreihe("ICF" + sEXT);
+        TimeSeriesObject Ctau = new TimeSeriesObject("Ctau" + sEXT);
+        TimeSeriesObject PCtau = new TimeSeriesObject("PCtau" + sEXT);
+        TimeSeriesObject ICFtau = new TimeSeriesObject("ICF" + sEXT);
 
-        Messreihe E1 = new Messreihe("E1" + sEXT);
-        Messreihe E2 = new Messreihe("E2" + sEXT);
-        Messreihe E3 = new Messreihe("E3" + sEXT);
+        TimeSeriesObject E1 = new TimeSeriesObject("E1" + sEXT);
+        TimeSeriesObject E2 = new TimeSeriesObject("E2" + sEXT);
+        TimeSeriesObject E3 = new TimeSeriesObject("E3" + sEXT);
 
-        Vector<Messreihe> temp1 = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> temp1 = new Vector<TimeSeriesObject>();
         temp1.addAll(groupA);
 
-        Vector<Messreihe> temp2 = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> temp2 = new Vector<TimeSeriesObject>();
         temp2.addAll(groupB);
 
-        Vector<Messreihe> temp3 = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> temp3 = new Vector<TimeSeriesObject>();
         temp3.add(m);
 
 
@@ -432,15 +432,15 @@ public class IntraCorrelationAnalysis {
                     }
                     c++;
 
-                    Messreihe[] pair = getPair(groupA, a, b);
+                    TimeSeriesObject[] pair = getPair(groupA, a, b);
 
                     if (pair != null) {
 
-                        Messreihe[] choppedPair = chopPair(pair, i, tau);
+                        TimeSeriesObject[] choppedPair = chopPair(pair, i, tau);
 
                         if (choppedPair != null) {
 
-                            Messreihe mChopped = m.cutOut(i, i + tau);
+                            TimeSeriesObject mChopped = m.cutOut(i, i + tau);
 
                             KreuzKorrelation c_ij = KreuzKorrelation.calcKR(choppedPair[0], choppedPair[1], true);
                             KreuzKorrelation c_im = KreuzKorrelation.calcKR(choppedPair[0], mChopped, true);
@@ -524,7 +524,7 @@ public class IntraCorrelationAnalysis {
         return mrs;
     }
 
-    public static Vector<Messreihe> _calcDependcyNetworks(Vector<Messreihe> groupA, int tau, int dtau, boolean debug, boolean shuffle) {
+    public static Vector<TimeSeriesObject> _calcDependcyNetworks(Vector<TimeSeriesObject> groupA, int tau, int dtau, boolean debug, boolean shuffle) {
 
         boolean buildGRAPH = false;
         
@@ -532,7 +532,7 @@ public class IntraCorrelationAnalysis {
         sampling = false;
         logNetworkFiles = true;
 
-        Vector<Messreihe> mrs = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrs = new Vector<TimeSeriesObject>();
 
         if (shuffle) {
             groupA = shuffle(groupA);
@@ -559,14 +559,14 @@ public class IntraCorrelationAnalysis {
             shuffleString = "*";
         }
 
-        Messreihe nrEdgesTau = new Messreihe("#edges" + sEXT);
-        Messreihe diameterTau = new Messreihe("diameter" + sEXT);
+        TimeSeriesObject nrEdgesTau = new TimeSeriesObject("#edges" + sEXT);
+        TimeSeriesObject diameterTau = new TimeSeriesObject("diameter" + sEXT);
 
-        Messreihe E1 = new Messreihe("E1" + sEXT);
-        Messreihe E2 = new Messreihe("E2" + sEXT);
-        Messreihe E3 = new Messreihe("E3" + sEXT);
+        TimeSeriesObject E1 = new TimeSeriesObject("E1" + sEXT);
+        TimeSeriesObject E2 = new TimeSeriesObject("E2" + sEXT);
+        TimeSeriesObject E3 = new TimeSeriesObject("E3" + sEXT);
 
-        Vector<Messreihe> temp1 = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> temp1 = new Vector<TimeSeriesObject>();
         temp1.addAll(groupA);
 
         if (debug) {
@@ -627,16 +627,16 @@ public class IntraCorrelationAnalysis {
                 for (int a = 0; a < max; a++) {
                     for (int b = 0; b < max; b++) {
 
-                        Messreihe[] pair = getPair(groupA, a, b);
-                        Messreihe k = groupA.elementAt(c);
+                        TimeSeriesObject[] pair = getPair(groupA, a, b);
+                        TimeSeriesObject k = groupA.elementAt(c);
 
                         if (pair != null) {
 
-                            Messreihe[] choppedPair = chopPair(pair, i, tau);
+                            TimeSeriesObject[] choppedPair = chopPair(pair, i, tau);
 
                             if (choppedPair != null) {
 
-                                Messreihe mChopped = k.cutOut(i, i + tau);
+                                TimeSeriesObject mChopped = k.cutOut(i, i + tau);
 
                                 KreuzKorrelation c_ij = KreuzKorrelation.calcKR(choppedPair[0], choppedPair[1], true);
                                 KreuzKorrelation c_im = KreuzKorrelation.calcKR(choppedPair[0], mChopped, true);
@@ -732,14 +732,14 @@ public class IntraCorrelationAnalysis {
         return mrs;
     }
 
-    public static Vector<Messreihe> calcIntraCorrelation2(Vector<Messreihe> groupA, Vector<Messreihe> groupB, int tau, int dtau, boolean debug, boolean shuffle) {
+    public static Vector<TimeSeriesObject> calcIntraCorrelation2(Vector<TimeSeriesObject> groupA, Vector<TimeSeriesObject> groupB, int tau, int dtau, boolean debug, boolean shuffle) {
 
         System.err.println(">> grA: " + groupA.size());
         System.err.println(">> grB: " + groupB.size());
 
         dtau = 1;
 
-        Vector<Messreihe> mrs = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrs = new Vector<TimeSeriesObject>();
 
         if (shuffle) {
             groupA = shuffle(groupA);
@@ -757,17 +757,17 @@ public class IntraCorrelationAnalysis {
             shuffleString = "*";
         }
 
-        Messreihe localCC = new Messreihe("totalCC" + sEXT);
-        Messreihe localCCsigma = new Messreihe("totalCC_sigma" + sEXT);
+        TimeSeriesObject localCC = new TimeSeriesObject("totalCC" + sEXT);
+        TimeSeriesObject localCCsigma = new TimeSeriesObject("totalCC_sigma" + sEXT);
 
-        Messreihe E1 = new Messreihe("E1" + sEXT);
-        Messreihe E2 = new Messreihe("E2" + sEXT);
-        Messreihe E3 = new Messreihe("E3" + sEXT);
+        TimeSeriesObject E1 = new TimeSeriesObject("E1" + sEXT);
+        TimeSeriesObject E2 = new TimeSeriesObject("E2" + sEXT);
+        TimeSeriesObject E3 = new TimeSeriesObject("E3" + sEXT);
 
-        Vector<Messreihe> temp1 = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> temp1 = new Vector<TimeSeriesObject>();
         temp1.addAll(groupA);
 
-        Vector<Messreihe> temp2 = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> temp2 = new Vector<TimeSeriesObject>();
         temp2.addAll(groupB);
 
         if (debug) {
@@ -793,16 +793,16 @@ public class IntraCorrelationAnalysis {
         double vE3 = 0.0;
 
 
-        Vector<Messreihe> localCCSet = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> localCCSet = new Vector<TimeSeriesObject>();
         for (int i = 0; i < groupA.size(); i++) {
-            Messreihe m = new Messreihe();
+            TimeSeriesObject m = new TimeSeriesObject();
             localCCSet.add(m);
         }
 
         int maxA = groupA.size();
         int maxB = groupB.size();
 
-        Messreihe mrB = Messreihe.averageForAll( convert( groupB ) );
+        TimeSeriesObject mrB = TimeSeriesObject.averageForAll( convert( groupB ) );
 
         // FOR EACH TIMESTEP
         for (int i = 0; i < (maxT - tau); i = i + dtau) {
@@ -824,7 +824,7 @@ public class IntraCorrelationAnalysis {
             // loop over all in GroupA (CN, or IWL)
             for (int a = 0; a < maxA; a++) {
 
-                Messreihe mrA = groupA.elementAt(a);
+                TimeSeriesObject mrA = groupA.elementAt(a);
 
                 if (c > 0) {
                     KreuzKorrelation.GLdebug = false;
@@ -832,8 +832,8 @@ public class IntraCorrelationAnalysis {
                 }
                 c++;
 
-                Messreihe mChoppedA = mrA.cutOut(i, i + tau);
-                Messreihe mChoppedB = mrB.cutOut(i, i + tau);
+                TimeSeriesObject mChoppedA = mrA.cutOut(i, i + tau);
+                TimeSeriesObject mChoppedB = mrB.cutOut(i, i + tau);
 
                 KreuzKorrelation cc = KreuzKorrelation.calcKR(mChoppedA, mChoppedB, true);
 
@@ -860,8 +860,8 @@ public class IntraCorrelationAnalysis {
 
         }
 
-        localCC = Messreihe.averageForAll( convert(localCCSet));
-        localCCsigma = Messreihe.sigmaForAll(localCCSet);
+        localCC = TimeSeriesObject.averageForAll( convert(localCCSet));
+        localCCsigma = TimeSeriesObject.sigmaForAll(localCCSet);
 
         mrs.add(localCC);
         mrs.add(localCCsigma);
@@ -872,19 +872,19 @@ public class IntraCorrelationAnalysis {
         return mrs;
     }
 
-    private static Messreihe[] getPair(Vector<Messreihe> groupA, int a, int b) {
-        Messreihe[] pair = null;
+    private static TimeSeriesObject[] getPair(Vector<TimeSeriesObject> groupA, int a, int b) {
+        TimeSeriesObject[] pair = null;
         if (a < b) {
-            pair = new Messreihe[2];
+            pair = new TimeSeriesObject[2];
             pair[0] = groupA.elementAt(a);
             pair[1] = groupA.elementAt(b);
         }
         return pair;
     }
 
-    private static Messreihe[] chopPair(Messreihe[] pair, int i, int tau) {
-        Messreihe r1 = pair[0].cutOut(i, i + tau);
-        Messreihe r2 = pair[1].cutOut(i, i + tau);
+    private static TimeSeriesObject[] chopPair(TimeSeriesObject[] pair, int i, int tau) {
+        TimeSeriesObject r1 = pair[0].cutOut(i, i + tau);
+        TimeSeriesObject r2 = pair[1].cutOut(i, i + tau);
 
 //        if (r2.yValues.size() > 24 && r1.yValues.size() > 24) {
         pair[0] = r1;
@@ -906,12 +906,12 @@ public class IntraCorrelationAnalysis {
     }
     static int maxShuffles = 10;
 
-    private static Vector<Messreihe> shuffle(Vector<Messreihe> gr) {
-        Vector<Messreihe> groupA = new Vector<Messreihe>();
+    private static Vector<TimeSeriesObject> shuffle(Vector<TimeSeriesObject> gr) {
+        Vector<TimeSeriesObject> groupA = new Vector<TimeSeriesObject>();
 
-        for (Messreihe r : gr) {
+        for (TimeSeriesObject r : gr) {
 
-            Messreihe r2 = r.copy();
+            TimeSeriesObject r2 = r.copy();
 
             r2.shuffleYValues(maxShuffles);
 
@@ -1014,9 +1014,9 @@ public class IntraCorrelationAnalysis {
                
     }
 
-    private static Vector<Messreihe> getSubSetFrom(Vector<Messreihe> groupA, int n) {
+    private static Vector<TimeSeriesObject> getSubSetFrom(Vector<TimeSeriesObject> groupA, int n) {
 
-        Vector<Messreihe> m = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> m = new Vector<TimeSeriesObject>();
         List<Integer> l = new ArrayList<Integer>();
 
         for (int i = 0; i < groupA.size(); i++) {
@@ -1029,7 +1029,7 @@ public class IntraCorrelationAnalysis {
 
         for (int i = 0; i < n; i++) {
             Integer in = l.get(i);
-            Messreihe mm = (Messreihe) groupA.elementAt(in.intValue());
+            TimeSeriesObject mm = (TimeSeriesObject) groupA.elementAt(in.intValue());
             m.add(mm);
         }
 
@@ -1076,10 +1076,10 @@ public class IntraCorrelationAnalysis {
     static boolean verbose = true;
     static boolean debug = true;
 
-    private static Messreihe process(Vector<Messreihe> groupA, Vector<Messreihe> groupB, String typ, String label) {
+    private static TimeSeriesObject process(Vector<TimeSeriesObject> groupA, Vector<TimeSeriesObject> groupB, String typ, String label) {
 
-        Vector<Messreihe> resultRows1 = _calcIntraCorrelation(groupA, groupB, tau, dtau, debug, false);
-//        Vector<Messreihe> resultRows2 = calcIntraCorrelation(groupA, groupB, tau, dtau, debug, true);
+        Vector<TimeSeriesObject> resultRows1 = _calcIntraCorrelation(groupA, groupB, tau, dtau, debug, false);
+//        Vector<TimeSeriesObject> resultRows2 = calcIntraCorrelation(groupA, groupB, tau, dtau, debug, true);
 
 //        resultRows1.addAll(resultRows2);
 
@@ -1087,7 +1087,7 @@ public class IntraCorrelationAnalysis {
         op.setHeader(header);
 
         op.addMessreihen(resultRows1, "intracorrelation.sh0." + typ + "", true);
-//        op.addMessreihen(resultRows2, "intracorrelation.sh1." + typ +".", true);
+//        op.addTimeSeriesObjectn(resultRows2, "intracorrelation.sh1." + typ +".", true);
 
         System.out.println(">>> results are stored in: " + op.toString());
 
@@ -1099,30 +1099,30 @@ public class IntraCorrelationAnalysis {
         
         
 
-        Messreihe icf = resultRows1.elementAt(2);
+        TimeSeriesObject icf = resultRows1.elementAt(2);
         System.out.println("USE: " + icf.getLabel());
 
         return icf;
 
     }
 
-    private static void plotAvAndSigma(Vector<Messreihe> icfC, String title) {
+    private static void plotAvAndSigma(Vector<TimeSeriesObject> icfC, String title) {
 
         // Calc average
-//        Messreihe avB = Messreihe.averageForAll(icfB);
-        Messreihe avC = Messreihe.averageForAll(icfC);
+//        TimeSeriesObject avB = TimeSeriesObject.averageForAll(icfB);
+        TimeSeriesObject avC = TimeSeriesObject.averageForAll(icfC);
 
 //        avB.setLabel("<ICF B>");
         avC.setLabel("<ICF C>");
 
         // Calc sigma
-//        Messreihe sigmaB = Messreihe.sigmaForAll(icfB);
-        Messreihe sigmaC = Messreihe.sigmaForAll(icfC);
+//        TimeSeriesObject sigmaB = TimeSeriesObject.sigmaForAll(icfB);
+        TimeSeriesObject sigmaC = TimeSeriesObject.sigmaForAll(icfC);
 
 //        sigmaB.setLabel("sigma(B)");
         sigmaC.setLabel("sigma(C)");
 
-        Vector<Messreihe> rows = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> rows = new Vector<TimeSeriesObject>();
 //        rows.add(avB);
         rows.add(avC);
 //        rows.add(sigmaB);
@@ -1236,10 +1236,10 @@ public class IntraCorrelationAnalysis {
        }
     }
 
-    private static Messreihe[] convert(Vector<Messreihe> g) {
-        Messreihe[] a = new Messreihe[ g.size() ];
+    private static TimeSeriesObject[] convert(Vector<TimeSeriesObject> g) {
+        TimeSeriesObject[] a = new TimeSeriesObject[ g.size() ];
         int i = 0;
-        for( Messreihe m : g ) {
+        for( TimeSeriesObject m : g ) {
             a[i] = m;
             i++;
         }

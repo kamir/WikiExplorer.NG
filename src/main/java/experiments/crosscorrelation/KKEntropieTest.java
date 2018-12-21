@@ -5,8 +5,8 @@
 package experiments.crosscorrelation;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
-import org.apache.hadoopts.data.series.MessreiheFFT;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
+import org.apache.hadoopts.data.series.TimeSeriesObjectFFT;
 import java.awt.Color;
 import java.text.DecimalFormat;
 import java.util.Vector; 
@@ -55,12 +55,12 @@ public class KKEntropieTest {
         double time = 5;
         double samplingRate = 10000;
 
-        Messreihe mr = new Messreihe();
+        TimeSeriesObject mr = new TimeSeriesObject();
         
 
-        Vector<Messreihe> mrv = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
         for (int i = 0; i < f.length; i++) {
-            Messreihe m = TSGenerator.getSinusWave(f[i], time, samplingRate, a[i], phase[i], noise[i] * PI);
+            TimeSeriesObject m = TSGenerator.getSinusWave(f[i], time, samplingRate, a[i], phase[i], noise[i] * PI);
             mr = mr.add(m);
             mrv.add(m.copy());
         }
@@ -74,14 +74,14 @@ public class KKEntropieTest {
 //        applyDFA(mrv);
 
         // simple randomisation
-        Messreihe temp = mr.copy();
+        TimeSeriesObject temp = mr.copy();
         int nsh = 100;
         temp.shuffleYValues( nsh );
-        Messreihe m2 = temp;
+        TimeSeriesObject m2 = temp;
 
-        Messreihe m3 = FFTPhaseRandomizer.getPhaseRandomizedRow(mr.copy(), false, false, 0, FFTPhaseRandomizer.MODE_shuffle_phase);
+        TimeSeriesObject m3 = FFTPhaseRandomizer.getPhaseRandomizedRow(mr.copy(), false, false, 0, FFTPhaseRandomizer.MODE_shuffle_phase);
 
-        Vector<Messreihe> mrv2 = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv2 = new Vector<TimeSeriesObject>();
         m2.setLabel("shuffled (" + nsh + ")" );
         mrv2.add( mr );
         mrv2.add( m2 );
@@ -95,33 +95,33 @@ public class KKEntropieTest {
         
         
         // teste die Autokorrelation
-        Messreihe mrA = mr.copy();
-        Messreihe mrB = mr.copy();
+        TimeSeriesObject mrA = mr.copy();
+        TimeSeriesObject mrB = mr.copy();
         
 //        KreuzKorrelation._defaultK = 100;
 //        KreuzKorrelation.GLdebug = true;
 //        KreuzKorrelation.calcKR(mrA, mrB, true, true);
 //        
 //        // teste die Kreuzkorrelation - SHUFFLED
-//        Messreihe mrA2 = mr.copy();
-//        Messreihe mrB2 = m2.copy();
+//        TimeSeriesObject mrA2 = mr.copy();
+//        TimeSeriesObject mrB2 = m2.copy();
 //        KreuzKorrelation.calcKR(mrA2, mrB2, true, true);
 //
 //        // teste die Kreuzkorrelation - Phase RAND
-//        Messreihe mrA3 = mr.copy();
-//        Messreihe mrB3 = m3.copy();
+//        TimeSeriesObject mrA3 = mr.copy();
+//        TimeSeriesObject mrB3 = m3.copy();
 //        KreuzKorrelation.calcKR(mrA3, mrB3, true, true);
         
         int z = 5;
         
         KreuzKorrelation._defaultK = 25;
-        Messreihe mrX = null;
-        Messreihe mrA4 = mr.copy();
-        Vector<Messreihe> mrv4 = new Vector<Messreihe>();
+        TimeSeriesObject mrX = null;
+        TimeSeriesObject mrA4 = mr.copy();
+        Vector<TimeSeriesObject> mrv4 = new Vector<TimeSeriesObject>();
         for( int i = 0; i < z; i++ ) { 
             // teste die Kreuzkorrelation - SHUFFLED
-            Messreihe mrB4 = FFTPhaseRandomizer.getPhaseRandomizedRow(mr.copy(), false, false, 0,FFTPhaseRandomizer.MODE_multiply_phase_with_random_value);
-            Messreihe mrKR = (Messreihe)KreuzKorrelation.calcKR(mrA4, mrB4, true, true);
+            TimeSeriesObject mrB4 = FFTPhaseRandomizer.getPhaseRandomizedRow(mr.copy(), false, false, 0,FFTPhaseRandomizer.MODE_multiply_phase_with_random_value);
+            TimeSeriesObject mrKR = (TimeSeriesObject)KreuzKorrelation.calcKR(mrA4, mrB4, true, true);
 
             if ( mrX == null ) { 
                 mrX = mrKR.copy();
@@ -139,18 +139,18 @@ public class KKEntropieTest {
         
         
         KreuzKorrelation._defaultK = 25;
-        Messreihe mrX2 = null;
-        Messreihe mrA5 = Messreihe.getGaussianDistribution( (int)Math.pow(2.0, 14.0) );
+        TimeSeriesObject mrX2 = null;
+        TimeSeriesObject mrA5 = TimeSeriesObject.getGaussianDistribution( (int)Math.pow(2.0, 14.0) );
         
         
         
         // teste die Kreuzkorrelation - SHUFFLED
-        Vector<Messreihe> mrv5 = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv5 = new Vector<TimeSeriesObject>();
         for( int i = 0; i < z; i++ ) { 
             
-            Messreihe mrB5 = Messreihe.getGaussianDistribution( (int)Math.pow(2.0, 14.0) );
+            TimeSeriesObject mrB5 = TimeSeriesObject.getGaussianDistribution( (int)Math.pow(2.0, 14.0) );
             
-            Messreihe mrKR = (Messreihe)KreuzKorrelation.calcKR(mrA5, mrB5, true, true);
+            TimeSeriesObject mrKR = (TimeSeriesObject)KreuzKorrelation.calcKR(mrA5, mrB5, true, true);
 
             if ( mrX2 == null ) { 
                 mrX2 = mrKR.copy();
@@ -171,15 +171,15 @@ public class KKEntropieTest {
     
     
         // teste die Kreuzkorrelation - PHASE RANDOM
-        Messreihe mrX3 = null;
-        Messreihe mrA6 = Messreihe.getGaussianDistribution( (int)Math.pow(2.0, 14.0) );
-        Vector<Messreihe> mrv6 = new Vector<Messreihe>();
+        TimeSeriesObject mrX3 = null;
+        TimeSeriesObject mrA6 = TimeSeriesObject.getGaussianDistribution( (int)Math.pow(2.0, 14.0) );
+        Vector<TimeSeriesObject> mrv6 = new Vector<TimeSeriesObject>();
         for( int i = 0; i < z; i++ ) { 
             
-            Messreihe mrB6 = Messreihe.getGaussianDistribution( (int)Math.pow(2.0, 14.0) );
+            TimeSeriesObject mrB6 = TimeSeriesObject.getGaussianDistribution( (int)Math.pow(2.0, 14.0) );
             mrB6 = FFTPhaseRandomizer.getPhaseRandomizedRow( mrB6 , false, false, 0, FFTPhaseRandomizer.MODE_multiply_phase_with_random_value);
             
-            Messreihe mrKR = (Messreihe)KreuzKorrelation.calcKR(mrA6, mrB6, true, true);
+            TimeSeriesObject mrKR = (TimeSeriesObject)KreuzKorrelation.calcKR(mrA6, mrB6, true, true);
 
             if ( mrX3 == null ) { 
                 mrX3 = mrKR.copy();
@@ -207,19 +207,19 @@ public class KKEntropieTest {
 
     static int order = 0;
     
-    private static void applyDFA(Vector<Messreihe> mrv) throws Exception {
+    private static void applyDFA(Vector<TimeSeriesObject> mrv) throws Exception {
 
             
         int nrOfSValues = 250;
         
-        Vector<Messreihe> v = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
         
-        for (Messreihe d4 : mrv) {
+        for (TimeSeriesObject d4 : mrv) {
             
             int N = d4.yValues.size();
             double[] zr = new double[N];
 
-            Vector<Messreihe> vr = new Vector<Messreihe>();
+            Vector<TimeSeriesObject> vr = new Vector<TimeSeriesObject>();
             
             vr.add(d4);
 
@@ -246,7 +246,7 @@ public class KKEntropieTest {
 
             dfa.calc();
 
-            Messreihe mr4 = dfa.getResultsMRLogLog();
+            TimeSeriesObject mr4 = dfa.getResultsMRLogLog();
             mr4.setLabel(d4.getLabel());
             v.add(mr4);
 

@@ -1,6 +1,6 @@
 package statistics;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Vector; 
@@ -56,12 +56,12 @@ public class HaeufigkeitsZaehlerDoubleSIMPLE {
 
     public String label = "HISTOGRAM";
 
-    public Messreihe mr = null;
-    public Messreihe mr2 = null;
+    public TimeSeriesObject mr = null;
+    public TimeSeriesObject mr2 = null;
     public String folder = ".";
 
-    Messreihe mrCUMUL = new Messreihe();
-    Messreihe mrCONF = new Messreihe();
+    TimeSeriesObject mrCUMUL = new TimeSeriesObject();
+    TimeSeriesObject mrCONF = new TimeSeriesObject();
 
     public double SUMME = 0.0;
 
@@ -117,11 +117,11 @@ public class HaeufigkeitsZaehlerDoubleSIMPLE {
 
     public void calcWS() {
 
-        mr = new Messreihe(label);
+        mr = new TimeSeriesObject(label);
         int st = intervalle;
 
         int anz = dists.size();
-        mr2 = new Messreihe(label + "/" + anz);
+        mr2 = new TimeSeriesObject(label + "/" + anz);
 
         Vector<Long> steps = new Vector<Long>();
         for (int i = 0; i < dists.size(); ++i) {
@@ -199,8 +199,8 @@ public class HaeufigkeitsZaehlerDoubleSIMPLE {
         fw.close();
     }
 
-    public Messreihe getConfidence() {
-        mrCONF = new Messreihe("CONFIDENC Check");
+    public TimeSeriesObject getConfidence() {
+        mrCONF = new TimeSeriesObject("CONFIDENC Check");
 
         for (int i = 0; i < mrCUMUL.yValues.size(); i++) {
             Double perc = (Double) mrCUMUL.yValues.elementAt(i) / SUMME;
@@ -214,30 +214,30 @@ public class HaeufigkeitsZaehlerDoubleSIMPLE {
         return mrCONF;
     }
 
-    public Messreihe getHistogram(String l) {
+    public TimeSeriesObject getHistogram(String l) {
         mr.setLabel("H_" + l);
         return mr;
     }
 
-    public Messreihe getHistogram() {
+    public TimeSeriesObject getHistogram() {
         return mr;
     }
 
-    public Messreihe getHistogramNORM(String l) {
+    public TimeSeriesObject getHistogramNORM(String l) {
         mr2.setLabel("H_" + l + "_NORM_" + "[" + dists.size() + "]");
         System.out.println(mr2.getLabel() + "[" + dists.size() + "]");
         return mr2;
     }
 
-    public Messreihe getHistogramNORM() {
+    public TimeSeriesObject getHistogramNORM() {
         return mr2;
     }
     
-    public Messreihe getHistogramLOG() {
+    public TimeSeriesObject getHistogramLOG() {
         return mr2.calcMR_Log_for_Y();
     }
     
-    public Messreihe getHistogram(double v) {
+    public TimeSeriesObject getHistogram(double v) {
         return mr.scaleY_2(v);
     }
     

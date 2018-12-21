@@ -4,10 +4,7 @@
  */
 package statistics;
 
-import org.apache.hadoopts.chart.simple.MyXYPlot;
-import org.apache.hadoopts.data.series.Messreihe;
-import org.apache.hadoopts.data.export.MesswertTabelle;
-import java.awt.Color;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -39,7 +36,7 @@ public class ScatterPlotGroupSelection {
         int[] lang = {62 }; //, 52}; //, 72, 197 }; // 60,
         String[] code = {"62-es", "52-de"};
 
-        Messreihe[] rows = new Messreihe[lang.length];
+        TimeSeriesObject[] rows = new TimeSeriesObject[lang.length];
 
         ScatterPlotTrendCheck check = new ScatterPlotTrendCheck();
 
@@ -56,12 +53,12 @@ public class ScatterPlotGroupSelection {
             readEditActivity(i);
 
 
-            Messreihe mr = createMessreihe(map, i);
+            TimeSeriesObject mr = createTimeSeriesObject(map, i);
             rows[z] = mr;
 
 
 
-            Vector<Messreihe> v = new Vector<Messreihe>();
+            Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
             v.add(rows[z]);
 
             String fn = GS.getPathForGnuplotProject("Access_vs_Edits");
@@ -129,8 +126,8 @@ public class ScatterPlotGroupSelection {
         br.close();
     }
 
-    private static Messreihe createMessreihe(HashMap<Integer, Record> map2, int j) {
-        Messreihe mr = new Messreihe();
+    private static TimeSeriesObject createTimeSeriesObject(HashMap<Integer, Record> map2, int j) {
+        TimeSeriesObject mr = new TimeSeriesObject();
         mr.setLabel("Lang-Id=" + j);
         for (Integer i : map2.keySet()) {
             Record r = map2.get(i);

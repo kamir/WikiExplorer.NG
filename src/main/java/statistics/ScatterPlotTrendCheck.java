@@ -9,7 +9,7 @@ package statistics;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
 import org.apache.hadoopts.chart.simple.MyXYPlot;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.util.Vector;
 import org.apache.hadoopts.statistics.HaeufigkeitsZaehlerDouble;
 
@@ -23,34 +23,34 @@ public class ScatterPlotTrendCheck {
     int maxX = 10; // 10^10
     boolean debug = false;
 
-    Messreihe rawdata = null;
-    Vector<Messreihe> results = null;
-    Vector<Messreihe> results2 = null;
+    TimeSeriesObject rawdata = null;
+    Vector<TimeSeriesObject> results = null;
+    Vector<TimeSeriesObject> results2 = null;
 
     double[] upperBorders = null;
     double[] collectedValues = null;
     double[] counterOfValues = null;
-    Messreihe[] valuesPerBin = null;
+    TimeSeriesObject[] valuesPerBin = null;
 
     String code = null;
     ScatterPlotTrendCheck(String string) {
         code = string;
-        results = new Vector<Messreihe>();
-        results2 = new Vector<Messreihe>();
+        results = new Vector<TimeSeriesObject>();
+        results2 = new Vector<TimeSeriesObject>();
     }
 
     ScatterPlotTrendCheck() {
          code = "";
-         results = new Vector<Messreihe>();
-         results2 = new Vector<Messreihe>();
+         results = new Vector<TimeSeriesObject>();
+         results2 = new Vector<TimeSeriesObject>();
     }
 
-    public void init( Messreihe mr, String code ) {
+    public void init( TimeSeriesObject mr, String code ) {
         this.code = code;
         init( mr );
     }
 
-    public void init(Messreihe mr ) {
+    public void init(TimeSeriesObject mr ) {
         
 
         rawdata = mr;
@@ -61,13 +61,13 @@ public class ScatterPlotTrendCheck {
         upperBorders = new double[maxX];
         collectedValues = new double[maxX];
         counterOfValues = new double[maxX];
-        valuesPerBin = new Messreihe[maxX];
+        valuesPerBin = new TimeSeriesObject[maxX];
 
         int nrBins = 0;
         int x = 0;
         while( x < maxX ) {
             upperBorders[nrBins] = x;
-            valuesPerBin[nrBins] = new Messreihe();
+            valuesPerBin[nrBins] = new TimeSeriesObject();
             x = x + 1;
             if ( debug ) System.out.println( x );
             nrBins++;
@@ -94,8 +94,8 @@ public class ScatterPlotTrendCheck {
         }
 
         // MW bilden und Resultat zeigen ...
-        Messreihe av = new Messreihe( code + "_average");
-        Messreihe stdev = new Messreihe( code + "_stdev" );
+        TimeSeriesObject av = new TimeSeriesObject( code + "_average");
+        TimeSeriesObject stdev = new TimeSeriesObject( code + "_stdev" );
         
         for ( int i = 1; i < upperBorders.length ; i++ ) {
             double vx = upperBorders[i];
@@ -122,13 +122,13 @@ public class ScatterPlotTrendCheck {
         if (debug)System.out.println( av );
     };
 
-    Vector<Messreihe> distributions = null;
+    Vector<TimeSeriesObject> distributions = null;
     public void testPerBin() {
 
-        distributions = new Vector<Messreihe>();
+        distributions = new Vector<TimeSeriesObject>();
 
-        Messreihe mw = new Messreihe("MW");
-        Messreihe stdev = new Messreihe("STDEV");
+        TimeSeriesObject mw = new TimeSeriesObject("MW");
+        TimeSeriesObject stdev = new TimeSeriesObject("STDEV");
 
         for( int i = 1; i < maxX ; i++ ) {
             double bL = Math.pow(10,i-1);
@@ -144,7 +144,7 @@ public class ScatterPlotTrendCheck {
                 zaehler.addData( s );
             }
             zaehler.calcWS();
-            Messreihe mr = zaehler.getHistogram();
+            TimeSeriesObject mr = zaehler.getHistogram();
             mr.setLabel( bH + " " );
             distributions.add( mr );
 
@@ -165,7 +165,7 @@ public class ScatterPlotTrendCheck {
 
     Vector<Double> data = null;
 
-    public BinResult calcPerBin( Messreihe mr, double lB, double hB ) {
+    public BinResult calcPerBin( TimeSeriesObject mr, double lB, double hB ) {
         double[] back = new double[2];
         data = new Vector<Double>();
         for( int i = 0 ; i < mr.yValues.size(); i++ ) {
@@ -218,21 +218,21 @@ public class ScatterPlotTrendCheck {
 
     public static void main( String[] args ) {
         stdlib.StdRandom.initRandomGen(1);
-        Messreihe mrX = Messreihe.getGaussianDistribution( 100 , 1000 , 1 );
-        Messreihe mrY = Messreihe.getGaussianDistribution( 100 , 10000 , 1 );
-        Messreihe mrZ = mrX.combineAsXWithY(mrY);
+        TimeSeriesObject mrX = TimeSeriesObject.getGaussianDistribution( 100 , 1000 , 1 );
+        TimeSeriesObject mrY = TimeSeriesObject.getGaussianDistribution( 100 , 10000 , 1 );
+        TimeSeriesObject mrZ = mrX.combineAsXWithY(mrY);
 
         ScatterPlotTrendCheck check = new ScatterPlotTrendCheck( "test" );
         check.init(mrZ);
         check.testPerBin();
         check.showChart();
 
-        Vector<Messreihe> v1 = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> v1 = new Vector<TimeSeriesObject>();
         v1.add( mrX );
         v1.add( mrY );
         //MultiChart.open(v1, true);
 
-        Vector<Messreihe> v2 = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> v2 = new Vector<TimeSeriesObject>();
         v2.add( mrZ );
         // MyXYPlot.open(v2, "Scatterplot", "mrx", "mry", true);
 

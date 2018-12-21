@@ -4,7 +4,7 @@
  */
 package experiments.kw5;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.File;
 import java.util.Vector;
 import research.wikinetworks.NodePair;
@@ -43,15 +43,15 @@ public class CheckPairsForSymmetricCC {
         System.out.println( p1 );
         System.out.println( p2 );
         
-        Vector<Messreihe> kksE = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> kksE = new Vector<TimeSeriesObject>();
 
         KreuzKorrelation._defaultK = 14;
         
         KreuzKorrelation.debug = true;
-        Messreihe histMaxY = new Messreihe();
+        TimeSeriesObject histMaxY = new TimeSeriesObject();
         histMaxY.setLabel( " edits Hist (tau)");
 
-        Messreihe histSigLevel = new Messreihe();
+        TimeSeriesObject histSigLevel = new TimeSeriesObject();
         histSigLevel.setLabel( " edits Hist (strength)");
 
         Vector<String> keysOfPairs = new Vector<String>();

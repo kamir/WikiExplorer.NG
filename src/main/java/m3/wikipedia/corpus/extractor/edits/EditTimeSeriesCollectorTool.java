@@ -6,7 +6,7 @@
 package m3.wikipedia.corpus.extractor.edits;
 
 import org.apache.hadoopts.chart.simple.MultiBarChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import org.apache.hadoopts.hadoopts.core.TSBucket;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -245,10 +245,10 @@ public class EditTimeSeriesCollectorTool extends WikiHistoryExtractionBASE {
         /**
          * Populate the collections ...
          */
-//        Vector<Messreihe> mrCN = new Vector<Messreihe>();
-//        Vector<Messreihe> mrAL = new Vector<Messreihe>();
-        Vector<Messreihe> mrBL = new Vector<Messreihe>();
-//        Vector<Messreihe> mrIWL = new Vector<Messreihe>();
+//        Vector<TimeSeriesObject> mrCN = new Vector<TimeSeriesObject>();
+//        Vector<TimeSeriesObject> mrAL = new Vector<TimeSeriesObject>();
+        Vector<TimeSeriesObject> mrBL = new Vector<TimeSeriesObject>();
+//        Vector<TimeSeriesObject> mrIWL = new Vector<TimeSeriesObject>();
            
         long t0 = System.currentTimeMillis();
  
@@ -493,11 +493,11 @@ public class EditTimeSeriesCollectorTool extends WikiHistoryExtractionBASE {
      * @throws IOException
      * @throws Exception 
      */
-    public static Messreihe testPageHistory(String wikipedia, String pn) throws IOException, Exception {
+    public static TimeSeriesObject testPageHistory(String wikipedia, String pn) throws IOException, Exception {
 
         WikiNode wn = new WikiNode(wikipedia, pn);
         
-        Messreihe m = getMrFromCache(wn);
+        TimeSeriesObject m = getMrFromCache(wn);
         
         if (m != null) {
             MR_AVAILABLE++;
@@ -546,11 +546,11 @@ public class EditTimeSeriesCollectorTool extends WikiHistoryExtractionBASE {
      * @param gr
      * @return 
      */
-    private static Vector<Messreihe> populateCollections(String gr) {
+    private static Vector<TimeSeriesObject> populateCollections(String gr) {
 
         long t1 = System.currentTimeMillis();
         
-        Vector<Messreihe> vmr = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> vmr = new Vector<TimeSeriesObject>();
         
         int ERROR = 0;
         int i = 0;
@@ -558,7 +558,7 @@ public class EditTimeSeriesCollectorTool extends WikiHistoryExtractionBASE {
             String w = wikis[i];
             try {
                 
-                Messreihe mr = testPageHistory(w, pn);
+                TimeSeriesObject mr = testPageHistory(w, pn);
                 
                 if ( mr != null ) {
                     
@@ -598,7 +598,7 @@ public class EditTimeSeriesCollectorTool extends WikiHistoryExtractionBASE {
      * @param typ
      * @param studie 
      */
-    private static void dumpTSSeriesGroupToBucketSequenceFile(Vector<Messreihe> mrv, int i, String typ, String studie){
+    private static void dumpTSSeriesGroupToBucketSequenceFile(Vector<TimeSeriesObject> mrv, int i, String typ, String studie){
 
         String groupLabel = studie + "_" + i + "_" + typ + ".editrate" ;
 
@@ -613,7 +613,7 @@ public class EditTimeSeriesCollectorTool extends WikiHistoryExtractionBASE {
  
         tsb._open( f ); 
         
-        for (Messreihe mr : mrv) {
+        for (TimeSeriesObject mr : mrv) {
             
             /**
              * TODO: sometimes we use identifier and sometimes label !!!
@@ -654,13 +654,13 @@ public class EditTimeSeriesCollectorTool extends WikiHistoryExtractionBASE {
      * @param studie
      * @param detrendet 
      */
-    private static void dumpTSCollectionAndSimpleProfile(Vector<Messreihe> mrv, int i, String typ, String studie, boolean detrendet) {
+    private static void dumpTSCollectionAndSimpleProfile(Vector<TimeSeriesObject> mrv, int i, String typ, String studie, boolean detrendet) {
  
         String groupLabel = studie + "_" + i + "_" + typ + ".editrate";
         String k = ""+i;
-        Vector<Messreihe> _mrv = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> _mrv = new Vector<TimeSeriesObject>();
         
-        for( Messreihe mr : mrv) {
+        for( TimeSeriesObject mr : mrv) {
             
             String gk = mr.getGroupKey();
 

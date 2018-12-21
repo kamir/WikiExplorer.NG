@@ -12,7 +12,7 @@
         <maven.compiler.source>1.7</maven.compiler.source>
         <maven.compiler.target>1.7</maven.compiler.target>
 
-        <HADOOP-TS-VERSION>1.2.3</HADOOP-TS-VERSION>    
+        <HADOOP-TS-VERSION>2.3.0</HADOOP-TS-VERSION>    
     
         <CDH-VERSION>1.0.0-cdh5.4.0</CDH-VERSION>
         <HADOOP-VERSION>2.6.0-cdh5.4.0</HADOOP-VERSION>
@@ -26,14 +26,30 @@
     
     <dependencies>
 
-        <!-- manually managed artifacts       -->
-
+        <dependency>
+            <groupId>org.wikipedia</groupId>
+            <artifactId>wiki-java</artifactId>
+            <version>0.34-SNAPSHOT</version>
+        </dependency>
+    
+        
+        
         <dependency>
             <groupId>gpl3</groupId>
             <artifactId>infodyn</artifactId>
             <version>1.3</version>
             <type>jar</type>
         </dependency>
+
+
+<!--dependency>
+  <groupId>fastily</groupId>
+  <artifactId>jwiki</artifactId>
+  <version>1.5.0</version>
+  <type>pom</type>
+</dependency-->
+
+ 
 
         <dependency>
             <groupId>gpl3</groupId>
@@ -57,19 +73,15 @@
 
         <dependency>
             <groupId>com.cloudera</groupId>
-            <artifactId>hadoop-ts-core</artifactId>
+            <artifactId>hadoop-ts-ng</artifactId>
             <version>${HADOOP-TS-VERSION}</version>
             <type>jar</type>
-
         </dependency>
  
             
-       
-             
-             
         <!-- remote artifacts       -->
         <dependency>
-            <groupId>xstream</groupId>
+            <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
             <version>1.2.2</version>
             <type>jar</type>
@@ -91,7 +103,7 @@
         <dependency>
             <groupId>org.etosha</groupId>
             <artifactId>etosha-core</artifactId>
-            <version>0.7.0-SNAPSHOT</version>
+            <version>0.9.0-SNAPSHOT</version>
         </dependency>
         
         <dependency>
@@ -100,18 +112,14 @@
             <version>1.1</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-math3</artifactId>
-            <version>3.0</version>
-        </dependency>
+ 
 
-        <dependency>
+        <!--dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-analyzers-common</artifactId>
             <version>7.0.0-SNAPSHOT</version>
             <type>jar</type>
-        </dependency>
+        </dependency-->
 
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -245,16 +253,16 @@
             <version>${hadoop-core-client.version}</version>
             <type>jar</type>
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-hdfs</artifactId>
             <version>${hadoopclient.version}</version>
-        </dependency>
-        <dependency>
+        </dependency-->
+        <!--dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
             <version>${hadoopclient.version}</version>
-        </dependency>
+        </dependency-->
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-mapreduce-client-core</artifactId>
@@ -287,13 +295,13 @@
             <version>0.7</version>
         </dependency>
 
-        <dependency>
+        <!--dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-core</artifactId>
             <version>${HADOOP-MR-VERSION}</version>
             <type>jar</type>
-            <!--scope>provided</scope-->
-        </dependency>
+            <scope>provided</scope>
+        </dependency-->
 
         <dependency>
             <groupId>org.apache.hbase</groupId>
@@ -310,18 +318,27 @@
             <type>jar</type>
             <!--scope>provided</scope-->
         </dependency>
-        <dependency>
+        <!--dependency>
             <groupId>org.apache.mahout</groupId>
             <artifactId>mahout-core</artifactId>
             <version>0.7</version>
             <type>jar</type>
+        </dependency-->
+        
+        <dependency>
+            <groupId>com.cloudera</groupId>
+            <artifactId>wiki-api-client</artifactId>
+            <version>1.0.0</version>
+            <type>jar</type>
         </dependency>
+        
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>3.13</version>
             <type>jar</type>
         </dependency>
+        
         <dependency>
             <groupId>org.apache.lucene</groupId>
             <artifactId>lucene-core</artifactId>
@@ -334,6 +351,25 @@
             <version>1.9</version>
             <type>jar</type>
         </dependency>
+        
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpcore</artifactId>
+            <version>4.2.5</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.2.5</version>
+        </dependency>
+
+         <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient-cache</artifactId>
+            <version>4.2.5</version>
+        </dependency>
+        
     </dependencies>    
     
     <licenses>
@@ -357,15 +393,17 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-        <repository>
+        
+        <!--repository>
             <id>semweb4j-repo</id>
             <name>Semweb4j.org maven repo</name>
             <url>http://semweb4j.org/repo/</url>
             <releases>
                 <enabled>true</enabled>
             </releases>
-        </repository>
-        <repository>
+        </repository-->
+        
+        <!--repository>
             <id>semweb4j-snapshots</id>
             <name>Semweb4j.org maven snapshot repo</name>
             <url>http://semweb4j.org/snapshots/</url>
@@ -377,7 +415,8 @@
                 <updatePolicy>always</updatePolicy>
                 <checksumPolicy>fail</checksumPolicy>
             </snapshots>
-        </repository>
+        </repository-->
+        
         <repository>
             <id>central</id>
             <url>http://repo1.maven.org/maven2</url>
@@ -385,6 +424,7 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
+        
         <repository>
             <id>apache</id>
             <url>https://repository.apache.org/content/groups/public/</url>
@@ -395,6 +435,7 @@
                 <enabled>true</enabled>
             </releases>
         </repository>
+        
         <repository>
             <id>sonatype</id>
             <url>https://oss.sonatype.org/content/groups/public/</url>
@@ -406,17 +447,17 @@
             </releases>
         </repository>
         
-        <repository>
+        <!--repository>
             <id>gephi-snapshots</id>
             <name>Gephi Snapshots</name>
             <url>http://nexus.gephi.org/nexus/content/repositories/snapshots/</url>
-        </repository>
+        </repository-->
 
-        <repository>
+        <!--repository>
             <id>gephi-releases</id>
             <name>Gephi Releases</name>
             <url>http://nexus.gephi.org/nexus/content/repositories/releases/</url>
-        </repository>
+        </repository-->
          
     </repositories>
     
@@ -425,7 +466,7 @@
     <build>
         <plugins>
 
-           <plugin>
+           <!--plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
         <version>1.5.0</version>
@@ -437,7 +478,7 @@
           </execution>
         </executions>
         <configuration>
-          <mainClass>com.cloudera.wikiexplorer.ng.app.SimpleSFE</mainClass>
+          <mainClass>SimpleSFE</mainClass>
           <arguments>
             <argument>argument1</argument>
           </arguments>
@@ -448,12 +489,13 @@
             </systemProperty>
           </systemProperties>
         </configuration>
-      </plugin>
+      </plugin-->
       
       
        <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>exec-maven-plugin</artifactId>
+        <version>1.5.0</version>
         <configuration>
           <executable>java</executable>
           <arguments>

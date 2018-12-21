@@ -6,11 +6,10 @@
  */
 package htstb.util.generator;
 
-import org.apache.hadoopts.data.series.Messreihe;
-import extraction.TimeSeriesFactory;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import htstb.data.TSFactory;
 import htstb.data.TimeSeriesData;
-import java.io.File;
+
 import java.io.IOException;
 import java.util.Enumeration;
 import java.util.GregorianCalendar;
@@ -74,14 +73,14 @@ public class RandomTimeSeriesGenerator {
 
         SequenceFile.Writer writer = SequenceFile.createWriter(fs, conf, outputPath, key.getClass(), value.getClass());
         
-        Enumeration<Messreihe> en = ng.accessReihen.elements();
+        Enumeration<TimeSeriesObject> en = ng.accessReihen.elements();
 
         GregorianCalendar cal = new GregorianCalendar();
         cal.set(2009, 00, 01,0,0,0);
 
         int h = 1000 * 60 * 60;
         while ( en.hasMoreElements() ) {
-            Messreihe mr = en.nextElement();
+            TimeSeriesObject mr = en.nextElement();
             TimeSeriesData tsd = TSFactory.map(mr, cal.getTime(), h);
                     
             Text[] kv = TSFactory.getKV( tsd );

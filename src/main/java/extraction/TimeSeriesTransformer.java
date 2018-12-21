@@ -1,5 +1,5 @@
 /*
- *  Ein Vector v mit n Messreihen der Länge l wird
+ *  Ein Vector v mit n TimeSeriesObjectn der Länge l wird
  *  in l Messreien der Länge l2=n=v.size() umgewandelt, damit wir
  *  daraus Histogramme der Verteilungen der Werte erstellen.
  *
@@ -8,16 +8,15 @@
 package extraction;
 
 import org.apache.hadoopts.chart.statistic.HistogramChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+
 import org.jfree.ui.RefineryUtilities;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 
@@ -44,7 +43,7 @@ public class TimeSeriesTransformer {
         File fout = new File( NodeGroup.pfad + ng.fn + "_T_.dat" );
         BufferedWriter bw = new BufferedWriter( new FileWriter( fout.getAbsolutePath() ));
 
-        Messreihe mr = null;
+        TimeSeriesObject mr = null;
         String lim = "\n";
         String tab = "\t";
 
@@ -61,9 +60,9 @@ public class TimeSeriesTransformer {
          * Wie sind die std, av und Q=av/std in den Nodes verteilt?
          */
 
-        Messreihe mrDayly_av = new Messreihe("per node   <access>");
-        Messreihe mrDayly_std = new Messreihe("per node   std(access)");
-        Messreihe mrDayly_av_by_std = new Messreihe("per node   std / <access>");
+        TimeSeriesObject mrDayly_av = new TimeSeriesObject("per node   <access>");
+        TimeSeriesObject mrDayly_std = new TimeSeriesObject("per node   std(access)");
+        TimeSeriesObject mrDayly_av_by_std = new TimeSeriesObject("per node   std / <access>");
 
 
 
@@ -148,7 +147,7 @@ public class TimeSeriesTransformer {
         //ng.checkForDoubleIds();
     }
 
-    public static void createHistogramm( NodeGroup ng,Messreihe mr, int bins, int min, int max ) {
+    public static void createHistogramm( NodeGroup ng,TimeSeriesObject mr, int bins, int min, int max ) {
         HistogramChart demo = new HistogramChart( mr.getLabel()  );
         demo.addSerieWithBinning( mr, bins, min, max );
         demo.setContentPane( demo.createChartPanel() );

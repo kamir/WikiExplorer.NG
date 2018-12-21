@@ -5,7 +5,7 @@
 package research.ETH;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.util.Vector;
 import research.wikinetworks.NodePair;
 import experiments.crosscorrelation.KreuzKorrelation;
@@ -19,12 +19,12 @@ public class ExtendedNodePair extends NodePair {
     public double[] stats = null;
     boolean debug = true;
     
-    public Messreihe mrA = null;
-    public Messreihe mrB = null;
+    public TimeSeriesObject mrA = null;
+    public TimeSeriesObject mrB = null;
     
     KreuzKorrelation kk = null;
         
-    public ExtendedNodePair( Messreihe a, Messreihe b ) { 
+    public ExtendedNodePair( TimeSeriesObject a, TimeSeriesObject b ) { 
         mrA = a;
         mrB = b;
         System.out.println( a.getLabel() + "\t" + b.getLabel() + "\t" );
@@ -87,7 +87,7 @@ public class ExtendedNodePair extends NodePair {
     }
 
     public void show() {
-      Vector<Messreihe> v = new Vector<Messreihe>();
+      Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
       v.add(mrA);
       v.add(mrB);
       

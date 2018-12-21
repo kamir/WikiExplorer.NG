@@ -11,7 +11,7 @@ package experiments;
 import com.cloudera.wikipedia.explorer.ResultManager;
 import experiments.crosscorrelation.CCProzessor;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 
 import java.util.Vector;
 
@@ -46,13 +46,13 @@ public class CorrelationPropertiesExperiment001 {
     
     static StringBuffer log = null;
     
-    static Vector<Messreihe> testsA = null;
-    static Vector<Messreihe> testsB = null;
-    static Vector<Messreihe> testsC = null;
-    static Vector<Messreihe> testsD = null;
-    static Vector<Messreihe> testsE = null;
+    static Vector<TimeSeriesObject> testsA = null;
+    static Vector<TimeSeriesObject> testsB = null;
+    static Vector<TimeSeriesObject> testsC = null;
+    static Vector<TimeSeriesObject> testsD = null;
+    static Vector<TimeSeriesObject> testsE = null;
     
-    static Vector<Messreihe> check = null;
+    static Vector<TimeSeriesObject> check = null;
     
     public static String BASEFOLDER = null;
 
@@ -73,8 +73,8 @@ public class CorrelationPropertiesExperiment001 {
         int a4 = Integer.parseInt( args[3] );
         boolean a5 = Boolean.parseBoolean( args[4] );
         
-        testsA = new Vector<Messreihe>();
-        testsB = new Vector<Messreihe>();  
+        testsA = new Vector<TimeSeriesObject>();
+        testsB = new Vector<TimeSeriesObject>();  
         
         int z = a1;
         int exp = a2;
@@ -98,9 +98,9 @@ public class CorrelationPropertiesExperiment001 {
             
         for( int i = 0; i < z; i++ ) {
             
-            Messreihe mra=null;
+            TimeSeriesObject mra=null;
             
-            if ( a5 ) mra = Messreihe.getGaussianDistribution(N);
+            if ( a5 ) mra = TimeSeriesObject.getGaussianDistribution(N);
             else mra = LongTermCorrelationSeriesGenerator.getRandomRow(N, beta, false, false);
 
             mra.setLabel( mra.getLabel() + "_a_" + i ); 
@@ -109,28 +109,28 @@ public class CorrelationPropertiesExperiment001 {
 
         for( int i = 0; i < z; i++ ) {
 
-            Messreihe mrb=null;
+            TimeSeriesObject mrb=null;
             
-            if ( a5 ) mrb = Messreihe.getGaussianDistribution(N);
+            if ( a5 ) mrb = TimeSeriesObject.getGaussianDistribution(N);
             else mrb = LongTermCorrelationSeriesGenerator.getRandomRow(N, beta, false, false);
             
             mrb.setLabel( mrb.getLabel() + "_b_" + i ); 
             testsB.add(mrb);
         }
         
-        Vector<Messreihe> vmr = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> vmr = new Vector<TimeSeriesObject>();
         vmr.add( testsA.elementAt(0));
         vmr.add( testsB.elementAt(0));
         
         if ( !a5 ) {
             
-            Messreihe mrX = Messreihe.getGaussianDistribution(N);
+            TimeSeriesObject mrX = TimeSeriesObject.getGaussianDistribution(N);
             
             vmr.add( LongTermCorrelationSeriesGenerator.getRandomRow(mrX, 0.0, false, false) );
             vmr.add( mrX);
             
-            vmr.add( Messreihe.getUniformDistribution(N, 0.0, 1.0) );
-            vmr.add( Messreihe.getExpDistribution(N, 1.0) );
+            vmr.add( TimeSeriesObject.getUniformDistribution(N, 0.0, 1.0) );
+            vmr.add( TimeSeriesObject.getExpDistribution(N, 1.0) );
             
         }
         
@@ -145,7 +145,7 @@ public class CorrelationPropertiesExperiment001 {
 //         */
 //        
 //        JFrame f =new JFrame("Debug");
-//        f.getContentPane().add(new MessreihePanel(testsA.elementAt(0)) );
+//        f.getContentPane().add(new TimeSeriesObjectPanel(testsA.elementAt(0)) );
 //        f.setVisible( true );
         
         /**
@@ -167,7 +167,7 @@ public class CorrelationPropertiesExperiment001 {
  
         HaeufigkeitsZaehlerDoubleSIMPLE r2 = CCProzessor.getPartial(testsA, testsB, true, ts, null, ndc, beta + "testsAB_SHUFFLE", bw, runID, false);
         
-        Vector<Messreihe> vr = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> vr = new Vector<TimeSeriesObject>();
         vr.add( r1.getHistogramNORM() );
         vr.add( r2.getHistogramNORM() );
         

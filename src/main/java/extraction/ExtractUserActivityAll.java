@@ -7,8 +7,8 @@ package extraction;
 
 import org.apache.hadoopts.chart.statistic.HistogramChart;
 import com.mysql.jdbc.Statement;
-import org.apache.hadoopts.data.series.Messreihe;
-import org.apache.hadoopts.data.export.MesswertTabelle;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
+import org.apache.hadoopts.data.export.MeasurementTable;
 import com.cloudera.wikiexplorer.ng.db.DB;
 import com.cloudera.wikiexplorer.ng.db.notebook.WikipediaDB;
 import java.awt.Container;
@@ -40,7 +40,7 @@ public class ExtractUserActivityAll {
     // "Select UserID, count(UserID) from revisions group by UserID";
     static String request = "Select UserID from revisions";
 
-    public static Messreihe extractUserActivityForUserID() throws Exception {
+    public static TimeSeriesObject extractUserActivityForUserID() throws Exception {
 
         BufferedWriter bw = new BufferedWriter( new FileWriter( "./allEditsPerUser.dat" ) );
 
@@ -52,7 +52,7 @@ public class ExtractUserActivityAll {
         
         Statement statement = (Statement) con.createStatement();
 
-        Messreihe mr = new Messreihe( "User Activity ");
+        TimeSeriesObject mr = new TimeSeriesObject( "User Activity ");
         ResultSet rs;
         rs = statement.executeQuery(request);
 
@@ -90,19 +90,19 @@ public class ExtractUserActivityAll {
     }
 
     public static void main( String args[] ) throws Exception {
-        Messreihe mr = extractUserActivityForUserID();
-        Vector<Messreihe> v = new Vector<Messreihe>();
+        TimeSeriesObject mr = extractUserActivityForUserID();
+        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
         v.add( mr );
 
-        MesswertTabelle mwt = new MesswertTabelle();
-        mwt.setMessReihen( v );
+        MeasurementTable mwt = new MeasurementTable();
+        mwt.setMessReihen(v );
         mwt.setHeader( "SQL: " + request );
         mwt.writeToFile( new File( "./user_acces.dat"));
 
         createHistogramm(mr, mr, 100, 0, (int) mr.getMaxY());
     }
 
-    public static Container createHistogramm( Messreihe mr, Messreihe r2, int bins, int min, int max ) {
+    public static Container createHistogramm( TimeSeriesObject mr, TimeSeriesObject r2, int bins, int min, int max ) {
         HistogramChart demo = new HistogramChart( mr.getLabel()  );
         //demo.addSerieWithBinning( r2, bins, min, max );
         demo.addSerieWithBinning( mr, bins, min, max );

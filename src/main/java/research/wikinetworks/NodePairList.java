@@ -1,6 +1,5 @@
 package research.wikinetworks;
 
-import extraction.TimeSeriesFactory;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -13,8 +12,7 @@ import java.util.Hashtable;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
-import research.wikinetworks.NodePair;
-import research.wikinetworks.PageNameLoader;
+
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 
 /**

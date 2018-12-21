@@ -10,17 +10,14 @@ package experiments.crosscorrelation;
 
 import org.apache.hadoopts.chart.simple.MyXYPlot;
 import org.apache.hadoopts.chart.statistic.HistogramChart;
-import org.apache.hadoopts.data.series.Messreihe;
-import java.awt.Color;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.text.DecimalFormat;
 import java.util.*;
 import org.jfree.ui.RefineryUtilities;
 import research.wikinetworks.NodePair;
-import research.wikinetworks.NodePairListViewer;
 import org.apache.hadoopts.statistics.HaeufigkeitsZaehlerDouble;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 import com.cloudera.wikiexplorer.ng.util.nodegroups.AllLinked32bit;
@@ -125,7 +122,7 @@ public class CCResultFastAnalyser {
     
     
     
-        // hier kommen die Zeilen an und werden in die Messreihen bzw.
+        // hier kommen die Zeilen an und werden in die TimeSeriesObjectn bzw.
     // Netzwerkdarstellungen überführt.
     static public NodePair parseLine2(String line, int mj, String lang) {
         NodePair np = null;
@@ -150,7 +147,7 @@ public class CCResultFastAnalyser {
         return np;
     }
 
-    public static void createHistogramm( Messreihe mr ) {
+    public static void createHistogramm( TimeSeriesObject mr ) {
         HistogramChart demo = new HistogramChart( mr.getLabel()  );
         demo.addSerieWithBinning( mr, 100, 0, 10 );
         demo.setContentPane( demo.createChartPanel() );
@@ -159,7 +156,7 @@ public class CCResultFastAnalyser {
         demo.setVisible(true);
     };
 
-    public static void createHistogramm( Messreihe mr, Messreihe mr2, Messreihe mr3) {
+    public static void createHistogramm( TimeSeriesObject mr, TimeSeriesObject mr2, TimeSeriesObject mr3) {
         HistogramChart demo = new HistogramChart( mr.getLabel()  );
 
         demo.useLegend = true;
@@ -191,7 +188,7 @@ public class CCResultFastAnalyser {
         int max = lang.length;
         int min = 0;
 
-        mr___t_vs_s = new Messreihe[lang.length];
+        mr___t_vs_s = new TimeSeriesObject[lang.length];
         goodOnes = new Vector<NodePair>();
 
         for ( int mode = 0; mode < modes.length; mode++ ) {
@@ -200,9 +197,9 @@ public class CCResultFastAnalyser {
 
             z=0;
 
-            histS_k_EQUAL_0 = new Messreihe( modes[mj]+"  tau=0");
-            histS_k_GT_0 = new Messreihe( modes[mj]+"  tau != 0");
-            histS_k_ALL = new Messreihe( modes[mj]+"  all");
+            histS_k_EQUAL_0 = new TimeSeriesObject( modes[mj]+"  tau=0");
+            histS_k_GT_0 = new TimeSeriesObject( modes[mj]+"  tau != 0");
+            histS_k_ALL = new TimeSeriesObject( modes[mj]+"  all");
 
 
              zaehler1 = new HaeufigkeitsZaehlerDouble();
@@ -210,7 +207,7 @@ public class CCResultFastAnalyser {
 
 
             for ( int i = min; i < max ; i++ ) {
-                mr___t_vs_s[i] = new Messreihe("lang="+i);
+                mr___t_vs_s[i] = new TimeSeriesObject("lang="+i);
                 /**  USE CALCULATED FILENAME  **/
 
 //                String ngfn = lang[i] +"_"+nrOfNodes+EditActivityFilter.extension;
@@ -281,9 +278,9 @@ public class CCResultFastAnalyser {
                     zaehler2.calcWS();
 
                     System.out.println( zaehler1.getConfidence().toString() );
-                    Messreihe fmr = zaehler1.getConfidence();
+                    TimeSeriesObject fmr = zaehler1.getConfidence();
                     fmr.setLabel( modes[mj] + " conf");
-                    Vector<Messreihe> conf = new Vector<Messreihe>();
+                    Vector<TimeSeriesObject> conf = new Vector<TimeSeriesObject>();
                     conf.add( fmr );
                     MyXYPlot.xRangDEFAULT_MIN = 0 ;
                     MyXYPlot.xRangDEFAULT_MAX = 8 ;
@@ -327,15 +324,15 @@ public class CCResultFastAnalyser {
 
     }
 
-    static Messreihe[] mr___t_vs_s = null;
+    static TimeSeriesObject[] mr___t_vs_s = null;
     /** gut sind die wo tau=0 && signLevel > level .... */
     static Vector<NodePair> goodOnes = null;
 
 //    static StringBuffer sb = new StringBuffer();
 
-    static Messreihe histS_k_EQUAL_0 = null;
-    static Messreihe histS_k_GT_0 = null;
-    static Messreihe histS_k_ALL = null;
+    static TimeSeriesObject histS_k_EQUAL_0 = null;
+    static TimeSeriesObject histS_k_GT_0 = null;
+    static TimeSeriesObject histS_k_ALL = null;
 
     static double level = 3;
 

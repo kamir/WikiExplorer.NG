@@ -1,7 +1,7 @@
 package m3.wikipedia.corpus.extractor.iwl;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import m3.wikipedia.corpus.extractor.FileNameFilter;
 import m3.io.CNResultManager2;
 import java.io.FileWriter;
@@ -237,8 +237,8 @@ public class ExtractIWLinkAdvanced implements Runnable {
 //            piv.initContent();
                     
                     hz.calcWS();
-                    Messreihe mr = hz.getHistogram();
-                    Vector<Messreihe> vmr = new Vector<Messreihe>();
+                    TimeSeriesObject mr = hz.getHistogram();
+                    Vector<TimeSeriesObject> vmr = new Vector<TimeSeriesObject>();
                     vmr.add(mr);
                     MultiChart.open( vmr );
                     

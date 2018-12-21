@@ -5,8 +5,8 @@ import extraction.ExtractEditHistory;
 import experiments.crosscorrelation.KreuzKorrelationStunde;
 import experiments.crosscorrelation.KreuzKorrelationTag;
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
-import org.apache.hadoopts.data.export.MesswertTabelle;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
+import org.apache.hadoopts.data.export.MeasurementTable;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -140,46 +140,46 @@ public class Topic6 {
         TimeLog tl = new TimeLog(false);
         tl.setStamp("Go...");
 
-        Messreihe c = null;
+        TimeSeriesObject c = null;
 
-        Messreihe t1 = null;
-        Messreihe t2 = null;
-        Messreihe t3 = null;
-        Messreihe t4 = null;
-        Messreihe t5 = null;
+        TimeSeriesObject t1 = null;
+        TimeSeriesObject t2 = null;
+        TimeSeriesObject t3 = null;
+        TimeSeriesObject t4 = null;
+        TimeSeriesObject t5 = null;
 
-        Messreihe k1 = null;
-        Messreihe k2 = null;
-        Messreihe k3 = null;
-        Messreihe k4 = null;
-        Messreihe k5 = null;
+        TimeSeriesObject k1 = null;
+        TimeSeriesObject k2 = null;
+        TimeSeriesObject k3 = null;
+        TimeSeriesObject k4 = null;
+        TimeSeriesObject k5 = null;
 
-        Messreihe rr2 = null;
-        Messreihe rr3 = null;
-        Messreihe rr4 = null;
-        Messreihe rr5 = null;
-
-
-        Messreihe d1 = null;
-        Messreihe d2 = null;
-        Messreihe d3 = null;
-        Messreihe d4 = null;
-        Messreihe d5 = null;
+        TimeSeriesObject rr2 = null;
+        TimeSeriesObject rr3 = null;
+        TimeSeriesObject rr4 = null;
+        TimeSeriesObject rr5 = null;
 
 
-        Messreihe sum1 = new Messreihe();
-        Messreihe sum2 = new Messreihe();
-        Messreihe sum3 = new Messreihe();
-        Messreihe sum4 = new Messreihe();
-        Messreihe sum5 = new Messreihe();
+        TimeSeriesObject d1 = null;
+        TimeSeriesObject d2 = null;
+        TimeSeriesObject d3 = null;
+        TimeSeriesObject d4 = null;
+        TimeSeriesObject d5 = null;
 
-        Messreihe maxK1 = new Messreihe("maxK1");
-        Messreihe maxK2 = new Messreihe("maxK2");
-        Messreihe maxK3 = new Messreihe("maxK3");
-        Messreihe maxK4 = new Messreihe("maxK4");
-        Messreihe maxK5 = new Messreihe("maxK5");
 
-        Messreihe d = null;
+        TimeSeriesObject sum1 = new TimeSeriesObject();
+        TimeSeriesObject sum2 = new TimeSeriesObject();
+        TimeSeriesObject sum3 = new TimeSeriesObject();
+        TimeSeriesObject sum4 = new TimeSeriesObject();
+        TimeSeriesObject sum5 = new TimeSeriesObject();
+
+        TimeSeriesObject maxK1 = new TimeSeriesObject("maxK1");
+        TimeSeriesObject maxK2 = new TimeSeriesObject("maxK2");
+        TimeSeriesObject maxK3 = new TimeSeriesObject("maxK3");
+        TimeSeriesObject maxK4 = new TimeSeriesObject("maxK4");
+        TimeSeriesObject maxK5 = new TimeSeriesObject("maxK5");
+
+        TimeSeriesObject d = null;
         KreuzKorrelationStunde kr = null;
         KreuzKorrelationStunde kr2 = null;
         KreuzKorrelationStunde kr3 = null;
@@ -199,7 +199,7 @@ public class Topic6 {
 
         
         
-        Vector<Messreihe> sumKR = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> sumKR = new Vector<TimeSeriesObject>();
                     
         while (en.hasMoreElements()) { // && ist < 100
 
@@ -209,7 +209,7 @@ public class Topic6 {
             if (!testOnly) {
                 try {
 
-                    Messreihe puffer = ExtractEditHistory.extractEditHistoryForID(id, false ); // NICHT SPEICHERN
+                    TimeSeriesObject puffer = ExtractEditHistory.extractEditHistoryForID(id, false ); // NICHT SPEICHERN
 
                     c = ExtractEditHistory.extractEditHistoryForID2(puffer, id, 299, 1);  // Stundenbasis ..
 
@@ -354,12 +354,12 @@ public class Topic6 {
 
                 if (showCharts) {
                     // ORIGINAL-Daten
-                    Vector<Messreihe> vt1 = new Vector<Messreihe>();
-                    Vector<Messreihe> vt2 = new Vector<Messreihe>();
-                    Vector<Messreihe> vt3 = new Vector<Messreihe>();
-                    Vector<Messreihe> vt4 = new Vector<Messreihe>();
-                    Vector<Messreihe> vt5 = new Vector<Messreihe>();
-                    Vector<Messreihe> vtKR = new Vector<Messreihe>();
+                    Vector<TimeSeriesObject> vt1 = new Vector<TimeSeriesObject>();
+                    Vector<TimeSeriesObject> vt2 = new Vector<TimeSeriesObject>();
+                    Vector<TimeSeriesObject> vt3 = new Vector<TimeSeriesObject>();
+                    Vector<TimeSeriesObject> vt4 = new Vector<TimeSeriesObject>();
+                    Vector<TimeSeriesObject> vt5 = new Vector<TimeSeriesObject>();
+                    Vector<TimeSeriesObject> vtKR = new Vector<TimeSeriesObject>();
                     
                     vtKR.add(kr);
                     vtKR.add(rr2);
@@ -438,8 +438,8 @@ public class Topic6 {
         MultiChart mcSUM = new MultiChart(null, true);
         mcSUM.openNormalized(sumKR, "SUMME der Korrelationsfunktion R(k)" + lang, "k", "R(k)", true);
 
-        MesswertTabelle mwt = new MesswertTabelle();
-        mwt.setMessReihen( sumKR ); 
+        MeasurementTable mwt = new MeasurementTable();
+        mwt.setMessReihen(sumKR ); 
         mwt.setLabel( "SUMME der Korrelationsfunktion R(k) " + lang );
         mwt.writeToFile(new File(Topic6.folderOUT + "MW_R(k)_" + lang +".dat") );
 

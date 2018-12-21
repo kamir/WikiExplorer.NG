@@ -5,7 +5,7 @@ package m3.wikipedia.corpus.extractor.edits;
 
 import org.apache.hadoopts.chart.simple.MultiBarChart;
 import org.apache.hadoopts.data.series.MRT;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -95,10 +95,10 @@ public class EditCacheWarmup extends WikiHistoryExtractionBASE {
          * Populate the collections ...
          * 
          */
-        Vector<Messreihe> mrCN = new Vector<Messreihe>();
-        Vector<Messreihe> mrAL = new Vector<Messreihe>();
-        Vector<Messreihe> mrBL = new Vector<Messreihe>();
-        Vector<Messreihe> mrIWL = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrCN = new Vector<TimeSeriesObject>();
+        Vector<TimeSeriesObject> mrAL = new Vector<TimeSeriesObject>();
+        Vector<TimeSeriesObject> mrBL = new Vector<TimeSeriesObject>();
+        Vector<TimeSeriesObject> mrIWL = new Vector<TimeSeriesObject>();
         
         
         long t0 = System.currentTimeMillis();
@@ -311,11 +311,11 @@ public class EditCacheWarmup extends WikiHistoryExtractionBASE {
     public static int MR_MISSING = 0;
     public static int total = 0;
 
-    public static Messreihe testPageHistory(String wikipedia, String pn) throws IOException, Exception {
+    public static TimeSeriesObject testPageHistory(String wikipedia, String pn) throws IOException, Exception {
 
         WikiNode wn = new WikiNode(wikipedia, pn);
         
-        Messreihe m = getMrFromCache(wn);
+        TimeSeriesObject m = getMrFromCache(wn);
         if (m != null) {
             MR_AVAILABLE++;
         } else {
@@ -343,9 +343,9 @@ public class EditCacheWarmup extends WikiHistoryExtractionBASE {
         System.out.println("   #ratio: missing   :: " + (double) (MR_MISSING / total));
     }
 
-    public static Vector<Messreihe> populateCollections(Vector<WikiNode> wnCN) {
+    public static Vector<TimeSeriesObject> populateCollections(Vector<WikiNode> wnCN) {
 
-        Vector<Messreihe> vmr = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> vmr = new Vector<TimeSeriesObject>();
         
         int ERROR = 0;
         int i = 0;
@@ -353,7 +353,7 @@ public class EditCacheWarmup extends WikiHistoryExtractionBASE {
             String w = wikis[i];
             try {
                 
-                Messreihe mr = testPageHistory(w, pn);
+                TimeSeriesObject mr = testPageHistory(w, pn);
                 if ( mr != null ) {
                     vmr.add( mr );
                     System.out.println( "validate Identifier: " + mr.getIdentifier() );

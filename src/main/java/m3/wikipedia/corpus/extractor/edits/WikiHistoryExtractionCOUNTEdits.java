@@ -33,7 +33,7 @@
 package m3.wikipedia.corpus.extractor.edits;
 
 import org.apache.hadoopts.chart.simple.MultiBarChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -68,7 +68,7 @@ public class WikiHistoryExtractionCOUNTEdits extends WikiHistoryExtractionBASE {
      *
      * work( ... )
      *
-     * => Messreihen liegen vor ... und können gepuffert werden ...
+     * => TimeSeriesObjectn liegen vor ... und können gepuffert werden ...
      *
      * @param args
      * @throws IOException
@@ -238,10 +238,10 @@ public class WikiHistoryExtractionCOUNTEdits extends WikiHistoryExtractionBASE {
         
         wd.logExtraction( von, bis );
         
-        Vector<Messreihe> mrCN = null;
-        Vector<Messreihe> mrAL = null;
-        Vector<Messreihe> mrBL = null;
-        Vector<Messreihe> mrIWL = null;
+        Vector<TimeSeriesObject> mrCN = null;
+        Vector<TimeSeriesObject> mrAL = null;
+        Vector<TimeSeriesObject> mrBL = null;
+        Vector<TimeSeriesObject> mrIWL = null;
         
         
         System.out.println( "\n\n### " + wd.name );

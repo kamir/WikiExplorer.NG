@@ -10,16 +10,15 @@
 package research.topics.networks.comparison;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.io.ColumnValueCalculator;
-import org.apache.hadoopts.data.series.Messreihe;
-import org.apache.hadoopts.data.export.MesswertTabelle;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
+import org.apache.hadoopts.data.export.MeasurementTable;
 import java.awt.Color;
 import java.io.File;
 import java.util.Hashtable;
 import java.util.Vector;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
-import javax.swing.JRadioButton;
+
 import research.networks.NetworkFilter;
 import research.topics.networks.gui.AnalysisProject;
 import research.topics.networks.gui.NetworkViewPanel;
@@ -605,10 +604,10 @@ public class NetworkComparator extends javax.swing.JFrame {
         
         initFilter();
         
-        Messreihe[] mrs = new Messreihe[3];
-        mrs[0] = new Messreihe("cc");
-        mrs[1] = new Messreihe("cc_st");
-        mrs[2] = new Messreihe("tau");
+        TimeSeriesObject[] mrs = new TimeSeriesObject[3];
+        mrs[0] = new TimeSeriesObject("cc");
+        mrs[1] = new TimeSeriesObject("cc_st");
+        mrs[2] = new TimeSeriesObject("tau");
         
         String f = NetworkComparator.project.baseFolder + nlTool.fnAccess3;
         tl.setStamp( "<series of similarity>");
@@ -616,16 +615,16 @@ public class NetworkComparator extends javax.swing.JFrame {
         int i = 5;
         int c = 1;
         
-        Messreihe net0 = nlTool.loadRows( new File( f ), 1,2 , i-2 );
+        TimeSeriesObject net0 = nlTool.loadRows( new File( f ), 1,2 , i-2 );
         
         //net0 = net0.limitTo( limit );
         
-        Messreihe m[] = filter.applyFilter(net0); 
+        TimeSeriesObject m[] = filter.applyFilter(net0); 
         net0 = m[1];
             
         for( i = 5; i < 78; i=i+2 ) { 
             System.out.println("###" + i );
-            Messreihe net1 = nlTool.loadRows( new File( f ), 1,2 , i );
+            TimeSeriesObject net1 = nlTool.loadRows( new File( f ), 1,2 , i );
             
             //net1 = net1.limitTo( limit );
             m = filter.applyFilter(net1); 
@@ -645,7 +644,7 @@ public class NetworkComparator extends javax.swing.JFrame {
         
         MultiChart.open( mrs, "Access Networks", "# of week", "cc, st, k_tau" , true );
         
-        MesswertTabelle mwt = new MesswertTabelle();
+        MeasurementTable mwt = new MeasurementTable();
         mwt.setMessReihen(mrs);
         mwt.setLabel( "differential_similarity_limit="+limit+"_ts=" + filter.ts);
         mwt.setHeader("# TEST");
@@ -823,22 +822,22 @@ public class NetworkComparator extends javax.swing.JFrame {
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
 
-    public static Vector<Messreihe> getTestData() {
+    public static Vector<TimeSeriesObject> getTestData() {
         
-        Messreihe mrA1 = new Messreihe("A1");
-        Messreihe mrA2 = new Messreihe("A2");
-        Messreihe mrA3 = new Messreihe("A3");
-        Messreihe mrE = new Messreihe("E");
-        Messreihe mrS = new Messreihe("S");
+        TimeSeriesObject mrA1 = new TimeSeriesObject("A1");
+        TimeSeriesObject mrA2 = new TimeSeriesObject("A2");
+        TimeSeriesObject mrA3 = new TimeSeriesObject("A3");
+        TimeSeriesObject mrE = new TimeSeriesObject("E");
+        TimeSeriesObject mrS = new TimeSeriesObject("S");
 
         int n = 250;
         int m = 250;
         
-        Messreihe mrA1r = Messreihe.getGaussianDistribution( n*m, 0.0, 0.6);
-        Messreihe mrA2r = Messreihe.getGaussianDistribution( n*m, 0.0, 0.9);
-        Messreihe mrA3r = Messreihe.getGaussianDistribution( n*m, 0.0, 0.9);
-        Messreihe mrEr = Messreihe.getGaussianDistribution( n*m, 0.0, 1.5);
-        Messreihe mrSr = Messreihe.getGaussianDistribution( n*m, 0.0, 2.8);
+        TimeSeriesObject mrA1r = TimeSeriesObject.getGaussianDistribution( n*m, 0.0, 0.6);
+        TimeSeriesObject mrA2r = TimeSeriesObject.getGaussianDistribution( n*m, 0.0, 0.9);
+        TimeSeriesObject mrA3r = TimeSeriesObject.getGaussianDistribution( n*m, 0.0, 0.9);
+        TimeSeriesObject mrEr = TimeSeriesObject.getGaussianDistribution( n*m, 0.0, 1.5);
+        TimeSeriesObject mrSr = TimeSeriesObject.getGaussianDistribution( n*m, 0.0, 2.8);
         
         for( int i = 0; i < n; i++ ) {
             for( int j = 0; j < m; j++ ) {
@@ -859,7 +858,7 @@ public class NetworkComparator extends javax.swing.JFrame {
         }    
 
 
-        Vector<Messreihe> mrv = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
         mrv.add(mrA1);
         mrv.add(mrA2);
         mrv.add(mrA3);
@@ -874,11 +873,11 @@ public class NetworkComparator extends javax.swing.JFrame {
 
     private void calcCrossCorrelationAndKendallTauOfPairs() {
         
-//        Messreihe mrA1 = nlTool.loadAccessNet1();
-        Messreihe mrA3 = nlTool.loadAccessNet3();
-//        Messreihe mrA2 = nlTool.loadAccessNet2();
-        Messreihe mrE = nlTool.loadEditNet();
-//        Messreihe mrS = nlTool.loadStaticNet();
+//        TimeSeriesObject mrA1 = nlTool.loadAccessNet1();
+        TimeSeriesObject mrA3 = nlTool.loadAccessNet3();
+//        TimeSeriesObject mrA2 = nlTool.loadAccessNet2();
+        TimeSeriesObject mrE = nlTool.loadEditNet();
+//        TimeSeriesObject mrS = nlTool.loadStaticNet();
         
 //        processPair( mrA1, mrA2 );
         tl.setStamp( "<Similarity name='mrA3 x mrE'>");
@@ -902,7 +901,7 @@ public class NetworkComparator extends javax.swing.JFrame {
         
     }
     
-    double[] processPair( Messreihe mrA1, Messreihe mrA2 ) { 
+    double[] processPair( TimeSeriesObject mrA1, TimeSeriesObject mrA2 ) { 
         StringBuffer sb = new StringBuffer();
         double[] line = NetworkPairComparison.doCalc( mrA1, mrA2 , tl, this );
         sb.append("#{Netz 1 : "+ mrA1.label + "}"

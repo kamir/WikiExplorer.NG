@@ -18,7 +18,7 @@ package extraction;
 import org.apache.hadoopts.data.series.Zeitreihe;
 //import sqlclient.phase2.*;
 import org.apache.hadoopts.statistics.HaeufigkeitsZaehler;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import com.cloudera.wikiexplorer.ng.db.DB;
 import com.cloudera.wikiexplorer.ng.db.notebook.WikipediaDB;
 import java.io.BufferedWriter;
@@ -254,7 +254,7 @@ public class ExtractEditHistory {
     // TimeSeriesFactory für die Aufarbeitugn benutzt ...
     //
     // es werden die Daten verarbeitet, die per SQL-Abfrage schon beschafft wurden.
-    public static Messreihe extractEditHistoryForID2(Messreihe mr , int nodeID, int days, int timeScale)
+    public static TimeSeriesObject extractEditHistoryForID2(TimeSeriesObject mr , int nodeID, int days, int timeScale)
             throws Exception {
          
         int counter = mr.getXValues().size();
@@ -270,10 +270,10 @@ public class ExtractEditHistory {
     // TimeSeriesFactory für die Aufarbeitugn benutzt ...
     //
     // eine SQL-Abfrage wird zuerst durchgeführt ...
-//    public static Messreihe extractEditHistoryForID2(int nodeID, int days, int timeScale)
+//    public static TimeSeriesObject extractEditHistoryForID2(int nodeID, int days, int timeScale)
 //            throws Exception {
 //
-//        Messreihe mr = extractEditHistoryForID(nodeID, true);
+//        TimeSeriesObject mr = extractEditHistoryForID(nodeID, true);
 //        int counter = mr.getXValues().size();
 //
 //        if (counter > 0) {

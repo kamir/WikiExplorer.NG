@@ -6,18 +6,14 @@
 package experiments.crosscorrelation;
 
 import org.apache.hadoopts.chart.simple.MyXYPlot;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.*;
-import javax.swing.JFileChooser;
+
 import org.apache.commons.math3.stat.regression.SimpleRegression;
-import research.networks.StaticLinkManager;
 import research.wikinetworks.NodePair;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 import com.cloudera.wikiexplorer.ng.util.nodegroups.EditActivityFilter;
@@ -123,16 +119,16 @@ public class CCResultAnalyerPairOfResults {
         }
 
 
-        Messreihe[] r = new Messreihe[lang.length];
-        Messreihe[] tau = new Messreihe[lang.length];
+        TimeSeriesObject[] r = new TimeSeriesObject[lang.length];
+        TimeSeriesObject[] tau = new TimeSeriesObject[lang.length];
         
         CCResults[][] ccr = new CCResults[lang.length][2];
 
         for ( int i = 0; i < max ; i++ ) {
-            r[i] = new Messreihe();
+            r[i] = new TimeSeriesObject();
             r[i].setLabel( "lang=" + lang[i] );
 
-            tau[i] = new Messreihe();
+            tau[i] = new TimeSeriesObject();
             tau[i].setLabel( "lang=" + lang[i] );
 
             for( int j = 0; j < 2; j++ ) {
@@ -183,7 +179,7 @@ public class CCResultAnalyerPairOfResults {
 
         MyXYPlot.rowONEDefualtColor = Color.BLACK;
 
-        for( Messreihe m: r) {
+        for( TimeSeriesObject m: r) {
             SimpleRegression linFit = m.linFit(0.0, 10.0);
             System.out.println( m.getLabel()+"\n\tR=" + linFit.getR() );
             System.out.println( "\tm=" + linFit.getSlope() );
@@ -233,7 +229,7 @@ public class CCResultAnalyerPairOfResults {
         return b;
     };
 
-    // hier kommen die Zeilen an und werden in die Messreihen bzw.
+    // hier kommen die Zeilen an und werden in die TimeSeriesObjectn bzw.
     // Netzwerkdarstellungen überführt.
     static int counter = 0;
     static public NodePair parseLine(String line, int j, String lang) {

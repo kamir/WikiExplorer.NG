@@ -23,7 +23,7 @@ package research.topics.networks.comparison;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
 import org.apache.hadoopts.data.io.MessreihenLoader;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.File;
 import java.util.Date;
 import java.util.StringTokenizer;
@@ -59,9 +59,9 @@ public class SingleNetworkComparison {
         System.out.println( ">>> use network link-table : " + 
                             f.getAbsolutePath() + " -> " + f.exists());
         
-        Messreihe mrA = null;
-        Messreihe mrB = null;
-        Messreihe mrC = null;
+        TimeSeriesObject mrA = null;
+        TimeSeriesObject mrB = null;
+        TimeSeriesObject mrC = null;
 
         double ccAB = 0.0;
         double ccBC = 0.0;
@@ -85,12 +85,12 @@ public class SingleNetworkComparison {
         mrB.setLabel( "B" );
         mrC.setLabel( "C" );
         
-        Vector<Messreihe> mrv = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv = new Vector<TimeSeriesObject>();
         mrv.add( mrC );
         mrv.add( mrA );
         mrv.add( mrB );
         
-        Vector<Messreihe> mrv2 = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrv2 = new Vector<TimeSeriesObject>();
         mrv2.add( mrC.normalizeToStdevIsOne() );
         mrv2.add( mrA.normalizeToStdevIsOne() );
         mrv2.add( mrB.normalizeToStdevIsOne() ); 
@@ -118,9 +118,9 @@ public class SingleNetworkComparison {
         }
                 
 //        StdRandom.initRandomGen(1);
-//        Messreihe mrA = Messreihe.getGaussianDistribution(50);
-//        Messreihe mrB = Messreihe.getGaussianDistribution(50);
-//        Messreihe mrC = Messreihe.getGaussianDistribution(50);
+//        TimeSeriesObject mrA = TimeSeriesObject.getGaussianDistribution(50);
+//        TimeSeriesObject mrB = TimeSeriesObject.getGaussianDistribution(50);
+//        TimeSeriesObject mrC = TimeSeriesObject.getGaussianDistribution(50);
         
         if ( calcCC ) {
             KreuzKorrelation._defaultK = 3;       
@@ -154,7 +154,7 @@ public class SingleNetworkComparison {
         
     }
 
-    private static double calcSignifikanzTest(Messreihe mrA, Messreihe mrE) {
+    private static double calcSignifikanzTest(TimeSeriesObject mrA, TimeSeriesObject mrE) {
         
         double x = 0.0;
         double mwA = mrA.getAvarage2();
@@ -215,7 +215,7 @@ public class SingleNetworkComparison {
         return x;
     }
 
-    private static double calcKendallTau(Messreihe mrA, Messreihe mrE){
+    private static double calcKendallTau(TimeSeriesObject mrA, TimeSeriesObject mrE){
         double tau = 0.0;
         int nd = 0;
         int nc = 0;

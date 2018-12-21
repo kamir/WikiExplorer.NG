@@ -101,10 +101,18 @@ public class WikiStudieMetaData {
     public void addNewNode( String w, String p ) { 
         wn.add( new WikiNode( w,p ) );
     }
-    
-//    public static void store() { 
-//    
-//    }
+
+    /**
+     * 
+     */
+    public String toString() { 
+        StringBuffer sb = new StringBuffer();
+        sb.append("NAME    : " + this.name + "\n");
+        sb.append("PATH-1  : " + this.path1 + "\n" );
+        sb.append("PATH-2  : " + this.path2 + "\n" );
+        sb.append("Z-Nodes : " + this.wn.size() + "\n" );
+        return sb.toString();
+    }
     
     public static void store( File f, WikiStudieMetaData data ) throws FileNotFoundException, IOException { 
                 
@@ -115,6 +123,7 @@ public class WikiStudieMetaData {
         os.write( s );
         os.flush();
         os.close(); 
+        
     }
     
     public static WikiStudieMetaData load( File f ) throws FileNotFoundException {  

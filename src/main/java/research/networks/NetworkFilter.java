@@ -2,7 +2,7 @@ package research.networks;
 
 
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 
 public class NetworkFilter { 
 
@@ -12,13 +12,13 @@ public class NetworkFilter {
         ts = _ts;
     };
     
-    public Messreihe[] applyFilter( Messreihe mr ) { 
+    public TimeSeriesObject[] applyFilter( TimeSeriesObject mr ) { 
         
-        Messreihe[] mrs = new Messreihe[3];
+        TimeSeriesObject[] mrs = new TimeSeriesObject[3];
         mrs[0] = mr;
         
-        Messreihe used = new Messreihe();
-        Messreihe unused = new Messreihe();
+        TimeSeriesObject used = new TimeSeriesObject();
+        TimeSeriesObject unused = new TimeSeriesObject();
        
         for( Object key : mr.hashedValues.keySet() ) { 
             double value = (Double)mr.hashedValues.get(key);

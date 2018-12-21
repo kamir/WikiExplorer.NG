@@ -2,7 +2,7 @@ package bigdata.explorer.nutch;
 
 
 import bigdata.explorer.views.NutchFileTree;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import org.apache.hadoopts.hadoopts.core.TSBucket;
 import java.io.File;
 import java.io.IOException;
@@ -394,7 +394,7 @@ public class NutchCrawlDataBrowser extends javax.swing.JFrame {
 
             reader.getCurrentValue( vec );
             
-            Messreihe mr = new Messreihe();
+            TimeSeriesObject mr = new TimeSeriesObject();
             mr.setDescription( i + " ) " + fn + "_[" + key.toString() + "]"  );
             mr.setLabel( pageID + " " );
            
@@ -409,7 +409,7 @@ public class NutchCrawlDataBrowser extends javax.swing.JFrame {
                 c++;
             }
             try {
-//                Messreihe m = null;
+//                TimeSeriesObject m = null;
 //                if( tst != null )
 //                    m = tst.processReihe(fw, mr, fwe);
             } 

@@ -5,7 +5,7 @@
 package experiments.crosscorrelation;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 
 /**
  *
@@ -20,7 +20,7 @@ public class TSPanel extends javax.swing.JPanel {
         initComponents();
     }
     
-    public TSPanel(Messreihe mr) {
+    public TSPanel(TimeSeriesObject mr) {
         
         initComponents();
         

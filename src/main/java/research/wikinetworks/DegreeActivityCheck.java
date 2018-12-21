@@ -15,7 +15,7 @@
 package research.wikinetworks;
 
 import org.apache.hadoopts.chart.statistic.HistogramChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.File;
 import java.io.IOException;
 import java.util.Hashtable;
@@ -60,10 +60,10 @@ public class DegreeActivityCheck {
 
         statischesNetz.ng.checkAccessTimeSeries();
 
-        Messreihe mrCheeck = new Messreihe();
+        TimeSeriesObject mrCheeck = new TimeSeriesObject();
 
         // check for  detrendet data sets ...
-        for ( Messreihe mr : statischesNetz.ng.getAaccessReihen() ) {
+        for ( TimeSeriesObject mr : statischesNetz.ng.getAaccessReihen() ) {
 
             int lenge = mr.yValues.size();
 
@@ -77,21 +77,21 @@ public class DegreeActivityCheck {
 
         System.out.println("\n>>> Rows loaded ..." );
 
-//        Messreihe mr1 = new Messreihe();
+//        TimeSeriesObject mr1 = new TimeSeriesObject();
 //        mr1.setLabel("activity_SUM vs. k");
 //
-//        Messreihe mr2 = new Messreihe();
+//        TimeSeriesObject mr2 = new TimeSeriesObject();
 //        mr2.setLabel("activity_MAX vs. k");
 //
 //        BufferedWriter bw = new BufferedWriter( new FileWriter( "./out.dat" ) );
 //
-//        Messreihe histK = new Messreihe();
+//        TimeSeriesObject histK = new TimeSeriesObject();
 //        histK.setLabel("Hist. k");
 //
-//        Messreihe histActivity1 = new Messreihe();
+//        TimeSeriesObject histActivity1 = new TimeSeriesObject();
 //        histActivity1.setLabel("Hist. activity SUM");
 //
-//        Messreihe histActivity2 = new Messreihe();
+//        TimeSeriesObject histActivity2 = new TimeSeriesObject();
 //        histActivity2.setLabel("Hist. activity MAX");
 //
 //
@@ -120,10 +120,10 @@ public class DegreeActivityCheck {
 //
 //        System.out.println(">>> File created ..." );
 //
-//        Vector<Messreihe> v = new Vector<Messreihe>();
+//        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
 //        v.add( mr1 );
 //
-//        Vector<Messreihe> v2 = new Vector<Messreihe>();
+//        Vector<TimeSeriesObject> v2 = new Vector<TimeSeriesObject>();
 //        v2.add( mr2 );
 //
 //        MyXYPlot.xRangDEFAULT_MAX = (int)maxDegree;
@@ -148,7 +148,7 @@ public class DegreeActivityCheck {
 
     };
 
-    public static void createHistogramm( Messreihe mr ) {
+    public static void createHistogramm( TimeSeriesObject mr ) {
         HistogramChart demo = new HistogramChart( mr.getLabel()  );
         demo.addSerieWithBinning( mr, 100, 0, mr.getMaxY() );
         demo.setContentPane( demo.createChartPanel() );
@@ -157,8 +157,8 @@ public class DegreeActivityCheck {
         demo.setVisible(true);
     };
 
-//    public static Messreihe[] getReihenForNodePair( String s) {
-//        Messreihe[] mr = new Messreihe[2];
+//    public static TimeSeriesObject[] getReihenForNodePair( String s) {
+//        TimeSeriesObject[] mr = new TimeSeriesObject[2];
 //
 //        int is[] = getIdsForNodePair(s);
 //        mr[0] = loadRows(is[0]);
@@ -170,11 +170,11 @@ public class DegreeActivityCheck {
 
 
 //
-//    private Messreihe[] loadRows(Integer id) throws Exception {
-//        Messreihe[] rows = new Messreihe[2];
+//    private TimeSeriesObject[] loadRows(Integer id) throws Exception {
+//        TimeSeriesObject[] rows = new TimeSeriesObject[2];
 //
-//        Messreihe edits = ng.loadEditsForOneID(id, NodeGroup.time_scale);
-//        Messreihe access = ng.loadAccessForOneID(id);
+//        TimeSeriesObject edits = ng.loadEditsForOneID(id, NodeGroup.time_scale);
+//        TimeSeriesObject access = ng.loadAccessForOneID(id);
 //
 //
 //        if ( NetworkComparator.doCutOffAtSTART ) {

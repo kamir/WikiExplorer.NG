@@ -1,16 +1,16 @@
 package experiments.crosscorrelation;
 
 import research.sqlclient.phase2.Topic4;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.util.Enumeration;
 
 
-public class KreuzKorrelationTag extends Messreihe {
+public class KreuzKorrelationTag extends TimeSeriesObject {
 
     static int steps = 300;
 
-    public Messreihe mr_x = null;
-    public Messreihe mr_y = null;
+    public TimeSeriesObject mr_x = null;
+    public TimeSeriesObject mr_y = null;
 
     int k_min = -14;
     int k_max = 14;
@@ -61,7 +61,7 @@ public class KreuzKorrelationTag extends Messreihe {
      * @param k
      * @return
      */
-    private double calcKR(Messreihe mr_x, Messreihe mr_y, int k) {
+    private double calcKR(TimeSeriesObject mr_x, TimeSeriesObject mr_y, int k) {
 
         double[][] dataX = mr_x.getData();
         double[][] dataY = mr_y.getData();
@@ -91,8 +91,8 @@ public class KreuzKorrelationTag extends Messreihe {
 
     public static void main( String[] args ) {
 
-        Messreihe mr1 = new Messreihe();
-        Messreihe mr2 = new Messreihe();
+        TimeSeriesObject mr1 = new TimeSeriesObject();
+        TimeSeriesObject mr2 = new TimeSeriesObject();
 
         KreuzKorrelationTag kr = new KreuzKorrelationTag();
 

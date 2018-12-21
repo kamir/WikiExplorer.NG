@@ -4,7 +4,7 @@
  */
 package research.ETH;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 
 /**
  *
@@ -17,7 +17,7 @@ public class SigmaTester {
         stdlib.StdRandom.initRandomGen(1);
         
         int n = 10000;
-        Messreihe mr = Messreihe.getGaussianDistribution(n, 5.0, 2.0);
+        TimeSeriesObject mr = TimeSeriesObject.getGaussianDistribution(n, 5.0, 2.0);
         double[] yData = mr.getYData();
         
         double sx = 0.0;

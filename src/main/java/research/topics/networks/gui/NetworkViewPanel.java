@@ -6,13 +6,11 @@ package research.topics.networks.gui;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
 import org.apache.hadoopts.chart.statistic.HistogramChart;
-import org.apache.hadoopts.chart.statistic.MyHistogramm2D;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import edu.uci.ics.jung.algorithms.layout.CircleLayout;
 import edu.uci.ics.jung.algorithms.layout.Layout;
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.UndirectedGraph;
-import edu.uci.ics.jung.graph.event.GraphEvent;
 import edu.uci.ics.jung.graph.event.GraphEvent.Vertex;
 import edu.uci.ics.jung.visualization.VisualizationViewer;
 import edu.uci.ics.jung.visualization.control.CrossoverScalingControl;
@@ -26,10 +24,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseEvent;
-import java.io.File;
 import java.util.Hashtable;
 import java.util.Vector;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import org.jfree.ui.RefineryUtilities;
@@ -58,12 +54,12 @@ public class NetworkViewPanel extends javax.swing.JPanel {
     }
 
     NetworkFilter filter = null;
-    Messreihe mr = null;
-    Messreihe original = null;
+    TimeSeriesObject mr = null;
+    TimeSeriesObject original = null;
     
     UndirectedGraph<WikiVertice,WikiEdge> graph = null;
     
-    public NetworkViewPanel(AnalysisProject project , Messreihe loadAccessNet1) {
+    public NetworkViewPanel(AnalysisProject project , TimeSeriesObject loadAccessNet1) {
         this();
         pro = project;
         mr = loadAccessNet1;
@@ -367,7 +363,7 @@ public class NetworkViewPanel extends javax.swing.JPanel {
         p.setSize( 4000,4000 );
         p.setBackground( Color.GREEN );
         
-        Graph g = TemporalNetworkOfWikipediaNodes.createNetworkFromHashedMessreihe(mr);
+        Graph g = TemporalNetworkOfWikipediaNodes.createNetworkFromHashedTimeSeriesObject(mr);
         
         JPanel pp = simpleGraphPanel( g );
         
@@ -425,7 +421,7 @@ public class NetworkViewPanel extends javax.swing.JPanel {
     }
 
     double scale = 255;
-    private double[][] loadMatrixFromreihe(Messreihe mr) {
+    private double[][] loadMatrixFromreihe(TimeSeriesObject mr) {
         
         Vector<String> allKeys = new Vector<String>();
         
@@ -466,11 +462,11 @@ public class NetworkViewPanel extends javax.swing.JPanel {
         return data;
     }
 
-    public void doFilter(NetworkFilter filter, Messreihe raw) {
+    public void doFilter(NetworkFilter filter, TimeSeriesObject raw) {
         
         this.removeAdjecancyMatrix();
         
-        Messreihe mrs[] = filter.applyFilter(raw); 
+        TimeSeriesObject mrs[] = filter.applyFilter(raw); 
         mr = mrs[1];
         System.out.println(">>>" + mrs[2].hashedValues.size() + " filtered (ts=" + filter.ts +").");
         System.out.println("   " + mrs[2].getMaxY() );
@@ -492,7 +488,7 @@ public class NetworkViewPanel extends javax.swing.JPanel {
        doFilter( filter, mr );       
     }
 
-    private void initHistogramPanel(Messreihe[] mrs) {
+    private void initHistogramPanel(TimeSeriesObject[] mrs) {
          LinkStrengthHistogram histogram = new LinkStrengthHistogram();
          double min = textToDouble( jtfHistMin );  
          double max = textToDouble( jtfHistMax ); 
@@ -512,7 +508,7 @@ public class NetworkViewPanel extends javax.swing.JPanel {
 }
 class LinkStrengthHistogram { 
 
-     static Messreihe[] mrn2 = null;
+     static TimeSeriesObject[] mrn2 = null;
  
     /**
      * Histogramm für Strength ...
@@ -523,9 +519,9 @@ class LinkStrengthHistogram {
      * @param max
      * @return
      */
-    public static String createHistogramm2( AnalysisProject pro, Messreihe mr, int bins, double min, double max ) {
+    public static String createHistogramm2( AnalysisProject pro, TimeSeriesObject mr, int bins, double min, double max ) {
         
-        if ( mrn2 == null ) mrn2 = new Messreihe[ 1 ];
+        if ( mrn2 == null ) mrn2 = new TimeSeriesObject[ 1 ];
 
         String pfad = pro.baseFolder;
      
@@ -541,7 +537,7 @@ class LinkStrengthHistogram {
             z.max = max;
             z.intervalle = bins;
             z.calcWS();
-            Messreihe mrr = z.getHistogram();
+            TimeSeriesObject mrr = z.getHistogram();
             
             mrr.setLabel( NodeGroup.splitIndex + "  " );
             mrn2[ 0 ] = mrr;

@@ -5,16 +5,8 @@
 
 package research.wikinetworks;
 
-import org.apache.hadoopts.data.series.Messreihe;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Vector;
 import javax.swing.filechooser.FileFilter;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 
@@ -57,8 +49,8 @@ public class NodePairListViewer {
      
     };
 
-//    public static Messreihe[] getReihenForNodePair( String s) {
-//        Messreihe[] mr = new Messreihe[2];
+//    public static TimeSeriesObject[] getReihenForNodePair( String s) {
+//        TimeSeriesObject[] mr = new TimeSeriesObject[2];
 //
 //        int is[] = getIdsForNodePair(s);
 //        mr[0] = loadRows(is[0]);
@@ -70,11 +62,11 @@ public class NodePairListViewer {
     
 
 //
-//    private Messreihe[] loadRows(Integer id) throws Exception {
-//        Messreihe[] rows = new Messreihe[2];
+//    private TimeSeriesObject[] loadRows(Integer id) throws Exception {
+//        TimeSeriesObject[] rows = new TimeSeriesObject[2];
 //
-//        Messreihe edits = ng.loadEditsForOneID(id, NodeGroup.time_scale);
-//        Messreihe access = ng.loadAccessForOneID(id);
+//        TimeSeriesObject edits = ng.loadEditsForOneID(id, NodeGroup.time_scale);
+//        TimeSeriesObject access = ng.loadAccessForOneID(id);
 //
 //
 //        if ( NetworkComparator.doCutOffAtSTART ) {

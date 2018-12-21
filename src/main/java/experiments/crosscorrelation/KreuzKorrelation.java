@@ -3,8 +3,8 @@ package experiments.crosscorrelation;
 import org.apache.hadoopts.chart.simple.MultiChart;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.apache.hadoopts.data.series.Messreihe;
-import org.apache.hadoopts.data.series.MessreiheFFT;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
+import org.apache.hadoopts.data.series.TimeSeriesObjectFFT;
 import java.text.DecimalFormat;
 import java.util.Enumeration;
 import java.util.Vector;
@@ -17,14 +17,14 @@ import org.apache.commons.math3.transform.TransformType;
 
 /**
  * The result of cross-correlation-calculation is correlation function, which
- * is again an object of type Messreihe.
+ * is again an object of type TimeSeriesObject.
  *
  * Für Werte k_min ... k_max wird für jedes k der Korrelationskoeffizient
  * errechnet und als COEF( k ) abgespeichert.
  *
  * @author kamir
  */
-public class KreuzKorrelation extends Messreihe {
+public class KreuzKorrelation extends TimeSeriesObject {
 
     public static int defaultSR = 1;
     public static int debugCounter = 0;
@@ -62,8 +62,8 @@ public class KreuzKorrelation extends Messreihe {
             return "0";
         }
     }
-    public Messreihe mr_x = null;
-    public Messreihe mr_y = null;
+    public TimeSeriesObject mr_x = null;
+    public TimeSeriesObject mr_y = null;
     // offset der Reihen aus der Wikipedia Analyse
     static int k_min = 0;
     static int k_max = 0;
@@ -94,8 +94,8 @@ public class KreuzKorrelation extends Messreihe {
 
     private void calcKR__adjusted(int z) throws Exception {
         
-        Messreihe mr_xl = mr_x.copy();
-        Messreihe mr_yl = mr_y.copy();
+        TimeSeriesObject mr_xl = mr_x.copy();
+        TimeSeriesObject mr_yl = mr_y.copy();
 
         double[] ls = new double[z];
 
@@ -148,7 +148,7 @@ public class KreuzKorrelation extends Messreihe {
                 throw new Exception("MR2 ist nicht ausgewogen (" + dMR2 + ").");
             }
             if (dMR1 != dMR2) {
-                throw new Exception("Messreihen sind nicht gleich lang. (" 
+                throw new Exception("TimeSeriesObjectn sind nicht gleich lang. (" 
                         + s1X + "," + s2X + "," + s1Y + "," + s2Y + ").");
             }
 
@@ -205,7 +205,7 @@ public class KreuzKorrelation extends Messreihe {
             throw new Exception("MR2 ist nicht ausgewogen (" + dMR2 + ").");
         }
         if (dMR1 != dMR2) {
-            throw new Exception("Messreihen sind nicht gleich lang. (" 
+            throw new Exception("TimeSeriesObjectn sind nicht gleich lang. (" 
                     + s1X + "," + s2X + "," + s1Y + "," + s2Y + ").");
         }
 
@@ -251,7 +251,7 @@ public class KreuzKorrelation extends Messreihe {
     public static boolean globalShuffle = false;
     public static int globalShuffleLoops = 150;
 
-    private double calcKRCoeffizient(Messreihe mr_x, Messreihe mr_y, int k) 
+    private double calcKRCoeffizient(TimeSeriesObject mr_x, TimeSeriesObject mr_y, int k) 
             throws Exception {
 
         double doFillUpWith = 0.0;
@@ -263,8 +263,8 @@ public class KreuzKorrelation extends Messreihe {
         double averR2 = mr_y.getAvarage();
 
         // Mittelwert von beiden abziehen
-        Messreihe r1 = mr_x.subtractAverage();
-        Messreihe r2 = mr_y.subtractAverage();
+        TimeSeriesObject r1 = mr_x.subtractAverage();
+        TimeSeriesObject r2 = mr_y.subtractAverage();
 
         int i = 0;
         if (globalShuffle) {
@@ -287,7 +287,7 @@ public class KreuzKorrelation extends Messreihe {
         }
 
 //        if( k == 14 || k ==-14 ) {
-//            Vector<Messreihe> reihen = new Vector<Messreihe>();
+//            Vector<TimeSeriesObject> reihen = new Vector<TimeSeriesObject>();
 //            reihen.add(r1);
 //            reihen.add(r2);
 //            reihen.add( mr_x );
@@ -343,8 +343,8 @@ public class KreuzKorrelation extends Messreihe {
 
         try {
 
-            Messreihe mr1 = new Messreihe();
-            Messreihe mr2 = new Messreihe();
+            TimeSeriesObject mr1 = new TimeSeriesObject();
+            TimeSeriesObject mr2 = new TimeSeriesObject();
 
             /**
              * a, phi, constante, trend
@@ -423,12 +423,12 @@ public class KreuzKorrelation extends Messreihe {
 
             kr.calcKR(mr1, mr2, true, false);
 
-            Vector<Messreihe> v = new Vector<Messreihe>();
+            Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
             v.add(mr1);
             v.add(mr2);
             // v.add( kr );
 
-            Messreihe mw = Messreihe.calcAveragOfRows(v);
+            TimeSeriesObject mw = TimeSeriesObject.calcAveragOfRows(v);
 
     KreuzKorrelation kkt1 = KreuzKorrelation.calcKR(mr1, mr1, false, false);
     KreuzKorrelation kkt2 = KreuzKorrelation.calcKR(mr2, mr2, false, false);
@@ -452,10 +452,10 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
      * @param dt
      * @return
      */
-    public static Messreihe calcKR_SLIDINGWINDOW(
-            Messreihe _mr1, Messreihe _mr2, int window) {
+    public static TimeSeriesObject calcKR_SLIDINGWINDOW(
+            TimeSeriesObject _mr1, TimeSeriesObject _mr2, int window) {
 
-        Messreihe result = new Messreihe();
+        TimeSeriesObject result = new TimeSeriesObject();
         debug = false;
         KreuzKorrelation.setK(0);
 
@@ -465,8 +465,8 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
         while (bis < _mr1.xValues.size()) {
 
 
-            Messreihe mr1 = _mr1.cutOut(von, bis);
-            Messreihe mr2 = _mr2.cutOut(von, bis);
+            TimeSeriesObject mr1 = _mr1.cutOut(von, bis);
+            TimeSeriesObject mr2 = _mr2.cutOut(von, bis);
 
             KreuzKorrelation kr = new KreuzKorrelation();
 
@@ -491,7 +491,7 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
                 result.addValuePair(t , cc );
 
                 if (debug && debugCounter < 1) {
-                    Vector<Messreihe> vtKR = new Vector<Messreihe>();
+                    Vector<TimeSeriesObject> vtKR = new Vector<TimeSeriesObject>();
                     //vtKR.add(kr);
                     mr1.normalize();
                     mr2.normalize();
@@ -518,7 +518,7 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
     }
 
     public static KreuzKorrelation calcKR(
-            Messreihe mr1, Messreihe mr2, boolean debug) {
+            TimeSeriesObject mr1, TimeSeriesObject mr2, boolean debug) {
 
         KreuzKorrelation kr = new KreuzKorrelation();
 
@@ -538,7 +538,7 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
             kr.calcKR();
 
             if (debug && debugCounter < 1) {
-                Vector<Messreihe> vtKR = new Vector<Messreihe>();
+                Vector<TimeSeriesObject> vtKR = new Vector<TimeSeriesObject>();
                 //vtKR.add(kr);
                 mr1.normalize();
                 mr2.normalize();
@@ -571,7 +571,7 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
      * @return
      */
     public static KreuzKorrelation calcKR(
-            Messreihe mr1, Messreihe mr2, 
+            TimeSeriesObject mr1, TimeSeriesObject mr2, 
             boolean debug, boolean noOfset) {
 
         int dk = _defaultK; // damit man um NULL herum etwas sehen kann
@@ -630,8 +630,8 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
 
 //            // DATEN PRÜFEN
 //            if (GLdebug && debugCounter < 1) {
-//                Vector<Messreihe> vtKR = new Vector<Messreihe>();
-//                Vector<Messreihe> testB = new Vector<Messreihe>();
+//                Vector<TimeSeriesObject> vtKR = new Vector<TimeSeriesObject>();
+//                Vector<TimeSeriesObject> testB = new Vector<TimeSeriesObject>();
 //                vtKR.add(kr);
 //
 //
@@ -649,16 +649,16 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
 //
 //
 ////                //  check for dominant frequencies
-////                Messreihe mrFFTA = new Messreihe();
-////                Messreihe mrFFTB = new Messreihe();
-////                MessreiheFFT mrFFT2 = MessreiheFFT.convertToMessreiheFFT(mr1);
-////                MessreiheFFT mrFFT3 = MessreiheFFT.convertToMessreiheFFT(mr2);
+////                TimeSeriesObject mrFFTA = new TimeSeriesObject();
+////                TimeSeriesObject mrFFTB = new TimeSeriesObject();
+////                TimeSeriesObjectFFT mrFFT2 = TimeSeriesObjectFFT.convertToTimeSeriesObjectFFT(mr1);
+////                TimeSeriesObjectFFT mrFFT3 = TimeSeriesObjectFFT.convertToTimeSeriesObjectFFT(mr2);
 ////
 ////                
-////                mrFFTA = MessreiheFFT.calcFFT(mrFFT2, defaultSR, TransformType.FORWARD);
+////                mrFFTA = TimeSeriesObjectFFT.calcFFT(mrFFT2, defaultSR, TransformType.FORWARD);
 ////                testB.add(mrFFTA);
 ////
-////                mrFFTB = MessreiheFFT.calcFFT(mrFFT3, defaultSR, TransformType.FORWARD);
+////                mrFFTB = TimeSeriesObjectFFT.calcFFT(mrFFT3, defaultSR, TransformType.FORWARD);
 ////                testB.add(mrFFTB);
 ////
 ////                MultiChart.open(testB, "FFT tests",
@@ -780,10 +780,10 @@ Logger.getLogger(KreuzKorrelation.class.getName()).log(Level.SEVERE, null, ex);
      * @param trend
      * @return
      */
-    public static Messreihe getTestSinusFunktion(
+    public static TimeSeriesObject getTestSinusFunktion(
             double a, double phi, double constante, double trend) {
         
-        Messreihe mr = new Messreihe();
+        TimeSeriesObject mr = new TimeSeriesObject();
         for (int i = 0; i < 1000; i++) {
             mr.addValuePair(
                     

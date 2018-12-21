@@ -12,8 +12,8 @@
 package research.ETH;
 
 import org.apache.hadoopts.chart.simple.MyXYPlot;
-import org.apache.hadoopts.data.series.Messreihe;
-import org.apache.hadoopts.data.export.MesswertTabelle;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
+import org.apache.hadoopts.data.export.MeasurementTable;
 import java.io.*;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
@@ -66,16 +66,16 @@ public class DistributionCheckCharts {
 
        int[] tau = { 5 };
 
-       Hashtable<String,Hashtable<String,Messreihe>> charts = new Hashtable<String,Hashtable<String,Messreihe>>();
+       Hashtable<String,Hashtable<String,TimeSeriesObject>> charts = new Hashtable<String,Hashtable<String,TimeSeriesObject>>();
        String[] keysC = { "tv", "lrp", "abs_lrp" };       
        
        for( String key1 : keysC ) {
 
-           Hashtable<String,Messreihe> reihen = new Hashtable<String,Messreihe>();
+           Hashtable<String,TimeSeriesObject> reihen = new Hashtable<String,TimeSeriesObject>();
            int[] keysR = {20, 40, 60, 80, 100};
 
            for( int key : keysR ) {
-               Messreihe reihe = new Messreihe();
+               TimeSeriesObject reihe = new TimeSeriesObject();
                reihe.setLabel( ""+key );
                reihen.put( ""+key, reihe );
                System.out.println( ""+key );
@@ -90,9 +90,9 @@ public class DistributionCheckCharts {
             String line = br.readLine();
             Record rec = _processLine( line );
 
-            Hashtable<String,Messreihe> temp = charts.get( rec.keyChart );
+            Hashtable<String,TimeSeriesObject> temp = charts.get( rec.keyChart );
 
-            Messreihe mr = temp.get( rec.keyReihe );
+            TimeSeriesObject mr = temp.get( rec.keyReihe );
 
             if( mr != null ) {
                 System.out.println( rec.keyReihe );
@@ -108,9 +108,9 @@ public class DistributionCheckCharts {
 
        for( String chartLabel : charts.keySet() ) {
 
-           Hashtable<String,Messreihe> tempReihen = charts.get( chartLabel );
+           Hashtable<String,TimeSeriesObject> tempReihen = charts.get( chartLabel );
 
-           Messreihe[] reihenArray = new Messreihe[ tempReihen.size() ];
+           TimeSeriesObject[] reihenArray = new TimeSeriesObject[ tempReihen.size() ];
 
            int i = 0;
            for( String key : tempReihen.keySet() ) {
@@ -134,24 +134,24 @@ public class DistributionCheckCharts {
            
            File f = new File( "./ptest/" + run + "_" + inputset + "_"+ chartLabel + "_" + label + ".dat" );
 
-           MesswertTabelle mwt = new MesswertTabelle();
+           MeasurementTable mwt = new MeasurementTable();
            mwt.setLabel( f.getAbsolutePath() );
            mwt.setMessReihen(reihenArray);
 
-           String header = MesswertTabelle.getCommentLine(   "dataset   : " + chartLabel  );
-           header = header + MesswertTabelle.getCommentLine( "inputfile : " + fn   );
-           header = header + MesswertTabelle.getCommentLine( "inputset  : " + inputset   );
-           header = header + MesswertTabelle.getCommentLine( "probability of p-Test [class:DistributionCompare]"  );
+           String header = MeasurementTable.getCommentLine(   "dataset   : " + chartLabel  );
+           header = header + MeasurementTable.getCommentLine( "inputfile : " + fn   );
+           header = header + MeasurementTable.getCommentLine( "inputset  : " + inputset   );
+           header = header + MeasurementTable.getCommentLine( "probability of p-Test [class:DistributionCompare]"  );
 
            if ( storSignificanz )
-               header = header + MesswertTabelle.getCommentLine( mwt.toSignificanzString() );
+               header = header + MeasurementTable.getCommentLine( mwt.toSignificanzString() );
 
            mwt.setHeader( header );
            mwt.writeToFile();
                       
            reihenArray = pro.sortRosByLabel_INTEGER(reihenArray);
            String[] labels = {"20","40","60","80","100" };
-           pro.addMessreihenToBook( inputset + "_"+ chartLabel + "_" + label , reihenArray, labels);
+           pro.addTimeSeriesObjectnToBook( inputset + "_"+ chartLabel + "_" + label , reihenArray, labels);
            
        }
        

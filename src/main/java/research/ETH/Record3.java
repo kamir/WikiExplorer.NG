@@ -1,7 +1,7 @@
  
 package research.ETH;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 
 public class Record3 {
 
@@ -30,7 +30,7 @@ public class Record3 {
     double calcLS() { 
         double ls = 0;
 
-        Messreihe mr = new Messreihe();
+        TimeSeriesObject mr = new TimeSeriesObject();
         for( int i = 0; i < 11; i++ ) { 
             mr.addValuePair( (double)i - 5.0, cc[i] );
         }
@@ -55,7 +55,7 @@ public class Record3 {
     // ermittele nich nur das tatsächliche Maximum sondern das 
     //    max(abs(v))
     // 
-    private static double calcRealMaxY(Messreihe mr) {
+    private static double calcRealMaxY(TimeSeriesObject mr) {
         double extr = 0;
         
         double maxY = mr.getMaxY();

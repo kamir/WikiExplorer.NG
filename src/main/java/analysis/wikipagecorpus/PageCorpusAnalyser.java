@@ -30,7 +30,9 @@ import m3.wikipedia.corpus.extractor.FileNameFilter;
 import m3.wikipedia.corpus.extractor.category.ExtractCategorieCorpus;
 import m3.wikipedia.explorer.data.WikiNode;
 import org.crunchts.store.TSB;
+
 import org.etosha.core.sc.connector.external.Wiki;
+
 import org.openide.util.Exceptions;
 
 /**

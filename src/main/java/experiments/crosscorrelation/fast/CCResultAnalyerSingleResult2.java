@@ -10,7 +10,7 @@ package experiments.crosscorrelation.fast;
 
 import org.apache.hadoopts.chart.simple.MyXYPlot;
 import org.apache.hadoopts.chart.statistic.HistogramChart;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
@@ -152,13 +152,13 @@ public class CCResultAnalyerSingleResult2 {
 
 
         //
-        Messreihe[] mr___t_vs_s = new Messreihe[lang.length];
+        TimeSeriesObject[] mr___t_vs_s = new TimeSeriesObject[lang.length];
        
         CCResults[] ccr = new CCResults[lang.length];
 
-        // eine Messreihe anlegen für tau vs. s Diagramm
+        // eine TimeSeriesObject anlegen für tau vs. s Diagramm
         for ( int i = min; i < max ; i++ ) {
-            mr___t_vs_s[i] = new Messreihe();
+            mr___t_vs_s[i] = new TimeSeriesObject();
             mr___t_vs_s[i].setLabel( "lang=" + lang[i] );
             for( int j = 0; j < 2; j++ ) {
                 String key = getKey( lang[i] ,mj );
@@ -175,9 +175,9 @@ public class CCResultAnalyerSingleResult2 {
         double strength_min = 5;
         boolean noBreak = true;
 
-        Messreihe histS_k_EQUAL_0 = new Messreihe( modes[mj]+"  tau=0");
-        Messreihe histS_k_GT_0 = new Messreihe( modes[mj]+"  tau != 0");
-        Messreihe histS_k_ALL = new Messreihe( modes[mj]+"  all");
+        TimeSeriesObject histS_k_EQUAL_0 = new TimeSeriesObject( modes[mj]+"  tau=0");
+        TimeSeriesObject histS_k_GT_0 = new TimeSeriesObject( modes[mj]+"  tau != 0");
+        TimeSeriesObject histS_k_ALL = new TimeSeriesObject( modes[mj]+"  all");
 
 
         histS_k_EQUAL_0.setLabel("Hist. strength (tau=0)");
@@ -295,7 +295,7 @@ public class CCResultAnalyerSingleResult2 {
 
     };
 
-    public static void createHistogramm( Messreihe mr ) {
+    public static void createHistogramm( TimeSeriesObject mr ) {
         HistogramChart demo = new HistogramChart( mr.getLabel()  );
         demo.addSerieWithBinning( mr, 100, 0, 10 );
         demo.setContentPane( demo.createChartPanel() );
@@ -331,7 +331,7 @@ public class CCResultAnalyerSingleResult2 {
         return b;
     };
 
-    // hier kommen die Zeilen an und werden in die Messreihen bzw.
+    // hier kommen die Zeilen an und werden in die TimeSeriesObjectn bzw.
     // Netzwerkdarstellungen überführt.
     static int counter = 0;
     static public NodePair parseLine(String line, int mj, String lang) {

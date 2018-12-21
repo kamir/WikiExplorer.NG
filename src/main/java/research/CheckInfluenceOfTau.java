@@ -8,7 +8,7 @@
 package research;
 
 import org.apache.hadoopts.chart.simple.MyXYPlot;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -28,16 +28,16 @@ public class CheckInfluenceOfTau {
 
        int[] tau = { 5 };
 
-       Hashtable<String,Hashtable<String,Messreihe>> charts = new Hashtable<String,Hashtable<String,Messreihe>>();
+       Hashtable<String,Hashtable<String,TimeSeriesObject>> charts = new Hashtable<String,Hashtable<String,TimeSeriesObject>>();
        String[] keysC = { "tv", "lrp", "abs_lrp" };
 
        for( String key1 : keysC ) {
 
-           Hashtable<String,Messreihe> reihen = new Hashtable<String,Messreihe>();
+           Hashtable<String,TimeSeriesObject> reihen = new Hashtable<String,TimeSeriesObject>();
            int[] keysR = { 30, 60, 85, 100 };
 
            for( int key : keysR ) {
-               Messreihe reihe = new Messreihe();
+               TimeSeriesObject reihe = new TimeSeriesObject();
                reihe.setLabel( "l="+key );
                reihen.put( ""+key , reihe );
                System.out.println( ""+key );
@@ -53,17 +53,17 @@ public class CheckInfluenceOfTau {
             Record rec = processLine( line );
 
 
-            Hashtable<String,Messreihe> temp = charts.get( rec.keyChart );
+            Hashtable<String,TimeSeriesObject> temp = charts.get( rec.keyChart );
 
-            Messreihe mr = temp.get( rec.keyReihe );
+            TimeSeriesObject mr = temp.get( rec.keyReihe );
             mr.addValuePair( rec.t0 , rec.p );
        }
 
        for( String chartLabel : charts.keySet() ) {
 
-           Hashtable<String,Messreihe> tempReihen = charts.get( chartLabel );
+           Hashtable<String,TimeSeriesObject> tempReihen = charts.get( chartLabel );
 
-           Messreihe[] reihenArray = new Messreihe[ tempReihen.size() ];
+           TimeSeriesObject[] reihenArray = new TimeSeriesObject[ tempReihen.size() ];
 
            int i = 0;
            for( String key : tempReihen.keySet() ) {

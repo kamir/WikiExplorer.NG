@@ -1,8 +1,7 @@
 package research.networks;
  
-import java.io.File;
 import java.io.IOException;
-import java.util.Vector;
+
 import com.cloudera.wikiexplorer.ng.util.io.StreamCopier;
 import com.cloudera.wikiexplorer.ng.util.NodeGroup;
 import com.cloudera.wikiexplorer.ng.util.TimeLog;

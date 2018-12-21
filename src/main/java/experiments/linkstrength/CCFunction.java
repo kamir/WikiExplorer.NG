@@ -1,6 +1,6 @@
 package experiments.linkstrength;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import experiments.crosscorrelation.KreuzKorrelation; 
 
 /**
@@ -44,7 +44,7 @@ public class CCFunction {
      * @param mr
      * @return 
      */
-    public static double calcStrength_VERSION_B( Messreihe mr ) {
+    public static double calcStrength_VERSION_B( TimeSeriesObject mr ) {
         double v = -100.0;
         if ( mr != null ) {
             if ( debug ) System.out.println( "~~~ (" + mr + ")" );
@@ -73,7 +73,7 @@ public class CCFunction {
      * @param mr
      * @return
      */
-    public static double calcStrength_VERSION_A( Messreihe mr ) {
+    public static double calcStrength_VERSION_A( TimeSeriesObject mr ) {
 
         if( mr == null ) return -100.0;
         
@@ -106,7 +106,7 @@ public class CCFunction {
      * @param mr
      * @return 
      */
-    private static double calcAbsoluteMaxY(Messreihe mr) {
+    private static double calcAbsoluteMaxY(TimeSeriesObject mr) {
         
         double extr = 0;
         
@@ -130,7 +130,7 @@ public class CCFunction {
     /**
      * TODO : EXTRACT data for :: 
      * 
-     * calcStrength_VERSION_C(Messreihe mr, double stdevA, double stdevB, double mwA, double mwB )
+     * calcStrength_VERSION_C(TimeSeriesObject mr, double stdevA, double stdevB, double mwA, double mwB )
      * 
      * and check results....
      */ 
@@ -138,14 +138,14 @@ public class CCFunction {
        // maximum der CC-Function ermitteln
         double maxYA = kr.getMaxY();
         
-        Messreihe mr2 = kr.copy();
+        TimeSeriesObject mr2 = kr.copy();
         
 //        System.out.println( mr2.getStatisticData("<<<") );
         
         mr2 = removeMaximumValueFromRow( mr2 );
         
         double maxYB = mr2.getMaxY();
-/        System.out.println( mr2.getStatisticData(">>>") );
+        System.out.println( mr2.getStatisticData(">>>") );
         
         // mittelwert ermitteln mit dem Maximum
         double mwA = kr.getAvarage2();
@@ -171,7 +171,7 @@ public class CCFunction {
     
     
     
-    public static double calcStrength_VERSION_D(Messreihe mr, double stdevA, double stdevB, double mwA, double mwB ) {
+    public static double calcStrength_VERSION_D(TimeSeriesObject mr, double stdevA, double stdevB, double mwA, double mwB ) {
                
         double maxY = mr.getMaxY();
 
@@ -188,11 +188,11 @@ public class CCFunction {
      * @param athis
      * @return 
      */
-    static public Messreihe removeMaximumValueFromRow( Messreihe athis ) {
+    static public TimeSeriesObject removeMaximumValueFromRow( TimeSeriesObject athis ) {
 
         boolean removed = false;
 
-        Messreihe mr = new Messreihe();
+        TimeSeriesObject mr = new TimeSeriesObject();
         mr.setLabel( athis.getLabel() );
 
         int max = athis.yValues.size();

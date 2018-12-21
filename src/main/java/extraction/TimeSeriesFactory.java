@@ -29,8 +29,8 @@ public class TimeSeriesFactory {
     
     private static boolean DO_USE_RAW_DATA = false;
     
-    public static Messreihe prepareAccessDataTAG2(int nodeID, int length) {
-        Messreihe r = null;
+    public static TimeSeriesObject prepareAccessDataTAG2(int nodeID, int length) {
+        TimeSeriesObject r = null;
         try {
             DO_USE_RAW_DATA = true;
             r = prepareAccessDataSTUNDE(nodeID, length);
@@ -49,11 +49,11 @@ public class TimeSeriesFactory {
      * @param length
      * @return
      */
-    private static Messreihe prepareAccessDataTAG(int nodeID, int length) {
+    private static TimeSeriesObject prepareAccessDataTAG(int nodeID, int length) {
         BufferedReader br = null;
-        Messreihe mr = null;
+        TimeSeriesObject mr = null;
         try {
-            mr = new Messreihe();
+            mr = new TimeSeriesObject();
             mr.setLabel("Access NodeID=" + nodeID);
             String fn = folderIn + nodeID + "_vph.dat";
             br = new BufferedReader(new FileReader(fn));
@@ -96,10 +96,10 @@ public class TimeSeriesFactory {
         return mr;
     }
 
-    public static Messreihe prepareAccessDataSTUNDE(int nodeID, int length) throws IOException, Exception {
+    public static TimeSeriesObject prepareAccessDataSTUNDE(int nodeID, int length) throws IOException, Exception {
         BufferedReader br = null;
-        Messreihe mr = null;
-        mr = new Messreihe();
+        TimeSeriesObject mr = null;
+        mr = new TimeSeriesObject();
         mr.setLabel("Access NodeID=" + nodeID);
 
         /**
@@ -179,14 +179,14 @@ public class TimeSeriesFactory {
 
     /**
      * De Vector mit den Long Werten der Edit-Zeiten wird in
-     * eine Messreihe umgewandelt.
+     * eine TimeSeriesObject umgewandelt.
      *
      * @param mr
      * @param dates
      * @param length
      * @return
      */
-    public static Messreihe prepareEditDataTAG(Messreihe mr,
+    public static TimeSeriesObject prepareEditDataTAG(TimeSeriesObject mr,
             Vector<Long> dates, int length) {
         double[] data = new double[length];
         for (int i = 0; i < length; i++) {
@@ -236,10 +236,10 @@ public class TimeSeriesFactory {
      * @param timeScale
      * @return
      */
-    public static Messreihe prepareEditDataSTUNDE(
+    public static TimeSeriesObject prepareEditDataSTUNDE(
             Vector<Long> dates, int days, int timeScale) {
 
-        Messreihe mr = new Messreihe();
+        TimeSeriesObject mr = new TimeSeriesObject();
         // length ist die Zahl der Felder ....
         // z.B.  300 Tage in Stundenauflösung
         //
@@ -303,10 +303,10 @@ public class TimeSeriesFactory {
      * @param timeScale
      * @return
      */
-    public static Messreihe prepareCountDataSTUNDE(
+    public static TimeSeriesObject prepareCountDataSTUNDE(
             Vector<Long> dates, Date begin, int days, int timeScale) {
 
-        Messreihe mr = new Messreihe();
+        TimeSeriesObject mr = new TimeSeriesObject();
         // length ist die Zahl der Felder ....
         // z.B.  300 Tage in Stundenauflösung
         //
@@ -422,14 +422,14 @@ public class TimeSeriesFactory {
         
         Vector<Long>  datesB = getReiheB();
         
-        Messreihe a = TimeSeriesFactory.prepareEditDataSTUNDE( datesA, 300, 24 );
-        Messreihe b = TimeSeriesFactory.prepareEditDataSTUNDE( datesB, 300, 24 );
+        TimeSeriesObject a = TimeSeriesFactory.prepareEditDataSTUNDE( datesA, 300, 24 );
+        TimeSeriesObject b = TimeSeriesFactory.prepareEditDataSTUNDE( datesB, 300, 24 );
 
         a.setLabel("a");
         b.setLabel("b");
 
         // ORIGINAL-Daten
-        Vector<Messreihe> v = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> v = new Vector<TimeSeriesObject>();
         v.add(a);
         v.add(b);
 
@@ -450,12 +450,12 @@ public class TimeSeriesFactory {
     }
 
     public static boolean doBlock = true;
-    public static Messreihe blockSpecialValues( Messreihe r ) {
+    public static TimeSeriesObject blockSpecialValues( TimeSeriesObject r ) {
         if ( !doBlock ) return r;
         
-        Messreihe mr = null;
+        TimeSeriesObject mr = null;
 
-        mr = new Messreihe();
+        mr = new TimeSeriesObject();
         mr.setLabel(r.getLabel() +"(b)" );
 
         Enumeration en = r.yValues.elements();

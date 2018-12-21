@@ -44,9 +44,7 @@ import research.ETH.ExtendedNodePairSFE;
 import experiments.crosscorrelation.KreuzKorrelation;
 import java.awt.Color;
 import java.util.concurrent.TimeUnit;
-import org.gephi.filters.api.FilterController;
-import org.gephi.filters.api.Query;
-import org.gephi.filters.api.Range;
+
 import org.gephi.layout.plugin.AutoLayout;
 import org.gephi.layout.plugin.force.StepDisplacement;
 import org.gephi.layout.plugin.force.yifanHu.YifanHuLayout;
@@ -67,10 +65,6 @@ import org.gephi.statistics.plugin.Degree;
 import org.gephi.statistics.plugin.GraphDistance;
 import org.gephi.statistics.plugin.Modularity;
 import org.openide.util.Exceptions;
-
-import org.gephi.filters.plugin.edge.EdgeWeightBuilder;
-import org.gephi.filters.plugin.edge.EdgeWeightBuilder.EdgeWeightFilter;
-import org.gephi.graph.api.GraphView;
 
 
 /**

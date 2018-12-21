@@ -6,7 +6,7 @@ package research.ETH;
 
 import org.apache.hadoopts.chart.simple.MultiChart;
 import org.apache.hadoopts.chart.simple.MyXYPlot;
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -48,10 +48,10 @@ public class SingleDistributionChecker {
             Result.processLine(line);
         }
 
-        Vector<Messreihe> rows = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> rows = new Vector<TimeSeriesObject>();
         for( String s : Result.results.keySet() ) {
             Result r = Result.results.get(s);
-            Messreihe mr = r.getAverageMessreihe();
+            TimeSeriesObject mr = r.getAverageTimeSeriesObject();
 
             rows.add( mr );
         }
@@ -117,13 +117,13 @@ class Result {
     double[] linesXX = new double[11];
     double counter = 0;
 
-    public Messreihe getRow( String label ) {
+    public TimeSeriesObject getRow( String label ) {
         Result r = results.get(label);
-        return r.getAverageMessreihe();
+        return r.getAverageTimeSeriesObject();
     }
 
-    public Messreihe getAverageMessreihe() {
-        Messreihe mr = new Messreihe();
+    public TimeSeriesObject getAverageTimeSeriesObject() {
+        TimeSeriesObject mr = new TimeSeriesObject();
         mr.setLabel( label + "anz:=" + counter );
         for( int i=0; i < 11; i++ ) {
             double mw = linesX[i] / counter;

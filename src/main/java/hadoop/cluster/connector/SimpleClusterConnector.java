@@ -8,7 +8,7 @@
  */
 package hadoop.cluster.connector;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import m3.io.CNResultManager2; 
 import java.io.File;
 import java.io.FileWriter;
@@ -76,12 +76,12 @@ public class SimpleClusterConnector {
     
  
 
-    private static Vector<Messreihe> createGlobalOrder(Vector<Messreihe> mrsTermDist) {
+    private static Vector<TimeSeriesObject> createGlobalOrder(Vector<TimeSeriesObject> mrsTermDist) {
 
-        Vector<Messreihe> mrsTermDistT = new Vector<Messreihe>();
+        Vector<TimeSeriesObject> mrsTermDistT = new Vector<TimeSeriesObject>();
         // determine all terms of all rows
         HashSet<String> terms = new HashSet<String>();
-        for (Messreihe mr : mrsTermDist) {
+        for (TimeSeriesObject mr : mrsTermDist) {
             for (String a : mr.xLabels2) {
                 if (!terms.contains(a)) {
                     terms.add(a);
@@ -90,7 +90,7 @@ public class SimpleClusterConnector {
             System.out.println("Nr of terms : [" + mr.getLabel() + "] " + terms.size());
         }
 
-        for (Messreihe mr : mrsTermDist) {
+        for (TimeSeriesObject mr : mrsTermDist) {
             int sVor = mr.getXValues().size();
             for (String term : terms) {
                 if (!mr.xLabels2.contains(term)) {
@@ -98,7 +98,7 @@ public class SimpleClusterConnector {
                 }
             };
             System.out.println("expandet : " + mr.getLabel() + " from: " + sVor + " => " + mr.xValues.size());
-            Messreihe r = TermCollectionTools.getTermVector(mr);
+            TimeSeriesObject r = TermCollectionTools.getTermVector(mr);
             mrsTermDistT.add(r.getYLogData());
         }
 

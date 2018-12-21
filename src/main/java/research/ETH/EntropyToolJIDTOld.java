@@ -3,7 +3,7 @@
  **/
 package research.ETH;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import infodynamics.measures.continuous.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class EntropyToolJIDTOld {
      * @throws InstantiationException
      * @throws Exception 
      */
-    public static double calcEntropy(Messreihe r1, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
+    public static double calcEntropy(TimeSeriesObject r1, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
 
         double[] variable1 = r1.getYData();
 
@@ -82,7 +82,7 @@ public class EntropyToolJIDTOld {
      * @throws InstantiationException
      * @throws Exception 
      */
-    public static double calcMutualInformation(Messreihe r1, Messreihe r2, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
+    public static double calcMutualInformation(TimeSeriesObject r1, TimeSeriesObject r2, int z) throws ClassNotFoundException, IllegalAccessException, InstantiationException, Exception {
 
         double[][] variable1 = r1.getDataT();
         double[][] variable2 = r2.getDataT();

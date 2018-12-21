@@ -9,7 +9,7 @@
  */
 package htstb.util.converter;
 
-import org.apache.hadoopts.data.series.Messreihe;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
 import java.io.File;
 import java.io.*;
 import java.util.*;

@@ -15,12 +15,10 @@
  */
 package research.ETH;
 
-import org.apache.hadoopts.chart.simple.MultiBarChart;
 import org.apache.hadoopts.chart.simple.MultiChart;
 import org.apache.hadoopts.chart.simple.MyXYPlot;
-import org.apache.hadoopts.data.series.MessIntervall;
-import org.apache.hadoopts.data.series.Messreihe;
-import org.apache.hadoopts.data.export.MesswertTabelle;
+import org.apache.hadoopts.data.series.TimeSeriesObject;
+
 import java.io.*;
 import java.util.Hashtable;
 import java.util.StringTokenizer;
@@ -77,10 +75,10 @@ public class DistributionCheckChartsDetailedV4 {
 
         boolean storSignificanz = true;
         
-        chartsV = new Hashtable<String,Vector<Messreihe>>();
-        Vector v1 = new Vector<Messreihe>();
-        Vector v2 = new Vector<Messreihe>();
-        Vector v3 = new Vector<Messreihe>();
+        chartsV = new Hashtable<String,Vector<TimeSeriesObject>>();
+        Vector v1 = new Vector<TimeSeriesObject>();
+        Vector v2 = new Vector<TimeSeriesObject>();
+        Vector v3 = new Vector<TimeSeriesObject>();
         chartsV.put( "tv",  v1 );
         chartsV.put( "lrp",  v2 );
         chartsV.put( "abs_lrp",  v3 );
@@ -92,9 +90,9 @@ public class DistributionCheckChartsDetailedV4 {
         AnalysisFileFilter.shuffle = false;
         doWorkNow(fnBASE, inputset, storSignificanz);
         
-        Vector<Messreihe> mrv1 = chartsV.get( "tv" );
-        Vector<Messreihe> mrv2 = chartsV.get( "lrp" );
-        Vector<Messreihe> mrv3 = chartsV.get( "abs_lrp" );
+        Vector<TimeSeriesObject> mrv1 = chartsV.get( "tv" );
+        Vector<TimeSeriesObject> mrv2 = chartsV.get( "lrp" );
+        Vector<TimeSeriesObject> mrv3 = chartsV.get( "abs_lrp" );
         
         int[] dt = {0,0,0,0,0,1,1,1,1,1};
         
@@ -130,14 +128,14 @@ public class DistributionCheckChartsDetailedV4 {
     static double[][][][] counter2 = new double[tmax][11][5][3];
     static double[][][] av = new double[11][5][3];
     
-    static Messreihe[][] reihenMWArray = new Messreihe[3][5];
-    static Messreihe[][] reihenSIGMAArray = new Messreihe[3][5];
-    static Messreihe[][] reihenSIGMAArray2 = new Messreihe[3][5];
-    static Messreihe[][] reihenSIGMAArray3 = new Messreihe[3][5];
+    static TimeSeriesObject[][] reihenMWArray = new TimeSeriesObject[3][5];
+    static TimeSeriesObject[][] reihenSIGMAArray = new TimeSeriesObject[3][5];
+    static TimeSeriesObject[][] reihenSIGMAArray2 = new TimeSeriesObject[3][5];
+    static TimeSeriesObject[][] reihenSIGMAArray3 = new TimeSeriesObject[3][5];
 
     
     static Hashtable<String,HaeufigkeitsZaehlerDouble> hz = new Hashtable<String,HaeufigkeitsZaehlerDouble>();
-    static Hashtable<String,Vector<Messreihe>> chartsV = null;
+    static Hashtable<String,Vector<TimeSeriesObject>> chartsV = null;
         
     public static void doWorkNow(String fnBase, String inputset, boolean storSignificanz) throws FileNotFoundException, IOException {
 
@@ -150,7 +148,7 @@ public class DistributionCheckChartsDetailedV4 {
         keyMapR.put( keysC[2] , 2);
         
         
-        Hashtable<String, Hashtable<String, Messreihe>> charts = new Hashtable<String, Hashtable<String, Messreihe>>();
+        Hashtable<String, Hashtable<String, TimeSeriesObject>> charts = new Hashtable<String, Hashtable<String, TimeSeriesObject>>();
         
    
         for( int c = 0; c < 3; c++ ) {
@@ -174,10 +172,10 @@ public class DistributionCheckChartsDetailedV4 {
                 }
                 String key = keysR[j] + ":" + keysC[c];
                 
-                reihenMWArray[c][j] = new Messreihe("l=" + key );
-                reihenSIGMAArray[c][j] = new Messreihe("l1=" + key );
-                reihenSIGMAArray2[c][j] = new Messreihe("l2=" + key );
-                reihenSIGMAArray3[c][j] = new Messreihe("l3=" + key );
+                reihenMWArray[c][j] = new TimeSeriesObject("l=" + key );
+                reihenSIGMAArray[c][j] = new TimeSeriesObject("l1=" + key );
+                reihenSIGMAArray2[c][j] = new TimeSeriesObject("l2=" + key );
+                reihenSIGMAArray3[c][j] = new TimeSeriesObject("l3=" + key );
                 
                 HaeufigkeitsZaehlerDouble hz1 = new HaeufigkeitsZaehlerDouble();
                 hz.put( key , hz1 );
@@ -195,14 +193,14 @@ public class DistributionCheckChartsDetailedV4 {
         // prepare the set of charts ...
         for (String key1 : keysC) {
 
-            Hashtable<String, Messreihe> reihen = new Hashtable<String, Messreihe>();
+            Hashtable<String, TimeSeriesObject> reihen = new Hashtable<String, TimeSeriesObject>();
 
             for (int key : keysR) {
                 String theKey = key + ":" + key1;
                 
                 keysAll.add( theKey );
                 
-                Messreihe reihe = new Messreihe();
+                TimeSeriesObject reihe = new TimeSeriesObject();
                 reihe.setLabel("" + theKey);
                 reihen.put("" + theKey, reihe);
                 System.out.println("key: " + theKey );
@@ -255,11 +253,11 @@ public class DistributionCheckChartsDetailedV4 {
                     
                     _storeLinkStrengthValues(rec);
                     
-                    Hashtable<String, Messreihe> temp = charts.get(rec.keyChart);
+                    Hashtable<String, TimeSeriesObject> temp = charts.get(rec.keyChart);
 
                     int r = keyMapR.get(c);                    
                     
-                    Messreihe mr = temp.get(rec.keyReihe);
+                    TimeSeriesObject mr = temp.get(rec.keyReihe);
 
                     if (mr != null) {
                         
@@ -425,9 +423,9 @@ public class DistributionCheckChartsDetailedV4 {
 //
 //            String FULLchartLabel = inputset + "_" + chartLabel + "_" + AnalysisFileFilter.shuffle;
 //            
-//            Hashtable<String, Messreihe> tempReihen = charts.get(chartLabel);
+//            Hashtable<String, TimeSeriesObject> tempReihen = charts.get(chartLabel);
 //
-//            Messreihe[] reihenArray = new Messreihe[tempReihen.size()];
+//            TimeSeriesObject[] reihenArray = new TimeSeriesObject[tempReihen.size()];
 //
 //            int i = 0;
 //            for (String key : tempReihen.keySet()) {
@@ -455,7 +453,7 @@ public class DistributionCheckChartsDetailedV4 {
 //
 //           MesswertTabelle mwt = new MesswertTabelle();
 //           mwt.setLabel( f.getAbsolutePath() );
-//           mwt.setMessReihen(reihenArray);
+//           mwt.setTimeSeriesObjectn(reihenArray);
 //
 //           String header = MesswertTabelle.getCommentLine(   "dataset   : " + chartLabel  );
 //           header = header + MesswertTabelle.getCommentLine( "inputfile : " + fn2   );
@@ -471,7 +469,7 @@ public class DistributionCheckChartsDetailedV4 {
 //           
 //           reihenArray = pro.sortRosByLabel_INTEGER(reihenArray);
 //           String[] labels = {"20","40","60","80","100" };
-//           pro.addMessreihenToBook( inputset + "_"+ chartLabel + "_" + label , reihenArray, labels);
+//           pro.addTimeSeriesObjectnToBook( inputset + "_"+ chartLabel + "_" + label , reihenArray, labels);
          
        
          prozessHZ( "tv" , AnalysisFileFilter.shuffle );
@@ -484,8 +482,8 @@ public class DistributionCheckChartsDetailedV4 {
     
     public static void prozessHZ( String type, boolean shuffled ) { 
              
-             Vector<Messreihe> mr = chartsV.get( type );
-             Messreihe r = null;
+             Vector<TimeSeriesObject> mr = chartsV.get( type );
+             TimeSeriesObject r = null;
              
              HaeufigkeitsZaehlerDouble hz1 = hz.get("20:" + type);
              HaeufigkeitsZaehlerDouble hz2 = hz.get("40:" + type);
