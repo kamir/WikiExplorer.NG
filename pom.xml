@@ -197,7 +197,7 @@
         <dependency>
             <groupId>org.apache.solr</groupId>
             <artifactId>solr-core</artifactId>
-            <version>4.10.3-cdh5.4.4</version>
+            <version>8.8.2</version>
         </dependency>
     
         <!-- I got compile errors when I used 2.9.1/ 3.3.0 -->
