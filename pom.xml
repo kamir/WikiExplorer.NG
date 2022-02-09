@@ -15,7 +15,7 @@
         <HADOOP-TS-VERSION>2.3.0</HADOOP-TS-VERSION>    
     
         <CDH-VERSION>1.0.0-cdh5.4.0</CDH-VERSION>
-        <HADOOP-VERSION>2.6.0-cdh5.4.0</HADOOP-VERSION>
+        <HADOOP-VERSION>2.10.1</HADOOP-VERSION>
         <HADOOP-MR-VERSION>2.6.0-mr1-cdh5.4.0</HADOOP-MR-VERSION>
         <MAHOUT-VERSION>0.9-cdh5.3.4-SNAPSHOT</MAHOUT-VERSION>  
         <cxf.version>3.1.5</cxf.version>  
